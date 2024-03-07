@@ -1,17 +1,20 @@
-# Compiler
 CXX = g++
 
-# Compiler flags
 CXXFLAGS = -Wall -std=c++17
 
-# Test source files
-TEST_SRCS = tests/test.cpp Classes/Trade.cpp Classes/MovingAverage.cpp Classes/Portfolio.cpp
+SRCS = main.cpp
 
-# Test executable name
+EXEC = run
+
+$(EXEC):
+	$(CXX) $(CXXFLAGS) -o $(EXEC) $(SRCS)
+
+TEST_SRCS = tests/test.cpp
+
 TEST_EXEC = test
 
 $(TEST_EXEC):
 	$(CXX) $(CXXFLAGS) -o $(TEST_EXEC) $(TEST_SRCS)
 
 clean:
-	rm -f $(TEST_EXEC)
+	rm -f $(EXEC) $(TEST_EXEC) 
