@@ -16,3 +16,24 @@ PI Config Changes
 			ssid="Terry5G"
 			psk="Maloney123"
 		}
+	* added wifi change notifaction run python script at 
+		at /etc/NetworkManager/dispatcher.d/
+		with #!/bin/bash
+
+			IF=$1
+			STATUS=$2
+			PYTHON_SCRIPT_PATH="/path/to/your/script.py"
+
+			if [ "$STATUS" = "up" ]; then
+				if [[ "$IF" =~ ^eth ]]; then
+					TYPE="LAN"
+				elif [[ "$IF" =~ ^wlan ]]; then
+					TYPE="Wireless"
+				else
+					TYPE="Unknown"
+				fi
+
+				SSID=$(iwgetid -r)
+
+				python3 $/home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/pi-wifi-change-notification.py --type $TYPE --ssid $SSID
+			fi
