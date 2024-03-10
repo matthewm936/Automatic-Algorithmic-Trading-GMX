@@ -3,13 +3,17 @@ import smtplib
 from email.message import EmailMessage
 import socket
 
+# runs this file on pi reboot at
+#   ls /etc/init.d/
+#   cat /etc/rc.local
+
 def send_email(subject, content):
     msg = EmailMessage()
     msg.set_content(content)
 
     msg['Subject'] = subject
     msg['From'] = 'the.matthew.maloney@gmail.com'
-    msg['To'] = 'the.matthew.maloney@gmail.com'
+    msg['To'] = ['the.matthew.maloney@gmail.com', 'mrtennizman@gmail.com']
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()

@@ -1,0 +1,18 @@
+PI Config Changes
+	* added auto python script run on pi reboot at 
+		ls /etc/init.d/
+		cat /etc/rc.local
+	* added power consumption changes to wifi to reduce connection issues
+		at sudo nano /etc/network/interfaces
+		by wireless-power off
+	* added auto wifi connection attempts
+		at sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+		added network={
+			ssid="peaceful"
+			psk="ballgame"
+		}
+
+		network={
+			ssid="Terry5G"
+			psk="Maloney123"
+		}
