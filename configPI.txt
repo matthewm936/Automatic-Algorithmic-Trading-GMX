@@ -38,5 +38,4 @@ PI Config Changes
 				python3 $/home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/pi-wifi-change-notification.py --type $TYPE --ssid $SSID
 			fi
 	* added cron job 
-		at crontab -e 
-		0 17 * * * /home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/pi-cron-notification5PM.py
+		0 * * * * /home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/pi-cron-notification5PM.py
