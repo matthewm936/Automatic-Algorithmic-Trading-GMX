@@ -27,36 +27,17 @@ int main() {
 
 		string jsonString = exec("node LiveTradingData.js");
 
-		cout << "JSON String: " << jsonString << endl;
+		// cout << "JSON String: " << jsonString << endl;
 
 		nlohmann::json j = nlohmann::json::parse(jsonString);
 
-		cout << "parsed JSON: " << j << endl;
+		// cout << "parsed JSON: " << j << endl;
 
-		// Access values
-		// bool canTrade = j["canTrade"];
-		// bool canWithdraw = j["canWithdraw"];
-		// bool canDeposit = j["canDeposit"];
+		
+		system("python /ServerLogs/pi-prices-notification.py");
 
-		// cout << canTrade << endl;
-		// cout << canWithdraw << endl;
-		// cout << canDeposit << endl;
-
-		// // Access balances
-		// for (const auto& balance : j["balances"]) {
-		// 	string asset = balance["asset"];
-		// 	string free = balance["free"];
-		// 	string locked = balance["locked"];
-		// 	cout << "Asset: " << asset << ", Free: " << free << ", Locked: " << locked << endl;
-		// }
-
-		// // Access permissions
-		// for (const auto& permission : j["permissions"]) {
-		// 	cout << "Permission: " << permission << endl;
-		// }
-
-		cout << "Sleeping for 10 seconds..." << endl;
-		this_thread::sleep_for(chrono::seconds(10));
+		cout << "Sleeping for 600 seconds..." << endl;
+		this_thread::sleep_for(chrono::seconds(600));
 	}
 	return 0;
 }
