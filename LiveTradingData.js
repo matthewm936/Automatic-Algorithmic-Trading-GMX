@@ -6,7 +6,19 @@ const client = new MEXC.Spot()
 client.config.apiKey = process.env.apiKey;
 client.config.apiSecret = process.env.apiSecret;
 
-console.log(JSON.stringify(client.accountInfo()));
+btc = client.ticker24hr("BTCUSDT");
+eth = client.ticker24hr("ETHUSDT");
+
+console.log(btc);
+console.log(eth);
+
+console.log(JSON.stringify(client.ticker24hr("BTCUSDT")));
+console.log(JSON.stringify(client.ticker24hr("ETHUSDT")));
+
+// console.log(JSON.stringify(client.ticker24hr("BTCUSDC")));
+// console.log(JSON.stringify(client.ticker24hr("ETHUSDC")));
+
+// console.log(JSON.stringify(client.accountInfo()));
 
 // client.accountInfo().then(info => {
 // 	console.log(JSON.stringify(info));
