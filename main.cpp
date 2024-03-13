@@ -34,7 +34,7 @@ int main() {
 		// cout << "parsed JSON: " << j << endl;
 
 		
-		system("python /ServerLogs/pi-prices-notification.py");
+		system("python ServerLogs/pi-prices-notification.py");
 
 		cout << "Sleeping for 600 seconds..." << endl;
 		this_thread::sleep_for(chrono::seconds(600));

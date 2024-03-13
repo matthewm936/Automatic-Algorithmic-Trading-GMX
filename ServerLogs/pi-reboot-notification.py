@@ -3,10 +3,6 @@ import smtplib
 from email.message import EmailMessage
 import socket
 
-# runs this file on pi reboot at
-#   ls /etc/init.d/
-#   cat /etc/rc.local
-
 def send_email(subject, content):
     msg = EmailMessage()
     msg.set_content(content)
