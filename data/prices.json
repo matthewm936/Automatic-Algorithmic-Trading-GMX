@@ -1,0 +1,40 @@
+{
+    "BTCUSDT": {
+        "symbol": "BTCUSDT",
+        "priceChange": "2276.72",
+        "priceChangePercent": "0.0321",
+        "prevClosePrice": "70727.28",
+        "lastPrice": "73004",
+        "bidPrice": "73010.87",
+        "bidQty": "11.217627",
+        "askPrice": "73010.88",
+        "askQty": "0.693588",
+        "openPrice": "70727.28",
+        "highPrice": "73639.99",
+        "lowPrice": "70662.95",
+        "volume": "8006.48453",
+        "quoteVolume": "580717048.77",
+        "openTime": 1710365171131,
+        "closeTime": 1710365187346,
+        "count": ""
+    },
+    "ETHUSDT": {
+        "symbol": "ETHUSDT",
+        "priceChange": "54.51",
+        "priceChangePercent": "0.0138",
+        "prevClosePrice": "3932.25",
+        "lastPrice": "3986.76",
+        "bidPrice": "3987.41",
+        "bidQty": "118.78142",
+        "askPrice": "3987.42",
+        "askQty": "15.48452",
+        "openPrice": "3932.25",
+        "highPrice": "4082.96",
+        "lowPrice": "3931.44",
+        "volume": "64973.46492",
+        "quoteVolume": "260676848.23",
+        "openTime": 1710365162066,
+        "closeTime": 1710365187941,
+        "count": ""
+    }
+}

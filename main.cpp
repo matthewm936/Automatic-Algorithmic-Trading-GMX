@@ -23,9 +23,9 @@ int main() {
 	cout << "starting main.cpp..." << endl;
 	
 	while(true) {
-		cout << "node LiveTradingData.js..." << endl;
+		cout << "node data/LiveTradingData.js..." << endl;
 
-		string jsonString = exec("node LiveTradingData.js");
+		string jsonString = exec("node data/LiveTradingData.js");
 
 		cout << "JSON String: " << jsonString << endl;
 
@@ -33,15 +33,6 @@ int main() {
 
 		double btcusdtPrice = 0.0;
 		double ethusdcPrice = 0.0;
-
-		if (j["symbol"] == "BTCUSDT") {
-			btcusdtPrice = j["lastPrice"].get<double>();
-		} else if (j["symbol"] == "ETHUSDT") {
-			ethusdcPrice = j["lastPrice"].get<double>();
-		}
-
-		cout << "BTCUSDT Price: " << btcusdtPrice << endl;
-		cout << "ETHUSDC Price: " << ethusdcPrice << endl;
 
 		system("python ServerLogs/pi-prices-notification.py");
 
