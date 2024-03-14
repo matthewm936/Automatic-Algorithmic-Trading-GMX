@@ -10,7 +10,6 @@ int main() {
 	cout << "starting main.cpp..." << endl;
 	
 	while(true) {
-		
 
 
 		cout << "Sleeping for 600 seconds..." << endl;
