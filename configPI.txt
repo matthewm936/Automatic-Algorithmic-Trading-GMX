@@ -1,7 +1,4 @@
 PI Config Changes
-	* added auto python script run on pi reboot at 
-		ls /etc/init.d/
-		cat /etc/rc.local
 	* added power consumption changes to wifi to reduce connection issues
 		at sudo nano /etc/network/interfaces
 		by wireless-power off
@@ -37,5 +34,6 @@ PI Config Changes
 
 				python3 $/home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/pi-wifi-change-notification.py --type $TYPE --ssid $SSID
 			fi
-	* added cron job 
-		0 * * * * /home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/pi-cron-notification5PM.py
+	* added cron job SEVERAL cron jobs
+		going to use this for a lot of things
+		
