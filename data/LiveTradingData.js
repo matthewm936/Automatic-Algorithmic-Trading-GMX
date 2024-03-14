@@ -9,13 +9,23 @@ client.config.apiSecret = process.env.apiSecret;
 logFile = '/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt';
 
 Promise.all([
-	client.ticker24hr("BTCUSDT"),
-	client.ticker24hr("ETHUSDT")
-]).then(([btcData, ethData]) => {
-	const data = {
-		BTCUSDT: btcData,
-		ETHUSDT: ethData
-	};
+    client.ticker24hr("BTCUSDT"),
+    client.ticker24hr("ETHUSDT"),
+    client.ticker24hr("BNBUSDT"),
+    client.ticker24hr("ADAUSDT"),
+    client.ticker24hr("XRPUSDT"),
+    client.ticker24hr("SOLUSDT"),
+    client.ticker24hr("DOTUSDT"),
+]).then(([btcData, ethData, bnbData, adaData, xrpData, solData, dotData]) => {
+    const data = {
+        BTCUSDT: btcData,
+        ETHUSDT: ethData,
+        BNBUSDT: bnbData,
+        ADAUSDT: adaData,
+        XRPUSDT: xrpData,
+        SOLUSDT: solData,
+        DOTUSDT: dotData,
+    };
 
 	const writeFilePromise = new Promise((resolve, reject) => {
 		fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
