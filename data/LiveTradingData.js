@@ -17,25 +17,27 @@ Promise.all([
 		ETHUSDT: ethData
 	};
 
-	fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
-		if (err) {
-			const errorMessage = `Error writing to file: ${err}`;
-			fs.appendFile('/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt', `${errorMessage}\n\n`, (err) => {
-				if (err) console.error('Error writing to log file:', err);
-			});
-			return;
-		}
-		console.log('Data written to file');
+	const writeFilePromise = new Promise((resolve, reject) => {
+		fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
+			if (err) reject(err);
+			resolve();
+		});
 	});
 
+	writeFilePromise.then(() => {
 		const logMessage = [
 			'Successfully Ran LiveTradingData.js',
 			`\tISO Time: ${new Date().toISOString()}`,
 			`\tUnix Timestamp: ${Date.now()}`
 		].join('\n');
-		
+
 		fs.appendFile(logFile, `${logMessage}\n\n`, (err) => {
-			if (err) throw err;
+			if (err) console.error('Error writing to log file:', err);
+		});
+	}).catch((err) => {
+		const errorMessage = `Error writing to file: ${err}`;
+		fs.appendFile(logFile, `${errorMessage}\n\n`, (err) => {
+			if (err) console.error('Error writing to log file:', err);
 		});
 	});
 });
