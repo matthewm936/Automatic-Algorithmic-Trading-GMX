@@ -1,193 +1,72 @@
-Prices data grabbed from MEXC api and written to local file prices.json
-ISO Time: 2024-03-14T04:25:33.594Z
-Local Time: 14/03/2024, 04:25:33
-Unix Timestamp: 1710390333634
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:45:08.033Z
+	Unix: 1710438308033
 
-Prices data grabbed from MEXC api and written to local file prices.json
-ISO Time: 2024-03-14T04:26:06.358Z
-Unix Timestamp: 1710390366358
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:46:08.052Z
+	Unix: 1710438368052
 
-Prices data grabbed from MEXC api and written to local file prices.json
-	ISO Time: 2024-03-14T04:27:05.594Z
-	Unix Timestamp: 1710390425594
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:47:07.979Z
+	Unix: 1710438427979
 
-Ran LiveTradingData.js: mexc api to grab prices
-	ISO Time: 2024-03-14T04:28:05.764Z
-	Unix Timestamp: 1710390485764
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:48:08.971Z
+	Unix: 1710438488971
 
-Successfully Ran LiveTradingData.js: mexc api to grab prices
-	ISO Time: 2024-03-14T04:29:06.188Z
-	Unix Timestamp: 1710390546188
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:49:08.623Z
+	Unix: 1710438548623
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:30:05.404Z
-	Unix Timestamp: 1710390605404
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:50:08.346Z
+	Unix: 1710438608346
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:30:26.575Z
-	Unix Timestamp: 1710390626575
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:52:08.950Z
+	Unix: 1710438728950
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:30:33.201Z
-	Unix Timestamp: 1710390633201
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:53:08.925Z
+	Unix: 1710438788925
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:32:06.618Z
-	Unix Timestamp: 1710390726618
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:54:08.879Z
+	Unix: 1710438848879
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:50:06.260Z
-	Unix Timestamp: 1710391806260
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:55:08.641Z
+	Unix: 1710438908641
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:50:37.127Z
-	Unix Timestamp: 1710391837127
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:56:08.651Z
+	Unix: 1710438968651
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:50:45.932Z
-	Unix Timestamp: 1710391845932
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:57:08.632Z
+	Unix: 1710439028632
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:51:05.600Z
-	Unix Timestamp: 1710391865600
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:58:08.600Z
+	Unix: 1710439088600
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:52:05.824Z
-	Unix Timestamp: 1710391925824
+Ran LiveTradingData.js
+	ISO: 2024-03-14T17:59:08.542Z
+	Unix: 1710439148542
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:53:05.986Z
-	Unix Timestamp: 1710391985986
+Ran LiveTradingData.js
+	ISO: 2024-03-14T18:00:08.696Z
+	Unix: 1710439208696
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:54:05.172Z
-	Unix Timestamp: 1710392045172
+Ran LiveTradingData.js
+	ISO: 2024-03-14T18:01:08.771Z
+	Unix: 1710439268771
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:55:05.402Z
-	Unix Timestamp: 1710392105402
+Ran LiveTradingData.js
+	ISO: 2024-03-14T18:02:08.878Z
+	Unix: 1710439328878
 
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:56:05.544Z
-	Unix Timestamp: 1710392165544
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:57:05.718Z
-	Unix Timestamp: 1710392225718
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:58:05.876Z
-	Unix Timestamp: 1710392285876
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T04:59:06.000Z
-	Unix Timestamp: 1710392346000
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:00:05.223Z
-	Unix Timestamp: 1710392405223
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:01:05.373Z
-	Unix Timestamp: 1710392465373
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:02:05.491Z
-	Unix Timestamp: 1710392525491
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:03:05.618Z
-	Unix Timestamp: 1710392585618
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:04:05.756Z
-	Unix Timestamp: 1710392645756
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:05:05.894Z
-	Unix Timestamp: 1710392705894
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:06:06.058Z
-	Unix Timestamp: 1710392766058
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:07:05.160Z
-	Unix Timestamp: 1710392825160
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:08:05.311Z
-	Unix Timestamp: 1710392885311
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:09:05.444Z
-	Unix Timestamp: 1710392945444
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:10:05.586Z
-	Unix Timestamp: 1710393005586
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:11:05.409Z
-	Unix Timestamp: 1710393065410
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:12:05.559Z
-	Unix Timestamp: 1710393125559
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:13:05.687Z
-	Unix Timestamp: 1710393185687
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:14:05.840Z
-	Unix Timestamp: 1710393245840
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:15:05.977Z
-	Unix Timestamp: 1710393305977
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:16:06.207Z
-	Unix Timestamp: 1710393366207
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:17:05.351Z
-	Unix Timestamp: 1710393425351
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:18:05.520Z
-	Unix Timestamp: 1710393485520
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:20:05.458Z
-	Unix Timestamp: 1710393605458
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:21:05.605Z
-	Unix Timestamp: 1710393665605
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:22:05.729Z
-	Unix Timestamp: 1710393725730
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:23:05.852Z
-	Unix Timestamp: 1710393785852
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:24:06.001Z
-	Unix Timestamp: 1710393846001
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:25:05.319Z
-	Unix Timestamp: 1710393905319
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:27:34.256Z
-	Unix Timestamp: 1710394054256
-
-Successfully Ran LiveTradingData.js
-	ISO Time: 2024-03-14T05:28:08.739Z
-	Unix Timestamp: 1710394088739
+Ran LiveTradingData.js
+	ISO: 2024-03-14T18:03:09.234Z
+	Unix: 1710439389234
 
