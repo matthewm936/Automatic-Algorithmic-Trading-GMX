@@ -31,4 +31,4 @@ def get_log_contents():
 if __name__ == "__main__":
     ip_address = get_ip_address()
     log_contents = get_log_contents()
-    send_email("Raspberry Pi log file", f"The current IP address is {ip_address}.\n\nLog contents:\n{log_contents}")
+    send_email("Raspberry Pi Daily log file", f"The current IP address is {ip_address}.\n\nLog contents:\n{log_contents}")

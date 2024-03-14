@@ -1,96 +1,44 @@
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:45:08.033Z
-	Unix: 1710438308033
+Ran investment-exposure.js
+	ISO: 2024-03-14T18:30:08.336Z
+	Unix: 1710441008336
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:46:08.052Z
-	Unix: 1710438368052
+Ran investment-exposure.js
+	ISO: 2024-03-14T19:00:07.933Z
+	Unix: 1710442807933
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:47:07.979Z
-	Unix: 1710438427979
+Ran investment-exposure.js
+	ISO: 2024-03-14T19:30:08.393Z
+	Unix: 1710444608393
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:48:08.971Z
-	Unix: 1710438488971
+Ran investment-exposure.js
+	ISO: 2024-03-14T20:00:07.899Z
+	Unix: 1710446407899
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:49:08.623Z
-	Unix: 1710438548623
+Ran investment-exposure.js
+	ISO: 2024-03-14T20:30:08.523Z
+	Unix: 1710448208523
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:50:08.346Z
-	Unix: 1710438608346
+Ran investment-exposure.js
+	ISO: 2024-03-14T21:00:08.188Z
+	Unix: 1710450008188
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:52:08.950Z
-	Unix: 1710438728950
+Ran investment-exposure.js
+	ISO: 2024-03-14T21:30:07.691Z
+	Unix: 1710451807691
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:53:08.925Z
-	Unix: 1710438788925
+Ran investment-exposure.js
+	ISO: 2024-03-14T22:00:08.206Z
+	Unix: 1710453608206
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:54:08.879Z
-	Unix: 1710438848879
+Ran investment-exposure.js
+	ISO: 2024-03-14T22:30:07.779Z
+	Unix: 1710455407779
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:55:08.641Z
-	Unix: 1710438908641
+Ran investment-exposure.js
+	ISO: 2024-03-14T23:00:08.361Z
+	Unix: 1710457208361
 
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:56:08.651Z
-	Unix: 1710438968651
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:57:08.632Z
-	Unix: 1710439028632
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:58:08.600Z
-	Unix: 1710439088600
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T17:59:08.542Z
-	Unix: 1710439148542
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:00:08.696Z
-	Unix: 1710439208696
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:01:08.771Z
-	Unix: 1710439268771
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:02:08.878Z
-	Unix: 1710439328878
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:03:09.234Z
-	Unix: 1710439389234
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:04:08.281Z
-	Unix: 1710439448281
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:05:08.279Z
-	Unix: 1710439508279
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:06:08.435Z
-	Unix: 1710439568435
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:07:08.472Z
-	Unix: 1710439628472
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:08:08.526Z
-	Unix: 1710439688526
-
-Ran LiveTradingData.js
-	ISO: 2024-03-14T18:09:08.405Z
-	Unix: 1710439748405
+Ran investment-exposure.js
+	ISO: 2024-03-14T23:30:08.674Z
+	Unix: 1710459008674
 

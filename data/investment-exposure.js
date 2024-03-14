@@ -9,23 +9,21 @@ client.config.apiSecret = process.env.apiSecret;
 logFile = '/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt';
 
 Promise.all([
-	client.ticker24hr("BTCUSDT"),
-	client.ticker24hr("ETHUSDT"),
-	client.ticker24hr("BNBUSDT"),
-	client.ticker24hr("ADAUSDT"),
-	client.ticker24hr("XRPUSDT"),
-	client.ticker24hr("SOLUSDT"),
-	client.ticker24hr("DOTUSDT"),
-]).then(([btcData, ethData, bnbData, adaData, xrpData, solData, dotData]) => {
-	const data = {
-		BTCUSDT: btcData,
-		ETHUSDT: ethData,
-		BNBUSDT: bnbData,
-		ADAUSDT: adaData,
-		XRPUSDT: xrpData,
-		SOLUSDT: solData,
-		DOTUSDT: dotData,
-	};
+    client.ticker24hr("BTCUSDT"),
+    client.ticker24hr("ETHUSDT"),
+    client.ticker24hr("GALAUSDT"),
+    client.ticker24hr("RBNUSDT"),
+    client.ticker24hr("AEVOUSDT"),
+    client.ticker24hr("MTRMUSDT"),
+]).then(([btcData, ethData, galaData, rbnData, aevoData, mtrmData]) => {
+    const data = {
+        BTCUSDT: btcData,
+        ETHUSDT: ethData,
+        GALAUSDT: galaData,
+        RBNUSDT: rbnData,
+        AEVOUSDT: aevoData,
+        MTRMUSDT: mtrmData,
+    };
 
 	const writeFilePromise = new Promise((resolve, reject) => {
 		fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
@@ -34,9 +32,12 @@ Promise.all([
 		});
 	});
 
+	const path = require('path');
+
 	writeFilePromise.then(() => {
+		const filename = path.basename(__filename);
 		const logMessage = [
-			'Ran LiveTradingData.js',
+			`Ran ${filename}`,
 			`\tISO: ${new Date().toISOString()}`,
 			`\tUnix: ${Date.now()}`
 		].join('\n');
