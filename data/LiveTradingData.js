@@ -6,20 +6,36 @@ const client = new MEXC.Spot()
 client.config.apiKey = process.env.apiKey;
 client.config.apiSecret = process.env.apiSecret;
 
-Promise.all([
-    client.ticker24hr("BTCUSDT"),
-    client.ticker24hr("ETHUSDT")
-]).then(([btcData, ethData]) => {
-    const data = {
-        BTCUSDT: btcData,
-        ETHUSDT: ethData
-    };
+logFile = '/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt';
 
-    fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
-        if (err) throw err;
-        console.log('Data written to file');
-        fs.appendFile('/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt', `Prices data grabbed from MEXC api and written to local file prices.json at ${new Date().toISOString()} : ${new Date().toLocaleString()}\n`, (err) => {
-            if (err) throw err;
-        });
-    });
+Promise.all([
+	client.ticker24hr("BTCUSDT"),
+	client.ticker24hr("ETHUSDT")
+]).then(([btcData, ethData]) => {
+	const data = {
+		BTCUSDT: btcData,
+		ETHUSDT: ethData
+	};
+
+	fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
+		if (err) {
+			const errorMessage = `Error writing to file: ${err}`;
+			fs.appendFile('/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt', `${errorMessage}\n\n`, (err) => {
+				if (err) console.error('Error writing to log file:', err);
+			});
+			return;
+		}
+		console.log('Data written to file');
+	});
+
+		const logMessage = [
+			'Successfully Ran LiveTradingData.js',
+			`\tISO Time: ${new Date().toISOString()}`,
+			`\tUnix Timestamp: ${Date.now()}`
+		].join('\n');
+		
+		fs.appendFile(logFile, `${logMessage}\n\n`, (err) => {
+			if (err) throw err;
+		});
+	});
 });
