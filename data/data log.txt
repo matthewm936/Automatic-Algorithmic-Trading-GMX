@@ -1,0 +1,4 @@
+Data written to file at 2024-03-14T04:19:49.645Z
+Data written to file at 2024-03-14T04:20:05.690Z
+Prices data grabbed from MEXC api and written to local file prices.json at 2024-03-14T04:21:05.931Z
+Prices data grabbed from MEXC api and written to local file prices.json at 2024-03-14T04:22:06.115Z : 14/03/2024, 04:22:06
