@@ -26,7 +26,6 @@ Promise.all([
 		SOLUSDT: solData,
 		DOTUSDT: dotData,
 	};
-	
 
 	const writeFilePromise = new Promise((resolve, reject) => {
 		fs.writeFile('/home/johnsmith/Trading/Algorithmic-Trading/data/prices.json', JSON.stringify(data, null, 4), (err) => {
