@@ -21,10 +21,10 @@ function getPrices() {
 // Get the prices of all ticker symbols and print them
 getPrices().then(prices => {
 	prices.forEach(ticker => {
-		console.log(JSON.stringify(ticker));
+		console.log(ticker.symbol, ticker.price);
 	});
 }).catch(error => {
-	console.error('Error:', error);
+	console.log('Error:', error.message);
 }).finally(() => {
 	process.exit();
 });
