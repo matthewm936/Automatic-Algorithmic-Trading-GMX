@@ -36,6 +36,13 @@ public:
 		std::this_thread::sleep_for(std::chrono::seconds(seconds));
 		return seconds;
 	}
+
+	int now() {
+		auto now = std::chrono::high_resolution_clock::now();
+		auto epoch = now.time_since_epoch();
+		auto seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch);
+		return seconds.count();
+	}
 };
 
 #endif

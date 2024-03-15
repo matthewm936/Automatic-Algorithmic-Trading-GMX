@@ -5,7 +5,7 @@
 #include <nlohmann/json.hpp>
 #include <fstream>
 
-#include "Classes/TradingPair.cpp"
+#include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
 
 using namespace std;
@@ -24,13 +24,23 @@ std::string runCommand(const char *cmd) {
 }
 
 int main() {
-	ofstream outFile("main log.txt");
-	outFile << "starting main.cpp..." << endl;
-
 	Time time;
+	ofstream outFile("main log.txt");
 
-	TradingPair 
-	
+	outFile << "starting main.cpp at " << time.now() << endl;
+
+	TradingPairs pairs; 
+	string prices = runCommand("node data/mexc-pair-prices.js");
+
+	istringstream iss(prices);
+
+	string symbol;
+	double price;
+	while (iss >> symbol >> price) {
+		pairs.addPair(price, symbol);
+	}
+	outFile << pairs.getNumPairs() << " pairs added" << endl;
+
 	while(true) {
 		time.start();
 
@@ -41,16 +51,16 @@ int main() {
 		string symbol;
 		double price;
 		while (iss >> symbol >> price) {
-			string tradingPairName = symbol;
-			double currentPrice = price;
-			cout << tradingPairName << " : " << currentPrice << endl;
+			pairs.updatePair(price, symbol);	
 		}
 
 		time.end();
-		outFile << "duration :" << time.getDuration() << "s" << endl;
+		outFile << "duration: " << time.getDuration() << "s" << endl;
 
-		int sleepTime = 300; // (x / 60) mins
-		outFile << "sleeping for " << time.sleep(sleepTime) << " seconds..." << endl;
+		int sleepTimeMins = 1;
+		int sleepTime = sleepTimeMins * 60;
+		outFile << "sleeping for " << sleepTime << "s/" << sleepTime/60 << "mins" << endl;
+		time.sleep(sleepTime);
 	}
 
 	return 0;
