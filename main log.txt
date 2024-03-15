@@ -1,0 +1,10 @@
+starting main.cpp...
+starting price grabs at: 2024-03-15 01:14:00
+finished price grabs at: 2024-03-15 01:14:01
+time taken: 1 seconds
+sleeping for 1 seconds...
+starting price grabs at: 2024-03-15 01:14:02
+finished price grabs at: 2024-03-15 01:14:04
+time taken: 1 seconds
+sleeping for 1 seconds...
+starting price grabs at: 2024-03-15 01:14:05
