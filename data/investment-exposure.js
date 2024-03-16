@@ -6,6 +6,10 @@ const client = new MEXC.Spot()
 client.config.apiKey = process.env.apiKey;
 client.config.apiSecret = process.env.apiSecret;
 
+// console.log(client.ping())
+// // client.accountInfo()
+
+
 logFile = '/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt';
 
 Promise.all([

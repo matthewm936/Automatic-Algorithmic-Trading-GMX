@@ -33,20 +33,22 @@ private:
 		prices.push_front(price);
 		ofstream outFile("/home/johnsmith/Trading/Algorithmic-Trading/Classes/trading pair log.txt", ios::app);
 
-		if(prices.size() > 60) {
-			prices.pop_back();
-			if(price[0] > price[5] > price[10] > price[15]) {
-				outFile << getPairName() << " is up 3 consecutive periods of 5 mins for %" << 
-				(price[0]/price[15]) / price[15] <<
-				endl;
-			}
-			if(price[0] > price[15] > price[30] > price[45]) {
-				outFile << getPairName() << " is up 3 consecutive periods of 15 mins for %" << 
-				(price[0]/price[45]) / price[45] <<
-				endl;
-			}
-			
+	if(prices.size() > 60) {
+		prices.pop_back();
+		if(prices[0] > prices[5] && prices[5] > prices[10] && prices[10] > prices[15]) {
+			outFile << getPairName() << " is up 3 consecutive periods of 5 mins for %" << 
+			((prices[0] - prices[15]) / prices[15]) * 100 <<
+			endl;
 		}
+		if(prices[0] > prices[15] && prices[15] > prices[30] && prices[30] > prices[45]) {
+			double takeProfit = (prices[0] - prices[45]) / prices[45] * 100;
+			double stopLoss = takeProfit / 2;
+
+			system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " BUY " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
+
+			outFile << "buying" << getPairName() << " at " << prices[0] << " with a take profit of " << takeProfit << " and a stop loss of " << stopLoss << endl;
+		}
+	}
 	}
 
 };
