@@ -162,3 +162,79 @@ Ran investment-exposure.js
 	ISO: 2024-03-16T02:00:10.141Z
 	Unix: 1710554410141
 
+Ran investment-exposure.js
+	ISO: 2024-03-16T03:00:08.671Z
+	Unix: 1710558008671
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T04:00:10.165Z
+	Unix: 1710561610165
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T05:00:09.095Z
+	Unix: 1710565209095
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T06:00:09.457Z
+	Unix: 1710568809457
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T07:00:09.880Z
+	Unix: 1710572409880
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T08:00:10.209Z
+	Unix: 1710576010209
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T09:00:09.225Z
+	Unix: 1710579609225
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T10:00:09.629Z
+	Unix: 1710583209629
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T11:00:10.178Z
+	Unix: 1710586810178
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T12:00:08.612Z
+	Unix: 1710590408612
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T13:00:08.978Z
+	Unix: 1710594008978
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T14:00:09.405Z
+	Unix: 1710597609405
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T15:00:09.838Z
+	Unix: 1710601209838
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T16:00:08.859Z
+	Unix: 1710604808859
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T17:00:09.922Z
+	Unix: 1710608409922
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T18:00:09.917Z
+	Unix: 1710612009917
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T19:00:10.029Z
+	Unix: 1710615610029
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T20:00:08.857Z
+	Unix: 1710619208857
+
+Ran investment-exposure.js
+	ISO: 2024-03-16T21:00:08.327Z
+	Unix: 1710622808327
+

@@ -36,9 +36,12 @@ private:
 	if(prices.size() > 60) {
 		prices.pop_back();
 		if(prices[0] > prices[5] && prices[5] > prices[10] && prices[10] > prices[15]) {
-			outFile << getPairName() << " is up 3 consecutive periods of 5 mins for %" << 
-			((prices[0] - prices[15]) / prices[15]) * 100 <<
-			endl;
+			double takeProfit = (prices[0] - prices[15]) / prices[15] * 100;
+			double stopLoss = takeProfit / 2;
+
+			system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " BUY " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
+
+			outFile << "buying" << getPairName() << " at " << prices[0] << " with a take profit of " << takeProfit << " and a stop loss of " << stopLoss << endl;
 		}
 		if(prices[0] > prices[15] && prices[15] > prices[30] && prices[30] > prices[45]) {
 			double takeProfit = (prices[0] - prices[45]) / prices[45] * 100;

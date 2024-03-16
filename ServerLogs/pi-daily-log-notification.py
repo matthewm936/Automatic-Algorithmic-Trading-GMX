@@ -25,7 +25,7 @@ def get_ip_address():
     return ip_address
 
 def get_log_contents():
-    with open('/home/johnsmith/Trading/Algorithmic-Trading/ServerLogs/log.txt', 'r') as file:
+    with open('/home/johnsmith/Trading/Algorithmic-Trading/Classes/trading pair log.txt', 'r') as file:
         return file.read()
 
 if __name__ == "__main__":
