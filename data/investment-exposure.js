@@ -12,7 +12,7 @@ client.config.apiSecret = process.env.apiSecret;
 // client.cancelOpenOrders("AIATUSDT")
 
 
-console.log(client.newOrder("SOBERUSDT", "SELL", "MARKET", {quantity: 40000.03}))
+// console.log(client.newOrder("SOBERUSDT", "SELL", "MARKET", {quantity: 38683.22}))
 // console.log(client.allOrders("SOBERUSDT"));
 // )
 
