@@ -13,7 +13,7 @@ let side = process.argv[3]
 let stopPrice = process.argv[4]
 let takeProfit = process.argv[5]
 
-client.newOrder(pairName, side, "MARKET", {
+let reponse = client.newOrder(pairName, side, "MARKET", {
     quantity: 1,
     timeInForce: "GTC",
     stopPrice: stopPrice,
@@ -21,6 +21,8 @@ client.newOrder(pairName, side, "MARKET", {
 	quoteOrderQty: 20
 	
 });
+
+console.log(reponse);
 // .then((data) => {
 // 	console.log(data);
 // 	const writeFilePromise = new Promise((resolve, reject) => {

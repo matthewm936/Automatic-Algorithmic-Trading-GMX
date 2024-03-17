@@ -8,7 +8,15 @@ client.config.apiSecret = process.env.apiSecret;
 
 // console.log(client.ping())
 // // client.accountInfo()
+// console.log(client.accountInfo());
+// client.cancelOpenOrders("AIATUSDT")
 
+
+console.log(client.newOrder("SOBERUSDT", "SELL", "MARKET", {quantity: 40000.03}))
+// console.log(client.allOrders("SOBERUSDT"));
+// )
+
+console.log(client.accountInfo());
 
 logFile = '/home/johnsmith/Trading/Algorithmic-Trading/data/data log.txt';
 
