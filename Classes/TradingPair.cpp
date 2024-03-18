@@ -6,6 +6,8 @@
 #include <deque>
 #include <fstream>
 
+#include "Time.cpp"
+
 using namespace std;
 
 class TradingPair { 
@@ -43,13 +45,18 @@ private:
 
 		// 	outFile << "buying" << getPairName() << " at " << prices[0] << " with a take profit of " << takeProfit << " and a stop loss of " << stopLoss << endl;
 		// }
-		if(prices[0] > prices[15] && prices[15] > prices[30] && prices[30] > prices[45]) {
+		if(prices[0] > prices[15] && prices[15] > prices[30] && prices[30] > prices[45] && prices[0] > prices[45] * 1.20) {
 			double takeProfit = (prices[0] - prices[45]) / prices[45] * 100;
 			double stopLoss = takeProfit / 2;
 
 			system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " BUY " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
 
-			outFile << "buying" << getPairName() << " at " << prices[0] << " with a take profit of " << takeProfit << " and a stop loss of " << stopLoss << endl;
+			outFile << "attemping to buy" << getPairName() << " at " << prices[0] << " with a take profit of " << takeProfit << " and a stop loss of " << stopLoss << endl;
+
+			// Time time;
+			// time.sleep(1200);
+
+			// system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " SELL " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
 		}
 	}
 	}
