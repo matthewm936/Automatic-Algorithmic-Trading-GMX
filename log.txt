@@ -1,2 +1,14 @@
-testMAIN.cpp
- | GMT Time: 2024-03-19 02:33:02 | Unix Time: 1710815582 | MST Time: 2024-03-19 02:33:02 |
+MAIN.cpp
+----| GMT Time: 2024-03-19 12:35:37 | Unix Time: 1710851737 |---- |
+adding prices of size: 47743 to pairs
+----| GMT Time: 2024-03-19 12:35:38 | Unix Time: 1710851738 |---- |
+---------------------------------------------
+-------MAIN.cpp, sleeping for 1 minute-------
+---------------------------------------------
+-------MAIN.cpp, sleeping for 1 minute-------
+---------------------------------------------
+-------MAIN.cpp, sleeping for 1 minute-------
+---------------------------------------------
+-------MAIN.cpp, sleeping for 1 minute-------
+---------------------------------------------
+-------MAIN.cpp, sleeping for 1 minute-------

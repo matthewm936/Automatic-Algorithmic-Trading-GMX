@@ -18,6 +18,8 @@ using namespace std;
 map<string, Position> positions;
 
 std::string runCommand(const char *cmd) {
+	Log::log("cmd exec " + string(cmd));
+
 	std::array<char, 128> buffer;
 	std::string result;
 	#ifdef _WIN32
@@ -36,10 +38,11 @@ std::string runCommand(const char *cmd) {
 
 int main() {
 	Time time;
-	Log::LogWithTimestamp("MAIN.cpp");
+	Log::LogWithTimestamp("MAIN.cpp Started");
 
 	TradingPairs pairs; 
-	string prices = runCommand("node /mexc-api/pair-prices.js");
+	string prices = runCommand("node mexc-api/pair-prices.js");
+
 
 	istringstream iss(prices);
 
@@ -49,8 +52,10 @@ int main() {
 		pairs.addPair(price, symbol);
 	}
 
+	Log::LogWithTimestamp("Init pair prices of size: " + to_string(prices.size()) + " to pairs");
+
 	while(true) {
-		string prices = runCommand("node /mexc-api/pair-prices.js");
+		string prices = runCommand("node mexc-api/pair-prices.js");
 
 		istringstream iss(prices);
 
@@ -79,6 +84,9 @@ int main() {
 				}
 			}	
 		}
+
+		Log::logLine();
+		Log::log("------------MAIN.cpp, sleeping for 1 minute------------");
 
 		int sleepTimeMins = 1;
 		int sleepTime = sleepTimeMins * 60;

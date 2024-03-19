@@ -16,7 +16,7 @@ private:
 
 public:
 	TradingPairs() {
-
+		Log::log("init TradingPairs");
 	}
 
 	void addPair(double price, string pairName) {

@@ -61,15 +61,6 @@ public:
 		auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
 		return std::to_string(seconds.count());
 	}
-
-	std::string getMSTTime() {
-		auto now = std::chrono::system_clock::now();
-		std::time_t now_time = std::chrono::system_clock::to_time_t(now);
-		std::tm* mst_time = std::localtime(&now_time);
-		char buffer[50];
-		std::strftime(buffer, 50, "%Y-%m-%d %H:%M:%S", mst_time);
-		return std::string(buffer);
-	}
 };
 
 #endif

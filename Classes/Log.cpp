@@ -22,10 +22,14 @@ public:
 		ofstream file(filename, ios_base::app);
 		string gmtTime = time.getGMTTime();
 		string unixTime = time.getUnixTime();
-		string mstTime = time.getMSTTime();
 
 		file << log << "\n"
-			<< " | GMT Time: " << gmtTime << " | Unix Time: " << unixTime << " | MST Time: " << mstTime << " |\n";
+			<< "| GMT Time: " << gmtTime << " | Unix Time: " << unixTime << " |\n";
+	}
+
+	static void logLine() {
+		ofstream file(filename, ios_base::app);
+		file << "-------------------------------------------------------\n";
 	}
 };
 
