@@ -28,7 +28,7 @@ int main() {
 	Time time;
 	Log log;
 
-	Log.addLogWithTimestamp("MAIN.cpp")
+	log.addLogWithTimestamp("MAIN.cpp");
 
 	TradingPairs pairs; 
 	string prices = runCommand("node /mexc-api/pair-prices.js");
