@@ -4,6 +4,9 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
+#include <thread>
+
+using namespace std;
 
 class Time {
 

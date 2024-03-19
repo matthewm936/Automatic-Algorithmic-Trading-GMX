@@ -11,7 +11,8 @@ client.config.apiSecret = process.env.apiSecret;
 // let stopPrice = process.argv[4]
 // let takeProfit = process.argv[5]
 
-pairName = "MXUSDT"
+pairName = "NEXTGENUSDT"
+// pairName = "BTCUSDT"
 side = "SELL"
 
 
@@ -25,8 +26,18 @@ side = "SELL"
 // });
 
 // console.log(reponse);
+// console.log(client.aggTrades(pairName, any = { limit: 5 } ))
 
-console.log(client.accountInfo());
+console.log(client.ticker24hr(pairName))
+console.log(client.bookTicker(pairName))
+
+// console.log(client.klines(pairName, "1m", any = { limit: 20} ))
+// console.log(client.depth(pairName, any = { limit: 20 }))
+
+// // console.log(client.historicalTrades(pairName, any = { limit: 3 }))
+
+
+// console.log(client.accountInfo());
 
 // let reponse1 = client.newOrder(pairName, side, "MARKET", {
 // 	quantity: 6.74451609,

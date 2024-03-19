@@ -1,6 +1,7 @@
 #include "testSMA.cpp"
 #include "testMAC.cpp"
 #include "testTrade.cpp"
+#include "testLiquidity.cpp"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ class Test {
 			testSMA();
 			testMAC();
 			testTrade();
+			testLiquidity();
 
 		}
 

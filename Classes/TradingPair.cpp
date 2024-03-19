@@ -14,6 +14,8 @@
 
 using namespace std;
 
+extern map<string, Position> g_positions;
+
 class TradingPair { 
 	
 private:
@@ -49,7 +51,8 @@ private:
 				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
 				// const char* cmd = command.c_str();
 				// system(cmd);
-				Position position = {pairName, price, price, -1};
+				Position newPosition = {pairName, price, price, -1};
+				g_positions[pairName] = newPosition;
 			}
 		}
 	}

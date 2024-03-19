@@ -3006,3 +3006,92 @@ TradingPair.cpp, buy signal from 20in45 from JOBUSDT
 | GMT Time: 2024-03-19 18:33:29 | Unix Time: 1710873209 |
 -------------------------------------------------------
 ------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JOBUSDT
+| GMT Time: 2024-03-19 18:34:30 | Unix Time: 1710873270 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 18:34:30 | Unix Time: 1710873270 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GPTUSDT
+| GMT Time: 2024-03-19 18:35:31 | Unix Time: 1710873331 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GPTUSDT
+| GMT Time: 2024-03-19 18:36:33 | Unix Time: 1710873393 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:36:33 | Unix Time: 1710873393 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AVENTISAIUSDT
+| GMT Time: 2024-03-19 18:38:35 | Unix Time: 1710873515 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:38:35 | Unix Time: 1710873515 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AVENTISAIUSDT
+| GMT Time: 2024-03-19 18:39:37 | Unix Time: 1710873577 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:39:37 | Unix Time: 1710873577 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AVENTISAIUSDT
+| GMT Time: 2024-03-19 18:40:38 | Unix Time: 1710873638 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:40:38 | Unix Time: 1710873638 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AVENTISAIUSDT
+| GMT Time: 2024-03-19 18:41:40 | Unix Time: 1710873700 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:41:40 | Unix Time: 1710873700 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GPTUSDT
+| GMT Time: 2024-03-19 18:42:41 | Unix Time: 1710873761 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 18:42:41 | Unix Time: 1710873761 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GPTUSDT
+| GMT Time: 2024-03-19 18:43:42 | Unix Time: 1710873822 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 18:43:42 | Unix Time: 1710873822 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 18:43:42 | Unix Time: 1710873822 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node book-ticker.js BTCUSDT
+cmd exec node ticker24hr.js BTCUSDT
+cmd exec node book-ticker.js BTCUSDT
+cmd exec node ticker24hr.js BTCUSDT
+cmd exec node /mexc-api/book-ticker.js BTCUSDT
+cmd exec node /mexc-api/ticker24hr.js BTCUSDT
+cmd exec node /mexc-api/book-ticker.js BTCUSDT
+cmd exec node /mexc-api/ticker24hr.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT
+cmd exec node /home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js BTCUSDT

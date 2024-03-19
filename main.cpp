@@ -12,29 +12,11 @@
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
 #include "Classes/Log.cpp"
+#include "Classes/RunCommand.cpp"
 
 using namespace std;
 
-map<string, Position> positions;
-
-std::string runCommand(const char *cmd) {
-	Log::log("cmd exec " + string(cmd));
-
-	std::array<char, 128> buffer;
-	std::string result;
-	#ifdef _WIN32
-		std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen((std::string(cmd) + " 2>&1").c_str(), "r"), _pclose);
-	#else
-		std::unique_ptr<FILE, decltype(&pclose)> pipe(popen((std::string(cmd) + " 2>&1").c_str(), "r"), pclose);
-	#endif
-	if (!pipe) {
-		throw std::runtime_error("popen() failed!");
-	}
-	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
-		result += buffer.data();
-	}
-	return result;
-}
+map<string, Position> g_positions;
 
 int main() {
 	Time time;
@@ -64,20 +46,20 @@ int main() {
 		while (iss >> symbol >> price) {
 			pairs.updatePair(price, symbol);
 
-			if (positions.find(symbol) != positions.end()) {
-				positions[symbol].currentPrice = price;
+			if (g_positions.find(symbol) != g_positions.end()) {
+				g_positions[symbol].currentPrice = price;
 
-				double profitLoss = (positions[symbol].currentPrice - positions[symbol].entryPrice) / positions[symbol].entryPrice;
-				positions[symbol].profitLoss = profitLoss;
+				double profitLoss = (g_positions[symbol].currentPrice - g_positions[symbol].entryPrice) / g_positions[symbol].entryPrice;
+				g_positions[symbol].profitLoss = profitLoss;
 
 				if(profitLoss > 0.05) {
-					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(positions[symbol].profitLoss));
+					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(g_positions[symbol].profitLoss));
 					// string command = "node /mexc-api/sell.js " + symbol + " SELL " + " 20";
 					// const char* cmd = command.c_str();
 					// system(cmd);
 				}
 				if(profitLoss < -0.05) {
-					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(positions[symbol].profitLoss));
+					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(g_positions[symbol].profitLoss));
 					// string command = "node /mexc-api/sell.js " + symbol + " SELL " + " 20";
 					// const char* cmd = command.c_str();
 					// system(cmd);
