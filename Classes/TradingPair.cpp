@@ -10,6 +10,7 @@
 #include "StrategyMomentum.cpp"
 #include "Log.cpp"
 #include "Trade.cpp"
+#include "Position.cpp"
 
 using namespace std;
 
@@ -45,9 +46,10 @@ private:
 			if (strategyMomentum.buySignal20in45(prices)) {
 				Log::LogWithTimestamp("TradingPair.cpp, buy signal from 20in45 from " + pairName);
 
-				string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
-				const char* cmd = command.c_str();
-				system(cmd);
+				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
+				// const char* cmd = command.c_str();
+				// system(cmd);
+				Position position = {pairName, price, price, -1};
 			}
 		}
 	}

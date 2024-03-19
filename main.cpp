@@ -6,12 +6,16 @@
 #include <nlohmann/json_fwd.hpp>
 #include <fstream>
 #include <cstdio>
+#include <map>
+#include <string>
 
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
 #include "Classes/Log.cpp"
 
 using namespace std;
+
+map<string, Position> positions;
 
 std::string runCommand(const char *cmd) {
 	std::array<char, 128> buffer;
@@ -53,7 +57,27 @@ int main() {
 		string symbol;
 		double price;
 		while (iss >> symbol >> price) {
-			pairs.updatePair(price, symbol);	
+			pairs.updatePair(price, symbol);
+
+			if (positions.find(symbol) != positions.end()) {
+				positions[symbol].currentPrice = price;
+
+				double profitLoss = (positions[symbol].currentPrice - positions[symbol].entryPrice) / positions[symbol].entryPrice;
+				positions[symbol].profitLoss = profitLoss;
+
+				if(profitLoss > 0.05) {
+					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(positions[symbol].profitLoss));
+					// string command = "node /mexc-api/sell.js " + symbol + " SELL " + " 20";
+					// const char* cmd = command.c_str();
+					// system(cmd);
+				}
+				if(profitLoss < -0.05) {
+					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(positions[symbol].profitLoss));
+					// string command = "node /mexc-api/sell.js " + symbol + " SELL " + " 20";
+					// const char* cmd = command.c_str();
+					// system(cmd);
+				}
+			}	
 		}
 
 		int sleepTimeMins = 1;
