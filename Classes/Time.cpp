@@ -2,6 +2,8 @@
 #define Time_CPP
 
 #include <chrono>
+#include <ctime>
+#include <iomanip>
 
 class Time {
 
@@ -42,6 +44,31 @@ public:
 		auto epoch = now.time_since_epoch();
 		auto seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch);
 		return seconds.count();
+	}
+
+	std::string getGMTTime() {
+		auto now = std::chrono::system_clock::now();
+		std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+		std::tm* gmt_time = std::gmtime(&now_time);
+		char buffer[50];
+		std::strftime(buffer, 50, "%Y-%m-%d %H:%M:%S", gmt_time);
+		return std::string(buffer);
+	}
+
+	std::string getUnixTime() {
+		auto now = std::chrono::system_clock::now();
+		auto duration = now.time_since_epoch();
+		auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
+		return std::to_string(seconds.count());
+	}
+
+	std::string getMSTTime() {
+		auto now = std::chrono::system_clock::now();
+		std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+		std::tm* mst_time = std::localtime(&now_time);
+		char buffer[50];
+		std::strftime(buffer, 50, "%Y-%m-%d %H:%M:%S", mst_time);
+		return std::string(buffer);
 	}
 };
 

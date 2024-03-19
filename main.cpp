@@ -7,6 +7,7 @@
 
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
+#include "Classes/Log.cpp"
 
 using namespace std;
 
@@ -25,12 +26,12 @@ std::string runCommand(const char *cmd) {
 
 int main() {
 	Time time;
-	ofstream outFile("main log.txt");
+	Log log;
 
-	outFile << "starting main.cpp at " << time.now() << endl;
+	Log.addLogWithTimestamp("MAIN.cpp")
 
 	TradingPairs pairs; 
-	string prices = runCommand("node data/mexc-pair-prices.js");
+	string prices = runCommand("node /mexc-api/pair-prices.js");
 
 	istringstream iss(prices);
 
@@ -39,12 +40,9 @@ int main() {
 	while (iss >> symbol >> price) {
 		pairs.addPair(price, symbol);
 	}
-	outFile << pairs.getNumPairs() << " pairs added" << endl;
 
 	while(true) {
-		time.start();
-
-		string prices = runCommand("node data/mexc-pair-prices.js");
+		string prices = runCommand("node /mexc-api/pair-prices.js");
 
 		istringstream iss(prices);
 
@@ -54,12 +52,8 @@ int main() {
 			pairs.updatePair(price, symbol);	
 		}
 
-		time.end();
-		outFile << "duration: " << time.getDuration() << "s" << endl;
-
 		int sleepTimeMins = 1;
 		int sleepTime = sleepTimeMins * 60;
-		outFile << "sleeping for " << sleepTime << "s/" << sleepTime/60 << "mins" << endl;
 		time.sleep(sleepTime);
 	}
 

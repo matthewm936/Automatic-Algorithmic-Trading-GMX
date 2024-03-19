@@ -1,12 +1,10 @@
-const MEXC = require("../MEXC JS SDK API/package/")
+const MEXC = require("./package/")
 const fs = require('fs');
 require('dotenv').config()
 
 const client = new MEXC.Spot()
 client.config.apiKey = process.env.apiKey;
 client.config.apiSecret = process.env.apiSecret;
-
-logFile = '/home/johnsmith/Trading/Algorithmic-Trading/Trade/trade log.txt';
 
 let pairName = process.argv[2]
 let side = process.argv[3]
