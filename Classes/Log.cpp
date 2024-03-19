@@ -5,29 +5,30 @@
 #include <fstream>
 #include <sstream>
 
+using namespace std;
+
 class Log {
 private:
-	Time time;
-	std::string filename;
+	static string filename;
 
 public:
-	Log() : filename("log.txt") {
-	}
-
-	void addLog(std::string log) {
-		std::ofstream file(filename, std::ios_base::app);
+	static void log(string log) {
+		ofstream file(filename, ios_base::app);
 		file << log << "\n";
 	}
 
-	void addLogWithTimestamp(std::string log) {
-		std::ofstream file(filename, std::ios_base::app);
-		std::string gmtTime = time.getGMTTime();
-		std::string unixTime = time.getUnixTime();
-		std::string mstTime = time.getMSTTime();
+	static void LogWithTimestamp(string log) {
+		Time time;
+		ofstream file(filename, ios_base::app);
+		string gmtTime = time.getGMTTime();
+		string unixTime = time.getUnixTime();
+		string mstTime = time.getMSTTime();
 
 		file << log << "\n"
 			<< " | GMT Time: " << gmtTime << " | Unix Time: " << unixTime << " | MST Time: " << mstTime << " |\n";
 	}
 };
+
+string Log::filename = "log.txt";
 
 #endif

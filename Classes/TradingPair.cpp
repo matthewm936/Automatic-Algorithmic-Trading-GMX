@@ -7,6 +7,9 @@
 #include <fstream>
 
 #include "Time.cpp"
+#include "StrategyMomentum.cpp"
+#include "Log.cpp"
+#include "Trade.cpp"
 
 using namespace std;
 
@@ -15,6 +18,8 @@ class TradingPair {
 private:
 	deque<double> prices;
 	string pairName;
+
+	StrategyMomentum strategyMomentum;
 
 	public:
 		TradingPair() = default;
@@ -34,25 +39,15 @@ private:
 	void updatePrice(double price) {
 		prices.push_front(price);
 
-		if(prices.size() > 60) {
+		if (prices.size() > 60) {
 			prices.pop_back();
-			// if(prices[0] > prices[5] && prices[5] > prices[10] && prices[10] > prices[15]) {
-			// 	double takeProfit = (prices[0] - prices[15]) / prices[15] * 100;
-			// 	double stopLoss = takeProfit / 2;
 
-			// 	system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " BUY " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
+			if (strategyMomentum.buySignal20in45(prices)) {
+				Log::LogWithTimestamp("TradingPair.cpp, buy signal from 20in45 from " + pairName);
 
-			// }
-			if(prices[0] > prices[15] && prices[15] > prices[30] && prices[30] > prices[45] && prices[0] > prices[45] * 1.20) {
-				double takeProfit = (prices[0] - prices[45]) / prices[45] * 100;
-				double stopLoss = takeProfit / 2;
-
-				system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " BUY " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
-
-				// Time time;
-				// time.sleep(1200);
-
-				// system(("node /home/johnsmith/Trading/Algorithmic-Trading/Trade/mexc-trade.js " + getPairName() + " SELL " + to_string(stopLoss) + " " + to_string(takeProfit)).c_str());
+				string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
+				const char* cmd = command.c_str();
+				system(cmd);
 			}
 		}
 	}

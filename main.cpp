@@ -3,7 +3,9 @@
 #include <thread>
 #include <chrono>
 #include <nlohmann/json.hpp>
+#include <nlohmann/json_fwd.hpp>
 #include <fstream>
+#include <cstdio>
 
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
@@ -14,7 +16,11 @@ using namespace std;
 std::string runCommand(const char *cmd) {
 	std::array<char, 128> buffer;
 	std::string result;
-	std::unique_ptr<FILE, decltype(&pclose)> pipe(popen((std::string(cmd) + " 2>&1").c_str(), "r"), pclose);
+	#ifdef _WIN32
+		std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen((std::string(cmd) + " 2>&1").c_str(), "r"), _pclose);
+	#else
+		std::unique_ptr<FILE, decltype(&pclose)> pipe(popen((std::string(cmd) + " 2>&1").c_str(), "r"), pclose);
+	#endif
 	if (!pipe) {
 		throw std::runtime_error("popen() failed!");
 	}
@@ -26,9 +32,7 @@ std::string runCommand(const char *cmd) {
 
 int main() {
 	Time time;
-	Log log;
-
-	log.addLogWithTimestamp("MAIN.cpp");
+	Log::LogWithTimestamp("MAIN.cpp");
 
 	TradingPairs pairs; 
 	string prices = runCommand("node /mexc-api/pair-prices.js");

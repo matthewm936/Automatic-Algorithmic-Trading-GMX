@@ -9,11 +9,10 @@ client.config.apiSecret = process.env.apiSecret;
 let pairName = process.argv[2]
 let amount = process.argv[3]
 
-
 let reponse = client.newOrder(pairName, "SELL", "MARKET", {
-    quantity: amount,
-    timeInForce: "GTC",
-    newOrderRespType: "JSON"
+	quantity: amount,
+	timeInForce: "GTC",
+	newOrderRespType: "FULL"
 });
 
 console.log(reponse);
