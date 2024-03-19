@@ -1,14 +1,3008 @@
-MAIN.cpp
-----| GMT Time: 2024-03-19 12:35:37 | Unix Time: 1710851737 |---- |
-adding prices of size: 47743 to pairs
-----| GMT Time: 2024-03-19 12:35:38 | Unix Time: 1710851738 |---- |
----------------------------------------------
--------MAIN.cpp, sleeping for 1 minute-------
----------------------------------------------
--------MAIN.cpp, sleeping for 1 minute-------
----------------------------------------------
--------MAIN.cpp, sleeping for 1 minute-------
----------------------------------------------
--------MAIN.cpp, sleeping for 1 minute-------
----------------------------------------------
--------MAIN.cpp, sleeping for 1 minute-------
+MAIN.cpp Started
+| GMT Time: 2024-03-19 12:41:46 | Unix Time: 1710852106 |
+init TradingPairs
+cmd exec node mexc-api/pair-prices.js
+Init pair prices of size: 47735 to pairs
+| GMT Time: 2024-03-19 12:41:48 | Unix Time: 1710852108 |
+cmd exec node mexc-api/pair-prices.js
+
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GECKOAVAXUSDT
+| GMT Time: 2024-03-19 13:42:07 | Unix Time: 1710855727 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 13:42:07 | Unix Time: 1710855727 |
+TradingPair.cpp, buy signal from 20in45 from PIGCOINUSDT
+| GMT Time: 2024-03-19 13:42:07 | Unix Time: 1710855727 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:42:07 | Unix Time: 1710855727 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:43:09 | Unix Time: 1710855789 |
+TradingPair.cpp, buy signal from 20in45 from PIGCOINUSDT
+| GMT Time: 2024-03-19 13:43:09 | Unix Time: 1710855789 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:43:09 | Unix Time: 1710855789 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:44:10 | Unix Time: 1710855850 |
+TradingPair.cpp, buy signal from 20in45 from PIGCOINUSDT
+| GMT Time: 2024-03-19 13:44:10 | Unix Time: 1710855850 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:44:10 | Unix Time: 1710855850 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:45:11 | Unix Time: 1710855911 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:45:11 | Unix Time: 1710855911 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:45:11 | Unix Time: 1710855911 |
+TradingPair.cpp, buy signal from 20in45 from IQ50USDT
+| GMT Time: 2024-03-19 13:45:11 | Unix Time: 1710855911 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 13:46:13 | Unix Time: 1710855973 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:46:13 | Unix Time: 1710855973 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:46:13 | Unix Time: 1710855973 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:46:13 | Unix Time: 1710855973 |
+TradingPair.cpp, buy signal from 20in45 from IQ50USDT
+| GMT Time: 2024-03-19 13:46:13 | Unix Time: 1710855973 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 13:47:14 | Unix Time: 1710856034 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:47:14 | Unix Time: 1710856034 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:47:14 | Unix Time: 1710856034 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:48:15 | Unix Time: 1710856095 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:48:15 | Unix Time: 1710856095 |
+TradingPair.cpp, buy signal from 20in45 from GROKAIUSDT
+| GMT Time: 2024-03-19 13:48:15 | Unix Time: 1710856095 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:48:15 | Unix Time: 1710856095 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:49:16 | Unix Time: 1710856156 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:49:16 | Unix Time: 1710856156 |
+TradingPair.cpp, buy signal from 20in45 from GROKAIUSDT
+| GMT Time: 2024-03-19 13:49:16 | Unix Time: 1710856156 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:49:16 | Unix Time: 1710856156 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:50:18 | Unix Time: 1710856218 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:51:19 | Unix Time: 1710856279 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:51:19 | Unix Time: 1710856279 |
+TradingPair.cpp, buy signal from 20in45 from MITHRILUSDT
+| GMT Time: 2024-03-19 13:51:19 | Unix Time: 1710856279 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:52:21 | Unix Time: 1710856341 |
+TradingPair.cpp, buy signal from 20in45 from MITHRILUSDT
+| GMT Time: 2024-03-19 13:52:21 | Unix Time: 1710856341 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:53:22 | Unix Time: 1710856402 |
+TradingPair.cpp, buy signal from 20in45 from MITHRILUSDT
+| GMT Time: 2024-03-19 13:53:22 | Unix Time: 1710856402 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 13:54:23 | Unix Time: 1710856463 |
+TradingPair.cpp, buy signal from 20in45 from PIGCOINUSDT
+| GMT Time: 2024-03-19 13:54:23 | Unix Time: 1710856463 |
+TradingPair.cpp, buy signal from 20in45 from MITHRILUSDT
+| GMT Time: 2024-03-19 13:54:23 | Unix Time: 1710856463 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 13:55:25 | Unix Time: 1710856525 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:55:25 | Unix Time: 1710856525 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 13:56:26 | Unix Time: 1710856586 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:56:26 | Unix Time: 1710856586 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:56:26 | Unix Time: 1710856586 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 13:57:28 | Unix Time: 1710856648 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:57:28 | Unix Time: 1710856648 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:57:28 | Unix Time: 1710856648 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:58:29 | Unix Time: 1710856709 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:58:29 | Unix Time: 1710856709 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:58:29 | Unix Time: 1710856709 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 13:59:30 | Unix Time: 1710856770 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 13:59:30 | Unix Time: 1710856770 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 13:59:30 | Unix Time: 1710856770 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 13:59:30 | Unix Time: 1710856770 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:00:32 | Unix Time: 1710856832 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 14:00:32 | Unix Time: 1710856832 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 14:00:32 | Unix Time: 1710856832 |
+TradingPair.cpp, buy signal from 20in45 from GROKAIUSDT
+| GMT Time: 2024-03-19 14:00:32 | Unix Time: 1710856832 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:00:32 | Unix Time: 1710856832 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:01:33 | Unix Time: 1710856893 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 14:01:33 | Unix Time: 1710856893 |
+TradingPair.cpp, buy signal from 20in45 from GROKAIUSDT
+| GMT Time: 2024-03-19 14:01:33 | Unix Time: 1710856893 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:01:33 | Unix Time: 1710856893 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:02:34 | Unix Time: 1710856954 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 14:02:34 | Unix Time: 1710856954 |
+TradingPair.cpp, buy signal from 20in45 from GROKAIUSDT
+| GMT Time: 2024-03-19 14:02:34 | Unix Time: 1710856954 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:02:34 | Unix Time: 1710856954 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:03:36 | Unix Time: 1710857016 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 14:03:36 | Unix Time: 1710857016 |
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:03:36 | Unix Time: 1710857016 |
+TradingPair.cpp, buy signal from 20in45 from VTSUSDT
+| GMT Time: 2024-03-19 14:03:36 | Unix Time: 1710857016 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 14:03:36 | Unix Time: 1710857016 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:03:36 | Unix Time: 1710857016 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:04:37 | Unix Time: 1710857077 |
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:04:37 | Unix Time: 1710857077 |
+TradingPair.cpp, buy signal from 20in45 from VTSUSDT
+| GMT Time: 2024-03-19 14:04:37 | Unix Time: 1710857077 |
+TradingPair.cpp, buy signal from 20in45 from MURATIAIUSDT
+| GMT Time: 2024-03-19 14:04:37 | Unix Time: 1710857077 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:04:37 | Unix Time: 1710857077 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:05:38 | Unix Time: 1710857138 |
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:05:38 | Unix Time: 1710857138 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:05:38 | Unix Time: 1710857138 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:06:39 | Unix Time: 1710857199 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:06:39 | Unix Time: 1710857199 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:07:41 | Unix Time: 1710857261 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:08:42 | Unix Time: 1710857322 |
+TradingPair.cpp, buy signal from 20in45 from PI2USDT
+| GMT Time: 2024-03-19 14:08:42 | Unix Time: 1710857322 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:08:42 | Unix Time: 1710857322 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:09:43 | Unix Time: 1710857383 |
+TradingPair.cpp, buy signal from 20in45 from PI2USDT
+| GMT Time: 2024-03-19 14:09:43 | Unix Time: 1710857383 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:10:45 | Unix Time: 1710857445 |
+TradingPair.cpp, buy signal from 20in45 from PI2USDT
+| GMT Time: 2024-03-19 14:10:45 | Unix Time: 1710857445 |
+TradingPair.cpp, buy signal from 20in45 from VTCUSDT
+| GMT Time: 2024-03-19 14:10:45 | Unix Time: 1710857445 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LITHOUSDT
+| GMT Time: 2024-03-19 14:11:46 | Unix Time: 1710857506 |
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:11:46 | Unix Time: 1710857506 |
+TradingPair.cpp, buy signal from 20in45 from PI2USDT
+| GMT Time: 2024-03-19 14:11:46 | Unix Time: 1710857506 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:12:47 | Unix Time: 1710857567 |
+TradingPair.cpp, buy signal from 20in45 from PI2USDT
+| GMT Time: 2024-03-19 14:12:47 | Unix Time: 1710857567 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DAGUSDT
+| GMT Time: 2024-03-19 14:14:50 | Unix Time: 1710857690 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ABBCUSDT
+| GMT Time: 2024-03-19 14:15:51 | Unix Time: 1710857751 |
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:15:51 | Unix Time: 1710857751 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:16:53 | Unix Time: 1710857813 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:18:55 | Unix Time: 1710857935 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:19:57 | Unix Time: 1710857997 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:20:58 | Unix Time: 1710858058 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:21:59 | Unix Time: 1710858119 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:24:02 | Unix Time: 1710858242 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MAIUSDT
+| GMT Time: 2024-03-19 14:25:03 | Unix Time: 1710858303 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:27:06 | Unix Time: 1710858426 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGGOUSDT
+| GMT Time: 2024-03-19 14:28:08 | Unix Time: 1710858488 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:30:10 | Unix Time: 1710858610 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:31:12 | Unix Time: 1710858672 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:32:13 | Unix Time: 1710858733 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:32:13 | Unix Time: 1710858733 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:32:13 | Unix Time: 1710858733 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:33:14 | Unix Time: 1710858794 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:33:14 | Unix Time: 1710858794 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:33:14 | Unix Time: 1710858794 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:33:14 | Unix Time: 1710858794 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:34:16 | Unix Time: 1710858856 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:34:16 | Unix Time: 1710858856 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:34:16 | Unix Time: 1710858856 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:34:16 | Unix Time: 1710858856 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:35:17 | Unix Time: 1710858917 |
+TradingPair.cpp, buy signal from 20in45 from MERLININUUSDT
+| GMT Time: 2024-03-19 14:35:17 | Unix Time: 1710858917 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:35:17 | Unix Time: 1710858917 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:35:17 | Unix Time: 1710858917 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:35:17 | Unix Time: 1710858917 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MERLININUUSDT
+| GMT Time: 2024-03-19 14:36:18 | Unix Time: 1710858978 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:36:18 | Unix Time: 1710858978 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:36:18 | Unix Time: 1710858978 |
+TradingPair.cpp, buy signal from 20in45 from AAIUSDT
+| GMT Time: 2024-03-19 14:36:18 | Unix Time: 1710858978 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:37:20 | Unix Time: 1710859040 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:37:20 | Unix Time: 1710859040 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:37:20 | Unix Time: 1710859040 |
+TradingPair.cpp, buy signal from 20in45 from AAIUSDT
+| GMT Time: 2024-03-19 14:37:20 | Unix Time: 1710859040 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:38:21 | Unix Time: 1710859101 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:38:21 | Unix Time: 1710859101 |
+TradingPair.cpp, buy signal from 20in45 from AAIUSDT
+| GMT Time: 2024-03-19 14:38:21 | Unix Time: 1710859101 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:39:22 | Unix Time: 1710859162 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:39:22 | Unix Time: 1710859162 |
+TradingPair.cpp, buy signal from 20in45 from PAWSUSDT
+| GMT Time: 2024-03-19 14:39:22 | Unix Time: 1710859162 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:39:22 | Unix Time: 1710859162 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GCOWUSDT
+| GMT Time: 2024-03-19 14:40:23 | Unix Time: 1710859223 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:40:23 | Unix Time: 1710859223 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:40:23 | Unix Time: 1710859223 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:40:23 | Unix Time: 1710859223 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GCOWUSDT
+| GMT Time: 2024-03-19 14:41:25 | Unix Time: 1710859285 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:41:25 | Unix Time: 1710859285 |
+TradingPair.cpp, buy signal from 20in45 from CDOGEUSDT
+| GMT Time: 2024-03-19 14:41:25 | Unix Time: 1710859285 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:41:25 | Unix Time: 1710859285 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:41:25 | Unix Time: 1710859285 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GCOWUSDT
+| GMT Time: 2024-03-19 14:42:26 | Unix Time: 1710859346 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:42:26 | Unix Time: 1710859346 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:42:26 | Unix Time: 1710859346 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:42:26 | Unix Time: 1710859346 |
+TradingPair.cpp, buy signal from 20in45 from HBTUSDT
+| GMT Time: 2024-03-19 14:42:26 | Unix Time: 1710859346 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:42:26 | Unix Time: 1710859346 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:43:28 | Unix Time: 1710859408 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:43:28 | Unix Time: 1710859408 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GCOWUSDT
+| GMT Time: 2024-03-19 14:44:29 | Unix Time: 1710859469 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:44:29 | Unix Time: 1710859469 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:44:29 | Unix Time: 1710859469 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:44:29 | Unix Time: 1710859469 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GCOWUSDT
+| GMT Time: 2024-03-19 14:45:30 | Unix Time: 1710859530 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:45:30 | Unix Time: 1710859530 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:45:30 | Unix Time: 1710859530 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:45:30 | Unix Time: 1710859530 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:45:30 | Unix Time: 1710859530 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GCOWUSDT
+| GMT Time: 2024-03-19 14:46:31 | Unix Time: 1710859591 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:46:31 | Unix Time: 1710859591 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:46:31 | Unix Time: 1710859591 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:46:31 | Unix Time: 1710859591 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:46:31 | Unix Time: 1710859591 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:47:33 | Unix Time: 1710859653 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:47:33 | Unix Time: 1710859653 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:47:33 | Unix Time: 1710859653 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:48:34 | Unix Time: 1710859714 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:48:34 | Unix Time: 1710859714 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:48:34 | Unix Time: 1710859714 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:49:36 | Unix Time: 1710859776 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:49:36 | Unix Time: 1710859776 |
+TradingPair.cpp, buy signal from 20in45 from CAVADAUSDT
+| GMT Time: 2024-03-19 14:49:36 | Unix Time: 1710859776 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:49:36 | Unix Time: 1710859776 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:50:37 | Unix Time: 1710859837 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:51:38 | Unix Time: 1710859898 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 14:51:38 | Unix Time: 1710859898 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:51:38 | Unix Time: 1710859898 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AAIUSDT
+| GMT Time: 2024-03-19 14:52:40 | Unix Time: 1710859960 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:52:40 | Unix Time: 1710859960 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:53:41 | Unix Time: 1710860021 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:53:41 | Unix Time: 1710860021 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:54:42 | Unix Time: 1710860082 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:55:43 | Unix Time: 1710860143 |
+TradingPair.cpp, buy signal from 20in45 from TRUMPEPEUSDT
+| GMT Time: 2024-03-19 14:55:43 | Unix Time: 1710860143 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:55:43 | Unix Time: 1710860143 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 14:56:45 | Unix Time: 1710860205 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:56:45 | Unix Time: 1710860205 |
+TradingPair.cpp, buy signal from 20in45 from TRUMPEPEUSDT
+| GMT Time: 2024-03-19 14:56:45 | Unix Time: 1710860205 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:56:45 | Unix Time: 1710860205 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 14:57:46 | Unix Time: 1710860266 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 14:57:46 | Unix Time: 1710860266 |
+TradingPair.cpp, buy signal from 20in45 from TRUMPEPEUSDT
+| GMT Time: 2024-03-19 14:57:46 | Unix Time: 1710860266 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:57:46 | Unix Time: 1710860266 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AROSUSDT
+| GMT Time: 2024-03-19 14:58:47 | Unix Time: 1710860327 |
+TradingPair.cpp, buy signal from 20in45 from TRUMPEPEUSDT
+| GMT Time: 2024-03-19 14:58:47 | Unix Time: 1710860327 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:58:47 | Unix Time: 1710860327 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AROSUSDT
+| GMT Time: 2024-03-19 14:59:49 | Unix Time: 1710860389 |
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 14:59:49 | Unix Time: 1710860389 |
+TradingPair.cpp, buy signal from 20in45 from TRUMPEPEUSDT
+| GMT Time: 2024-03-19 14:59:49 | Unix Time: 1710860389 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 14:59:49 | Unix Time: 1710860389 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:00:50 | Unix Time: 1710860450 |
+TradingPair.cpp, buy signal from 20in45 from AROSUSDT
+| GMT Time: 2024-03-19 15:00:50 | Unix Time: 1710860450 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 15:00:50 | Unix Time: 1710860450 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AROSUSDT
+| GMT Time: 2024-03-19 15:01:51 | Unix Time: 1710860511 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 15:01:51 | Unix Time: 1710860511 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from SPXUSDT
+| GMT Time: 2024-03-19 15:02:53 | Unix Time: 1710860573 |
+TradingPair.cpp, buy signal from 20in45 from AROSUSDT
+| GMT Time: 2024-03-19 15:02:53 | Unix Time: 1710860573 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:02:53 | Unix Time: 1710860573 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 15:02:53 | Unix Time: 1710860573 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from SPXUSDT
+| GMT Time: 2024-03-19 15:03:54 | Unix Time: 1710860634 |
+TradingPair.cpp, buy signal from 20in45 from AROSUSDT
+| GMT Time: 2024-03-19 15:03:54 | Unix Time: 1710860634 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:03:54 | Unix Time: 1710860634 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 15:03:54 | Unix Time: 1710860634 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 15:03:54 | Unix Time: 1710860634 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:04:55 | Unix Time: 1710860695 |
+TradingPair.cpp, buy signal from 20in45 from SMURFCATUSDT
+| GMT Time: 2024-03-19 15:04:55 | Unix Time: 1710860695 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:04:55 | Unix Time: 1710860695 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:05:56 | Unix Time: 1710860756 |
+TradingPair.cpp, buy signal from 20in45 from SMURFCATUSDT
+| GMT Time: 2024-03-19 15:05:56 | Unix Time: 1710860756 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:05:56 | Unix Time: 1710860756 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:06:58 | Unix Time: 1710860818 |
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:06:58 | Unix Time: 1710860818 |
+TradingPair.cpp, buy signal from 20in45 from SMURFCATUSDT
+| GMT Time: 2024-03-19 15:06:58 | Unix Time: 1710860818 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:06:58 | Unix Time: 1710860818 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:07:59 | Unix Time: 1710860879 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:07:59 | Unix Time: 1710860879 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:07:59 | Unix Time: 1710860879 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 15:07:59 | Unix Time: 1710860879 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:09:01 | Unix Time: 1710860941 |
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:09:01 | Unix Time: 1710860941 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:09:01 | Unix Time: 1710860941 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:09:01 | Unix Time: 1710860941 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:10:02 | Unix Time: 1710861002 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:10:02 | Unix Time: 1710861002 |
+TradingPair.cpp, buy signal from 20in45 from PAINTUSDT
+| GMT Time: 2024-03-19 15:10:02 | Unix Time: 1710861002 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:10:02 | Unix Time: 1710861002 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:11:03 | Unix Time: 1710861063 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:11:03 | Unix Time: 1710861063 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:11:03 | Unix Time: 1710861063 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:12:05 | Unix Time: 1710861125 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:12:05 | Unix Time: 1710861125 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:12:05 | Unix Time: 1710861125 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:13:06 | Unix Time: 1710861186 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:13:06 | Unix Time: 1710861186 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:13:06 | Unix Time: 1710861186 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 15:14:07 | Unix Time: 1710861247 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PIZZAUSDT
+| GMT Time: 2024-03-19 15:15:09 | Unix Time: 1710861309 |
+TradingPair.cpp, buy signal from 20in45 from BONK2USDT
+| GMT Time: 2024-03-19 15:15:09 | Unix Time: 1710861309 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:16:10 | Unix Time: 1710861370 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:16:10 | Unix Time: 1710861370 |
+TradingPair.cpp, buy signal from 20in45 from BONK2USDT
+| GMT Time: 2024-03-19 15:16:10 | Unix Time: 1710861370 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:17:11 | Unix Time: 1710861431 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:17:11 | Unix Time: 1710861431 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:18:13 | Unix Time: 1710861493 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:18:13 | Unix Time: 1710861493 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:19:14 | Unix Time: 1710861554 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:19:14 | Unix Time: 1710861554 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:20:15 | Unix Time: 1710861615 |
+TradingPair.cpp, buy signal from 20in45 from DOGEBABYUSDT
+| GMT Time: 2024-03-19 15:20:15 | Unix Time: 1710861615 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:20:15 | Unix Time: 1710861615 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:21:17 | Unix Time: 1710861677 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:21:17 | Unix Time: 1710861677 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:22:18 | Unix Time: 1710861738 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:22:18 | Unix Time: 1710861738 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:23:19 | Unix Time: 1710861799 |
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:23:19 | Unix Time: 1710861799 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:24:21 | Unix Time: 1710861861 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYTUSDT
+| GMT Time: 2024-03-19 15:25:22 | Unix Time: 1710861922 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ONSUSDT
+| GMT Time: 2024-03-19 15:31:30 | Unix Time: 1710862290 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ONSUSDT
+| GMT Time: 2024-03-19 15:32:31 | Unix Time: 1710862351 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MINTIUSDT
+| GMT Time: 2024-03-19 15:33:32 | Unix Time: 1710862412 |
+TradingPair.cpp, buy signal from 20in45 from ONSUSDT
+| GMT Time: 2024-03-19 15:33:32 | Unix Time: 1710862412 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ONSUSDT
+| GMT Time: 2024-03-19 15:34:34 | Unix Time: 1710862474 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NPICKUSDT
+| GMT Time: 2024-03-19 15:35:35 | Unix Time: 1710862535 |
+TradingPair.cpp, buy signal from 20in45 from ONSUSDT
+| GMT Time: 2024-03-19 15:35:35 | Unix Time: 1710862535 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from WQTUSDT
+| GMT Time: 2024-03-19 15:39:40 | Unix Time: 1710862780 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from WQTUSDT
+| GMT Time: 2024-03-19 15:40:41 | Unix Time: 1710862841 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from WQTUSDT
+| GMT Time: 2024-03-19 15:41:43 | Unix Time: 1710862903 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from WQTUSDT
+| GMT Time: 2024-03-19 15:42:44 | Unix Time: 1710862964 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from SPIZUSDT
+| GMT Time: 2024-03-19 15:43:46 | Unix Time: 1710863026 |
+TradingPair.cpp, buy signal from 20in45 from WQTUSDT
+| GMT Time: 2024-03-19 15:43:46 | Unix Time: 1710863026 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from OPAIGUSDT
+| GMT Time: 2024-03-19 15:44:47 | Unix Time: 1710863087 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 15:46:50 | Unix Time: 1710863210 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:47:51 | Unix Time: 1710863271 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 15:47:51 | Unix Time: 1710863271 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 15:48:52 | Unix Time: 1710863332 |
+TradingPair.cpp, buy signal from 20in45 from XINUUSDT
+| GMT Time: 2024-03-19 15:48:52 | Unix Time: 1710863332 |
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:48:52 | Unix Time: 1710863332 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:48:52 | Unix Time: 1710863332 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 15:49:54 | Unix Time: 1710863394 |
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:49:54 | Unix Time: 1710863394 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:49:54 | Unix Time: 1710863394 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 15:50:55 | Unix Time: 1710863455 |
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:50:55 | Unix Time: 1710863455 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:50:55 | Unix Time: 1710863455 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:51:56 | Unix Time: 1710863516 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:52:58 | Unix Time: 1710863578 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:52:58 | Unix Time: 1710863578 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:53:59 | Unix Time: 1710863639 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:53:59 | Unix Time: 1710863639 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:55:00 | Unix Time: 1710863700 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:55:00 | Unix Time: 1710863700 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:56:02 | Unix Time: 1710863762 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 15:56:02 | Unix Time: 1710863762 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 15:57:03 | Unix Time: 1710863823 |
+TradingPair.cpp, buy signal from 20in45 from LENDUSDT
+| GMT Time: 2024-03-19 15:57:03 | Unix Time: 1710863823 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from BOTTOUSDT
+| GMT Time: 2024-03-19 15:58:04 | Unix Time: 1710863884 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 15:58:04 | Unix Time: 1710863884 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ZGTUSDT
+| GMT Time: 2024-03-19 15:59:06 | Unix Time: 1710863946 |
+TradingPair.cpp, buy signal from 20in45 from HDNUSDT
+| GMT Time: 2024-03-19 15:59:06 | Unix Time: 1710863946 |
+TradingPair.cpp, buy signal from 20in45 from BOTTOUSDT
+| GMT Time: 2024-03-19 15:59:06 | Unix Time: 1710863946 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from CAVADAUSDT
+| GMT Time: 2024-03-19 16:00:07 | Unix Time: 1710864007 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 16:01:09 | Unix Time: 1710864069 |
+TradingPair.cpp, buy signal from 20in45 from MCONTENTUSDT
+| GMT Time: 2024-03-19 16:01:09 | Unix Time: 1710864069 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:01:09 | Unix Time: 1710864069 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 16:02:10 | Unix Time: 1710864130 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:02:10 | Unix Time: 1710864130 |
+TradingPair.cpp, buy signal from 20in45 from MCONTENTUSDT
+| GMT Time: 2024-03-19 16:02:10 | Unix Time: 1710864130 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:02:10 | Unix Time: 1710864130 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 16:03:11 | Unix Time: 1710864191 |
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 16:03:11 | Unix Time: 1710864191 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:03:11 | Unix Time: 1710864191 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:03:11 | Unix Time: 1710864191 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:03:11 | Unix Time: 1710864191 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 16:04:13 | Unix Time: 1710864253 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:04:13 | Unix Time: 1710864253 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:04:13 | Unix Time: 1710864253 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:04:13 | Unix Time: 1710864253 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 16:05:14 | Unix Time: 1710864314 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:05:14 | Unix Time: 1710864314 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:05:14 | Unix Time: 1710864314 |
+TradingPair.cpp, buy signal from 20in45 from CAVADAUSDT
+| GMT Time: 2024-03-19 16:05:14 | Unix Time: 1710864314 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:05:14 | Unix Time: 1710864314 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 16:06:15 | Unix Time: 1710864375 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:06:15 | Unix Time: 1710864375 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:06:15 | Unix Time: 1710864375 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:06:15 | Unix Time: 1710864375 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 16:07:17 | Unix Time: 1710864437 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:07:17 | Unix Time: 1710864437 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:07:17 | Unix Time: 1710864437 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:07:17 | Unix Time: 1710864437 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TAONUUSDT
+| GMT Time: 2024-03-19 16:08:18 | Unix Time: 1710864498 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:08:18 | Unix Time: 1710864498 |
+TradingPair.cpp, buy signal from 20in45 from SONICUSDT
+| GMT Time: 2024-03-19 16:08:18 | Unix Time: 1710864498 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:08:18 | Unix Time: 1710864498 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:09:19 | Unix Time: 1710864559 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:10:21 | Unix Time: 1710864621 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:10:21 | Unix Time: 1710864621 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 16:10:21 | Unix Time: 1710864621 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:11:22 | Unix Time: 1710864682 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:11:22 | Unix Time: 1710864682 |
+TradingPair.cpp, buy signal from 20in45 from POLYDOGEUSDT
+| GMT Time: 2024-03-19 16:11:22 | Unix Time: 1710864682 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 16:11:22 | Unix Time: 1710864682 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:12:23 | Unix Time: 1710864743 |
+TradingPair.cpp, buy signal from 20in45 from POLYDOGEUSDT
+| GMT Time: 2024-03-19 16:12:23 | Unix Time: 1710864743 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:12:23 | Unix Time: 1710864743 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:12:23 | Unix Time: 1710864743 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:13:25 | Unix Time: 1710864805 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 16:14:26 | Unix Time: 1710864866 |
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:14:26 | Unix Time: 1710864866 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:14:26 | Unix Time: 1710864866 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:14:26 | Unix Time: 1710864866 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:14:26 | Unix Time: 1710864866 |
+TradingPair.cpp, buy signal from 20in45 from SLERFUSDT
+| GMT Time: 2024-03-19 16:14:26 | Unix Time: 1710864866 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TOMBPLUSUSDT
+| GMT Time: 2024-03-19 16:15:27 | Unix Time: 1710864927 |
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:15:27 | Unix Time: 1710864927 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:15:27 | Unix Time: 1710864927 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:16:29 | Unix Time: 1710864989 |
+TradingPair.cpp, buy signal from 20in45 from KNINEUSDT
+| GMT Time: 2024-03-19 16:16:29 | Unix Time: 1710864989 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:16:29 | Unix Time: 1710864989 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:16:29 | Unix Time: 1710864989 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+TradingPair.cpp, buy signal from 20in45 from KNINEUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+TradingPair.cpp, buy signal from 20in45 from CAVADAUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+TradingPair.cpp, buy signal from 20in45 from ZENXUSDT
+| GMT Time: 2024-03-19 16:17:30 | Unix Time: 1710865050 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:18:31 | Unix Time: 1710865111 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:18:31 | Unix Time: 1710865111 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:18:31 | Unix Time: 1710865111 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:18:31 | Unix Time: 1710865111 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:18:31 | Unix Time: 1710865111 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:19:33 | Unix Time: 1710865173 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:19:33 | Unix Time: 1710865173 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:19:33 | Unix Time: 1710865173 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DCARDUSDT
+| GMT Time: 2024-03-19 16:20:34 | Unix Time: 1710865234 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:20:34 | Unix Time: 1710865234 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:20:34 | Unix Time: 1710865234 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:20:34 | Unix Time: 1710865234 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:20:34 | Unix Time: 1710865234 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:21:35 | Unix Time: 1710865295 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:21:35 | Unix Time: 1710865295 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:21:35 | Unix Time: 1710865295 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:21:35 | Unix Time: 1710865295 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:22:37 | Unix Time: 1710865357 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:22:37 | Unix Time: 1710865357 |
+TradingPair.cpp, buy signal from 20in45 from FROGUSDT
+| GMT Time: 2024-03-19 16:22:37 | Unix Time: 1710865357 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:22:37 | Unix Time: 1710865357 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:23:38 | Unix Time: 1710865418 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:23:38 | Unix Time: 1710865418 |
+TradingPair.cpp, buy signal from 20in45 from FROGUSDT
+| GMT Time: 2024-03-19 16:23:38 | Unix Time: 1710865418 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 16:23:38 | Unix Time: 1710865418 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TRUMP2024USDT
+| GMT Time: 2024-03-19 16:24:40 | Unix Time: 1710865480 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:24:40 | Unix Time: 1710865480 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:24:40 | Unix Time: 1710865480 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:24:40 | Unix Time: 1710865480 |
+TradingPair.cpp, buy signal from 20in45 from FROGUSDT
+| GMT Time: 2024-03-19 16:24:40 | Unix Time: 1710865480 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TRUMP2024USDT
+| GMT Time: 2024-03-19 16:25:41 | Unix Time: 1710865541 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:25:41 | Unix Time: 1710865541 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:25:41 | Unix Time: 1710865541 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:25:41 | Unix Time: 1710865541 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:25:41 | Unix Time: 1710865541 |
+TradingPair.cpp, buy signal from 20in45 from FROGUSDT
+| GMT Time: 2024-03-19 16:25:41 | Unix Time: 1710865541 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TRUMP2024USDT
+| GMT Time: 2024-03-19 16:26:43 | Unix Time: 1710865603 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:26:43 | Unix Time: 1710865603 |
+TradingPair.cpp, buy signal from 20in45 from MUMUUSDT
+| GMT Time: 2024-03-19 16:26:43 | Unix Time: 1710865603 |
+TradingPair.cpp, buy signal from 20in45 from FROGUSDT
+| GMT Time: 2024-03-19 16:26:43 | Unix Time: 1710865603 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TRUMP2024USDT
+| GMT Time: 2024-03-19 16:27:44 | Unix Time: 1710865664 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:27:44 | Unix Time: 1710865664 |
+TradingPair.cpp, buy signal from 20in45 from FROGUSDT
+| GMT Time: 2024-03-19 16:27:44 | Unix Time: 1710865664 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:27:44 | Unix Time: 1710865664 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:27:44 | Unix Time: 1710865664 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TRUMP2024USDT
+| GMT Time: 2024-03-19 16:28:45 | Unix Time: 1710865725 |
+TradingPair.cpp, buy signal from 20in45 from BRSUSDT
+| GMT Time: 2024-03-19 16:28:45 | Unix Time: 1710865725 |
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:28:45 | Unix Time: 1710865725 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:28:45 | Unix Time: 1710865725 |
+TradingPair.cpp, buy signal from 20in45 from ZENXUSDT
+| GMT Time: 2024-03-19 16:28:45 | Unix Time: 1710865725 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from THUSDT
+| GMT Time: 2024-03-19 16:29:47 | Unix Time: 1710865787 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:29:47 | Unix Time: 1710865787 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:29:47 | Unix Time: 1710865787 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from CYBONKUSDT
+| GMT Time: 2024-03-19 16:30:48 | Unix Time: 1710865848 |
+TradingPair.cpp, buy signal from 20in45 from HONKUSDT
+| GMT Time: 2024-03-19 16:30:48 | Unix Time: 1710865848 |
+TradingPair.cpp, buy signal from 20in45 from TRUMP2024USDT
+| GMT Time: 2024-03-19 16:30:48 | Unix Time: 1710865848 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:30:48 | Unix Time: 1710865848 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:30:48 | Unix Time: 1710865848 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from HONKUSDT
+| GMT Time: 2024-03-19 16:31:49 | Unix Time: 1710865909 |
+TradingPair.cpp, buy signal from 20in45 from XCHNGUSDT
+| GMT Time: 2024-03-19 16:31:49 | Unix Time: 1710865909 |
+TradingPair.cpp, buy signal from 20in45 from PEPIUSDT
+| GMT Time: 2024-03-19 16:31:49 | Unix Time: 1710865909 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:32:51 | Unix Time: 1710865971 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:33:52 | Unix Time: 1710866032 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:33:52 | Unix Time: 1710866032 |
+TradingPair.cpp, buy signal from 20in45 from KNOBUSDT
+| GMT Time: 2024-03-19 16:33:52 | Unix Time: 1710866032 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 16:33:52 | Unix Time: 1710866032 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+TradingPair.cpp, buy signal from 20in45 from KNOBUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+TradingPair.cpp, buy signal from 20in45 from MILOUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 16:34:53 | Unix Time: 1710866093 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+TradingPair.cpp, buy signal from 20in45 from KNOBUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+TradingPair.cpp, buy signal from 20in45 from MILOUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:35:55 | Unix Time: 1710866155 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:36:56 | Unix Time: 1710866216 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:36:56 | Unix Time: 1710866216 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:36:56 | Unix Time: 1710866216 |
+TradingPair.cpp, buy signal from 20in45 from KNOBUSDT
+| GMT Time: 2024-03-19 16:36:56 | Unix Time: 1710866216 |
+TradingPair.cpp, buy signal from 20in45 from MILOUSDT
+| GMT Time: 2024-03-19 16:36:56 | Unix Time: 1710866216 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 16:36:56 | Unix Time: 1710866216 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PEPIUSDT
+| GMT Time: 2024-03-19 16:37:57 | Unix Time: 1710866277 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 16:37:57 | Unix Time: 1710866277 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:37:57 | Unix Time: 1710866277 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:37:57 | Unix Time: 1710866277 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:37:57 | Unix Time: 1710866277 |
+TradingPair.cpp, buy signal from 20in45 from AMBOUSDT
+| GMT Time: 2024-03-19 16:37:57 | Unix Time: 1710866277 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from CDTUSDT
+| GMT Time: 2024-03-19 16:38:59 | Unix Time: 1710866339 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:38:59 | Unix Time: 1710866339 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:38:59 | Unix Time: 1710866339 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:38:59 | Unix Time: 1710866339 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:38:59 | Unix Time: 1710866339 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 16:40:00 | Unix Time: 1710866400 |
+TradingPair.cpp, buy signal from 20in45 from CDTUSDT
+| GMT Time: 2024-03-19 16:40:00 | Unix Time: 1710866400 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:40:00 | Unix Time: 1710866400 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:40:00 | Unix Time: 1710866400 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:40:00 | Unix Time: 1710866400 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:41:01 | Unix Time: 1710866461 |
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:41:01 | Unix Time: 1710866461 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 16:42:03 | Unix Time: 1710866523 |
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 16:42:03 | Unix Time: 1710866523 |
+TradingPair.cpp, buy signal from 20in45 from LOFIUSDT
+| GMT Time: 2024-03-19 16:42:03 | Unix Time: 1710866523 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TFUSDT
+| GMT Time: 2024-03-19 16:43:04 | Unix Time: 1710866584 |
+TradingPair.cpp, buy signal from 20in45 from GFCATUSDT
+| GMT Time: 2024-03-19 16:43:04 | Unix Time: 1710866584 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:44:05 | Unix Time: 1710866645 |
+TradingPair.cpp, buy signal from 20in45 from GFCATUSDT
+| GMT Time: 2024-03-19 16:44:05 | Unix Time: 1710866645 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:45:07 | Unix Time: 1710866707 |
+TradingPair.cpp, buy signal from 20in45 from GFCATUSDT
+| GMT Time: 2024-03-19 16:45:07 | Unix Time: 1710866707 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:45:07 | Unix Time: 1710866707 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from MBGUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from GFCATUSDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from RATS2USDT
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:46:08 | Unix Time: 1710866768 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 16:47:10 | Unix Time: 1710866830 |
+TradingPair.cpp, buy signal from 20in45 from SC2USDT
+| GMT Time: 2024-03-19 16:47:10 | Unix Time: 1710866830 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:47:10 | Unix Time: 1710866830 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:47:10 | Unix Time: 1710866830 |
+TradingPair.cpp, buy signal from 20in45 from GFCATUSDT
+| GMT Time: 2024-03-19 16:47:10 | Unix Time: 1710866830 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:47:10 | Unix Time: 1710866830 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 16:48:11 | Unix Time: 1710866891 |
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 16:48:11 | Unix Time: 1710866891 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:48:11 | Unix Time: 1710866891 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:48:11 | Unix Time: 1710866891 |
+TradingPair.cpp, buy signal from 20in45 from RATS2USDT
+| GMT Time: 2024-03-19 16:48:11 | Unix Time: 1710866891 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:48:11 | Unix Time: 1710866891 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:49:12 | Unix Time: 1710866952 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:49:12 | Unix Time: 1710866952 |
+TradingPair.cpp, buy signal from 20in45 from GGDUSDT
+| GMT Time: 2024-03-19 16:49:12 | Unix Time: 1710866952 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:49:12 | Unix Time: 1710866952 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:49:12 | Unix Time: 1710866952 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:49:12 | Unix Time: 1710866952 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from RATS2USDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:50:14 | Unix Time: 1710867014 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:51:15 | Unix Time: 1710867075 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:51:15 | Unix Time: 1710867075 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:51:15 | Unix Time: 1710867075 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:51:15 | Unix Time: 1710867075 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:51:15 | Unix Time: 1710867075 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from XIUSDT
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:52:16 | Unix Time: 1710867136 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:53:17 | Unix Time: 1710867197 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from PENGUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:54:19 | Unix Time: 1710867259 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from SECUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from DOGEAIUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:55:20 | Unix Time: 1710867320 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:56:22 | Unix Time: 1710867382 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:56:22 | Unix Time: 1710867382 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:56:22 | Unix Time: 1710867382 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:56:22 | Unix Time: 1710867382 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 16:56:22 | Unix Time: 1710867382 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:57:23 | Unix Time: 1710867443 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:57:23 | Unix Time: 1710867443 |
+TradingPair.cpp, buy signal from 20in45 from BALLZUSDT
+| GMT Time: 2024-03-19 16:57:23 | Unix Time: 1710867443 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:57:23 | Unix Time: 1710867443 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:58:24 | Unix Time: 1710867504 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:58:24 | Unix Time: 1710867504 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:58:24 | Unix Time: 1710867504 |
+TradingPair.cpp, buy signal from 20in45 from BERRYUSDT
+| GMT Time: 2024-03-19 16:58:24 | Unix Time: 1710867504 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:58:24 | Unix Time: 1710867504 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 16:59:25 | Unix Time: 1710867565 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 16:59:25 | Unix Time: 1710867565 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 16:59:25 | Unix Time: 1710867565 |
+TradingPair.cpp, buy signal from 20in45 from KOYUSDT
+| GMT Time: 2024-03-19 16:59:25 | Unix Time: 1710867565 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 16:59:25 | Unix Time: 1710867565 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 16:59:25 | Unix Time: 1710867565 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 17:00:27 | Unix Time: 1710867627 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 17:00:27 | Unix Time: 1710867627 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:00:27 | Unix Time: 1710867627 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 17:01:28 | Unix Time: 1710867688 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 17:01:28 | Unix Time: 1710867688 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:01:28 | Unix Time: 1710867688 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:01:28 | Unix Time: 1710867688 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:01:28 | Unix Time: 1710867688 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:02:29 | Unix Time: 1710867749 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:02:29 | Unix Time: 1710867749 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 17:02:29 | Unix Time: 1710867749 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 17:03:31 | Unix Time: 1710867811 |
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:03:31 | Unix Time: 1710867811 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:03:31 | Unix Time: 1710867811 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:03:31 | Unix Time: 1710867811 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:04:32 | Unix Time: 1710867872 |
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 17:04:32 | Unix Time: 1710867872 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 17:04:32 | Unix Time: 1710867872 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:04:32 | Unix Time: 1710867872 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:04:32 | Unix Time: 1710867872 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:05:33 | Unix Time: 1710867933 |
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 17:05:33 | Unix Time: 1710867933 |
+TradingPair.cpp, buy signal from 20in45 from IYUUSDT
+| GMT Time: 2024-03-19 17:05:33 | Unix Time: 1710867933 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:05:33 | Unix Time: 1710867933 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:05:33 | Unix Time: 1710867933 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:05:33 | Unix Time: 1710867933 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:06:35 | Unix Time: 1710867995 |
+TradingPair.cpp, buy signal from 20in45 from CYFUSDT
+| GMT Time: 2024-03-19 17:06:35 | Unix Time: 1710867995 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:06:35 | Unix Time: 1710867995 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:06:35 | Unix Time: 1710867995 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:06:35 | Unix Time: 1710867995 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:07:36 | Unix Time: 1710868056 |
+TradingPair.cpp, buy signal from 20in45 from CYFUSDT
+| GMT Time: 2024-03-19 17:07:36 | Unix Time: 1710868056 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:07:36 | Unix Time: 1710868056 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:07:36 | Unix Time: 1710868056 |
+TradingPair.cpp, buy signal from 20in45 from ETLUSDT
+| GMT Time: 2024-03-19 17:07:36 | Unix Time: 1710868056 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:08:38 | Unix Time: 1710868118 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:08:38 | Unix Time: 1710868118 |
+TradingPair.cpp, buy signal from 20in45 from PEPESOLUSDT
+| GMT Time: 2024-03-19 17:08:38 | Unix Time: 1710868118 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:08:38 | Unix Time: 1710868118 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:08:38 | Unix Time: 1710868118 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TYPEUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from ZTNUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from PEPESOLUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 17:09:39 | Unix Time: 1710868179 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AVENTISAIUSDT
+| GMT Time: 2024-03-19 17:10:40 | Unix Time: 1710868240 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:10:40 | Unix Time: 1710868240 |
+TradingPair.cpp, buy signal from 20in45 from KOYUSDT
+| GMT Time: 2024-03-19 17:10:40 | Unix Time: 1710868240 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:10:40 | Unix Time: 1710868240 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:10:40 | Unix Time: 1710868240 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 17:10:40 | Unix Time: 1710868240 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:11:42 | Unix Time: 1710868302 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:11:42 | Unix Time: 1710868302 |
+TradingPair.cpp, buy signal from 20in45 from KOINONUSDC
+| GMT Time: 2024-03-19 17:11:42 | Unix Time: 1710868302 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 17:12:43 | Unix Time: 1710868363 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:12:43 | Unix Time: 1710868363 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NESTUSDT
+| GMT Time: 2024-03-19 17:13:44 | Unix Time: 1710868424 |
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:13:44 | Unix Time: 1710868424 |
+TradingPair.cpp, buy signal from 20in45 from RJVUSDT
+| GMT Time: 2024-03-19 17:13:44 | Unix Time: 1710868424 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KOYUSDT
+| GMT Time: 2024-03-19 17:14:45 | Unix Time: 1710868485 |
+TradingPair.cpp, buy signal from 20in45 from RJVUSDT
+| GMT Time: 2024-03-19 17:14:45 | Unix Time: 1710868485 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:14:45 | Unix Time: 1710868485 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GAPUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from SAUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from FELUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from RJVUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:15:47 | Unix Time: 1710868547 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:16:48 | Unix Time: 1710868608 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:16:48 | Unix Time: 1710868608 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:16:48 | Unix Time: 1710868608 |
+TradingPair.cpp, buy signal from 20in45 from SAUSDT
+| GMT Time: 2024-03-19 17:16:48 | Unix Time: 1710868608 |
+TradingPair.cpp, buy signal from 20in45 from STAUSDT
+| GMT Time: 2024-03-19 17:16:48 | Unix Time: 1710868608 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:16:48 | Unix Time: 1710868608 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+TradingPair.cpp, buy signal from 20in45 from CFWUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+TradingPair.cpp, buy signal from 20in45 from SAUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+TradingPair.cpp, buy signal from 20in45 from STAUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:17:50 | Unix Time: 1710868670 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 17:18:51 | Unix Time: 1710868731 |
+TradingPair.cpp, buy signal from 20in45 from ZTNUSDT
+| GMT Time: 2024-03-19 17:18:51 | Unix Time: 1710868731 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:18:51 | Unix Time: 1710868731 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:18:51 | Unix Time: 1710868731 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 17:19:52 | Unix Time: 1710868792 |
+TradingPair.cpp, buy signal from 20in45 from ZTNUSDT
+| GMT Time: 2024-03-19 17:19:52 | Unix Time: 1710868792 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:19:52 | Unix Time: 1710868792 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:19:52 | Unix Time: 1710868792 |
+TradingPair.cpp, buy signal from 20in45 from MEGAUNIUSDT
+| GMT Time: 2024-03-19 17:19:52 | Unix Time: 1710868792 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:20:54 | Unix Time: 1710868854 |
+TradingPair.cpp, buy signal from 20in45 from GPUAIUSDT
+| GMT Time: 2024-03-19 17:20:54 | Unix Time: 1710868854 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:20:54 | Unix Time: 1710868854 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ZTNUSDT
+| GMT Time: 2024-03-19 17:21:55 | Unix Time: 1710868915 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:21:55 | Unix Time: 1710868915 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:21:55 | Unix Time: 1710868915 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:22:56 | Unix Time: 1710868976 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:22:56 | Unix Time: 1710868976 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:23:57 | Unix Time: 1710869037 |
+TradingPair.cpp, buy signal from 20in45 from DWARSUSDT
+| GMT Time: 2024-03-19 17:23:57 | Unix Time: 1710869037 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ZTNUSDT
+| GMT Time: 2024-03-19 17:24:59 | Unix Time: 1710869099 |
+TradingPair.cpp, buy signal from 20in45 from TREEBUSDT
+| GMT Time: 2024-03-19 17:24:59 | Unix Time: 1710869099 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:24:59 | Unix Time: 1710869099 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:24:59 | Unix Time: 1710869099 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 17:24:59 | Unix Time: 1710869099 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:26:00 | Unix Time: 1710869160 |
+TradingPair.cpp, buy signal from 20in45 from TREEBUSDT
+| GMT Time: 2024-03-19 17:26:00 | Unix Time: 1710869160 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:26:00 | Unix Time: 1710869160 |
+TradingPair.cpp, buy signal from 20in45 from KOYUSDT
+| GMT Time: 2024-03-19 17:26:00 | Unix Time: 1710869160 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:26:00 | Unix Time: 1710869160 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 17:27:01 | Unix Time: 1710869221 |
+TradingPair.cpp, buy signal from 20in45 from TREEBUSDT
+| GMT Time: 2024-03-19 17:27:01 | Unix Time: 1710869221 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:27:01 | Unix Time: 1710869221 |
+TradingPair.cpp, buy signal from 20in45 from NFEUSDT
+| GMT Time: 2024-03-19 17:27:01 | Unix Time: 1710869221 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:28:03 | Unix Time: 1710869283 |
+TradingPair.cpp, buy signal from 20in45 from TREEBUSDT
+| GMT Time: 2024-03-19 17:28:03 | Unix Time: 1710869283 |
+TradingPair.cpp, buy signal from 20in45 from KOYUSDT
+| GMT Time: 2024-03-19 17:28:03 | Unix Time: 1710869283 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:28:03 | Unix Time: 1710869283 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:28:03 | Unix Time: 1710869283 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:28:03 | Unix Time: 1710869283 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GAPUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from TREEBUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from STAUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from WSGUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:29:04 | Unix Time: 1710869344 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GAPUSDT
+| GMT Time: 2024-03-19 17:30:06 | Unix Time: 1710869406 |
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:30:06 | Unix Time: 1710869406 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:30:06 | Unix Time: 1710869406 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:30:06 | Unix Time: 1710869406 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:30:06 | Unix Time: 1710869406 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GAPUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from 1EXUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from SAUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:31:07 | Unix Time: 1710869467 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GAPUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from 1EXUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:32:08 | Unix Time: 1710869528 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JUICEUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+TradingPair.cpp, buy signal from 20in45 from 1EXUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+TradingPair.cpp, buy signal from 20in45 from SAUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:33:10 | Unix Time: 1710869590 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:34:11 | Unix Time: 1710869651 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:35:12 | Unix Time: 1710869712 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JOBUSDT
+| GMT Time: 2024-03-19 17:36:14 | Unix Time: 1710869774 |
+TradingPair.cpp, buy signal from 20in45 from BOBOUSDT
+| GMT Time: 2024-03-19 17:36:14 | Unix Time: 1710869774 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:36:14 | Unix Time: 1710869774 |
+TradingPair.cpp, buy signal from 20in45 from DHPUSDT
+| GMT Time: 2024-03-19 17:36:14 | Unix Time: 1710869774 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from PCTUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+TradingPair.cpp, buy signal from 20in45 from BOBOUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+TradingPair.cpp, buy signal from 20in45 from DRFUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+TradingPair.cpp, buy signal from 20in45 from DHPUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+TradingPair.cpp, buy signal from 20in45 from MOONUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:37:15 | Unix Time: 1710869835 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from BOBOUSDT
+| GMT Time: 2024-03-19 17:38:16 | Unix Time: 1710869896 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:38:16 | Unix Time: 1710869896 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:38:16 | Unix Time: 1710869896 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DHPUSDT
+| GMT Time: 2024-03-19 17:39:17 | Unix Time: 1710869957 |
+TradingPair.cpp, buy signal from 20in45 from HARAMBEUSDT
+| GMT Time: 2024-03-19 17:39:18 | Unix Time: 1710869958 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:39:18 | Unix Time: 1710869958 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MMYUSDT
+| GMT Time: 2024-03-19 17:40:19 | Unix Time: 1710870019 |
+TradingPair.cpp, buy signal from 20in45 from DHPUSDT
+| GMT Time: 2024-03-19 17:40:19 | Unix Time: 1710870019 |
+TradingPair.cpp, buy signal from 20in45 from WSBUSDT
+| GMT Time: 2024-03-19 17:40:19 | Unix Time: 1710870019 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:40:19 | Unix Time: 1710870019 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from BOBOUSDT
+| GMT Time: 2024-03-19 17:41:20 | Unix Time: 1710870080 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DHPUSDT
+| GMT Time: 2024-03-19 17:42:21 | Unix Time: 1710870141 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:43:23 | Unix Time: 1710870203 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:43:23 | Unix Time: 1710870203 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:44:24 | Unix Time: 1710870264 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:44:24 | Unix Time: 1710870264 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 17:45:25 | Unix Time: 1710870325 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:45:25 | Unix Time: 1710870325 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:46:27 | Unix Time: 1710870387 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:46:27 | Unix Time: 1710870387 |
+TradingPair.cpp, buy signal from 20in45 from DOGEGANGUSDT
+| GMT Time: 2024-03-19 17:46:27 | Unix Time: 1710870387 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:46:27 | Unix Time: 1710870387 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:47:28 | Unix Time: 1710870448 |
+TradingPair.cpp, buy signal from 20in45 from RMNUSDT
+| GMT Time: 2024-03-19 17:47:28 | Unix Time: 1710870448 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:47:28 | Unix Time: 1710870448 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:47:28 | Unix Time: 1710870448 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:48:29 | Unix Time: 1710870509 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:48:29 | Unix Time: 1710870509 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:48:29 | Unix Time: 1710870509 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from NWCUSDT
+| GMT Time: 2024-03-19 17:49:31 | Unix Time: 1710870571 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:49:31 | Unix Time: 1710870571 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from DIABLOUSDT
+| GMT Time: 2024-03-19 17:50:32 | Unix Time: 1710870632 |
+TradingPair.cpp, buy signal from 20in45 from WCDUSDT
+| GMT Time: 2024-03-19 17:50:32 | Unix Time: 1710870632 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from SPXUSDT
+| GMT Time: 2024-03-19 17:51:33 | Unix Time: 1710870693 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:51:33 | Unix Time: 1710870693 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from QTVUSDT
+| GMT Time: 2024-03-19 17:52:34 | Unix Time: 1710870754 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 17:53:36 | Unix Time: 1710870816 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:53:36 | Unix Time: 1710870816 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:53:36 | Unix Time: 1710870816 |
+TradingPair.cpp, buy signal from 20in45 from DOGEGANGUSDT
+| GMT Time: 2024-03-19 17:53:36 | Unix Time: 1710870816 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:54:37 | Unix Time: 1710870877 |
+TradingPair.cpp, buy signal from 20in45 from ROOSUSDT
+| GMT Time: 2024-03-19 17:54:37 | Unix Time: 1710870877 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:54:37 | Unix Time: 1710870877 |
+TradingPair.cpp, buy signal from 20in45 from DOGEGANGUSDT
+| GMT Time: 2024-03-19 17:54:37 | Unix Time: 1710870877 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:55:38 | Unix Time: 1710870938 |
+TradingPair.cpp, buy signal from 20in45 from ROOSUSDT
+| GMT Time: 2024-03-19 17:55:38 | Unix Time: 1710870938 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:55:38 | Unix Time: 1710870938 |
+TradingPair.cpp, buy signal from 20in45 from DOGEGANGUSDT
+| GMT Time: 2024-03-19 17:55:38 | Unix Time: 1710870938 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:56:40 | Unix Time: 1710871000 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:56:40 | Unix Time: 1710871000 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:56:40 | Unix Time: 1710871000 |
+TradingPair.cpp, buy signal from 20in45 from DOGEGANGUSDT
+| GMT Time: 2024-03-19 17:56:40 | Unix Time: 1710871000 |
+TradingPair.cpp, buy signal from 20in45 from ELXUSDT
+| GMT Time: 2024-03-19 17:56:40 | Unix Time: 1710871000 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:57:41 | Unix Time: 1710871061 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:57:41 | Unix Time: 1710871061 |
+TradingPair.cpp, buy signal from 20in45 from ELXUSDT
+| GMT Time: 2024-03-19 17:57:41 | Unix Time: 1710871061 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:58:43 | Unix Time: 1710871123 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:58:43 | Unix Time: 1710871123 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:58:43 | Unix Time: 1710871123 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:58:43 | Unix Time: 1710871123 |
+TradingPair.cpp, buy signal from 20in45 from ELXUSDT
+| GMT Time: 2024-03-19 17:58:43 | Unix Time: 1710871123 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 17:59:44 | Unix Time: 1710871184 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 17:59:44 | Unix Time: 1710871184 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 17:59:44 | Unix Time: 1710871184 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 17:59:44 | Unix Time: 1710871184 |
+TradingPair.cpp, buy signal from 20in45 from INSCRIBEUSDT
+| GMT Time: 2024-03-19 17:59:44 | Unix Time: 1710871184 |
+TradingPair.cpp, buy signal from 20in45 from ELXUSDT
+| GMT Time: 2024-03-19 17:59:44 | Unix Time: 1710871184 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:00:45 | Unix Time: 1710871245 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:00:45 | Unix Time: 1710871245 |
+TradingPair.cpp, buy signal from 20in45 from ELXUSDT
+| GMT Time: 2024-03-19 18:00:45 | Unix Time: 1710871245 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from XAUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from BANKBTCUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+TradingPair.cpp, buy signal from 20in45 from INSCRIBEUSDT
+| GMT Time: 2024-03-19 18:01:47 | Unix Time: 1710871307 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+TradingPair.cpp, buy signal from 20in45 from INSCRIBEUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+TradingPair.cpp, buy signal from 20in45 from CANDYUSDT
+| GMT Time: 2024-03-19 18:02:48 | Unix Time: 1710871368 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from FINEUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from BANKBTCUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from INSCRIBEUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+TradingPair.cpp, buy signal from 20in45 from CANDYUSDT
+| GMT Time: 2024-03-19 18:03:49 | Unix Time: 1710871429 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:04:51 | Unix Time: 1710871491 |
+TradingPair.cpp, buy signal from 20in45 from FINEUSDT
+| GMT Time: 2024-03-19 18:04:51 | Unix Time: 1710871491 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:04:51 | Unix Time: 1710871491 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:04:51 | Unix Time: 1710871491 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:04:51 | Unix Time: 1710871491 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:04:51 | Unix Time: 1710871491 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TREMPUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+TradingPair.cpp, buy signal from 20in45 from BANKBTCUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:05:52 | Unix Time: 1710871552 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TREMPUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+TradingPair.cpp, buy signal from 20in45 from LUAUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+TradingPair.cpp, buy signal from 20in45 from BANKBTCUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:06:53 | Unix Time: 1710871613 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:07:55 | Unix Time: 1710871675 |
+TradingPair.cpp, buy signal from 20in45 from BANKBTCUSDT
+| GMT Time: 2024-03-19 18:07:55 | Unix Time: 1710871675 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:07:55 | Unix Time: 1710871675 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:07:55 | Unix Time: 1710871675 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:07:55 | Unix Time: 1710871675 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from TREMPUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+TradingPair.cpp, buy signal from 20in45 from UPYUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+TradingPair.cpp, buy signal from 20in45 from BANKBTCUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:08:56 | Unix Time: 1710871736 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:09:57 | Unix Time: 1710871797 |
+TradingPair.cpp, buy signal from 20in45 from TREMPUSDT
+| GMT Time: 2024-03-19 18:09:57 | Unix Time: 1710871797 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:09:57 | Unix Time: 1710871797 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:09:57 | Unix Time: 1710871797 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:09:57 | Unix Time: 1710871797 |
+TradingPair.cpp, buy signal from 20in45 from CANDYUSDT
+| GMT Time: 2024-03-19 18:09:57 | Unix Time: 1710871797 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:10:59 | Unix Time: 1710871859 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:10:59 | Unix Time: 1710871859 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:10:59 | Unix Time: 1710871859 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:10:59 | Unix Time: 1710871859 |
+TradingPair.cpp, buy signal from 20in45 from CANDYUSDT
+| GMT Time: 2024-03-19 18:10:59 | Unix Time: 1710871859 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+TradingPair.cpp, buy signal from 20in45 from TREMPUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+TradingPair.cpp, buy signal from 20in45 from HALLOWEENUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:12:00 | Unix Time: 1710871920 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:13:02 | Unix Time: 1710871982 |
+TradingPair.cpp, buy signal from 20in45 from TREMPUSDT
+| GMT Time: 2024-03-19 18:13:02 | Unix Time: 1710871982 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:13:02 | Unix Time: 1710871982 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:13:02 | Unix Time: 1710871982 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:13:02 | Unix Time: 1710871982 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:14:03 | Unix Time: 1710872043 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:14:03 | Unix Time: 1710872043 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:14:03 | Unix Time: 1710872043 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:14:03 | Unix Time: 1710872043 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:15:04 | Unix Time: 1710872104 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:15:04 | Unix Time: 1710872104 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:15:04 | Unix Time: 1710872104 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:15:04 | Unix Time: 1710872104 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:16:05 | Unix Time: 1710872165 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:16:05 | Unix Time: 1710872165 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:16:05 | Unix Time: 1710872165 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:16:05 | Unix Time: 1710872165 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:17:07 | Unix Time: 1710872227 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:17:07 | Unix Time: 1710872227 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:17:07 | Unix Time: 1710872227 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:18:08 | Unix Time: 1710872288 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:18:08 | Unix Time: 1710872288 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:19:09 | Unix Time: 1710872349 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:19:09 | Unix Time: 1710872349 |
+TradingPair.cpp, buy signal from 20in45 from IFMUSDT
+| GMT Time: 2024-03-19 18:19:09 | Unix Time: 1710872349 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MMGUSDT
+| GMT Time: 2024-03-19 18:20:11 | Unix Time: 1710872411 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:20:11 | Unix Time: 1710872411 |
+TradingPair.cpp, buy signal from 20in45 from QAIUSDT
+| GMT Time: 2024-03-19 18:20:11 | Unix Time: 1710872411 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:20:11 | Unix Time: 1710872411 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:21:12 | Unix Time: 1710872472 |
+TradingPair.cpp, buy signal from 20in45 from MMGUSDT
+| GMT Time: 2024-03-19 18:21:12 | Unix Time: 1710872472 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:21:12 | Unix Time: 1710872472 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:21:12 | Unix Time: 1710872472 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:22:14 | Unix Time: 1710872534 |
+TradingPair.cpp, buy signal from 20in45 from MMGUSDT
+| GMT Time: 2024-03-19 18:22:14 | Unix Time: 1710872534 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:22:14 | Unix Time: 1710872534 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:22:14 | Unix Time: 1710872534 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:23:15 | Unix Time: 1710872595 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:23:15 | Unix Time: 1710872595 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:23:15 | Unix Time: 1710872595 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:24:16 | Unix Time: 1710872656 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:24:16 | Unix Time: 1710872656 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:24:16 | Unix Time: 1710872656 |
+TradingPair.cpp, buy signal from 20in45 from OTACONUSDT
+| GMT Time: 2024-03-19 18:24:16 | Unix Time: 1710872656 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:25:17 | Unix Time: 1710872717 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:25:17 | Unix Time: 1710872717 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:25:17 | Unix Time: 1710872717 |
+TradingPair.cpp, buy signal from 20in45 from OTACONUSDT
+| GMT Time: 2024-03-19 18:25:17 | Unix Time: 1710872717 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:26:19 | Unix Time: 1710872779 |
+TradingPair.cpp, buy signal from 20in45 from ARBIUSDT
+| GMT Time: 2024-03-19 18:26:19 | Unix Time: 1710872779 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:26:19 | Unix Time: 1710872779 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:26:19 | Unix Time: 1710872779 |
+TradingPair.cpp, buy signal from 20in45 from OTACONUSDT
+| GMT Time: 2024-03-19 18:26:19 | Unix Time: 1710872779 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:27:20 | Unix Time: 1710872840 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:27:20 | Unix Time: 1710872840 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:27:20 | Unix Time: 1710872840 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:27:20 | Unix Time: 1710872840 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from GBUSDT
+| GMT Time: 2024-03-19 18:28:21 | Unix Time: 1710872901 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:28:21 | Unix Time: 1710872901 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:28:21 | Unix Time: 1710872901 |
+TradingPair.cpp, buy signal from 20in45 from PRTUSDT
+| GMT Time: 2024-03-19 18:28:21 | Unix Time: 1710872901 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 18:29:23 | Unix Time: 1710872963 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:29:23 | Unix Time: 1710872963 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:29:23 | Unix Time: 1710872963 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:30:24 | Unix Time: 1710873024 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:30:24 | Unix Time: 1710873024 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from AVENTISAIUSDT
+| GMT Time: 2024-03-19 18:31:25 | Unix Time: 1710873085 |
+TradingPair.cpp, buy signal from 20in45 from KALISUSDT
+| GMT Time: 2024-03-19 18:31:25 | Unix Time: 1710873085 |
+TradingPair.cpp, buy signal from 20in45 from NEXTGENUSDT
+| GMT Time: 2024-03-19 18:31:25 | Unix Time: 1710873085 |
+TradingPair.cpp, buy signal from 20in45 from MGCUSDT
+| GMT Time: 2024-03-19 18:31:25 | Unix Time: 1710873085 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:31:25 | Unix Time: 1710873085 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JOBUSDT
+| GMT Time: 2024-03-19 18:32:27 | Unix Time: 1710873147 |
+TradingPair.cpp, buy signal from 20in45 from PLCUUSDT
+| GMT Time: 2024-03-19 18:32:27 | Unix Time: 1710873147 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------
+cmd exec node mexc-api/pair-prices.js
+TradingPair.cpp, buy signal from 20in45 from JOBUSDT
+| GMT Time: 2024-03-19 18:33:29 | Unix Time: 1710873209 |
+-------------------------------------------------------
+------------MAIN.cpp, sleeping for 1 minute------------

@@ -85,9 +85,8 @@ int main() {
 			}	
 		}
 
-		Log::logLine();
-		Log::log("------------MAIN.cpp, sleeping for 1 minute------------");
 
+		Log::logNoNewline("sleep ");
 		int sleepTimeMins = 1;
 		int sleepTime = sleepTimeMins * 60;
 		time.sleep(sleepTime);

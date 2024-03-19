@@ -1,6 +1,4 @@
 .env
-# /node_modules/
 run
 configuration notes.txt
-
-# configPI.txt
+log.txt

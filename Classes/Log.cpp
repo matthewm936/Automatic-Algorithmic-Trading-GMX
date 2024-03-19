@@ -12,6 +12,11 @@ private:
 	static string filename;
 
 public:
+	static void logNoNewline(string log) {
+		ofstream file(filename, ios_base::app);
+		file << log;
+	
+	}
 	static void log(string log) {
 		ofstream file(filename, ios_base::app);
 		file << log << "\n";
