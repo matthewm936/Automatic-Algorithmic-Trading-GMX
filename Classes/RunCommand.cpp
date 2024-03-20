@@ -1,6 +1,8 @@
 #include "Log.cpp"
 
-static string runCommand(const char *cmd) {
+using namespace std;
+
+string runCommand(const char *cmd) {
 	Log::log("cmd exec " + string(cmd));
 
 	std::array<char, 128> buffer;

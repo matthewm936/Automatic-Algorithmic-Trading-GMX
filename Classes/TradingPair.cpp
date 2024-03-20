@@ -11,10 +11,12 @@
 #include "Log.cpp"
 #include "Trade.cpp"
 #include "Position.cpp"
+#include "Liquidity.cpp"
 
 using namespace std;
 
 extern map<string, Position> g_positions;
+extern string runCommand(const char* command);
 
 class TradingPair { 
 	
@@ -53,7 +55,8 @@ private:
 					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
 					return;
 				} else {
-					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume above " + to_string(VOLUME_THREASHOLD)) + " buying.";
+					string message = "TradingPair.cpp, " + pairName + " has volume above " + to_string(VOLUME_THREASHOLD) + " buying.";
+					Log::LogWithTimestamp(message);
 
 					Position newPosition = {pairName, price, price, -1};
 					g_positions[pairName] = newPosition;

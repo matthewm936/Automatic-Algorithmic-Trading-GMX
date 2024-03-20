@@ -5,24 +5,22 @@
 #include <cstdlib>
 
 #include "../nlohmann/json.hpp"
-#include "RunCommand.cpp" 
 #include "Log.cpp"
 
 using namespace std;
 using json = nlohmann::json;
 
+extern string runCommand(const char* command);
+
 class Liquidity { 
 
 private:
-	string runApiCommand(const string& command) {
+	static string runApiCommand(const string& command) {
 		string cmd = "node " + command;
 		return runCommand(cmd.c_str());
 	}
 
 public:
-	Liquidity() {
-	}
-
 	static double getBidAskQty(string pairName) {
 		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js " + pairName);
 		try {
