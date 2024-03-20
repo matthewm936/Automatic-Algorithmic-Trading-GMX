@@ -1,7 +1,0 @@
-MAIN.cpp Started
-| GMT Time: 2024-03-20 03:59:08 | Unix Time: 1710907148 |
-init TradingPairs
-cmd exec node mexc-api/ticker24hrALL.js
-main.cpp, pairs has 2592 of pairs
-cmd exec node mexc-api/pair-prices.js
-sleep 
