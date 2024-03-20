@@ -3,7 +3,7 @@
 using namespace std;
 
 string runCommand(const char *cmd) {
-	Log::log("cmd exec " + string(cmd));
+	// Log::log("cmd exec " + string(cmd));
 
 	std::array<char, 128> buffer;
 	std::string result;

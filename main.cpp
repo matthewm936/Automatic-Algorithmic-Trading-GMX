@@ -11,7 +11,6 @@
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
 #include "Classes/Log.cpp"
-#include "Classes/RunCommand.cpp"
 #include "Classes/Liquidity.cpp"
 
 using namespace std;

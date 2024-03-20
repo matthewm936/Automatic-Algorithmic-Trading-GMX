@@ -6,11 +6,10 @@
 
 #include "../nlohmann/json.hpp"
 #include "Log.cpp"
+#include "RunCommand.cpp"
 
 using namespace std;
 using json = nlohmann::json;
-
-extern string runCommand(const char* command);
 
 class Liquidity { 
 

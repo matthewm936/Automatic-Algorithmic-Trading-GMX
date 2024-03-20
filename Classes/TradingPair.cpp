@@ -16,7 +16,6 @@
 using namespace std;
 
 extern map<string, Position> g_positions;
-extern string runCommand(const char* command);
 
 class TradingPair { 
 	
@@ -40,6 +39,12 @@ private:
 		TradingPair(double price, string pair, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
 			prices.push_front(price);
 			pairName = pair;
+			askPrice = ask;
+			bidPrice = bid;
+			askQty = askQ;
+			bidQty = bidQ;
+			volume = vol;
+			quoteVolume = quoteVol;
 		}
 
 	double getCurrentPrice() {
@@ -57,18 +62,22 @@ private:
 			prices.pop_back();
 
 			if(strategyMomentum.buySignal10in15(prices)) {
-				Log::LogWithTimestamp("TradingPair.cpp, buy signal from 10in15 from " + pairName);
+				Log::LogWithTimestamp("| BUY signal 10in15 from " + pairName + " volume:" + to_string(volume) + " quoteVolume:" + to_string(quoteVolume));
 
-				int VOLUME_THREASHOLD = 10000;
-				if(Liquidity::get24hrVolume(pairName) < VOLUME_THREASHOLD) {
+				int VOLUME_THREASHOLD = 500;
+
+				double bidAskQP = Liquidity::getBidAskQty(pairName);
+				if(bidAskQP < VOLUME_THREASHOLD) {
 					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
 					return;
 				} else {
-					string message = "TradingPair.cpp, " + pairName + " has volume above " + to_string(VOLUME_THREASHOLD) + " buying.";
+					string message = "TradingPair.cpp, " + pairName + " has bidAskQP " + to_string(bidAskQP) + " buying.";
 					Log::LogWithTimestamp(message);
 
-					Position newPosition = {pairName, price, price, -1};
-					g_positions[pairName] = newPosition;
+					if (g_positions.find(pairName) == g_positions.end()) {
+						Position newPosition = {pairName, price, price, -1};
+						g_positions[pairName] = newPosition;
+					}
 				}
 
 				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
@@ -77,18 +86,22 @@ private:
 			}
 
 			if (strategyMomentum.buySignal20in45(prices)) {
-				Log::LogWithTimestamp("TradingPair.cpp, buy signal from 20in45 from " + pairName);
+				Log::LogWithTimestamp("| BUY signal 20in45 from " + pairName + " volume:" + to_string(volume) + " quoteVolume:" +  to_string(quoteVolume));
 
-				int VOLUME_THREASHOLD = 10000;
-				if(Liquidity::get24hrVolume(pairName) < VOLUME_THREASHOLD) {
+				int VOLUME_THREASHOLD = 50000;
+
+				double bidAskQP = Liquidity::getBidAskQty(pairName);
+				if(bidAskQP < VOLUME_THREASHOLD) {
 					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
 					return;
 				} else {
-					string message = "TradingPair.cpp, " + pairName + " has volume above " + to_string(VOLUME_THREASHOLD) + " buying.";
+					string message = "TradingPair.cpp, " + pairName + " has bidAskQP " + to_string(bidAskQP) + " buying.";
 					Log::LogWithTimestamp(message);
 
-					Position newPosition = {pairName, price, price, -1};
-					g_positions[pairName] = newPosition;
+					if (g_positions.find(pairName) == g_positions.end()) {
+						Position newPosition = {pairName, price, price, -1};
+						g_positions[pairName] = newPosition;
+					}
 				}
 
 				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
