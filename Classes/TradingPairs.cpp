@@ -19,8 +19,8 @@ public:
 		Log::log("init TradingPairs");
 	}
 
-	void addPair(double price, string pairName) {
-		TradingPair tradingPair(price, pairName);
+	void addPair(double price, string pairName, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
+		TradingPair tradingPair(price, pairName, ask, bid, askQ, bidQ, vol, quoteVol);
 		pairs[pairName] = tradingPair;
 	}
 
@@ -42,6 +42,10 @@ public:
 			cout << pair.first << " : " << pair.second.getCurrentPrice() << endl;
 		}
 		cout << "total pairs: " << getNumPairs() << endl;
+	}
+
+	size_t size() const {
+		return pairs.size();
 	}
 
 };

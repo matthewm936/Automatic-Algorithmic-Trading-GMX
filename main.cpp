@@ -6,11 +6,13 @@
 #include <cstdio>
 #include <map>
 #include <string>
+#include <nlohmann/json.hpp>
 
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
 #include "Classes/Log.cpp"
 #include "Classes/RunCommand.cpp"
+#include "Classes/Liquidity.cpp"
 
 using namespace std;
 
@@ -21,18 +23,46 @@ int main() {
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
 	TradingPairs pairs; 
-	string prices = runCommand("node mexc-api/pair-prices.js");
+	
+	runCommand("node mexc-api/ticker24hrALL.js");
 
+	ifstream i("prices.json");
+	nlohmann::json j;
+	i >> j;
 
-	istringstream iss(prices);
+	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
+		string symbol = it->at("symbol").get<string>();
 
-	string symbol;
-	double price;
-	while (iss >> symbol >> price) {
-		pairs.addPair(price, symbol);
+		string priceStr = it->at("lastPrice").get<string>();
+		double lastPrice = stod(priceStr);
+
+		string askPriceStr = it->at("askPrice").get<string>();
+		double askPrice = stod(askPriceStr);
+
+		string bidPriceStr = it->at("bidPrice").get<string>();
+		double bidPrice = stod(bidPriceStr);
+
+		string askQtyStr = it->at("askQty").get<string>();
+		double askQty = stod(askQtyStr);
+
+		string bidQtyStr = it->at("bidQty").get<string>();
+		double bidQty = stod(bidQtyStr);
+
+		string volumeStr = it->at("volume").get<string>();
+		double volume = stod(volumeStr);
+
+		string quoteVolumeStr = it->at("quoteVolume").get<string>();
+		double quoteVolume = stod(quoteVolumeStr);
+
+		pairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
 	}
 
-	Log::LogWithTimestamp("Init pair prices of size: " + to_string(prices.size()) + " to pairs");
+	Log::log("main.cpp, pairs has " + pairs.getNumPairs() + " of pairs");
+	
+	// Log::log("Average liquidity for USDT pairs: " + to_string(averageLiquidty / pairs.size()));
+	// Log::log("Total liquidity for USDT pairs: " + to_string(averageLiquidty));
+
+	// Log::LogWithTimestamp("Init pair prices of size: " + to_string(prices.size()) + " to pairs");
 
 	while(true) {
 		string prices = runCommand("node mexc-api/pair-prices.js");
