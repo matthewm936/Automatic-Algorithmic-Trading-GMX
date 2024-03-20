@@ -48,11 +48,21 @@ private:
 			if (strategyMomentum.buySignal20in45(prices)) {
 				Log::LogWithTimestamp("TradingPair.cpp, buy signal from 20in45 from " + pairName);
 
+				int VOLUME_THREASHOLD = 10000;
+				if(Liquidity::get24hrVolume(pairName) < VOLUME_THREASHOLD) {
+					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
+					return;
+				} else {
+					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume above " + to_string(VOLUME_THREASHOLD)) + " buying.";
+
+					Position newPosition = {pairName, price, price, -1};
+					g_positions[pairName] = newPosition;
+				}
+
 				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
 				// const char* cmd = command.c_str();
 				// system(cmd);
-				Position newPosition = {pairName, price, price, -1};
-				g_positions[pairName] = newPosition;
+
 			}
 		}
 	}

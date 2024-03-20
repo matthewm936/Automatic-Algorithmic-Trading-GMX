@@ -23,7 +23,7 @@ public:
 	Liquidity() {
 	}
 
-	double getBidAskQty(string pairName) {
+	static double getBidAskQty(string pairName) {
 		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js " + pairName);
 		try {
 			json j = json::parse(response);
@@ -48,7 +48,7 @@ public:
 		}
 	}
 
-	double get24hrVolume(string pairName) {
+	static double get24hrVolume(string pairName) {
 		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js " + pairName);
 		try {
 			json j = json::parse(response);
