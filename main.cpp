@@ -57,8 +57,8 @@ int main() {
 		pairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
 	}
 
-	Log::log("main.cpp, pairs has " + pairs.getNumPairs() + " of pairs");
-	
+	Log::log("main.cpp, TradingPairs pairs has " + to_string(pairs.getNumPairs()) + " of trading pairs");
+
 	// Log::log("Average liquidity for USDT pairs: " + to_string(averageLiquidty / pairs.size()));
 	// Log::log("Total liquidity for USDT pairs: " + to_string(averageLiquidty));
 
