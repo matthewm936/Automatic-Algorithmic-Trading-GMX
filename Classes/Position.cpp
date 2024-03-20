@@ -3,4 +3,6 @@ struct Position {
 	double entryPrice;
 	double currentPrice;
 	double profitLoss;
+
+	time_t entryTime;
 };

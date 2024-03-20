@@ -64,6 +64,13 @@ public:
 		auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
 		return std::to_string(seconds.count());
 	}
+
+	double getElapsedTime(time_t startTime) {
+		auto now = std::chrono::high_resolution_clock::now();
+		auto epoch = now.time_since_epoch();
+		auto seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch);
+		return seconds.count() - startTime;
+	}
 };
 
 #endif

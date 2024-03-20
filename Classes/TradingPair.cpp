@@ -75,14 +75,10 @@ private:
 					Log::LogWithTimestamp(message);
 
 					if (g_positions.find(pairName) == g_positions.end()) {
-						Position newPosition = {pairName, price, price, -1};
+						Position newPosition = {pairName, price, price, -1, time(nullptr)};
 						g_positions[pairName] = newPosition;
 					}
 				}
-
-				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
-				// const char* cmd = command.c_str();
-				// system(cmd);
 			}
 
 			if (strategyMomentum.buySignal20in45(prices)) {
@@ -99,15 +95,10 @@ private:
 					Log::LogWithTimestamp(message);
 
 					if (g_positions.find(pairName) == g_positions.end()) {
-						Position newPosition = {pairName, price, price, -1};
+						Position newPosition = {pairName, price, price, -1, time(nullptr)};
 						g_positions[pairName] = newPosition;
 					}
 				}
-
-				// string command = "node /mexc-api/buy.js " + pairName + " BUY " + " 20";
-				// const char* cmd = command.c_str();
-				// system(cmd);
-
 			}
 		}
 	}
