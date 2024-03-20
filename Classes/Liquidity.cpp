@@ -27,27 +27,37 @@ public:
 		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js " + pairName);
 		try {
 			json j = json::parse(response);
-			cout << "bidQty: " << j["bidQty"] << endl;
+
+			string tempBidQty = j["bidQty"];
+			double bidQty = stod(tempBidQty);
+
+			string tempAskQty = j["askQty"];
+			double askQty = stod(tempAskQty);
+
+			string tempBidPrice = j["bidPrice"];
+			double bidPrice = stod(tempBidPrice);
+
+			string tempAskPrice = j["askPrice"];
+			double askPrice = stod(tempAskPrice);
+
+			return (bidQty * bidPrice) + (askQty * askPrice);
+
 		} catch (json::parse_error& e) {
 			Log::log("JSON parse error in Liquidity get BidAskQty: " + string(e.what()));
-			cout << "JSON parse error: " << e.what() << endl;
+			return -1;
 		}
-
-		return -1;
-
-		// double bidQty = j["bidQty"].get<double>();
-		// double askQty = j["askQty"].get<double>();
-		// double bidPrice = j["bidPrice"].get<double>();
-		// double askPrice = j["askPrice"].get<double>();
-
-		// return bidQty * bidPrice + askQty * askPrice;
 	}
 
 	double get24hrVolume(string pairName) {
 		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js " + pairName);
-		json j = json::parse(response);
-
-		return j["volume"].get<double>();
+		try {
+			json j = json::parse(response);
+			string volume	= j["volume"];
+			return stod(volume);
+		} catch (json::parse_error& e) {
+			Log::log("JSON parse error in Liquidity get 24hrVolume: " + string(e.what()));
+			return -1;
+		}
 	}
 };
 

@@ -11,12 +11,15 @@ void testLiquidity() {
 	Liquidity liquidity;
 
 	double volumeMetric = liquidity.getBidAskQty("BTCUSDT");
-	cout << "bid ask qty * price: " << volumeMetric << endl;
+	assert(volumeMetric != -1);
 
-	// double volume24hr = liquidity.get24hrVolume("BTCUSDT");
-	// cout << "Volume: " << volume24hr << endl;
+	double volume24hr = liquidity.get24hrVolume("BTCUSDT");
+	assert(volume24hr != -1);
 
-	cout << "Check values from api: Liquidity" << endl;
+	double volume24hrNOTREAL = liquidity.get24hrVolume("NOTREALUSDTXX");
+	assert(volume24hrNOTREAL == -1);
+
+	cout << "PASSED values from api: Liquidity" << endl;
 }
 
 #endif
