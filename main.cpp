@@ -80,7 +80,9 @@ int main() {
 				}
 			}	
 		}
-		
+
+		Log::log("total positions: " + to_string(g_positions.size()));
+
 		Log::logNoNewline("sleep ");
 		int sleepTimeMins = 1;
 		int sleepTime = sleepTimeMins * 60;

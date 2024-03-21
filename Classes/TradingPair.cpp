@@ -71,7 +71,7 @@ private:
 					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
 					return;
 				} else {
-					string message = "TradingPair.cpp, " + pairName + " has bidAskQP " + to_string(bidAskQP) + " buying.";
+					string message = "TradingPair.cpp, " + pairName + " has bidAskQP " + to_string(bidAskQP) + " buying at" + to_string(price);
 					Log::LogWithTimestamp(message);
 
 					if (g_positions.find(pairName) == g_positions.end()) {
