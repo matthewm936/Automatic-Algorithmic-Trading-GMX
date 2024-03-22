@@ -48,6 +48,8 @@ int main() {
 	Log::log("main.cpp, TradingPairs pairs has " + to_string(pairs.getNumPairs()) + " of trading pairs");
 
 	while(true) {
+		time.start();
+
 		string prices = runCommand("node mexc-api/pair-prices.js");
 
 		istringstream iss(prices);
@@ -59,12 +61,16 @@ int main() {
 			pairs.updatePair(price, symbol);	
 		}
 
+		time.end();
 		Log::log("total positions: " + to_string(g_positions.size()));
 
-		Log::logNoNewline("sleep ");
-		int sleepTimeMins = 1;
-		int sleepTime = sleepTimeMins * 60;
+		double sleepTimeMins = 1;
+		double sleepTime = sleepTimeMins * 60 - time.getDuration();
+		if (sleepTime < 0) sleepTime = 0; 
 		time.sleep(sleepTime);
+			
+		Log::log("main.cpp exec time: " + to_string(time.getDuration()) + "s" + " so sleeping for " + to_string(sleepTime) + "s");
+
 	}
 
 	return 0;

@@ -37,9 +37,8 @@ public:
 		return duration.count();
 	}
 
-	int sleep(int seconds) {
-		std::this_thread::sleep_for(std::chrono::seconds(seconds));
-		return seconds;
+	void sleep(double seconds) {
+		std::this_thread::sleep_for(std::chrono::duration<double>(seconds));
 	}
 
 	int now() {

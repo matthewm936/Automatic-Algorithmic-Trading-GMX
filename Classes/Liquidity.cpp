@@ -11,51 +11,38 @@
 using namespace std;
 using json = nlohmann::json;
 
-class Liquidity { 
+namespace Liquidity {
 
-private:
-	static string runApiCommand(const string& command) {
+	string runApiCommand(const string& command) {
 		string cmd = "node " + command;
 		return runCommand(cmd.c_str());
 	}
 
-public:
-	static double getBidAskQty(string pairName) {
-		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js " + pairName);
+	json getJsonResponse(const string& command) {
+		string response = runApiCommand(command);
 		try {
-			json j = json::parse(response);
-
-			string tempBidQty = j["bidQty"];
-			double bidQty = stod(tempBidQty);
-
-			string tempAskQty = j["askQty"];
-			double askQty = stod(tempAskQty);
-
-			string tempBidPrice = j["bidPrice"];
-			double bidPrice = stod(tempBidPrice);
-
-			string tempAskPrice = j["askPrice"];
-			double askPrice = stod(tempAskPrice);
-
-			return (bidQty * bidPrice) + (askQty * askPrice);
-
+			return json::parse(response);
 		} catch (json::parse_error& e) {
-			Log::log("JSON parse error in Liquidity get BidAskQty: " + string(e.what()));
-			return -1;
+			Log::log("JSON parse error in Liquidity: " + string(e.what()));
+			throw;
 		}
 	}
 
-	static double get24hrVolume(string pairName) {
-		string response = runApiCommand("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js " + pairName);
-		try {
-			json j = json::parse(response);
-			string volume	= j["volume"];
-			return stod(volume);
-		} catch (json::parse_error& e) {
-			Log::log("JSON parse error in Liquidity get 24hrVolume: " + string(e.what()));
-			return -1;
-		}
+	double getBidAskQty(string pairName) {
+		json j = getJsonResponse("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/book-ticker.js " + pairName);
+
+		double bidQty = stod(j["bidQty"].get<string>());
+		double askQty = stod(j["askQty"].get<string>());
+		double bidPrice = stod(j["bidPrice"].get<string>());
+		double askPrice = stod(j["askPrice"].get<string>());
+
+		return (bidQty * bidPrice) + (askQty * askPrice);
 	}
-};
+
+	double get24hrVolume(string pairName) {
+		json j = getJsonResponse("/home/johnsmith/Trading/Algorithmic-Trading/mexc-api/ticker24hr.js " + pairName);
+		return stod(j["volume"].get<string>());	
+	}
+}
 
 #endif

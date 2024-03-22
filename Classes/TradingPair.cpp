@@ -15,7 +15,13 @@
 class TradingPair { 
 	
 private:
-	deque<double> prices;
+	deque<double> prices1minInterval;
+	deque<double> prices30minInterval;
+	deque<double> prices1hrInterval;
+
+	std::chrono::time_point<std::chrono::system_clock> lastUpdate30min;
+	std::chrono::time_point<std::chrono::system_clock> lastUpdate1hr;
+
 	string pairName;
 
 	double askPrice;
@@ -32,7 +38,9 @@ private:
 	public:
 		TradingPair() = default;
 		TradingPair(double price, string pair, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
-			prices.push_front(price);
+			prices1minInterval.push_front(price);
+			prices30minInterval.push_front(price);
+
 			pairName = pair;
 			askPrice = ask;
 			bidPrice = bid;
@@ -43,7 +51,7 @@ private:
 		}
 
 	double getCurrentPrice() {
-		return prices.front();
+		return prices1minInterval.front();
 	}
 
 	string getPairName() {
@@ -51,12 +59,27 @@ private:
 	}
 
 	void updatePrice(double price) {
-		prices.push_front(price);
+		prices1minInterval.push_front(price);
+		strategyMomentum.checkSignals(prices1minInterval, pairName);
+		if (prices1minInterval.size() > 60) {
+			prices1minInterval.pop_back();
+		}
 
-		if (prices.size() > 60) {
-			prices.pop_back();
+		auto now = std::chrono::system_clock::now();
+		if (now - lastUpdate30min >= std::chrono::minutes(30)) {
+			lastUpdate30min = now;
+			prices30minInterval.push_front(price);
+			if (prices30minInterval.size() > 48) { // Keep 24 hours of data
+				prices30minInterval.pop_back();
+			}
+		}
 
-			strategyMomentum.checkSignals(prices, pairName);
+		if (now - lastUpdate1hr >= std::chrono::hours(1)) {
+			lastUpdate1hr = now;
+			prices1hrInterval.push_front(price);
+			if (prices1hrInterval.size() > 240) { // Keep 10 days of data
+				prices1hrInterval.pop_back();
+			}
 		}
 	}
 

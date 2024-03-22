@@ -31,15 +31,8 @@ public:
 		}
 	}
 
-	int getNumPairs() {
+	int getNumPairs() const {
 		return pairs.size();
-	}
-
-	void print() {
-		for (auto& pair : pairs) {
-			cout << pair.first << " : " << pair.second.getCurrentPrice() << endl;
-		}
-		cout << "total pairs: " << getNumPairs() << endl;
 	}
 
 	size_t size() const {
