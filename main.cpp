@@ -56,29 +56,7 @@ int main() {
 		double price;
 
 		while (iss >> symbol >> price) {
-			pairs.updatePair(price, symbol);
-			
-			if (g_positions.find(symbol) != g_positions.end()) {
-				g_positions[symbol].currentPrice = price;
-
-				double profitLoss = (g_positions[symbol].currentPrice - g_positions[symbol].entryPrice) / g_positions[symbol].entryPrice;
-				g_positions[symbol].profitLoss = profitLoss;
-
-				if(profitLoss > 0.05) {
-					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(g_positions[symbol].profitLoss) + " after" + to_string(time.getElapsedTime(g_positions[symbol].entryTime)) + " seconds");
-					// string command = "node /mexc-api/sell.js " + symbol + " SELL " + " 20";
-					// const char* cmd = command.c_str();
-					// system(cmd);
-					g_positions.erase(symbol);
-				}
-				if(profitLoss < -0.05) {
-					Log::LogWithTimestamp("MAIN.cpp, " + symbol + " profit/loss: " + to_string(g_positions[symbol].profitLoss) + " after" + to_string(time.getElapsedTime(g_positions[symbol].entryTime)) + " seconds");
-					// string command = "node /mexc-api/sell.js " + symbol + " SELL " + " 20";
-					// const char* cmd = command.c_str();
-					// system(cmd);
-					g_positions.erase(symbol);
-				}
-			}	
+			pairs.updatePair(price, symbol);	
 		}
 
 		Log::log("total positions: " + to_string(g_positions.size()));

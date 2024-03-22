@@ -7,8 +7,6 @@
 
 #include "TradingPair.cpp"
 
-using namespace std;
-
 class TradingPairs { 
 	
 private:

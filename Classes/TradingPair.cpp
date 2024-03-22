@@ -7,15 +7,10 @@
 #include <fstream>
 
 #include "Time.cpp"
-#include "StrategyMomentum.cpp"
 #include "Log.cpp"
 #include "Trade.cpp"
-#include "Position.cpp"
+#include "StrategyMomentum.cpp"
 #include "Liquidity.cpp"
-
-using namespace std;
-
-extern map<string, Position> g_positions;
 
 class TradingPair { 
 	
@@ -61,45 +56,7 @@ private:
 		if (prices.size() > 60) {
 			prices.pop_back();
 
-			if(strategyMomentum.buySignal10in15(prices)) {
-				Log::LogWithTimestamp("| BUY signal 10in15 from " + pairName + " volume:" + to_string(volume) + " quoteVolume:" + to_string(quoteVolume));
-
-				int VOLUME_THREASHOLD = 500;
-
-				double bidAskQP = Liquidity::getBidAskQty(pairName);
-				if(bidAskQP < VOLUME_THREASHOLD) {
-					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
-					return;
-				} else {
-					string message = "TradingPair.cpp, " + pairName + " has bidAskQP " + to_string(bidAskQP) + " buying at" + to_string(price);
-					Log::LogWithTimestamp(message);
-
-					if (g_positions.find(pairName) == g_positions.end()) {
-						Position newPosition = {pairName, price, price, -1, time(nullptr)};
-						g_positions[pairName] = newPosition;
-					}
-				}
-			}
-
-			if (strategyMomentum.buySignal20in45(prices)) {
-				Log::LogWithTimestamp("| BUY signal 20in45 from " + pairName + " volume:" + to_string(volume) + " quoteVolume:" +  to_string(quoteVolume));
-
-				int VOLUME_THREASHOLD = 50000;
-
-				double bidAskQP = Liquidity::getBidAskQty(pairName);
-				if(bidAskQP < VOLUME_THREASHOLD) {
-					Log::LogWithTimestamp("TradingPair.cpp, " + pairName + " has volume below" + to_string(VOLUME_THREASHOLD) + " not buying.");
-					return;
-				} else {
-					string message = "TradingPair.cpp, " + pairName + " has bidAskQP " + to_string(bidAskQP) + " buying.";
-					Log::LogWithTimestamp(message);
-
-					if (g_positions.find(pairName) == g_positions.end()) {
-						Position newPosition = {pairName, price, price, -1, time(nullptr)};
-						g_positions[pairName] = newPosition;
-					}
-				}
-			}
+			strategyMomentum.checkSignals(prices, pairName);
 		}
 	}
 
