@@ -22,6 +22,11 @@ public:
 		file << log << "\n";
 	}
 
+	static void tradeLog(string log) {
+		ofstream file("trades.txt", ios_base::app);
+		file << log << "\n";
+	}
+
 	static void LogWithTimestamp(string log) {
 		Time time;
 		ofstream file(filename, ios_base::app);

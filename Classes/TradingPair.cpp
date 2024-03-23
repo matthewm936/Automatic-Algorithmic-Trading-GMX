@@ -9,18 +9,18 @@
 #include "Time.cpp"
 #include "Log.cpp"
 #include "Trade.cpp"
-#include "StrategyMomentum.cpp"
 #include "Liquidity.cpp"
 
 class TradingPair { 
 	
 private:
+	std::chrono::time_point<std::chrono::system_clock> lastUpdate30min;
+	std::chrono::time_point<std::chrono::system_clock> lastUpdate1hr;
+
+	public:
 	deque<double> prices1minInterval;
 	deque<double> prices30minInterval;
 	deque<double> prices1hrInterval;
-
-	std::chrono::time_point<std::chrono::system_clock> lastUpdate30min;
-	std::chrono::time_point<std::chrono::system_clock> lastUpdate1hr;
 
 	string pairName;
 
@@ -33,13 +33,11 @@ private:
 	double volume;
 	double quoteVolume;
 
-	StrategyMomentum strategyMomentum;
-
-	public:
 		TradingPair() = default;
 		TradingPair(double price, string pair, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
 			prices1minInterval.push_front(price);
 			prices30minInterval.push_front(price);
+			prices1hrInterval.push_front(price);
 
 			pairName = pair;
 			askPrice = ask;
@@ -54,13 +52,8 @@ private:
 		return prices1minInterval.front();
 	}
 
-	string getPairName() {
-		return pairName;
-	}
-
 	void updatePrice(double price) {
 		prices1minInterval.push_front(price);
-		strategyMomentum.checkSignals(prices1minInterval, pairName);
 		if (prices1minInterval.size() > 60) {
 			prices1minInterval.pop_back();
 		}

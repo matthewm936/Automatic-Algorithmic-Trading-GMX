@@ -12,8 +12,7 @@
 #include "Classes/Time.cpp"
 #include "Classes/Log.cpp"
 #include "Classes/Liquidity.cpp"
-
-map<string, Position> g_positions;
+#include "Classes/StrategyMomentum.cpp"
 
 double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 	string str = it->at(key).get<string>();
@@ -24,7 +23,9 @@ int main() {
 	Time time;
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
-	TradingPairs pairs; 
+	TradingPairs tradingPairs;
+	StrategyMomentum strategyMomentum;
+	Positions positions;
 	
 	runCommand("node mexc-api/ticker24hrALL.js");
 
@@ -42,10 +43,10 @@ int main() {
 		double volume = getDoubleFromJson(it, "volume");
 		double quoteVolume = getDoubleFromJson(it, "quoteVolume");
 
-		pairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
+		tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
 	}
 
-	Log::log("main.cpp, TradingPairs pairs has " + to_string(pairs.getNumPairs()) + " of trading pairs");
+	Log::log("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
 
 	while(true) {
 		time.start();
@@ -54,15 +55,18 @@ int main() {
 
 		istringstream iss(prices);
 
-		string symbol;
+		string pairName;
 		double price;
 
-		while (iss >> symbol >> price) {
-			pairs.updatePair(price, symbol);	
+		while (iss >> pairName >> price) {
+			tradingPairs.pairs[pairName].updatePrice(price);
+
+			// vector<string> tradeSignals = strategMomentum.checkSignals(tradingPairs.pairs[pairName]);	
+			cout << "pairName: " << pairName << " price: " << price << endl;
 		}
 
 		time.end();
-		Log::log("total positions: " + to_string(g_positions.size()));
+		Log::log("total positions: " + to_string(positions.size()));
 
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();
