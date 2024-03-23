@@ -24,8 +24,10 @@ int main() {
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
 	TradingPairs tradingPairs;
-	StrategyMomentum strategyMomentum;
+
 	Positions positions;
+
+	StrategyMomentum strategyMomentum(positions);
 	
 	runCommand("node mexc-api/ticker24hrALL.js");
 
@@ -62,7 +64,7 @@ int main() {
 			tradingPairs.pairs[pairName].updatePrice(price);
 
 			// vector<string> tradeSignals = strategMomentum.checkSignals(tradingPairs.pairs[pairName]);	
-			cout << "pairName: " << pairName << " price: " << price << endl;
+			strategyMomentum.trade(tradingPairs.pairs[pairName]);
 		}
 
 		time.end();
@@ -71,10 +73,10 @@ int main() {
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
-		time.sleep(sleepTime);
-			
+
 		Log::log("main.cpp exec time: " + to_string(time.getDuration()) + "s" + " so sleeping for " + to_string(sleepTime) + "s");
 
+		time.sleep(sleepTime);			
 	}
 
 	return 0;

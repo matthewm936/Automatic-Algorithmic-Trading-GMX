@@ -48,7 +48,7 @@ private:
 			quoteVolume = quoteVol;
 		}
 
-	double getCurrentPrice() {
+	double getCurrentPrice() const {
 		return prices1minInterval.front();
 	}
 
