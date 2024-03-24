@@ -8,7 +8,6 @@
 
 #include "Time.cpp"
 #include "Log.cpp"
-#include "Trade.cpp"
 #include "Liquidity.cpp"
 
 class TradingPair { 

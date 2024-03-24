@@ -6,7 +6,8 @@
 #include <cstdio>
 #include <map>
 #include <string>
-#include <nlohmann/json.hpp>
+
+#include "nlohmann/json.hpp"
 
 #include "Classes/TradingPairs.cpp"
 #include "Classes/Time.cpp"
@@ -63,7 +64,6 @@ int main() {
 		while (iss >> pairName >> price) {
 			tradingPairs.pairs[pairName].updatePrice(price);
 
-			// vector<string> tradeSignals = strategMomentum.checkSignals(tradingPairs.pairs[pairName]);	
 			tradingStrategy.trade(tradingPairs.pairs[pairName]);
 		}
 
