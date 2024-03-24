@@ -102,12 +102,6 @@ private:
 		} return false;
 	}
 
-	bool sell(string pairName) {
-		// system("node mexc-api/sell.js " + pairName + " 100");
-		// Log::tradeLog("Pair " + pairName + " sold at " + std::to_string(pair.getCurrentPrice()));
-		return true;
-	}
-
 public:	
 	Positions positions;
 	TradingStrategy(Positions positions) {
@@ -115,8 +109,28 @@ public:
 	}
 
 	double getAssetBalance(string asset) {
-		string result = runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str());		
-		return stod(result);
+		double result = stod(runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str()));
+		if(result == -1) {
+			Log::log("Asset balance " + asset + " returned -1 through getAssetBalance with node mexc-api/asset-free-balance.js");
+		}		
+		return result;
+	}
+
+	bool buy(string pairName, int amount) {
+		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
+		Log::tradeLog("Pair " + pairName + " bought " + to_string(amount));
+		return true;
+	}
+	
+	bool sellAll(string pairName) {
+		double assetBalance = getAssetBalance(pairName);
+		if(assetBalance == -1) {
+			Log::log("Asset balance " + pairName + " returned -1 through sellAll");
+			return false;
+		}
+		string result = runCommand((string("node mexc-api/sell.js ") + pairName + " " + to_string(assetBalance)).c_str());
+		Log::tradeLog("Pair " + pairName + " sold " + to_string(assetBalance));
+		return true;
 	}
 
 	void trade(const TradingPair& pair) {

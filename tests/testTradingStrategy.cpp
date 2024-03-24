@@ -19,7 +19,15 @@ void testTradingStrategy() {
 
 	assert(tradingStrategy.getAssetBalance("MX") != -1);
 
-	cout << assetBalance << endl;
+	cout << tradingStrategy.getAssetBalance("BTCUSDT") << endl;
+
+	tradingStrategy.buy("BTCUSDT", 20);
+
+	cout << tradingStrategy.getAssetBalance("BTCUSDT") << endl;
+
+	// tradingStrategy.sellAll("BTCUSDT");
+
+	cout << tradingStrategy.getAssetBalance("BTCUSDT") << endl;
 	
 	cout << "PASSES: TradingStrategy.cpp" << endl;
 }
