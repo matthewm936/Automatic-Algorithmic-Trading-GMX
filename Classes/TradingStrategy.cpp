@@ -1,13 +1,14 @@
-#ifndef StrategyMomentum_CPP
-#define StrategyMomentum_CPP
+#ifndef TradingStrategy_CPP
+#define TradingStrategy_CPP
 
 #include <deque>
+#include "nlohmann/json.hpp"
 
 #include "Positions.cpp"
 #include "Log.cpp"
 #include "TradingPair.cpp"
 
-class StrategyMomentum { 
+class TradingStrategy { 
 	
 private:
 
@@ -53,7 +54,7 @@ private:
 		return sqrt(calculateVariance(returns, size - 1));
 	}
 
-	bool buySignal6XVolatiltyIn1Min(const TradingPair& pair) {
+	bool buySignal8XVolatiltyIn1Min(const TradingPair& pair) {
 		deque<double> prices = pair.prices1minInterval;
 		string pairName = pair.pairName;
 
@@ -62,14 +63,14 @@ private:
 		}
 		double volatility = calculateVolatility(prices, 1, 5);
 
-		double THREASHHOLD = volatility * 6;
+		double THREASHHOLD = volatility * 8;
 
 		double oneMinReturn = (prices[0] - prices[1])/ prices[1];
 
 		if(oneMinReturn > THREASHHOLD && oneMinReturn > 0.05) {
-			Log::log("Pair " + pairName + " buy signal w/ 1min4xvol " + to_string(oneMinReturn) + "\% volatility: " + to_string(volatility) + " quoteVol: " + to_string(pair.quoteVolume));
+			Log::log("Pair " + pairName + " buy signal w/ 1min8xvol " + to_string(oneMinReturn) + "\% volatility: " + to_string(volatility) + " quoteVol: " + to_string(pair.quoteVolume));
 
-			double takeProfit = oneMinReturn * 0.6 * prices[0];
+			double takeProfit = (1 + oneMinReturn * 0.6) * prices[0];
 			double stopLoss = oneMinReturn * 0.5 * prices[0];
 			time_t exitTime = time(0) + 60 * 5; // 10 minutes after the current time
 			positions.addPosition(pairName, prices[0], takeProfit, stopLoss, exitTime);
@@ -94,57 +95,58 @@ private:
 			Log::log("Pair " + pairName + " buy signal w/ 5min3xvol " + to_string(fiveMinReturn) + "\% volatility: " + to_string(volatility) + " quoteVol: " + to_string(pair.quoteVolume));
 
 			double takeProfit = fiveMinReturn * 2 * prices[0];
-			double stopLoss = fiveMinReturn * 1.5 * prices[0];
+			double stopLoss = (1- fiveMinReturn * 1.5) * prices[0];
 			time_t exitTime = time(0) + 60 * 10; // 10 minutes after the current time
 			positions.addPosition(pairName, prices[0], takeProfit, stopLoss, exitTime);
 			return true;
 		} return false;
 	}
 
+	bool sell(string pairName) {
+		// system("node mexc-api/sell.js " + pairName + " 100");
+		// Log::tradeLog("Pair " + pairName + " sold at " + std::to_string(pair.getCurrentPrice()));
+		return true;
+	}
+
 public:	
 	Positions positions;
-	StrategyMomentum(Positions positions) {
+	TradingStrategy(Positions positions) {
 		this->positions = positions;
 	}
 
+	double getAssetBalance(string asset) {
+		string result = runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str());		
+		return stod(result);
+	}
+
 	void trade(const TradingPair& pair) {
-		if(positions.exists(pair.pairName)) {
-			Log::log("Pair " + pair.pairName + " already in a position");
+		string pairName = pair.pairName;
+
+		if(positions.exists(pairName)) {
+			Log::log("Pair " + pairName + " already in a position");
 
 			// run sell here
-			double percentProfitLoss = (pair.getCurrentPrice() - positions[pair.pairName].entryPrice) / positions[pair.pairName].entryPrice;
-			if(positions[pair.pairName].stopLoss < pair.getCurrentPrice()) {
-				Log::tradeLog("Pair " + pair.pairName + " STOP LOSS:" + std::to_string(percentProfitLoss) + ". Position: Entry Price - " + std::to_string(positions[pair.pairName].entryPrice) + ", Stop Loss - " + std::to_string(positions[pair.pairName].stopLoss));
-				positions.removePosition(pair.pairName);
-
-				portfolioProfitLoss += percentProfitLoss;
+			if(positions[pairName].stopLoss < pair.getCurrentPrice()) {
+				positions.removePosition(pairName);
 			}
-			else if(time(0) > positions[pair.pairName].exitTimeCondition) {
-				Log::tradeLog("Pair " + pair.pairName + " EXIT TIME CONDITION:" + std::to_string(percentProfitLoss) + ". Position: Entry Price - " + std::to_string(positions[pair.pairName].entryPrice) + ", Exit Time Condition - " + std::to_string(positions[pair.pairName].exitTimeCondition));
-				positions.removePosition(pair.pairName);
-
-				portfolioProfitLoss += percentProfitLoss;
+			else if(time(0) > positions[pairName].exitTimeCondition) {
+				positions.removePosition(pairName);
 			}
-			else if(positions[pair.pairName].takeProfit < pair.getCurrentPrice()) {
-				Log::tradeLog("Pair " + pair.pairName + " TAKE PROFIT:" + std::to_string(percentProfitLoss) + ". Position: Entry Price - " + std::to_string(positions[pair.pairName].entryPrice) + ", Take Profit - " + std::to_string(positions[pair.pairName].takeProfit));
-				positions.removePosition(pair.pairName);
-				// system("node mexc-api/sell.js " + pair.pairName + " 100");
-
-				portfolioProfitLoss += percentProfitLoss;
+			else if(positions[pairName].takeProfit < pair.getCurrentPrice()) {
+				positions.removePosition(pairName);
+				// system("node mexc-api/sell.js " + pairName + " 100");
 			}
 			return;
-
-			Log::log("Portfolio pnl: " + std::to_string(portfolioProfitLoss));
 		}
 
-		if (buySignal6XVolatiltyIn1Min(pair)) {
-			// system("node mexc-api/buy.js " + pair.pairName + " 20");
-			// Log::tradeLog("Pair " + pair.pairName + " bought at " + std::to_string(pair.getCurrentPrice()));
+		if (buySignal8XVolatiltyIn1Min(pair)) {
+			// system("node mexc-api/buy.js " + pairName + " 20");
+			// Log::tradeLog("Pair " + pairName + " bought at " + std::to_string(pair.getCurrentPrice()));
 		}
 
 		if (buySignal4XVolatiltyIn20Min(pair)) {
-			// system("node mexc-api/buy.js " + pair.pairName + " 30");
-			// Log::tradeLog("Pair " + pair.pairName + " bought at " + std::to_string(pair.getCurrentPrice()));
+			// system("node mexc-api/buy.js " + pairName + " 30");
+			// Log::tradeLog("Pair " + pairName + " bought at " + std::to_string(pair.getCurrentPrice()));
 		}
 	}
 

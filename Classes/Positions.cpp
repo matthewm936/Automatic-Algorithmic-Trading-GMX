@@ -1,3 +1,7 @@
+#include <unordered_map>
+#include <string>
+#include <ctime>
+
 class Positions {
 	private:
 		struct Position {
@@ -57,6 +61,10 @@ class Positions {
 
 		size_t size() const {
 			return positions.size();
+		}
+
+		Position& getPosition(const std::string& pairName) {
+			return positions[pairName];
 		}
 
 		// bool buy() {

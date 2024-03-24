@@ -1,18 +1,19 @@
-#include "testSMA.cpp"
-#include "testMAC.cpp"
-#include "testTrade.cpp"
+// #include "testSMA.cpp"
+// #include "testMAC.cpp"
+// #include "testTrade.cpp"
 #include "testLiquidity.cpp"
+#include "testTradingStrategy.cpp"
 
 using namespace std;
 
 class Test {
 	public:
 		Test() {
-			testSMA();
-			testMAC();
-			testTrade();
-			testLiquidity();
-
+			// testSMA();
+			// testMAC();
+			// testTrade();
+			// testLiquidity();
+			testTradingStrategy();
 		}
 
 	private:

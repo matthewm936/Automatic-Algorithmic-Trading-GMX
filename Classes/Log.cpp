@@ -1,9 +1,10 @@
 #ifndef Log_CPP
 #define Log_CPP
 
-#include "Time.cpp"
 #include <fstream>
 #include <sstream>
+
+#include "Time.cpp"
 
 using namespace std;
 
@@ -41,6 +42,12 @@ public:
 		ofstream file(filename, ios_base::app);
 		file << "-------------------------------------------------------\n";
 	}
+
+	// static void logSell(Position position, string condition) {
+	// 	double percentProfitLoss = (pair.getCurrentPrice() - positions[pair.pairName].entryPrice) / positions[pair.pairName].entryPrice;
+
+	// 	string log = "Pair " + pair.pairName + " " + condition + " " + std::to_string(percentProfitLoss) + ". Position: Entry Price - " + std::to_string(positions[pair.pairName].entryPrice) + ", Exit Time Condition - " + std::to_string(positions[pair.pairName].exitTimeCondition);
+	// }
 };
 
 string Log::filename = "log.txt";

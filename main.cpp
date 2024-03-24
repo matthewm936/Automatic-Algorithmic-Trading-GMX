@@ -12,7 +12,7 @@
 #include "Classes/Time.cpp"
 #include "Classes/Log.cpp"
 #include "Classes/Liquidity.cpp"
-#include "Classes/StrategyMomentum.cpp"
+#include "Classes/TradingStrategy.cpp"
 
 double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 	string str = it->at(key).get<string>();
@@ -27,7 +27,7 @@ int main() {
 
 	Positions positions;
 
-	StrategyMomentum strategyMomentum(positions);
+	TradingStrategy tradingStrategy(positions);
 	
 	runCommand("node mexc-api/ticker24hrALL.js");
 
@@ -64,7 +64,7 @@ int main() {
 			tradingPairs.pairs[pairName].updatePrice(price);
 
 			// vector<string> tradeSignals = strategMomentum.checkSignals(tradingPairs.pairs[pairName]);	
-			strategyMomentum.trade(tradingPairs.pairs[pairName]);
+			tradingStrategy.trade(tradingPairs.pairs[pairName]);
 		}
 
 		time.end();
