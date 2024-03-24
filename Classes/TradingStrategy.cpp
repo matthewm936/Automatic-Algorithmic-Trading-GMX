@@ -11,7 +11,6 @@
 class TradingStrategy { 
 	
 private:
-
 	double portfolioProfitLoss = 0;
 
 	// double getVolatility(deque<double>& prices) {
@@ -42,16 +41,16 @@ private:
 	}
 
 	double calculateVolatility(const deque<double>& prices, int start, int end) {
-		const int size = end - start + 1;
-		double data[size];
+		int size = end - start + 1;
+		vector<double> data(size);
 		for (int i = 0; i < size; ++i) {
 			data[i] = prices[start + i];
 		}
-		double returns[size - 1];
+		vector<double> returns(size - 1);
 		for (int i = 0; i < size - 1; ++i) {
 			returns[i] = log(data[i + 1] / data[i]);
 		}
-		return sqrt(calculateVariance(returns, size - 1));
+		return sqrt(calculateVariance(returns.data(), size - 1));
 	}
 
 	bool buySignal8XVolatiltyIn1Min(const TradingPair& pair) {
