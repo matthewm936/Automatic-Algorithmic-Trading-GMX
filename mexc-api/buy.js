@@ -8,6 +8,7 @@ client.config.apiSecret = process.env.apiSecret;
 
 let pairName = process.argv[2]
 let amount = process.argv[3]
+let response;
 
 try {
 	let response = client.newOrder(pairName, "BUY", "MARKET", {
