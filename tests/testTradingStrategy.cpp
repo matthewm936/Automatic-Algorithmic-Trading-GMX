@@ -49,6 +49,9 @@ void testTradingStrategy() {
 	assert(getAssetBalanceResult == 0);
 
 
+	string result = runCommand((string("node mexc-api/sell.js FAKEASSETFAKEAAA 20").c_str()));
+	assert(result == "error");
+
 	bool sellAssetResult = tradingStrategy.sellAsset("DOESNOTEXIST");
 	assert(sellAssetResult == false);
 
