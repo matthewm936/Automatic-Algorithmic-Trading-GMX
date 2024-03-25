@@ -2,6 +2,7 @@
 #define TradingStrategy_CPP
 
 #include <deque>
+#include <cmath>
 #include "../nlohmann/json.hpp"
 
 #include "Positions.cpp"
@@ -39,53 +40,25 @@ private:
 		return sqrt(calculateVariance(returns.data(), size - 1));
 	}
 
-	bool buySignal8XVolatiltyIn1Min(const TradingPair& pair) {
+	int consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength) {
 		deque<double> prices = pair.prices1minInterval;
-		string pairName = pair.pairName;
 
-		if(prices.size() < 6) {
-			return false;
+		int trendingStrength = 0;
+		for(int i = 0; i < minutesDuration; i+=3) {
+			if(prices[i] > prices[i + 3]) {
+				trendingStrength++;
+			}
 		}
-		double volatility = calculateVolatility(prices, 1, 5);
+		double strengthPercent = trendingStrength / minutesDuration;
 
-		double THREASHHOLD = volatility * 8;
+		if(strengthPercent > targetStrength) {
+			return strengthPercent;
+		}
 
-		double oneMinReturn = (prices[0] - prices[1])/ prices[1];
-
-		if(oneMinReturn > THREASHHOLD && oneMinReturn > 0.05) {
-			Log::log("Pair " + pairName + " buy signal w/ 1min8xvol " + to_string(oneMinReturn) + "\% volatility: " + to_string(volatility) + " quoteVol: " + to_string(pair.quoteVolume));
-
-			double takeProfit = (1 + oneMinReturn * 0.6) * prices[0];
-			double stopLoss = oneMinReturn * 0.5 * prices[0];
-			time_t exitTime = time(0) + 60 * 5; // 10 minutes after the current time
-			positions.addPosition(pairName, prices[0], takeProfit, stopLoss, exitTime);
-			return true;
-		} return false;
+		return 0;
 	}
 
-	bool buySignal4XVolatiltyIn20Min(const TradingPair& pair) {
-		deque<double> prices = pair.prices1minInterval;
-		string pairName = pair.pairName;
-
-		if(prices.size() < 26) {
-			return false;
-		}
-		double volatility = calculateVolatility(prices, 5, 25);
-
-		double THREASHHOLD = volatility * 4;
-
-		double fiveMinReturn = (prices[0] - prices[5])/ prices[5];
-
-		if(fiveMinReturn > THREASHHOLD && fiveMinReturn > 0.05) {
-			Log::log("Pair " + pairName + " buy signal w/ 5min3xvol " + to_string(fiveMinReturn) + "\% volatility: " + to_string(volatility) + " quoteVol: " + to_string(pair.quoteVolume));
-
-			double takeProfit = fiveMinReturn * 2 * prices[0];
-			double stopLoss = (1- fiveMinReturn * 1.5) * prices[0];
-			time_t exitTime = time(0) + 60 * 10; // 10 minutes after the current time
-			positions.addPosition(pairName, prices[0], takeProfit, stopLoss, exitTime);
-			return true;
-		} return false;
-	}
+	friend class TradingStrategyTest;
 
 public:	
 	Positions positions;
@@ -134,30 +107,32 @@ public:
 
 		if(positions.exists(pairName)) {
 			Log::log("Pair " + pairName + " already in a position");
-
-			// run sell here
-			if(positions[pairName].stopLoss < pair.getCurrentPrice()) {
-				positions.removePosition(pairName);
-			}
-			else if(time(0) > positions[pairName].exitTimeCondition) {
-				positions.removePosition(pairName);
-			}
-			else if(positions[pairName].takeProfit < pair.getCurrentPrice()) {
-				positions.removePosition(pairName);
-				// system("node mexc-api/sell.js " + pairName + " 100");
-			}
 			return;
 		}
 
-		if (buySignal8XVolatiltyIn1Min(pair)) {
-			// system("node mexc-api/buy.js " + pairName + " 20");
-			// Log::tradeLog("Pair " + pairName + " bought at " + std::to_string(pair.getCurrentPrice()));
+		if(pair.prices1minInterval.size() > 45) {
+			int durationOfTrendMin = 40; // x minutes
+			double strengthOfTrend = 0.75; // .x% of prices every 3 minutes increasing
+			int trendingStrength = consistentMovement(pair, durationOfTrendMin, strengthOfTrend);
+
+			if(trendingStrength > 0) {
+				double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
+				double takeProfitMult = trendingStrength - 0.25;
+				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
+				if(buy(pairName, 100)) {
+					// setup auto sell orders
+
+				} else {
+					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
+					Log::email(message.c_str());
+				}
+				return;
+			} else {
+				return;
+			}
 		}
 
-		if (buySignal4XVolatiltyIn20Min(pair)) {
-			// system("node mexc-api/buy.js " + pairName + " 30");
-			// Log::tradeLog("Pair " + pairName + " bought at " + std::to_string(pair.getCurrentPrice()));
-		}
+
 	}
 
 };

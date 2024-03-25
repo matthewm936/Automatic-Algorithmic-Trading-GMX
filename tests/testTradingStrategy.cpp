@@ -1,3 +1,6 @@
+#include <cstdlib>
+
+
 #include "../Classes/TradingStrategy.cpp"
 
 #ifndef TEST_TRADINGSTRATEGY_CPP
@@ -8,41 +11,31 @@ void testInit() {
 	TradingStrategy tradingStrategy(positions);	
 }
 
-void testTradingStrategy() {
-	testInit();
+class TradingStrategyTest {
+public:
+	void consistentMovement() {
+		Positions positions;
+		TradingStrategy strategy(positions);
+		TradingPair pair = TradingPair(99.0, "BTCUSDT", 50.0, 99.0, 10.0, 10.0, 1000.0, 100000.0);
 
+		assert(pair.getCurrentPrice() == 99.0);
+
+		srand(1); // seed the random number generator
+
+		for (int i = 0; i < 1000; i++) {
+			double randomPrice = 100.0 + (rand() % 100) - 1 + i; // generate a random price between 50 and 150
+			pair.updatePrice(randomPrice);
+			cout << "Price: " << randomPrice << endl;
+		}
+
+		int result = strategy.consistentMovement(pair, 240, 0.7);
+		assert(result == 1);
+	}
+};
+
+void testGetBalanceErrors() {
 	Positions positions;
 	TradingStrategy tradingStrategy(positions);	
-
-	// double assetBalance = tradingStrategy.getAssetBalance("NOTREALCOINUSXASKHDG");
-	// assert(assetBalance == -1);
-
-	// assert(tradingStrategy.getAssetBalance("MX") != -1);
-
-	// cout << tradingStrategy.getAssetBalance("BTC") << endl;
-
-	// tradingStrategy.buy("BTCUSDC", 20);
-
-	// double btcBalance = tradingStrategy.getAssetBalance("BTC");
-
-	// cout << btcBalance << endl;
-	
-	// tradingStrategy.sellAsset("BTCUSDC");
-
-	// btcBalance = tradingStrategy.getAssetBalance("BTC");
-
-	// cout << btcBalance << endl;
-
-	// assert(btcBalance == -1);
-
-	// double balance = tradingStrategy.getAssetBalance("ETH");
-	// assert(balance == 0);
-	
-	// double MXbalance = tradingStrategy.getAssetBalance("MX");
-	// double BTCbalance = tradingStrategy.getAssetBalance("BTC");
-
-	// assert(BTCbalance != -1);
-	// assert(MXbalance != -1);
 
 	bool getAssetBalanceResult = tradingStrategy.getAssetBalance("DOESNOTEXIST");
 
@@ -61,5 +54,13 @@ void testTradingStrategy() {
 	cout << "PASSES: TradingStrategy.cpp" << endl;
 }
 
+void testTradingStrategy() {
+	testInit();
+	testGetBalanceErrors();
+
+	TradingStrategyTest test;
+	test.consistentMovement();
+
+}
 
 #endif
