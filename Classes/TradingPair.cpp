@@ -32,6 +32,9 @@ private:
 	double volume;
 	double quoteVolume;
 
+	string quoteAsset;
+	string baseAsset;
+
 		TradingPair() = default;
 		TradingPair(double price, string pair, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
 			prices1minInterval.push_front(price);
@@ -45,6 +48,18 @@ private:
 			bidQty = bidQ;
 			volume = vol;
 			quoteVolume = quoteVol;
+
+			// Define possible quote assets
+			std::vector<std::string> quoteAssets = {"USDT", "USDC", "ETH", "BTC", "TUSD"};
+
+			// Extract quote asset and base asset from pairName
+			for (const auto& quote : quoteAssets) {
+				if (pairName.size() > quote.size() && pairName.substr(pairName.size() - quote.size()) == quote) {
+					quoteAsset = quote;
+					baseAsset = pairName.substr(0, pairName.size() - quote.size());
+					break;
+				}
+			}
 		}
 
 	double getCurrentPrice() const {

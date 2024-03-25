@@ -2,7 +2,7 @@
 #define TradingStrategy_CPP
 
 #include <deque>
-// #include "nlohmann/json.hpp"
+#include "../nlohmann/json.hpp"
 
 #include "Positions.cpp"
 #include "Log.cpp"
@@ -12,20 +12,6 @@ class TradingStrategy {
 	
 private:
 	double portfolioProfitLoss = 0;
-
-	// double getVolatility(deque<double>& prices) {
-	// 	double sum = 0;
-	// 	double mean = 0;
-	// 	for(int i = 0; i < prices.size(); i++) {
-	// 		sum += prices[i];
-	// 	}
-	// 	mean = sum / prices.size();
-	// 	double sumOfSquares = 0;
-	// 	for(int i = 0; i < prices.size(); i++) {
-	// 		sumOfSquares += (prices[i] - mean) * (prices[i] - mean);
-	// 	}
-	// 	return sqrt(sumOfSquares / prices.size());
-	// }
 
 	double calculateVariance(double* data, int size) {
 		double sum = 0.0, mean, variance = 0.0;
@@ -107,28 +93,39 @@ public:
 		this->positions = positions;
 	}
 
-	double getAssetBalance(string asset) {
-		double result = stod(runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str()));
-		if(result == -1) {
-			Log::log("Asset balance " + asset + " returned -1 through getAssetBalance with node mexc-api/asset-free-balance.js");
-		}		
-		return result;
+	double getAssetBalance(string asset) { 
+		string result = runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str());
+		double resultDouble = stod(result);
+		return resultDouble;
 	}
 
 	bool buy(string pairName, int amount) {
 		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
+		if(result == "error") {
+			Log::log("Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue");
+			return false;
+		}
 		Log::tradeLog("Pair " + pairName + " bought " + to_string(amount));
 		return true;
 	}
 	
-	bool sellAll(string pairName) {
-		double assetBalance = getAssetBalance(pairName);
+	bool sellAsset(string asset) {
+		double assetBalance = getAssetBalance(asset);
 		if(assetBalance == -1) {
-			Log::log("Asset balance " + pairName + " returned -1 through sellAll");
+			Log::log("getAssetBalance failed " + asset + " returned -1");
 			return false;
 		}
-		string result = runCommand((string("node mexc-api/sell.js ") + pairName + " " + to_string(assetBalance)).c_str());
-		Log::tradeLog("Pair " + pairName + " sold " + to_string(assetBalance));
+		if(assetBalance == 0) {
+			Log::log("Asset balance " + asset + " is 0, cant sell an asset with 0 balance");
+			return false;
+		}
+		string result = runCommand((string("node mexc-api/sell.js ") + asset + " " + to_string(assetBalance)).c_str());
+
+		if(result == "error") {
+			Log::log("Asset balance " + asset + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
+			return false;
+		}
+		Log::tradeLog("Pair " + asset + " sold " + to_string(assetBalance));
 		return true;
 	}
 

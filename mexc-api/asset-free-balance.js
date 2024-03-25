@@ -15,5 +15,5 @@ let foundAsset = result.balances.find((balance) => balance.asset == asset);
 if (foundAsset) {
 	console.log(foundAsset.free);
 } else {
-	console.log(-1);
+	console.log(0);
 }
