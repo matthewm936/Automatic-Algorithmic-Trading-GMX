@@ -75,7 +75,8 @@ public:
 	bool buy(string pairName, int amount) {
 		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
 		if(result == "error") {
-			Log::log("Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue");
+			string message = "Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue";
+			Log::email(message.c_str());
 			return false;
 		}
 		Log::tradeLog("Pair " + pairName + " bought " + to_string(amount));
@@ -92,10 +93,31 @@ public:
 			Log::log("Asset balance " + asset + " is 0, cant sell an asset with 0 balance");
 			return false;
 		}
-		string result = runCommand((string("node mexc-api/sell.js ") + asset + " " + to_string(assetBalance)).c_str());
+		string result = runCommand((string("node mexc-api/sell.js ") + asset + " " + to_string(assetBalance)).c_str()); // this is wrong, you need pairName not asset
 
 		if(result == "error") {
-			Log::log("Asset balance " + asset + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
+			Log::log("Sell error " + asset + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
+			return false;
+		}
+		Log::tradeLog("Pair " + asset + " sold " + to_string(assetBalance));
+		return true;
+	}
+
+	bool stopLossTakeProfit(string asset, double stopPrice, double takeProfit) {
+		double assetBalance = getAssetBalance(asset);
+		if(assetBalance == -1) {
+			Log::log("getAssetBalance failed " + asset + " returned -1");
+			return false;
+		}
+		if(assetBalance == 0) {
+			Log::log("Asset balance " + asset + " is 0, cant sell an asset with 0 balance");
+			return false;
+		}
+		string result = runCommand((string("node mexc-api/stop-loss-take-profit.js ") + asset +  " " + stopPrice + " " + takeProfit + " " + to_string(assetBalance) +).c_str());
+
+		if(result == "error") {
+			string message = "Stop loss, take profit error " + asset + " returned error through sellAsset with node stop-loss-take-profit.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue";
+			Log::email(message.c_str());
 			return false;
 		}
 		Log::tradeLog("Pair " + asset + " sold " + to_string(assetBalance));
@@ -121,7 +143,11 @@ public:
 				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
 				if(buy(pairName, 100)) {
 					// setup auto sell orders
+					positions.add(pairName, pair.prices1minInterval[0]);
 
+					double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
+					double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
+					stopLossTakeProfit(pairName, stopLoss, takeProfit);
 				} else {
 					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
 					Log::email(message.c_str());

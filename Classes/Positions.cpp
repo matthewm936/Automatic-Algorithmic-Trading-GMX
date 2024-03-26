@@ -40,7 +40,7 @@ class Positions {
 			return positions.end();
 		}
 
-		void addPosition(const std::string& pairName, double entryPrice, double takeProfit, double stopLoss, time_t exitTimeCondition) {
+		void addPosition(const std::string& pairName, double entryPrice, double takeProfit = -1, double stopLoss = -1, time_t exitTimeCondition = -1) {
 			Position position;
 			
 			position.pairName = pairName;

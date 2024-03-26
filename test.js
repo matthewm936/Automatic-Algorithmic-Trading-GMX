@@ -2,6 +2,25 @@
 // const fs = require('fs');
 // require('dotenv').config()
 
+const axios = require('axios');
+
+let config = {
+  method: 'get',
+  url: 'https://api.exchange.coinbase.com/currencies',
+  headers: { 
+    'Content-Type': 'application/json'
+  }
+};
+
+axios(config)
+.then((response) => {
+  console.log((response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+
+
 // const client = new MEXC.Spot()
 // client.config.apiKey = process.env.apiKey;
 // client.config.apiSecret = process.env.apiSecret;
@@ -48,33 +67,33 @@
 
 // console.log(reponse1);
 
-const axios = require('axios');
+// const axios = require('axios');
 
-// Base URL of the API
-const baseURL = 'https://api.mexc.com';
+// // Base URL of the API
+// const baseURL = 'https://api.mexc.com';
 
-// Function to get the prices of all ticker symbols
-function getPrices() {
-	return axios.get(`${baseURL}/api/v3/ticker/24hr`)
-	.then(response => {
-		// If the response is an array, return it
-		if (Array.isArray(response.data)) {
-			return response.data;
-		}
-		// If the response is an object, throw an error
-		else {
-			throw new Error('Unexpected response: ' + JSON.stringify(response.data));
-		}
-	});
-}
+// // Function to get the prices of all ticker symbols
+// function getPrices() {
+// 	return axios.get(`${baseURL}/api/v3/ticker/24hr`)
+// 	.then(response => {
+// 		// If the response is an array, return it
+// 		if (Array.isArray(response.data)) {
+// 			return response.data;
+// 		}
+// 		// If the response is an object, throw an error
+// 		else {
+// 			throw new Error('Unexpected response: ' + JSON.stringify(response.data));
+// 		}
+// 	});
+// }
 
-// Get the prices of all ticker symbols and print them
-getPrices().then(prices => {
-	prices.forEach(ticker => {
-		console.log(ticker);
-	});
-}).catch(error => {
-	console.log('Error:', error.message);
-}).finally(() => {
-	process.exit();
-});
+// // Get the prices of all ticker symbols and print them
+// getPrices().then(prices => {
+// 	prices.forEach(ticker => {
+// 		console.log(ticker);
+// 	});
+// }).catch(error => {
+// 	console.log('Error:', error.message);
+// }).finally(() => {
+// 	process.exit();
+// });
