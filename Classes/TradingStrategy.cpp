@@ -80,6 +80,7 @@ public:
 			return false;
 		}
 		Log::tradeLog("Pair " + pairName + " bought " + to_string(amount));
+		Log::email("Pair " + pairName + " bought " + to_string(amount));
 		return true;
 	}
 	
@@ -113,7 +114,7 @@ public:
 			Log::log("Asset balance " + asset + " is 0, cant sell an asset with 0 balance");
 			return false;
 		}
-		string result = runCommand((string("node mexc-api/stop-loss-take-profit.js ") + asset +  " " + stopPrice + " " + takeProfit + " " + to_string(assetBalance) +).c_str());
+		string result = runCommand((string("node mexc-api/stop-loss-take-profit.js ") + asset +  " " + to_string(stopPrice) + " " + to_string(takeProfit) + " " + to_string(assetBalance)).c_str());
 
 		if(result == "error") {
 			string message = "Stop loss, take profit error " + asset + " returned error through sellAsset with node stop-loss-take-profit.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue";
@@ -138,16 +139,15 @@ public:
 			int trendingStrength = consistentMovement(pair, durationOfTrendMin, strengthOfTrend);
 
 			if(trendingStrength > 0) {
-				double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
-				double takeProfitMult = trendingStrength - 0.25;
-				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
-				if(buy(pairName, 100)) {
-					// setup auto sell orders
-					positions.add(pairName, pair.prices1minInterval[0]);
+				// double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
+				// double takeProfitMult = trendingStrength - 0.25;
+				// int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
+				if(buy(pairName, 20)) {
+					positions.addPosition(pairName, pair.prices1minInterval[0]);
 
-					double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
-					double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
-					stopLossTakeProfit(pairName, stopLoss, takeProfit);
+					// double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
+					// double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
+					// stopLossTakeProfit(pairName, stopLoss, takeProfit); need to figure out how to do this api call, something weird about it
 				} else {
 					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
 					Log::email(message.c_str());
