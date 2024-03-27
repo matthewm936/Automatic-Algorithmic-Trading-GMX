@@ -4,6 +4,8 @@ import socket
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
+from datetime import datetime
+
 
 def send_email(subject, filename):
 	msg = MIMEMultipart()
@@ -32,7 +34,14 @@ def get_ip_address():
 	s.close()
 	return ip_address
 
+def get_log_filename():
+    # Get the current date in 'YYYY-MM-DD' format
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    # Construct the log filename
+    filename = '/home/johnsmith/Trading/Algorithmic-Trading/log' + current_date + '.txt'
+    return filename
+
 if __name__ == "__main__":
 	ip_address = get_ip_address()
-	filename = '/home/johnsmith/Trading/Algorithmic-Trading/log.txt'
+    filename = get_log_filename()
 	send_email("Raspberry Pi log file", filename)

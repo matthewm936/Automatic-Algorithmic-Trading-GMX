@@ -52,7 +52,6 @@ private:
 			}
 		}
 		double strengthPercent = trendingStrength / totalIterations;
-		Log::log("consistent movement function on pair" + pair.pairName + " " + to_string(strengthPercent) + " " + to_string(targetStrength));
 		if(strengthPercent > targetStrength) {
 			Log::email("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
 			return strengthPercent;
