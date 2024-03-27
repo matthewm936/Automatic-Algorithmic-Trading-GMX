@@ -22,7 +22,7 @@ double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 
 int main() {
 	Time time;
-	
+
 	Log::LogWithTimestamp("MAIN.cpp Started");
 	Log::email("Started main.cpp");
 
@@ -30,7 +30,7 @@ int main() {
 
 	Positions positions;
 
-	TradingStrategy tradingStrategy(positions);
+	TradingStrategy tradingStrategy(positions, tradingPairs);
 	
 	runCommand("node mexc-api/ticker24hrALL.js");
 
