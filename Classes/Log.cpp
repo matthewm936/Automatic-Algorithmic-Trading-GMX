@@ -31,11 +31,13 @@ private:
 
 public:
 	static void logNoNewline(string log) {
+		checkLogFile();
 		ofstream file(currentFilename, ios_base::app);
 		file << log;
 	
 	}
 	static void log(string log) {
+		checkLogFile();
 		ofstream file(currentFilename, ios_base::app);
 		file << log << "\n";
 	}
@@ -46,6 +48,7 @@ public:
 	}
 
 	static void LogWithTimestamp(string log) {
+		checkLogFile();
 		Time time;
 		ofstream file(currentFilename, ios_base::app);
 		string gmtTime = time.getGMTTime();
@@ -56,6 +59,7 @@ public:
 	}
 
 	static void logLine() {
+		checkLogFile();
 		ofstream file(currentFilename, ios_base::app);
 		file << "-------------------------------------------------------\n";
 	}
