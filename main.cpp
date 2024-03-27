@@ -62,6 +62,7 @@ int main() {
 
 	Log::log("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
 	Log::log("       total quote volume: " + to_string(totalQuoteVolume));
+	Log::log("       average quote volume: " + to_string(totalQuoteVolume / tradingPairs.getNumPairs()));
 
 	while(true) {
 		time.start();

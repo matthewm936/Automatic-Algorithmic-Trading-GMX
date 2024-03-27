@@ -99,23 +99,30 @@ public:
 		return true;
 	}
 	
-	bool sellAsset(string asset) {
-		double assetBalance = getAssetBalance(asset);
+	bool sellAsset(const TradingPair& pair) {
+		double assetBalance = getAssetBalance(pair.baseAsset);
+		string pairName = pair.pairName;
+
 		if(assetBalance == -1) {
-			Log::log("getAssetBalance failed " + asset + " returned -1");
+			Log::log("getAssetBalance failed " + pairName + " returned -1");
+			Log::email("getAssetBalance failed " + pairName + " returned -1");
 			return false;
 		}
 		if(assetBalance == 0) {
-			Log::log("Asset balance " + asset + " is 0, cant sell an asset with 0 balance");
+			Log::log("Asset balance " + pairName + " is 0, cant sell an asset with 0 balance");
+			Log::email("Asset balance " + pairName + " is 0, cant sell an asset with 0 balance");
 			return false;
 		}
-		string result = runCommand((string("node mexc-api/sell.js ") + asset + " " + to_string(assetBalance)).c_str()); // this is wrong, you need pairName not asset
+		string result = runCommand((string("node mexc-api/sell.js ") + pairName + " " + to_string(assetBalance)).c_str()); // this is wrong, you need pairName not asset
 
 		if(result == "error") {
-			Log::log("Sell error " + asset + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
+			Log::log("Sell error " + pairName + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
+			Log::email("Sell error " + pairName + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
 			return false;
 		}
-		Log::tradeLog("Pair " + asset + " sold " + to_string(assetBalance));
+		Log::tradeLog("Pair " + pairName + " sold " + to_string(assetBalance));
+		Log::email("Pair " + pairName + " sold " + to_string(assetBalance));
+		positions.removePosition(pairName);
 		return true;
 	}
 
@@ -145,6 +152,16 @@ public:
 
 		if(positions.exists(pairName)) {
 			Log::log("Pair " + pairName + " already in a position");
+
+			if(positions[pairName].takeProfit != -1 && positions[pairName].stopLoss != -1) {
+				if(pair.getCurrentPrice() >= positions[pairName].takeProfit) {
+					Log::log("Pair " + pairName + " hit take profit");
+					sellAsset(pair);
+				} else if(pair.getCurrentPrice() <= positions[pairName].stopLoss) {
+					Log::log("Pair " + pairName + " hit stop loss");
+					sellAsset(pair);
+				}
+			}
 			return;
 		}
 
@@ -154,15 +171,14 @@ public:
 			int trendingStrength = consistentMovement(pair, durationOfTrendMin, strengthOfTrend);
 
 			if(trendingStrength > 0) {
-				// double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
-				// double takeProfitMult = trendingStrength - 0.25;
-				// int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
 				if(buy(pairName, 20)) {
-					positions.addPosition(pairName, pair.prices1minInterval[0]);
-
-					// double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
-					// double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
-					// stopLossTakeProfit(pairName, stopLoss, takeProfit); need to figure out how to do this api call, something weird about it
+				double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
+				double takeProfitMult = trendingStrength - 0.25;
+				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
+				double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
+				double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
+				
+				positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
 				} else {
 					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
 					Log::email(message.c_str());
