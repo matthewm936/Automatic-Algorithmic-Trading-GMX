@@ -75,14 +75,15 @@ public:
 	}
 
 	bool buy(string pairName, int amount) {
-		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
-		if(result == "error") {
-			string message = "Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue";
-			Log::email(message.c_str());
-			return false;
-		}
-		Log::tradeLog("Pair " + pairName + " bought " + to_string(amount));
-		Log::email("Pair " + pairName + " bought " + to_string(amount));
+		// string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
+		// if(result == "error") {
+		// 	string message = "Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue";
+		// 	Log::email(message.c_str());
+		// 	return false;
+		// }
+		string message = "pair " + pairName + " virtual buying rn bought " + to_string(amount);
+		Log::tradeLog(message);
+		Log::email(message);
 		return true;
 	}
 	
