@@ -48,7 +48,11 @@ int main() {
 		double quoteVolume = getDoubleFromJson(it, "quoteVolume");
 
 		tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
+
+		Log::logNoNewline(symbol + " ");
 	}
+
+	Log::logLine();
 
 	Log::log("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
 
