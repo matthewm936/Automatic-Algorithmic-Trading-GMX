@@ -44,14 +44,17 @@ private:
 		deque<double> prices = pair.prices1minInterval;
 
 		int trendingStrength = 0;
+		int totalIterations = 0;
 		for(int i = 0; i < minutesDuration; i+=3) {
+			totalIterations += 1;
 			if(prices[i] > prices[i + 3]) {
 				trendingStrength++;
 			}
 		}
-		double strengthPercent = trendingStrength / minutesDuration;
-
+		double strengthPercent = trendingStrength / totalIterations;
+		Log::log("consistent movement function on pair" + pair.pairName + " " + to_string(strengthPercent) + " " + to_string(targetStrength));
 		if(strengthPercent > targetStrength) {
+			Log::email("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
 			return strengthPercent;
 		}
 
