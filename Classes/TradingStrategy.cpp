@@ -64,8 +64,8 @@ private:
 
 public:	
 	Positions positions;
-	TradingStrategy(Positions positions) {
-		this->positions = positions;
+	TradingStrategy(Positions pos) {
+		this->positions = pos;
 	}
 
 	double getAssetBalance(string asset) { 

@@ -13,7 +13,6 @@ def send_email(subject, filename):
 	msg['From'] = 'the.matthew.maloney@gmail.com'
 	msg['To'] = ', '.join(['the.matthew.maloney@gmail.com', 'mrtennizman@gmail.com'])
 
-	# Attach the file
 	with open(filename, 'rb') as file:
 		part = MIMEBase('application', 'octet-stream')
 		part.set_payload(file.read())
@@ -35,13 +34,11 @@ def get_ip_address():
 	return ip_address
 
 def get_log_filename():
-    # Get the current date in 'YYYY-MM-DD' format
-    current_date = datetime.now().strftime('%Y-%m-%d')
-    # Construct the log filename
-    filename = '/home/johnsmith/Trading/Algorithmic-Trading/log' + current_date + '.txt'
-    return filename
+	current_date = datetime.now().strftime('%Y-%m-%d')
+	filename = '/home/johnsmith/Trading/Algorithmic-Trading/log' + current_date + '.txt'
+	return filename
 
 if __name__ == "__main__":
 	ip_address = get_ip_address()
-    filename = get_log_filename()
+	filename = get_log_filename()
 	send_email("Raspberry Pi log file", filename)

@@ -22,6 +22,7 @@ double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 
 int main() {
 	Time time;
+	
 	Log::LogWithTimestamp("MAIN.cpp Started");
 	Log::email("Started main.cpp");
 
@@ -37,6 +38,8 @@ int main() {
 	nlohmann::json j;
 	i >> j;
 
+	double totalQuoteVolume = 0;
+
 	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
 		std::string symbol = it->at("symbol").get<std::string>();
 		double lastPrice = getDoubleFromJson(it, "lastPrice");
@@ -49,12 +52,16 @@ int main() {
 
 		tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
 
+		totalQuoteVolume += quoteVolume;
+
 		Log::logNoNewline(symbol + " ");
 	}
-
+	Log::logLine();
 	Log::logLine();
 
+
 	Log::log("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
+	Log::log("       total quote volume: " + to_string(totalQuoteVolume));
 
 	while(true) {
 		time.start();

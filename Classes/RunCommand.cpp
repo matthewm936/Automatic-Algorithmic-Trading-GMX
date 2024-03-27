@@ -24,11 +24,13 @@ std::string runCommand(const char *cmd) {
 			exitCode = pclose(pipe.release());
 		#endif
 		if (exitCode != 0) {
-			Log::log("Command failed with exit code " + std::to_string(exitCode));
+			Log::log(string(cmd) + " Command failed with exit code " + std::to_string(exitCode));
+			Log::email(string(cmd) + " Command failed with exit code " + std::to_string(exitCode));
 			return "error";
 		}
 	} catch (const std::exception& e) {
-		Log::log("Error running command: " + std::string(e.what()));
+		Log::log(string(cmd) + " Error running command: " + std::string(e.what()));
+		Log::email(string(cmd) + " Error running command: " + std::string(e.what()));
 		return "error";
 	}
 	return result;

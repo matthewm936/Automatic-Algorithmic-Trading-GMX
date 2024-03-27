@@ -65,7 +65,8 @@ public:
 	}
 
 	static void email(string message) {
-		system(("python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py " + message).c_str());
+		string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + message + "\"";
+		system(command.c_str());
 	}
 	// static void logSell(Position position, string condition) {
 	// 	double percentProfitLoss = (pair.getCurrentPrice() - positions[pair.pairName].entryPrice) / positions[pair.pairName].entryPrice;

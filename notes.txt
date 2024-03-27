@@ -1,3 +1,21 @@
 TODO:
 
+* fix emial noti logmail which isnt sending pair information or time which I need
+* fix position log which main's position object isnt printing the correct position size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Lots of the prelim setup for trading has been done, but a lot of the logging capabilities is not present, I have no idea if a trade has been initiated and my apis request through mexc need to be more well thought out so I always have access to open positions, open trades, and can see more into the api.  The selling part of the trading also seems to be super flawed, I am not sure how the selling works, can you do quantity of the coin, or value of the position or just close it out into usdt.  Ideally closign out into usdt would be perfect, but seems like because of market orders I always seem to be in small positions.  I need to fix this and learn more about hte sell side of the trade.  Also the trade conditions need to be refined, the sequential gain is a good idea but I think I need to add higher volatility and/or some "break" out looking thing (higher average moves which can be done by comparing recent change levels to previous.  Also volume, should I limit the trades only to higher volume pairs, this seems way more logical.  For logging in main and logging in general writing to files may not be it, I could just pass in emails to every single action or hourly but this may be hard to look at later, email does offer great accounting later because its stored on googles cloud which is a great advatage, although looking at json through emaials may not be it.  Either way I need to figure this out.  As for class oop, the trading needs to be abstracted (the rules to enter) as this will eventaully allow for trading through other CEX's and maybe through DEX's if I figure out price fetching for them and auto matic wallet acceptance of fund things.  So it looks liek selling by the quantity: (amount of currency) is how you fully exit the position which means that I can automatically do it with the client.account info for the most recent postion. Are node js calls getting back uped, how does that owrk? If I send 
