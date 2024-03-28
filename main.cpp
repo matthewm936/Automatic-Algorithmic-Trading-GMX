@@ -24,7 +24,6 @@ int main() {
 	Time time;
 
 	Log::LogWithTimestamp("MAIN.cpp Started");
-	Log::email("Started main.cpp");
 
 	TradingPairs tradingPairs;
 

@@ -83,16 +83,15 @@ public:
 			Log::log("NOT USDC or USDT " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
 		} else if(pair.quoteVolume < 50000) {
 			Log::log("LOW quote volume " + pairName + " generated a buy but has a quote volume of less than 50000");
-			return;
+			return false;
 		}
 		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
 		if(result == "error") {
 			return false;
 		}
 
-		string message = "pair " + pairName + " virtual buying rn bought " + to_string(amount);
+		string message = "pair " + pairName + " virtual buying rn bought " + to_string(amount) + " at price " + to_string(pair.getCurrentPrice());
 		Log::log(message);
-		Log::email(message);
 		return true;
 	}
 	
