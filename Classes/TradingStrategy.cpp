@@ -80,18 +80,16 @@ public:
 	bool buy(string pairName, int amount) {
 		TradingPair pair = tradingPairs.getPair(pairName);
 		if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
-			Log::log("Pair " + pairName + " generated a buy but is not a USDT or USDC pair");
-			return false;
-		} else if(pair.quoteVolume < 10000) {
-			Log::log("Pair " + pairName + " generated a buy but has a quote volume of less than 10,000");
+			Log::log("Pair " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
+		} else if(pair.quoteVolume < 50000) {
+			Log::log("Pair " + pairName + " generated a buy but has a quote volume of less than 10,000 still attempint to buy");
+		}
+		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
+		if(result == "error") {
+			string message = "Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue";
+			Log::email(message.c_str());
 			return false;
 		}
-		// string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
-		// if(result == "error") {
-		// 	string message = "Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue";
-		// 	Log::email(message.c_str());
-		// 	return false;
-		// }
 
 		string message = "pair " + pairName + " virtual buying rn bought " + to_string(amount);
 		Log::tradeLog(message);
@@ -172,14 +170,17 @@ public:
 
 			if(trendingStrength > 0) {
 				if(buy(pairName, 20)) {
-				double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
-				double takeProfitMult = trendingStrength - 0.25;
-				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
-				double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
-				double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
-				
-				positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
-				} else {
+					double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
+					double takeProfitMult = trendingStrength - 0.25;
+					int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
+					double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
+					double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
+					
+					positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
+
+					Log::email(" added position " + pairName + " with take profit " + to_string(takeProfit) + " and stop loss " + to_string(stopLoss));
+				}
+				else {
 					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
 					Log::email(message.c_str());
 				}
