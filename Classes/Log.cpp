@@ -8,6 +8,8 @@
 
 using namespace std;
 
+// All errors get logged and automatically emailed
+
 class Log {
 private:
 	static string baseFilename;
@@ -29,6 +31,11 @@ private:
 		}
 	}
 
+	static void email(string message) {
+		string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + message + "\"";
+		system(command.c_str());
+	}
+
 public:
 	static void logNoNewline(string log) {
 		checkLogFile();
@@ -42,11 +49,6 @@ public:
 		file << log << "\n";
 	}
 
-	static void tradeLog(string log) {
-		ofstream file("trades.txt", ios_base::app);
-		file << log << "\n";
-	}
-
 	static void LogWithTimestamp(string log) {
 		checkLogFile();
 		Time time;
@@ -54,25 +56,19 @@ public:
 		string gmtTime = time.getGMTTime();
 		string unixTime = time.getUnixTime();
 
-		file << log << "\n"
-			<< "| GMT Time: " << gmtTime << " | Unix Time: " << unixTime << " |\n";
+		file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] " << log << "\n";
 	}
 
-	static void logLine() {
-		checkLogFile();
-		ofstream file(currentFilename, ios_base::app);
-		file << "-------------------------------------------------------\n";
-	}
+	static void logError(string log) {
+		Time time;
+		string gmtTime = time.getGMTTime();
+		string unixTime = time.getUnixTime();
 
-	static void email(string message) {
-		string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + message + "\"";
-		system(command.c_str());
-	}
-	// static void logSell(Position position, string condition) {
-	// 	double percentProfitLoss = (pair.getCurrentPrice() - positions[pair.pairName].entryPrice) / positions[pair.pairName].entryPrice;
+		ofstream file("error_log.txt", ios_base::app);
+		file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] " << log << "\n";
 
-	// 	string log = "Pair " + pair.pairName + " " + condition + " " + std::to_string(percentProfitLoss) + ". Position: Entry Price - " + std::to_string(positions[pair.pairName].entryPrice) + ", Exit Time Condition - " + std::to_string(positions[pair.pairName].exitTimeCondition);
-	// }
+		email(log);
+	}
 };
 
 string Log::baseFilename = "log";

@@ -56,11 +56,8 @@ int main() {
 
 		Log::logNoNewline(symbol + " ");
 	}
-	Log::logLine();
-	Log::logLine();
 
-
-	Log::log("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
+	Log::LogWithTimestamp("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
 	Log::log("       total quote volume: " + to_string(totalQuoteVolume));
 	Log::log("       average quote volume: " + to_string(totalQuoteVolume / tradingPairs.getNumPairs()));
 
@@ -86,8 +83,6 @@ int main() {
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
-
-		Log::log("main.cpp exec time: " + to_string(time.getDuration()) + "s" + " so sleeping for " + to_string(sleepTime) + "s");
 
 		time.sleep(sleepTime);			
 	}

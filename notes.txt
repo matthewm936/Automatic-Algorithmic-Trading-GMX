@@ -1,6 +1,6 @@
 TODO:
 
-* fix emial noti logmail which isnt sending pair information or time which I need
+* fix email log not sending hourly updates
 * fix position log which main's position object isnt printing the correct position size
 
 
@@ -9,6 +9,7 @@ TODO:
 
 
 
+* fix emial noti logmail which isnt sending pair information or time which I need
 
 
 

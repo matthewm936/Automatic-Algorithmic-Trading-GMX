@@ -53,7 +53,7 @@ private:
 		}
 		double strengthPercent = trendingStrength / totalIterations;
 		if(strengthPercent > targetStrength) {
-			Log::email("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
+			Log::log("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
 			return strengthPercent;
 		}
 
@@ -80,19 +80,18 @@ public:
 	bool buy(string pairName, int amount) {
 		TradingPair pair = tradingPairs.getPair(pairName);
 		if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
-			Log::log("Pair " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
+			Log::log("NOT USDC or USDT " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
 		} else if(pair.quoteVolume < 50000) {
-			Log::log("Pair " + pairName + " generated a buy but has a quote volume of less than 10,000 still attempint to buy");
+			Log::log("LOW quote volume " + pairName + " generated a buy but has a quote volume of less than 50000");
+			return;
 		}
 		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
 		if(result == "error") {
-			string message = "Pair " + pairName + " returned error through buy with node mexc-api/buy.js, js call api to mexc buy caused the issue, either the asset doesn't exist, or hte api had some issue";
-			Log::email(message.c_str());
 			return false;
 		}
 
 		string message = "pair " + pairName + " virtual buying rn bought " + to_string(amount);
-		Log::tradeLog(message);
+		Log::log(message);
 		Log::email(message);
 		return true;
 	}
@@ -103,23 +102,18 @@ public:
 
 		if(assetBalance == -1) {
 			Log::log("getAssetBalance failed " + pairName + " returned -1");
-			Log::email("getAssetBalance failed " + pairName + " returned -1");
 			return false;
 		}
 		if(assetBalance == 0) {
 			Log::log("Asset balance " + pairName + " is 0, cant sell an asset with 0 balance");
-			Log::email("Asset balance " + pairName + " is 0, cant sell an asset with 0 balance");
 			return false;
 		}
-		string result = runCommand((string("node mexc-api/sell.js ") + pairName + " " + to_string(assetBalance)).c_str()); // this is wrong, you need pairName not asset
+		string result = runCommand((string("node mexc-api/sell.js ") + pairName + " " + to_string(assetBalance)).c_str());
 
 		if(result == "error") {
-			Log::log("Sell error " + pairName + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
-			Log::email("Sell error " + pairName + " returned error through sellAsset with node mexc-api/sell.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue");
 			return false;
 		}
-		Log::tradeLog("Pair " + pairName + " sold " + to_string(assetBalance));
-		Log::email("Pair " + pairName + " sold " + to_string(assetBalance));
+		Log::log("Pair " + pairName + " sold " + to_string(assetBalance));
 		positions.removePosition(pairName);
 		return true;
 	}
@@ -137,11 +131,9 @@ public:
 		string result = runCommand((string("node mexc-api/stop-loss-take-profit.js ") + asset +  " " + to_string(stopPrice) + " " + to_string(takeProfit) + " " + to_string(assetBalance)).c_str());
 
 		if(result == "error") {
-			string message = "Stop loss, take profit error " + asset + " returned error through sellAsset with node stop-loss-take-profit.js, js call api to mexc sell caused the issue, either the asset doesn't exist, or hte api had some issue";
-			Log::email(message.c_str());
 			return false;
 		}
-		Log::tradeLog("Pair " + asset + " sold " + to_string(assetBalance));
+		Log::LogWithTimestamp("Pair " + asset + " sold " + to_string(assetBalance));
 		return true;
 	}
 
@@ -153,10 +145,10 @@ public:
 
 			if(positions[pairName].takeProfit != -1 && positions[pairName].stopLoss != -1) {
 				if(pair.getCurrentPrice() >= positions[pairName].takeProfit) {
-					Log::log("Pair " + pairName + " hit take profit");
+					Log::LogWithTimestamp("Pair " + pairName + " hit take profit");
 					sellAsset(pair);
 				} else if(pair.getCurrentPrice() <= positions[pairName].stopLoss) {
-					Log::log("Pair " + pairName + " hit stop loss");
+					Log::LogWithTimestamp("Pair " + pairName + " hit stop loss");
 					sellAsset(pair);
 				}
 			}
@@ -177,12 +169,10 @@ public:
 					double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
 					
 					positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
-
-					Log::email(" added position " + pairName + " with take profit " + to_string(takeProfit) + " and stop loss " + to_string(stopLoss));
 				}
 				else {
 					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
-					Log::email(message.c_str());
+					Log::LogWithTimestamp(message.c_str());
 				}
 				return;
 			} else {
