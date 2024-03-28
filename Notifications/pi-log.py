@@ -35,7 +35,7 @@ def get_ip_address():
 
 def get_log_filename():
 	current_date = datetime.now().strftime('%Y-%m-%d')
-	filename = '/home/johnsmith/Trading/Algorithmic-Trading/log' + current_date + '.txt'
+	filename = '/home/johnsmith/Trading/Algorithmic-Trading/log' + current_date
 	return filename
 
 if __name__ == "__main__":

@@ -156,8 +156,8 @@ public:
 		}
 
 		if(pair.prices1minInterval.size() > 45) {
-			int durationOfTrendMin = 40; // x minutes
-			double strengthOfTrend = 0.75; // .x% of prices every 3 minutes increasing
+			int durationOfTrendMin = 34; // x minutes
+			double strengthOfTrend = 0.85; // .x% of prices every 3 minutes increasing
 			int trendingStrength = consistentMovement(pair, durationOfTrendMin, strengthOfTrend);
 
 			if(trendingStrength > 0) {
