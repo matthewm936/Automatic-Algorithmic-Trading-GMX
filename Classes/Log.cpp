@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// All errors get logged and automatically emailed
+// All error logs get logged to an error file and automatically emailed
 
 class Log {
 private:
@@ -17,14 +17,12 @@ private:
 
 	static void checkLogFile() {
 		Time time;
-		string currentDate = time.getGMTTime().substr(0, 10); // Get the current date in 'YYYY-MM-DD' format
+		string currentDate = time.getGMTTime().substr(0, 10); 
 
 		if (currentFilename != baseFilename + currentDate) {
-			// A new day has started, so rotate the log file
 			string oldFilename = currentFilename;
 			currentFilename = baseFilename + currentDate;
 
-			// Delete the log file from two days ago
 			if (!oldFilename.empty()) {
 				filesystem::remove(oldFilename);
 			}

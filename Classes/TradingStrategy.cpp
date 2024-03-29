@@ -66,10 +66,7 @@ public:
 	Positions positions;
 	TradingPairs tradingPairs;
 
-	TradingStrategy(Positions pos, TradingPairs pairs) {
-		this->positions = pos;
-		this->tradingPairs = pairs;
-	}
+	TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPairs(pairs) {
 
 	double getAssetBalance(string asset) { 
 		string result = runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str());
@@ -81,7 +78,7 @@ public:
 		TradingPair pair = tradingPairs.getPair(pairName);
 		if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
 			Log::log("NOT USDC or USDT " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
-		} else if(pair.quoteVolume < 50000) {
+		} else if(pair.quoteVolume < 10000) {
 			Log::log("LOW quote volume " + pairName + " generated a buy but has a quote volume of less than 50000");
 			return false;
 		}

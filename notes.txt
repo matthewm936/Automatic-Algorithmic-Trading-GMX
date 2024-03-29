@@ -3,7 +3,10 @@ TODO:
 * fix email log not sending hourly updates
 * fix position log which main's position object isnt printing the correct position size
 
-
+* on init, grab each position in mexc
+* I am not sure if the trading pair objects are getting setup coretly
+* also seem to enter the same position over and over again which meanss something about my if statement to retur
+early on if a position exists mihgt not be working
 
 
 

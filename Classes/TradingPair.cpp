@@ -37,7 +37,10 @@ private:
 	string quoteAsset;
 	string baseAsset;
 
-		TradingPair() = default;
+		TradingPair() {
+
+		}
+		
 		TradingPair(double price, string pair, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
 			prices1minInterval.push_front(price);
 			prices5minInterval.push_front(price);
