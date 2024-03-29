@@ -11,62 +11,62 @@
 
 class TradingStrategy { 
 	
-private:
-	double portfolioProfitLoss = 0;
+	private:
+		double portfolioProfitLoss = 0;
 
-	double calculateVariance(double* data, int size) {
-		double sum = 0.0, mean, variance = 0.0;
-		for(int i = 0; i < size; ++i) {
-			sum += data[i];
-		}
-		mean = sum/size;
-
-		for(int i = 0; i < size; ++i) {
-			variance += pow(data[i] - mean, 2);
-		}
-		return variance / size;
-	}
-
-	double calculateVolatility(const deque<double>& prices, int start, int end) {
-		int size = end - start + 1;
-		vector<double> data(size);
-		for (int i = 0; i < size; ++i) {
-			data[i] = prices[start + i];
-		}
-		vector<double> returns(size - 1);
-		for (int i = 0; i < size - 1; ++i) {
-			returns[i] = log(data[i + 1] / data[i]);
-		}
-		return sqrt(calculateVariance(returns.data(), size - 1));
-	}
-
-	int consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength) {
-		deque<double> prices = pair.prices1minInterval;
-
-		int trendingStrength = 0;
-		int totalIterations = 0;
-		for(int i = 0; i < minutesDuration; i+=3) {
-			totalIterations += 1;
-			if(prices[i] > prices[i + 3]) {
-				trendingStrength++;
+		double calculateVariance(double* data, int size) {
+			double sum = 0.0, mean, variance = 0.0;
+			for(int i = 0; i < size; ++i) {
+				sum += data[i];
 			}
-		}
-		double strengthPercent = trendingStrength / totalIterations;
-		if(strengthPercent > targetStrength) {
-			Log::log("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
-			return strengthPercent;
+			mean = sum/size;
+
+			for(int i = 0; i < size; ++i) {
+				variance += pow(data[i] - mean, 2);
+			}
+			return variance / size;
 		}
 
-		return 0;
-	}
+		double calculateVolatility(const deque<double>& prices, int start, int end) {
+			int size = end - start + 1;
+			vector<double> data(size);
+			for (int i = 0; i < size; ++i) {
+				data[i] = prices[start + i];
+			}
+			vector<double> returns(size - 1);
+			for (int i = 0; i < size - 1; ++i) {
+				returns[i] = log(data[i + 1] / data[i]);
+			}
+			return sqrt(calculateVariance(returns.data(), size - 1));
+		}
 
-	friend class TradingStrategyTest;
+		int consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength) {
+			deque<double> prices = pair.prices1minInterval;
+
+			int trendingStrength = 0;
+			int totalIterations = 0;
+			for(int i = 0; i < minutesDuration; i+=3) {
+				totalIterations += 1;
+				if(prices[i] > prices[i + 3]) {
+					trendingStrength++;
+				}
+			}
+			double strengthPercent = trendingStrength / totalIterations;
+			if(strengthPercent > targetStrength) {
+				Log::log("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
+				return strengthPercent;
+			}
+
+			return 0;
+		}
+
+		friend class TradingStrategyTest;
 
 public:	
 	Positions positions;
 	TradingPairs tradingPairs;
 
-	TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPairs(pairs) {
+TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPairs(pairs) {}
 
 	double getAssetBalance(string asset) { 
 		string result = runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str());
@@ -78,7 +78,7 @@ public:
 		TradingPair pair = tradingPairs.getPair(pairName);
 		if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
 			Log::log("NOT USDC or USDT " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
-		} else if(pair.quoteVolume < 10000) {
+		} else if(pair.quoteVolume < 100000) {
 			Log::log("LOW quote volume " + pairName + " generated a buy but has a quote volume of less than 50000");
 			return false;
 		}
@@ -178,7 +178,6 @@ public:
 
 
 	}
-
 };
 
 #endif
