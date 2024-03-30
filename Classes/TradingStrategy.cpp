@@ -76,12 +76,6 @@ TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPa
 
 	bool buy(string pairName, int amount) {
 		TradingPair pair = tradingPairs.getPair(pairName);
-		if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
-			Log::log("NOT USDC or USDT " + pairName + " generated a buy but is not a USDT or USDC pair still attempting to buy");
-		} else if(pair.quoteVolume < 100000) {
-			Log::log("LOW quote volume " + pairName + " generated a buy but has a quote volume of less than 50000");
-			return false;
-		}
 		string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
 		if(result == "error") {
 			return false;
@@ -135,6 +129,14 @@ TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPa
 
 	void trade(const TradingPair& pair) {
 		string pairName = pair.pairName;
+
+		if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
+			Log::log("NOT USDC or USDT " + pairName + " generated a buy but is not a USDT or USDC");
+			return;
+		} else if(pair.quoteVolume < 100000) {
+			Log::log("LOW quote volume " + pairName + " generated a buy but has a quote volume of less than 50000");
+			return;
+		}
 
 		if(positions.exists(pairName)) {
 			Log::log("Pair " + pairName + " already in a position");
