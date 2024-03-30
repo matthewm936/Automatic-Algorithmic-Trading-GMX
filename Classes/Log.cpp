@@ -35,6 +35,12 @@ private:
 	}
 
 public:
+	static void clearLogFile() {
+		checkLogFile();
+		ofstream file(currentFilename, ios_base::trunc);
+    	file.close();
+	}
+
 	static void logNoNewline(string log) {
 		checkLogFile();
 		ofstream file(currentFilename, ios_base::app);

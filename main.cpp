@@ -6,6 +6,8 @@
 #include <cstdio>
 #include <map>
 #include <string>
+#include <locale>
+#include <sstream>
 
 #include "nlohmann/json.hpp"
 
@@ -20,8 +22,16 @@ double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 	return stod(str);
 }
 
+std::string formatWithCommas(int value) {
+	std::stringstream ss;
+	ss.imbue(std::locale(""));
+	ss << std::fixed << value;
+	return ss.str();
+}
+
 int main() {
 	Time time;
+	Log::clearLogFile();
 
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
@@ -39,6 +49,11 @@ int main() {
 
 	double totalQuoteVolume = 0;
 
+	int quoteVolCountMore50k = 0;
+	int quoteVolCountMore150k = 0;
+	int quoteVolCountMore1M = 0;
+	
+
 	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
 		std::string symbol = it->at("symbol").get<std::string>();
 		double lastPrice = getDoubleFromJson(it, "lastPrice");
@@ -53,12 +68,26 @@ int main() {
 
 		totalQuoteVolume += quoteVolume;
 
-		Log::logNoNewline(symbol + " ");
+		if(quoteVolume > 50000) {
+			quoteVolCountMore50k++;
+		}
+		if(quoteVolume > 150000) {
+			quoteVolCountMore150k++;
+		}
+		if(quoteVolume > 1000000) {
+			quoteVolCountMore1M++;
+			Log::log("Pair " + symbol + " has quote volume > 1M: " + formatWithCommas(quoteVolume));
+		}
 	}
 
-	Log::LogWithTimestamp("main.cpp, TradingPairs pairs has " + to_string(tradingPairs.getNumPairs()) + " of trading pairs");
-	Log::log("       total quote volume: " + to_string(totalQuoteVolume));
-	Log::log("       average quote volume: " + to_string(totalQuoteVolume / tradingPairs.getNumPairs()));
+	Log::log("Main.cpp pairs information:");
+	Log::log("       total pairs: " + to_string(tradingPairs.getNumPairs()));
+	Log::log("       pairs with quote volume > 50k: " + to_string(quoteVolCountMore50k));
+	Log::log("       pairs with quote volume > 150k: " + to_string(quoteVolCountMore150k));
+	Log::log("       pairs with quote volume > 1M: " + to_string(quoteVolCountMore1M));
+
+	Log::log("       total quote volume: " + formatWithCommas(totalQuoteVolume));
+	Log::log("       average quote volume: " + formatWithCommas(totalQuoteVolume / tradingPairs.size()));
 
 	while(true) {
 		time.start();
