@@ -53,6 +53,14 @@ public:
 		file << log << "\n";
 	}
 
+	static void logAndEmail(string log) {
+		checkLogFile();
+		ofstream file(currentFilename, ios_base::app);
+		file << log << "\n";
+
+		email(log);
+	}
+
 	static void LogWithTimestamp(string log) {
 		checkLogFile();
 		Time time;

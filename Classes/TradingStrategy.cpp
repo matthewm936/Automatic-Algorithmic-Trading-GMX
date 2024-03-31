@@ -45,9 +45,9 @@ class TradingStrategy {
 
 			int trendingStrength = 0;
 			int totalIterations = 0;
-			for(int i = 0; i < minutesDuration; i+=3) {
+			for(int i = 0; i < minutesDuration; i++) {
 				totalIterations += 1;
-				if(prices[i] > prices[i + 3]) {
+				if(prices[i] > prices[i + 1]) {
 					trendingStrength++;
 				}
 			}
@@ -151,38 +151,38 @@ TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPa
 			return;
 		}
 
-		if(pair.prices1minInterval.size() > 45) {
-			int durationOfTrendMin = 34; // x minutes
-			double strengthOfTrend = 0.85; // .x% of prices every 3 minutes increasing
-			int trendingStrength = consistentMovement(pair, durationOfTrendMin, strengthOfTrend, pair.prices1minInterval);
+		// if(pair.prices1minInterval.size() > 45) {
+		// 	int durationOfTrendMin = 34; // x minutes
+		// 	double strengthOfTrend = 0.85; // .x% of prices every 3 minutes increasing
+		// 	int trendingStrength = consistentMovement(pair, durationOfTrendMin, strengthOfTrend, pair.prices1minInterval);
 
-			if(trendingStrength > 0) {
-				if(buy(pairName, 20)) {
-					double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
-					double takeProfitMult = trendingStrength - 0.25;
-					int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
-					double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
-					double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
+		// 	if(trendingStrength > 0) {
+		// 		if(buy(pairName, 20)) {
+		// 			double percentChange40Mins = (pair.prices1minInterval[0] - pair.prices1minInterval[40]) / pair.prices1minInterval[40];
+		// 			double takeProfitMult = trendingStrength - 0.25;
+		// 			int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
+		// 			double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
+		// 			double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
 					
-					positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
-				}
-				else {
-					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
-					Log::LogWithTimestamp(message.c_str());
-				}
-				return;
-			} else {
-				return;
-			}
-		}
+		// 			positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
+		// 		}
+		// 		else {
+		// 			string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
+		// 			Log::LogWithTimestamp(message.c_str());
+		// 		}
+		// 		return;
+		// 	} else {
+		// 		return;
+		// 	}
+		// }
 
 		if(pair.quoteVolume < 500000) {
 			return;
 		}
 
 		if(pair.prices5minInterval.size() > 24) {
-			int durationOfTrend5Min = 24; // x minutes
-			double strengthOfTrend = 0.75; // .x% of prices every 3 minutes increasing
+			int durationOfTrend5Min = 24; // x * 5 minutes 
+			double strengthOfTrend = 0.75; // .x% of prices every 5 minutes increasing
 			int trendingStrength = consistentMovement(pair, durationOfTrend5Min, strengthOfTrend, pair.prices5minInterval);
 
 			if(trendingStrength > 0) {
@@ -194,6 +194,7 @@ TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPa
 					double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
 					
 					positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss);
+					Log::logAndEmail("Bought " + pairName + " at " + to_string(pair.getCurrentPrice()) + " with take profit at " + to_string(takeProfit) + " and stop loss at " + to_string(stopLoss) + " with a trending strength of " + to_string(trendingStrength) + " over " + to_string(durationOfTrend5Min * 5) + " minutes");
 				}
 				else {
 					string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
@@ -204,8 +205,6 @@ TradingStrategy(Positions& pos, TradingPairs& pairs) : positions(pos), tradingPa
 				return;
 			}
 		}
-
-
 	}
 };
 
