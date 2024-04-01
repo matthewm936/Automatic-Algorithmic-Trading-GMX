@@ -9,6 +9,11 @@ class TradingPairs {
 private:
 public:
 	std::unordered_map<std::string, TradingPair> pairs;
+	double quoteVolumeUSDT = 0;
+	double quoteVolumeUSDC = 0;
+	double quoteVolumeBTC = 0;
+	double quoteVolumeETH = 0;
+	double quoteVolumeTUSD = 0;
 
 	TradingPairs() {}
 

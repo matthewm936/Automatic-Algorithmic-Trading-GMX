@@ -8,7 +8,10 @@
 #include <ctime>
 #include <filesystem> 
 #include "Time.h" 
+
 #include "Positions.h"
+#include "TradingPair.h"
+#include "TradingPairs.h"
 
 class Log {
 private:
@@ -33,6 +36,10 @@ public:
 	static void logError(std::string log);
 
 	static void logPositions(const Positions& pos);
+
+	static void logPair(const TradingPair& pair);
+
+	static void logPairs(const TradingPairs& pairs);
 };
 
 #endif // LOG_H

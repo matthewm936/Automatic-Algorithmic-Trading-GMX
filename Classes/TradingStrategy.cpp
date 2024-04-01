@@ -126,6 +126,7 @@ bool TradingStrategy::stopLossTakeProfit(string asset, double stopPrice, double 
 void TradingStrategy::trade(const TradingPair& pair) {
 	string pairName = pair.pairName;
 
+
 	if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
 		return;
 	} else if(pair.quoteVolume < 100000) {

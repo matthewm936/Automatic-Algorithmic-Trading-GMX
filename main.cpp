@@ -46,18 +46,12 @@ int main() {
 
 	TradingStrategy tradingStrategy(positions, tradingPairs);
 	
+	Log::log("Main getting ticker information");
 	runCommand("node mexc-api/ticker24hrALL.js");
 
 	ifstream i("prices.json");
 	nlohmann::json j;
 	i >> j;
-
-	double totalQuoteVolume = 0;
-
-	int quoteVolCountMore50k = 0;
-	int quoteVolCountMore150k = 0;
-	int quoteVolCountMore1M = 0;
-	
 
 	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
 		std::string symbol = it->at("symbol").get<std::string>();
@@ -70,32 +64,13 @@ int main() {
 		double quoteVolume = getDoubleFromJson(it, "quoteVolume");
 
 		tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
-
-		totalQuoteVolume += quoteVolume;
-
-		if(quoteVolume > 50000) {
-			quoteVolCountMore50k++;
-		}
-		if(quoteVolume > 150000) {
-			quoteVolCountMore150k++;
-		}
-		if(quoteVolume > 1000000) {
-			quoteVolCountMore1M++;
-			Log::log("Pair " + symbol + " has quote volume > 1M: " + formatWithCommas(quoteVolume));
-		}
 	}
 
-	Log::log("Main.cpp pairs information:");
-	Log::log("       total pairs: " + to_string(tradingPairs.getNumPairs()));
-	Log::log("       pairs with quote volume > 50k: " + to_string(quoteVolCountMore50k));
-	Log::log("       pairs with quote volume > 150k: " + to_string(quoteVolCountMore150k));
-	Log::log("       pairs with quote volume > 1M: " + to_string(quoteVolCountMore1M));
-
-	Log::log("       total quote volume: " + formatWithCommas(totalQuoteVolume));
-	Log::log("       average quote volume: " + formatWithCommas(totalQuoteVolume / tradingPairs.size()));
+	Log::logPairs(tradingPairs);
 
 	while(true) {
 		time.start();
+		Log::log("Running main loop");
 
 		string prices = runCommand("node mexc-api/pair-prices.js");
 
@@ -110,14 +85,16 @@ int main() {
 			tradingStrategy.trade(tradingPairs.pairs[pairName]);
 		}
 
+		Log::log("Main update prices and tradingStrategy.trades completed");
+
 		time.end();
-		Log::log("total positions: " + to_string(positions.size()));
 		Log::logPositions(positions);
 
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
+		Log::log("Sleeping for " + to_string(sleepTime) + " seconds");
 		time.sleep(sleepTime);			
 	}
 

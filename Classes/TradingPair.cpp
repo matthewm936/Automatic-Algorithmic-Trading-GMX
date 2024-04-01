@@ -46,10 +46,12 @@ TradingPair::TradingPair(double price, std::string pair, double ask, double bid,
 	volume = vol;
 	quoteVolume = quoteVol;
 
-	// Define possible quote assets
 	std::vector<std::string> quoteAssets = {"USDT", "USDC", "ETH", "BTC", "TUSD"};
 
-	// Extract quote asset and base asset from pairName
+	std::sort(quoteAssets.begin(), quoteAssets.end(), [](const std::string& a, const std::string& b) {
+		return a.size() > b.size();
+	});
+
 	for (const auto& quote : quoteAssets) {
 		if (pairName.size() > quote.size() && pairName.substr(pairName.size() - quote.size()) == quote) {
 			quoteAsset = quote;
