@@ -23,7 +23,7 @@ private:
 	static void email(std::string message);
 
 public:
-	static void clearLogFile();
+	static void clearLogFiles();
 
 	static void logNoNewline(std::string log);
 
@@ -40,6 +40,8 @@ public:
 	static void logPair(const TradingPair& pair);
 
 	static void logPairs(const TradingPairs& pairs);
+
+	static void logStrategyConsistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength);
 };
 
 #endif // LOG_H

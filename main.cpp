@@ -36,7 +36,7 @@ std::string formatWithCommas(int value) {
 
 int main() {
 	Time time;
-	Log::clearLogFile();
+	Log::clearLogFiles();
 
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
@@ -85,7 +85,7 @@ int main() {
 			tradingStrategy.trade(tradingPairs.pairs[pairName]);
 		}
 
-		Log::log("Main update prices and tradingStrategy.trades completed");
+		Log::LogWithTimestamp("Main update prices and tradingStrategy.trades completed");
 
 		time.end();
 		Log::logPositions(positions);

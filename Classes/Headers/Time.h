@@ -29,6 +29,8 @@ public:
 
 	std::string getUnixTime();
 
+	std::string getMSTTime();
+
 	double getElapsedTime(time_t startTime);
 };
 

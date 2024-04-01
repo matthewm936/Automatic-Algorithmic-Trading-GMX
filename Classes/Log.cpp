@@ -4,6 +4,7 @@
 #include <iomanip> 
 #include <ctime>
 #include <string>
+#include <chrono>
 
 #include "Headers/Time.h"
 #include "Headers/Positions.h"
@@ -37,10 +38,19 @@ void Log::email(string message) {
 	system(command.c_str());
 }
 
-void Log::clearLogFile() {
+void Log::clearLogFiles() {
 	checkLogFile();
 	ofstream file(currentFilename, ios_base::trunc);
+	ofstream errorFile("error_log.txt", ios_base::trunc);
+	ofstream positionsFile("Logs/positions.txt", ios_base::trunc);
+	ofstream pairsFile("Logs/pairs.txt", ios_base::trunc);
+	ofstream pairsFile("Logs/strategy.txt", ios_base::trunc);
+
 	file.close();
+	errorFile.close();
+	positionsFile.close();
+	pairsFile.close();
+	pairsFile.close();
 }
 
 void Log::logNoNewline(string log) {
@@ -64,13 +74,14 @@ void Log::logAndEmail(string log) {
 }
 
 void Log::LogWithTimestamp(string log) {
-	checkLogFile();
-	Time time;
-	ofstream file(currentFilename, ios_base::app);
-	string gmtTime = time.getGMTTime();
-	string unixTime = time.getUnixTime();
+    checkLogFile();
+    Time time;
+    ofstream file(currentFilename, ios_base::app);
+    string gmtTime = time.getGMTTime();
+    string unixTime = time.getUnixTime();
+    string mstTime = time.getMSTTime();
 
-	file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] " << log << "\n";
+    file << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] " << log << "\n";
 }
 
 void Log::logError(string log) {
@@ -186,6 +197,25 @@ void Log::logPairs(const TradingPairs& pairs) {
 	}
 
 	logfile.close();
+}
+
+void Log::logStrategyConsistentMovement(const TradingPair& pair, int duration, int trendingStrengthPercent) {
+	string logFilename = "Logs/strategy.txt";
+	std::ofstream logfile(logFilename, std::ios::app);
+	if (!logfile.is_open()) {
+		Log::logError("Failed to open log file: " + logFilename);
+		return;
+	}
+
+	int precision = getPrecision(pair.getCurrentPrice());
+
+	logfile << "-----------------" << std::endl;
+	logfile << "Pair Name: " << pair.pairName << std::endl;
+	logfile << "Base Asset: " << pair.baseAsset << std::endl;
+	logfile << "Quote Asset: " << pair.quoteAsset << std::endl;
+	logfile << "Current Price: " << std::fixed << std::setprecision(precision) << pair.getCurrentPrice() << std::endl;
+	logFile << "Duration of Trend: " << duration << " minutes" << std::endl;
+	logFile << "Trending Strength%: " << trendingStrengthPercent << std::endl;
 }
 
 string Log::baseFilename = "log";

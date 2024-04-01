@@ -43,7 +43,7 @@ double TradingStrategy::calculateVolatility(const deque<double>& prices, int sta
 	return sqrt(calculateVariance(returns.data(), size - 1));
 }
 
-int TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength, deque<double> pricesInterval) {
+double TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength, deque<double> pricesInterval) {
 	deque<double> prices = pricesInterval;
 
 	int trendingStrength = 0;
@@ -55,12 +55,7 @@ int TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDura
 		}
 	}
 	double strengthPercent = trendingStrength / totalIterations;
-	if(strengthPercent > targetStrength) {
-		Log::log("Pair " + pair.baseAsset + " has a trending strength of " + to_string(strengthPercent) + " over " + to_string(minutesDuration) + " minutes");
-		return strengthPercent;
-	}
-
-	return 0;
+	return strengthPercent;
 }
 
 
@@ -148,28 +143,33 @@ void TradingStrategy::trade(const TradingPair& pair) {
 		return;
 	}
 
-	if(pair.quoteVolume < 500000) {
-		return;
-	}
-
 	if(pair.prices5minInterval.size() > 24) {
 		int durationOfTrend5Min = 24; // x * 5 minutes 
-		double strengthOfTrend = 0.75; // .x% of prices every 5 minutes increasing
-		int trendingStrength = consistentMovement(pair, durationOfTrend5Min, strengthOfTrend, pair.prices5minInterval);
+		double THREASHOLD_trendStrength = 0.75; // .x% of prices every 5 minutes increasing
+		int trendingStrengthPercent = consistentMovement(pair, durationOfTrend5Min, strengthOfTrend, pair.prices5minInterval);
 
-		if(trendingStrength > 0) {
+		if(trendingStrengthPercent > .6) {
+			Log::logStrategyConsistentMovement(pair, durationOfTrend5Min * 5, trendingStrengthPercent);
+		}
+
+		if(trendingStrengthPercent > .7) {
+			Log::logStrategyConsistentMovement(pair, durationOfTrend5Min * 5, trendingStrengthPercent);
+		}
+
+		if(trendingStrengthPercent > THREASHOLD_trendStrength) {
+
 			if(buy(pairName, 20)) {
 				double percentChange40Mins = (pair.prices5minInterval[0] - pair.prices5minInterval[40]) / pair.prices5minInterval[40];
-				double takeProfitMult = trendingStrength - 0.25;
+				double takeProfitMult = trendingStrengthPercent - 0.25;
 				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
 				double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
 				double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
 				
 				positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss, -1);
-				Log::logAndEmail("Bought " + pairName + " at " + to_string(pair.getCurrentPrice()) + " with take profit at " + to_string(takeProfit) + " and stop loss at " + to_string(stopLoss) + " with a trending strength of " + to_string(trendingStrength) + " over " + to_string(durationOfTrend5Min * 5) + " minutes");
+				Log::logAndEmail("Bought " + pairName + " at " + to_string(pair.getCurrentPrice()) + " with take profit at " + to_string(takeProfit) + " and stop loss at " + to_string(stopLoss) + " with a trending strength of " + to_string(trendingStrengthPercent) + " over " + to_string(durationOfTrend5Min * 5) + " minutes");
 			}
 			else {
-				string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrength) + " on pair " + pair.baseAsset;
+				string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrengthPercent) + " on pair " + pair.baseAsset;
 				Log::LogWithTimestamp(message.c_str());
 			}
 			return;
