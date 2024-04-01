@@ -41,7 +41,7 @@ public:
 
 	static void logPairs(const TradingPairs& pairs);
 
-	static void logStrategyConsistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength);
+	static void logStrategyConsistentMovement(const TradingPair& pair, int minutesDuration, double trendingStrengthPercent);
 };
 
 #endif // LOG_H

@@ -18,7 +18,7 @@
 
 		double calculateVolatility(const std::deque<double>& prices, int start, int end);
 
-		int consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength, std::deque<double> pricesInterval);
+		double consistentMovement(const TradingPair& pair, int minutesDuration, std::deque<double> pricesInterval);
 
 		friend class TradingStrategyTest;
 

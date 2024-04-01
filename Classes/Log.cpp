@@ -44,13 +44,13 @@ void Log::clearLogFiles() {
 	ofstream errorFile("error_log.txt", ios_base::trunc);
 	ofstream positionsFile("Logs/positions.txt", ios_base::trunc);
 	ofstream pairsFile("Logs/pairs.txt", ios_base::trunc);
-	ofstream pairsFile("Logs/strategy.txt", ios_base::trunc);
+	ofstream strategyFile("Logs/strategy.txt", ios_base::trunc);
 
 	file.close();
 	errorFile.close();
 	positionsFile.close();
 	pairsFile.close();
-	pairsFile.close();
+	strategyFile.close();
 }
 
 void Log::logNoNewline(string log) {
@@ -199,7 +199,7 @@ void Log::logPairs(const TradingPairs& pairs) {
 	logfile.close();
 }
 
-void Log::logStrategyConsistentMovement(const TradingPair& pair, int duration, int trendingStrengthPercent) {
+void Log::logStrategyConsistentMovement(const TradingPair& pair, int duration, double trendingStrengthPercent) {
 	string logFilename = "Logs/strategy.txt";
 	std::ofstream logfile(logFilename, std::ios::app);
 	if (!logfile.is_open()) {
@@ -214,8 +214,8 @@ void Log::logStrategyConsistentMovement(const TradingPair& pair, int duration, i
 	logfile << "Base Asset: " << pair.baseAsset << std::endl;
 	logfile << "Quote Asset: " << pair.quoteAsset << std::endl;
 	logfile << "Current Price: " << std::fixed << std::setprecision(precision) << pair.getCurrentPrice() << std::endl;
-	logFile << "Duration of Trend: " << duration << " minutes" << std::endl;
-	logFile << "Trending Strength%: " << trendingStrengthPercent << std::endl;
+	logfile << "Duration of Trend: " << duration << " minutes" << std::endl;
+	logfile << "Trending Strength%: " << trendingStrengthPercent << std::endl;
 }
 
 string Log::baseFilename = "log";

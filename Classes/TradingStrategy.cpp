@@ -43,7 +43,7 @@ double TradingStrategy::calculateVolatility(const deque<double>& prices, int sta
 	return sqrt(calculateVariance(returns.data(), size - 1));
 }
 
-double TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDuration, double targetStrength, deque<double> pricesInterval) {
+double TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDuration, std::deque<double> pricesInterval) {
 	deque<double> prices = pricesInterval;
 
 	int trendingStrength = 0;
@@ -146,7 +146,7 @@ void TradingStrategy::trade(const TradingPair& pair) {
 	if(pair.prices5minInterval.size() > 24) {
 		int durationOfTrend5Min = 24; // x * 5 minutes 
 		double THREASHOLD_trendStrength = 0.75; // .x% of prices every 5 minutes increasing
-		int trendingStrengthPercent = consistentMovement(pair, durationOfTrend5Min, strengthOfTrend, pair.prices5minInterval);
+		int trendingStrengthPercent = consistentMovement(pair, durationOfTrend5Min, pair.prices5minInterval);
 
 		if(trendingStrengthPercent > .6) {
 			Log::logStrategyConsistentMovement(pair, durationOfTrend5Min * 5, trendingStrengthPercent);
