@@ -11,11 +11,16 @@
 
 #include "nlohmann/json.hpp"
 
-#include "Classes/TradingPairs.cpp"
-#include "Classes/Time.cpp"
-#include "Classes/Log.cpp"
-#include "Classes/Liquidity.cpp"
-#include "Classes/TradingStrategy.cpp"
+#include "Classes/Headers/Liquidity.h"
+#include "Classes/Headers/Log.h"
+#include "Classes/Headers/Positions.h"
+#include "Classes/Headers/RunCommand.h"
+#include "Classes/Headers/Time.h"
+#include "Classes/Headers/TradingPair.h"
+#include "Classes/Headers/TradingPairs.h"
+#include "Classes/Headers/TradingStrategy.h"
+
+using namespace std;
 
 double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 	string str = it->at(key).get<string>();
@@ -107,6 +112,7 @@ int main() {
 
 		time.end();
 		Log::log("total positions: " + to_string(positions.size()));
+		Log::logPositions(positions);
 
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();

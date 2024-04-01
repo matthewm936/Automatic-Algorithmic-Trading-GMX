@@ -1,12 +1,10 @@
-#ifndef Liquidity_CPP
-#define Liquidity_CPP
-
 #include <string>
 #include <cstdlib>
 
 #include "../nlohmann/json.hpp"
-#include "Log.cpp"
-#include "RunCommand.cpp"
+#include "Headers/Log.h"
+#include "Headers/RunCommand.h"
+#include "Headers/Liquidity.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -44,5 +42,3 @@ namespace Liquidity {
 		return stod(j["volume"].get<string>());	
 	}
 }
-
-#endif

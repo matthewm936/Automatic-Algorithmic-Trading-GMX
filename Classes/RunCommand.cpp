@@ -1,4 +1,7 @@
-#include "Log.cpp"
+#include <array>
+
+#include "Headers/Log.h"
+#include "Headers/RunCommand.h"
 
 using namespace std;
 

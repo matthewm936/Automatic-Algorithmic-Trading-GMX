@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -Wall -std=c++17
 
-SRCS = main.cpp
+SRCS = main.cpp Classes/Time.cpp Classes/Log.cpp Classes/Liquidity.cpp Classes/TradingStrategy.cpp Classes/TradingPair.cpp Classes/TradingPairs.cpp Classes/RunCommand.cpp Classes/Positions.cpp
 
 EXEC = run
 
