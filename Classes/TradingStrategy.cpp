@@ -143,8 +143,23 @@ void TradingStrategy::trade(const TradingPair& pair) {
 		return;
 	}
 
-	if(pair.prices5minInterval.size() > 24) {
-		int durationOfTrend5Min = 24; // x * 5 minutes 
+	if(pair.prices1minInterval.size() > 40) {
+		int durationOfTrend1Min = 38;
+		int trendingStrengthPercent1Min = consistentMovement(pair, durationOfTrend1Min, pair.prices1minInterval);
+
+		if(trendingStrengthPercent1Min > .6) {
+			Log::logStrategyConsistentMovement(pair, durationOfTrend1Min, trendingStrengthPercent1Min);
+		}
+		if(trendingStrengthPercent1Min > .7) {
+			Log::logStrategyConsistentMovement(pair, durationOfTrend1Min, trendingStrengthPercent1Min);
+		}
+		if(trendingStrengthPercent1Min > .75) {
+			Log::logStrategyConsistentMovement(pair, durationOfTrend1Min, trendingStrengthPercent1Min);
+		}
+	}
+
+	if(pair.prices5minInterval.size() > 22) {
+		int durationOfTrend5Min = 20; // x * 5 minutes 
 		double THREASHOLD_trendStrength = 0.75; // .x% of prices every 5 minutes increasing
 		int trendingStrengthPercent = consistentMovement(pair, durationOfTrend5Min, pair.prices5minInterval);
 
