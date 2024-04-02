@@ -3,6 +3,8 @@ const axios = require('axios');
 // Base URL of the API
 const baseURL = 'https://arbitrum-api.gmxinfra.io';
 
+
+
 function ping() {
 	return axios.get(`${baseURL}/ping`)
 		.then(response => {
@@ -22,6 +24,8 @@ function tickers() {
 	return axios.get(`${baseURL}/prices/tickers`)
 		.then(response => {
 			if (response.status >= 200 && response.status < 300) {
+				console.log(response.data);
+
 				return JSON.stringify(response.data);
 			} else {
 				throw new Error('Unexpected response: ' + JSON.stringify(response.data));
@@ -48,10 +52,50 @@ function latest() {
 		});
 }
 
-// needs required parameters of string and candle stick type (5m 15m 1h 4h 1d)
-// function candleSticks() {
+function candles() {
+	// Added on April 2, 2024
+	// At 5x leverage of 500 USDC Long on GMX
+		// Token: Fee and Price Impact: Network Fee
+		// BTC: $1.97 + $0.46
+		// ETH: $2.89 + $0.46
+		// SOL: $4.32 + $0.46
+		// ARB: $5.62 + $0.46
+		// LINK: +$2.01 + $0.46 PRICE IMPACT HELPING
+		// DOGE: $1.07 + $0.46
+		// AVAX: $4.20 + $0.46
+		// XRP: $2.74 + $0.46
+		// NEAR: $1.90 + $0.46
+		// UNI: $5.42 + $0.46
+		// LTC: $11.23 + $0.46
+		// AAVE $1.22 + $0.46
+		// BNB $2.08 + $0.46
+		// OP: $1.17 + $0.46
+		// ATOM: $4.35 + $0.46
+	// looks like shorting has different price impact fees, the network fees seem to be the same
+	const tokensOnGMX = ["BTC", "ETH", "SOL", "ARB", "LINK", "DOGE", "AVAX", "XRP", "NEAR", "UNI", "LTC", "AAVE", "BNB", "OP", "ATOM"]
+	const timeFrameParams = ['1m', '5m', '15m', '1h', '4h', '1d'];
 
-// }
+	//Arbitrum URL: https://arbitrum-api.gmxinfra.io/prices/candles?tokenSymbol=ETH&period=1d
+
+	let token = tokensOnGMX[0];
+	let timeFrame = timeFrameParams[0];
+	return axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}`)
+	.then(response => {
+		if (response.status >= 200 && response.status < 300) {
+			console.log(response.data);
+			return response.data;
+		} else {
+			throw new Error('Unexpected response: ' + JSON.stringify(response.data));
+		}
+	})
+	.catch(error => {
+		console.error('Error:', error.message);
+		return [];
+	});
+
+
+
+}
 
 function tokens() {
 	return axios.get(`${baseURL}/tokens`)
@@ -86,6 +130,11 @@ function main() {
 				tokens().then(latest => {
 					console.log(tokens);
 				});
+			} else if (args[0] == 'candles') {
+				candles().then(candles => {
+					console.log(candles);
+				});
+
 			}
 		} else {
 			console.error('API is not reachable.');
