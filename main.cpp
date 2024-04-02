@@ -94,6 +94,7 @@ int main() {
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
+		cout << "Sleeping for " << sleepTime << " seconds" << endl;vd
 		Log::log("Sleeping for " + to_string(sleepTime) + " seconds");
 		time.sleep(sleepTime);			
 	}

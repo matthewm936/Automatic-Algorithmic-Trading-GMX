@@ -33,11 +33,6 @@ std::string quoteAsset;
 std::string baseAsset;
 
 TradingPair::TradingPair(double price, std::string pair, double ask, double bid, double askQ, double bidQ, double vol, double quoteVol) {
-	prices1minInterval.push_front(price);
-	prices5minInterval.push_front(price);
-	prices30minInterval.push_front(price);
-	prices1hrInterval.push_front(price);
-
 	pairName = pair;
 	askPrice = ask;
 	bidPrice = bid;

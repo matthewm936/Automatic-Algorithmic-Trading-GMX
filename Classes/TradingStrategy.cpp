@@ -120,7 +120,7 @@ bool TradingStrategy::stopLossTakeProfit(string asset, double stopPrice, double 
 
 void TradingStrategy::trade(const TradingPair& pair) {
 	string pairName = pair.pairName;
-
+	cout << "trading strategy::trade for pairName: " << pairName << endl;
 
 	if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
 		return;
@@ -130,6 +130,7 @@ void TradingStrategy::trade(const TradingPair& pair) {
 
 	if(positions.exists(pairName)) {
 		Log::log("Pair " + pairName + " already in a position");
+		cout << "pair " << pairName << " already in a position" << endl;
 
 		if(positions[pairName].takeProfit != -1 && positions[pairName].stopLoss != -1) {
 			if(pair.getCurrentPrice() >= positions[pairName].takeProfit) {
