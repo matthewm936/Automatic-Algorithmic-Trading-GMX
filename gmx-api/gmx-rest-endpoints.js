@@ -7,7 +7,6 @@ function ping() {
 	return axios.get(`${baseURL}/ping`)
 		.then(response => {
 			if (response.status >= 200 && response.status < 300) {
-				console.log('Ping successful');
 				return true;
 			} else {
 				throw new Error('Unexpected response: ' + JSON.stringify(response.data));
@@ -23,12 +22,12 @@ function tickers() {
 	return axios.get(`${baseURL}/prices/tickers`)
 		.then(response => {
 			if (response.status >= 200 && response.status < 300) {
-				return response.data;
+				return JSON.stringify(response.data);
 			} else {
 				throw new Error('Unexpected response: ' + JSON.stringify(response.data));
 			}
 		})
-		.catch(error => {
+		.catch(error => {b
 			console.error('Error:', error.message);
 			return [];
 		});
@@ -72,14 +71,11 @@ function tokens() {
 function main() {
 	let args = process.argv.slice(2);
 
-	// check api connection
 	ping().then(pingResult => {
 		if (pingResult) {
-			console.log('API is reachable.');
-
 			if (args[0] == 'tickers') {
 				tickers().then(tickers => {
-					console.log('Tickers:', tickers);
+					console.log(tickers);
 				});
 			} else if (args[0] == 'latest') {
 				console.log('Getting latest prices...');
@@ -87,20 +83,19 @@ function main() {
 					console.log('Latest:', latest);
 				});
 			} else if (args[0] == 'tokens') {
-				console.log('Getting tokens...');
 				tokens().then(latest => {
-					console.log('Tokens:', tokens);
+					console.log(tokens);
 				});
 			}
 		} else {
 			console.error('API is not reachable.');
-			process.exit(1); // Exit with error code
+			process.exit(1); 
 		}
 	}).catch(error => {
 		console.error('Error:', error.message);
-		process.exit(1); // Exit with error code
+		process.exit(1); 
 	});
 }
 
-main(); // Call the main function to execute the script
+main(); 
 

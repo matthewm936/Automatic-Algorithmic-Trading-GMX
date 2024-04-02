@@ -35,19 +35,24 @@ std::string formatWithCommas(int value) {
 }
 
 int main() {
-	Time time;
+	//setup logging file system
 	Log::clearLogFiles();
-
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
-	TradingPairs tradingPairs;
+	//setup objects
+	Time time;
+
+	TradingPairs MEXC_tradingPairs;
+	TradingPairs GMX_tradingPairs;
 
 	Positions positions;
+	TradingStrategy MEXC_tradingStrategy(positions, MEXC_tradingPairs);
+	TradingStrategy GMX_tradingStrategy(positions, GMX_tradingPairs);
 
-	TradingStrategy tradingStrategy(positions, tradingPairs);
-	
-	Log::log("Main getting ticker information");
-	runCommand("node mexc-api/ticker24hrALL.js");
+	//setup trading pairs
+	string GMX_tickers = runCommand("node gmx-api/gmx-rest-endpoints.js tickers");
+
+	string MEXC_tickers = runCommand("node mexc-api/ticker24hrALL.js");
 
 	ifstream i("prices.json");
 	nlohmann::json j;
@@ -63,10 +68,10 @@ int main() {
 		double volume = getDoubleFromJson(it, "volume");
 		double quoteVolume = getDoubleFromJson(it, "quoteVolume");
 
-		tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
+		MEXC_tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
 	}
 
-	Log::logPairs(tradingPairs);
+	Log::logPairs(MEXC_tradingPairs);
 
 	while(true) {
 		time.start();
@@ -80,12 +85,12 @@ int main() {
 		double price;
 
 		while (iss >> pairName >> price) {
-			tradingPairs.pairs[pairName].updatePrice(price);
+			MEXC_tradingPairs.pairs[pairName].updatePrice(price);
 
-			tradingStrategy.trade(tradingPairs.pairs[pairName]);
+			MEXC_tradingStrategy.trade(MEXC_tradingPairs.pairs[pairName]);
 		}
 
-		Log::LogWithTimestamp("Main update prices and tradingStrategy.trades completed");
+		Log::LogWithTimestamp("Main update prices and MEXC_tradingStrategy.trades completed");
 
 		time.end();
 		Log::logPositions(positions);
@@ -94,7 +99,7 @@ int main() {
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
-		cout << "Sleeping for " << sleepTime << " seconds" << endl;vd
+		cout << "Sleeping for " << sleepTime << " seconds" << endl;
 		Log::log("Sleeping for " + to_string(sleepTime) + " seconds");
 		time.sleep(sleepTime);			
 	}

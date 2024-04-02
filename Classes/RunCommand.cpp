@@ -16,7 +16,8 @@ std::string runCommand(const char *cmd) {
 			std::unique_ptr<FILE, decltype(&pclose)> pipe(popen((std::string(cmd) + " 2>&1").c_str(), "r"), pclose);
 		#endif
 		if (!pipe) {
-			return "popen() failed!";
+			Log::logError(string(cmd) + " Command failed to open pipe");
+			return "error popen failed";
 		}
 		while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
 			result += buffer.data();
@@ -29,12 +30,12 @@ std::string runCommand(const char *cmd) {
 		if (exitCode != 0) {
 			std::string errorMsg = string(cmd) + " Command failed with exit code " + std::to_string(exitCode) + ". Output: " + result;
 			Log::logError(errorMsg);
-			return "error";
+			return "error exit code not 0";
 		}
 	} catch (const std::exception& e) {
 		std::string errorMsg = string(cmd) + " Command caused an exception: " + std::string(e.what()) + ". Output: " + result;
 		Log::logError(errorMsg);
-		return "error";
+		return "error exception thrown";
 	}
 	return result;
 }
