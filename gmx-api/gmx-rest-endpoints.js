@@ -76,10 +76,11 @@ function candles() {
 	const timeFrameParams = ['1m', '5m', '15m', '1h', '4h', '1d'];
 
 	//Arbitrum URL: https://arbitrum-api.gmxinfra.io/prices/candles?tokenSymbol=ETH&period=1d
+	// No optional params?
 
 	let token = tokensOnGMX[0];
 	let timeFrame = timeFrameParams[0];
-	return axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}`)
+	return axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=1`)
 	.then(response => {
 		if (response.status >= 200 && response.status < 300) {
 			console.log(response.data);
@@ -92,9 +93,6 @@ function candles() {
 		console.error('Error:', error.message);
 		return [];
 	});
-
-
-
 }
 
 function tokens() {
