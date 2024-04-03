@@ -7,8 +7,8 @@
 #include <iomanip> 
 #include <ctime>
 #include <filesystem> 
-#include "Time.h" 
 
+#include "Time.h" 
 #include "Positions.h"
 #include "TradingPair.h"
 #include "TradingPairs.h"

@@ -3,10 +3,10 @@
 #include <deque>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 
 #include "Headers/Time.h"
 #include "Headers/Log.h"
-#include "Headers/Liquidity.h"
 #include "Headers/TradingPair.h"
 
 std::chrono::time_point<std::chrono::system_clock> lastUpdate5min;

@@ -4,7 +4,9 @@
 	#include <deque>
 	#include <cmath>
 	#include <string>
+
 	#include "../nlohmann/json.hpp"
+	
 	#include "Positions.h"
 	#include "Log.h"
 	#include "TradingPair.h"

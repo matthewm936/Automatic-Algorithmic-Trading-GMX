@@ -5,7 +5,6 @@
 
 #include "Headers/Positions.h"
 
-
 Positions::Positions() {}
 
 Position& Positions::operator[](const std::string& key) {

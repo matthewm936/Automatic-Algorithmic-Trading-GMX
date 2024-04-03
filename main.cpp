@@ -1,22 +1,13 @@
 #include <cstdlib>
-#include <iostream>
 #include <thread>
 #include <chrono>
-#include <fstream>
 #include <cstdio>
 #include <map>
-#include <string>
 #include <locale>
 #include <sstream>
 
-#include "nlohmann/json.hpp"
-
-#include "Classes/Headers/Log.h"
-#include "Classes/Headers/Positions.h"
 #include "Classes/Headers/RunCommand.h"
-#include "Classes/Headers/Time.h"
-#include "Classes/Headers/TradingPair.h"
-#include "Classes/Headers/TradingPairs.h"
+
 #include "Classes/Headers/TradingStrategy.h"
 
 #include "Classes/Token.cpp"
