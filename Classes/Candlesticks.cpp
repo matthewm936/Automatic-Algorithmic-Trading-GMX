@@ -2,9 +2,11 @@
 
 #include <deque>
 #include <string>
+#include <iostream>
 
 using std::string;
 using std::deque;
+
 
 int MAX_NUM_CANDLES = 20;
 
@@ -15,10 +17,14 @@ class Candlesticks {
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 		
 	public:
-		Candlesticks() {};
+		Candlesticks() {
+			// std::cout << "Candlesticks object created" << std::endl;
+		};
 		
 		Candlesticks(string timeFrame) {
 			this->timeFrame = timeFrame;
+
+			// std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
 		void addCandle(Candle candle) {
