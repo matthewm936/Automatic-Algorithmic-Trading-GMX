@@ -1,3 +1,5 @@
+#include <ctime>
+
 class Candle {
 	public:
 		time_t timeStamp;
@@ -12,7 +14,5 @@ class Candle {
 			this->high = high;
 			this->low = low;
 			this->close = close;
-		}
-
-		
+		}		
 };

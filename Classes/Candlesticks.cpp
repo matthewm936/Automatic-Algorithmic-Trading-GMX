@@ -6,14 +6,14 @@
 using std::string;
 using std::deque;
 
-class Candles {
+class Candlesticks {
 	private:
 		std::deque<Candle> candles;
 		std::string timeFrame = "";
 		deque<Candle>::size_type maxNumCandles;
 		
 	public:
-		Candles(string timeFrame, int maxNumCandles) {
+		Candlesticks(string timeFrame, int maxNumCandles) {
 			this->timeFrame = timeFrame;
 			this->maxNumCandles = maxNumCandles;
 		}

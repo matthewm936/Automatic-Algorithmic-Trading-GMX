@@ -20,7 +20,7 @@
 #include "Classes/Headers/TradingPairs.h"
 #include "Classes/Headers/TradingStrategy.h"
 
-#include "Classes/Candles.cpp"
+#include "Classes/Token.cpp"
 
 using namespace std;
 
@@ -46,6 +46,8 @@ int main() {
 
 	TradingPairs MEXC_tradingPairs;
 	TradingPairs GMX_tradingPairs;
+
+	unordered_map<string, Token> tokens;
 
 	Positions positions;
 	TradingStrategy MEXC_tradingStrategy(positions, MEXC_tradingPairs);
