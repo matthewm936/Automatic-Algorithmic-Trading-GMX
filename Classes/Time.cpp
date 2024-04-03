@@ -2,6 +2,7 @@
 #include <ctime>
 #include <iomanip>
 #include <thread>
+#include <iostream>
 
 #include "Headers/Time.h"
 
@@ -11,6 +12,8 @@ std::chrono::time_point<std::chrono::high_resolution_clock> endTime;
 Time::Time() {}
 
 double Time::start() {
+	std::cout << "Time::start() called" << std::endl;
+
 	startTime = std::chrono::high_resolution_clock::now();
 	auto epoch = startTime.time_since_epoch();
 	auto seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch);
@@ -18,6 +21,8 @@ double Time::start() {
 }
 
 double Time::end() {
+	std::cout << "Time::end() called" << std::endl;
+
 	endTime = std::chrono::high_resolution_clock::now();
 	auto epoch = endTime.time_since_epoch();
 	auto seconds = std::chrono::duration_cast<std::chrono::seconds>(epoch);
@@ -26,10 +31,14 @@ double Time::end() {
 
 double Time::getDuration() {
 	std::chrono::duration<double> duration = endTime - startTime;
+
+	std::cout << "Time::getDuration() called for " << duration.count() << " seconds" << std::endl;
 	return duration.count();
 }
 
 void Time::sleep(double seconds) {
+	std::cout << "Time::sleep() called for s" << seconds << std::endl;
+
 	std::this_thread::sleep_for(std::chrono::duration<double>(seconds));
 }
 

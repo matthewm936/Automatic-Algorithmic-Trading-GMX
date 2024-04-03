@@ -46,95 +46,73 @@ int main() {
 	Positions positions;
 	TradingStrategy MEXC_tradingStrategy(positions, MEXC_tradingPairs);
 
-	// setup trading pairs
+	// import data from apis into objects
 	runCommand("node gmx-api/gmx-rest-endpoints.js candles");
 
 	std::ifstream gmx_token_candles_data("gmx-api/token-candles.json");
 	nlohmann::json j;
 	gmx_token_candles_data >> j;
 
-	// Iterate over all tokens in the JSON
 	for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) {
-		// Create a new Token object for each token in the JSON
 		Token token(tokenIt.key());
 
-		// Iterate over all time frames for the current token
 		for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
-			// Create a new Candlesticks object for each time frame
 			Candlesticks candlesticks(timeframeIt.key());
-
-			// Get the array of candles for the current time frame
 			nlohmann::json candlesArray = timeframeIt->at("candles");
 
-			// Iterate over all candles in the array
 			for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
-				// Create a new Candle object for each candle in the array
 				Candle candle((*candleIt)[0].get<double>(), (*candleIt)[1].get<double>(), (*candleIt)[2].get<double>(), (*candleIt)[3].get<double>(), (*candleIt)[4].get<double>());
 
-				// Add the Candle object to the Candlesticks object
 				candlesticks.addCandle(candle);
 			}
-
-			// Add the Candlesticks object to the Token object
 			token.addCandlesticks(candlesticks);
 		}
-
-		// Now you have a Token object with all its Candlesticks and Candles set up
-		// You can add the Token object to a collection, use it directly, etc.
 	}
 
+	runCommand("node mexc-api/ticker24hrALL.js");
 
-	// string MEXC_tickers = runCommand("node mexc-api/ticker24hrALL.js");
+	std::ifstream i("prices.json");
+	i >> j;
 
-	// std::ifstream i("prices.json");
-	// nlohmann::json j;
-	// i >> j;
+	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
+		string symbol = it->at("symbol").get<std::string>();
+		double lastPrice = getDoubleFromJson(it, "lastPrice");
+		double askPrice = getDoubleFromJson(it, "askPrice");
+		double bidPrice = getDoubleFromJson(it, "bidPrice");
+		double askQty = getDoubleFromJson(it, "askQty");
+		double bidQty = getDoubleFromJson(it, "bidQty");
+		double volume = getDoubleFromJson(it, "volume");
+		double quoteVolume = getDoubleFromJson(it, "quoteVolume");
 
-	// for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
-	// 	string symbol = it->at("symbol").get<std::string>();
-	// 	double lastPrice = getDoubleFromJson(it, "lastPrice");
-	// 	double askPrice = getDoubleFromJson(it, "askPrice");
-	// 	double bidPrice = getDoubleFromJson(it, "bidPrice");
-	// 	double askQty = getDoubleFromJson(it, "askQty");
-	// 	double bidQty = getDoubleFromJson(it, "bidQty");
-	// 	double volume = getDoubleFromJson(it, "volume");
-	// 	double quoteVolume = getDoubleFromJson(it, "quoteVolume");
+		MEXC_tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
+	}
 
-	// 	MEXC_tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
-	// }
+	// init done, starting main loop that runs every minute watching prices
+	while(true) {
+		time.start();
 
-	// Log::logPairs(MEXC_tradingPairs);
+		string prices = runCommand("node mexc-api/pair-prices.js");
 
-	// while(true) {
-	// 	time.start();
-	// 	Log::log("Running main loop");
+		std::istringstream iss(prices);
 
-	// 	string prices = runCommand("node mexc-api/pair-prices.js");
+		string pairName;
+		double price;
 
-	// 	std::istringstream iss(prices);
+		while (iss >> pairName >> price) {
+			MEXC_tradingPairs.pairs[pairName].updatePrice(price);
 
-	// 	string pairName;
-	// 	double price;
+			MEXC_tradingStrategy.trade(MEXC_tradingPairs.pairs[pairName]);
+		}
 
-	// 	while (iss >> pairName >> price) {
-	// 		MEXC_tradingPairs.pairs[pairName].updatePrice(price);
+		time.end();
+		Log::logPositions(positions);
 
-	// 		MEXC_tradingStrategy.trade(MEXC_tradingPairs.pairs[pairName]);
-	// 	}
+		double sleepTimeMins = 1;
+		double sleepTime = sleepTimeMins * 60 - time.getDuration();
+		if (sleepTime < 0) sleepTime = 0; 
 
-	// 	Log::LogWithTimestamp("Main update prices and MEXC_tradingStrategy.trades completed");
-
-	// 	time.end();
-	// 	Log::logPositions(positions);
-
-	// 	double sleepTimeMins = 1;
-	// 	double sleepTime = sleepTimeMins * 60 - time.getDuration();
-	// 	if (sleepTime < 0) sleepTime = 0; 
-
-	// 	cout << "Sleeping for " << sleepTime << " seconds" << endl;
-	// 	Log::log("Sleeping for " + to_string(sleepTime) + " seconds");
-	// 	time.sleep(sleepTime);			
-	// }
+		time.sleep(sleepTime);			
+	}
 
 	return 0;
 }
