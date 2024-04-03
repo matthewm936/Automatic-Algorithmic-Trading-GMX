@@ -7,21 +7,13 @@
 using std::string;
 using std::deque;
 
-int MAX_NUM_CANDLES = 20;
+int MAX_NUM_CANDLES = 50;
 
 class Candlesticks {
 	private:
 		std::deque<Candle> candles;
 		std::string timeFrame = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
-
-		void checkCandleOrderCorrectness() {
-			for (size_t i = 1; i < candles.size(); ++i) {
-				if (candles[i-1].timeStamp < candles[i].timeStamp) {
-					throw std::runtime_error("Candles are not in the correct order");
-				}
-			}
-		}
 		
 	public:
 		Candlesticks() {
@@ -49,7 +41,6 @@ class Candlesticks {
 			if(candles.size() > maxNumCandles) {
 				candles.pop_back();
 			}
-			checkCandleOrderCorrectness();
 		}
 
 		string getTimeFrame() {
@@ -59,4 +50,14 @@ class Candlesticks {
 		deque<Candle> getCandles() {
 			return candles;
 		}
+
+		void checkCandleOrderCorrectness() {
+			for (size_t i = 1; i < candles.size(); ++i) {
+				if (candles[i-1].timeStamp < candles[i].timeStamp) {
+					throw std::runtime_error("Candles are not in the correct order");
+				}
+			}
+		}
+
+
 };

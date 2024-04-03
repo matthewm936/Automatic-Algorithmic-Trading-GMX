@@ -81,7 +81,7 @@ async function candles() {
 		data[token] = {};
 		for (let timeFrame of timeFrameParams) {
 			try {
-				const response = await axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=20`);
+				const response = await axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=100`);
 				if (response.status >= 200 && response.status < 300) {
 					data[token][timeFrame] = response.data;
 				} else {
