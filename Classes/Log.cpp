@@ -7,45 +7,56 @@
 #include <chrono>
 #include <filesystem>
 
-#include "Headers/Time.h"
-#include "Headers/Positions.h"
-#include "Headers/Log.h"
-#include "Headers/TradingPair.h"
-#include "Headers/TradingPairs.h"
+#include "Time.cpp"
 
-using namespace std;
+class Log {
+private:
+	static std::string baseFilename;
+	static std::string currentFilename;
 
-// All error logs get logged to an error file and automatically emailed
+	static void checkLogFile();
+	static void email(std::string message);
 
-string baseFilename;
-string currentFilename;
+public:
+	static void clearLogFiles();
+	static void logNoNewline(std::string log);
+	static void log(std::string log);
+	static void logAndEmail(std::string log);
+	static void LogWithTimestamp(std::string log);
+	static void logError(std::string log);
+};
 
+// Define static member variables
+std::string Log::baseFilename = "log";
+std::string Log::currentFilename = "";
+
+// Define static member functions
 void Log::checkLogFile() {
 	Time time;
-	string currentDate = time.getGMTTime().substr(0, 10); 
+	std::string currentDate = time.getGMTTime().substr(0, 10); 
 
 	if (currentFilename != baseFilename + currentDate) {
-		string oldFilename = currentFilename;
+		std::string oldFilename = currentFilename;
 		currentFilename = baseFilename + currentDate;
 
 		if (!oldFilename.empty()) {
-			filesystem::remove(oldFilename);
+			std::filesystem::remove(oldFilename);
 		}
 	}
 }
 
-void Log::email(string message) {
-	string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + message + "\"";
+void Log::email(std::string message) {
+	std::string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + message + "\"";
 	system(command.c_str());
 }
 
 void Log::clearLogFiles() {
 	checkLogFile();
-	ofstream file(currentFilename, ios_base::trunc);
-	ofstream errorFile("error_log.txt", ios_base::trunc);
-	ofstream positionsFile("Logs/positions.txt", ios_base::trunc);
-	ofstream pairsFile("Logs/pairs.txt", ios_base::trunc);
-	ofstream strategyFile("Logs/strategy.txt", ios_base::trunc);
+	std::ofstream file(currentFilename, std::ios_base::trunc);
+	std::ofstream errorFile("error_log.txt", std::ios_base::trunc);
+	std::ofstream positionsFile("Logs/positions.txt", std::ios_base::trunc);
+	std::ofstream pairsFile("Logs/pairs.txt", std::ios_base::trunc);
+	std::ofstream strategyFile("Logs/strategy.txt", std::ios_base::trunc);
 
 	file.close();
 	errorFile.close();
@@ -54,170 +65,44 @@ void Log::clearLogFiles() {
 	strategyFile.close();
 }
 
-void Log::logNoNewline(string log) {
+void Log::logNoNewline(std::string log) {
 	checkLogFile();
-	ofstream file(currentFilename, ios_base::app);
+	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log;
-
 }
-void Log::log(string log) {
+
+void Log::log(std::string log) {
 	checkLogFile();
-	ofstream file(currentFilename, ios_base::app);
+	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log << "\n";
 }
 
-void Log::logAndEmail(string log) {
+void Log::logAndEmail(std::string log) {
 	checkLogFile();
-	ofstream file(currentFilename, ios_base::app);
+	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log << "\n";
 
 	email(log);
 }
 
-void Log::LogWithTimestamp(string log) {
-    checkLogFile();
-    Time time;
-    ofstream file(currentFilename, ios_base::app);
-    string gmtTime = time.getGMTTime();
-    string unixTime = time.getUnixTime();
-    string mstTime = time.getMSTTime();
+void Log::LogWithTimestamp(std::string log) {
+	checkLogFile();
+	Time time;
+	std::ofstream file(currentFilename, std::ios_base::app);
+	std::string gmtTime = time.getGMTTime();
+	std::string unixTime = time.getUnixTime();
+	std::string mstTime = time.getMSTTime();
 
-    file << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] " << log << "\n";
+	file << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] " << log << "\n";
 }
 
-void Log::logError(string log) {
+void Log::logError(std::string log) {
 	Time time;
-	string gmtTime = time.getGMTTime();
-	string unixTime = time.getUnixTime();
+	std::string gmtTime = time.getGMTTime();
+	std::string unixTime = time.getUnixTime();
 
-	ofstream file("error_log.txt", ios_base::app);
+	std::ofstream file("error_log.txt", std::ios_base::app);
 	file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] " << log << "\n";
 
 	email(log);
 }
-
-void Log::logPositions(const Positions& pos) {
-	string logFilename = "Logs/positions.txt";
-	std::ofstream logfile(logFilename, std::ios::app);
-	if (!logfile.is_open()) {
-		Log::logError("Failed to open log file: " + logFilename);
-		return;
-	}
-
-	logfile << "Position Details:" << std::endl;
-	logfile << "total positions: " << pos.size() << std::endl;
-	logfile << "-----------------" << std::endl;
-	for (const auto& pair : pos.positions) {
-		const auto& position = pair.second;
-
-		logfile << "Pair Name: " << position.pairName << std::endl;
-		logfile << "Entry Price: " << std::fixed << std::setprecision(2) << position.entryPrice << std::endl;
-		logfile << "Current Price: " << std::fixed << std::setprecision(2) << position.currentPrice << std::endl;
-		logfile << "Profit/Loss: " << std::fixed << std::setprecision(2) << position.profitLoss << std::endl;
-		logfile << "Entry time: " << position.entryTime << std::endl;
-
-		logfile << "-----------------" << std::endl;
-	}
-
-	logfile.close();
-}
-
-int getPrecision(double value) {
-	if (value >= 1.0)
-		return 2; // For values greater than or equal to 1, use 2 decimal places
-	else {
-		int precision = 0;
-		double temp = value;
-		while (temp < 1.0) {
-			temp *= 10;
-			precision++;
-		}
-		return precision; // For values less than 1, use a number of decimal places based on how small the value is
-	}
-}
-
-void Log::logPair(const TradingPair& pair) {
-	string logFilename = "Logs/pairs.txt";
-	std::ofstream logfile(logFilename, std::ios::app);
-	if (!logfile.is_open()) {
-		Log::logError("Failed to open log file: " + logFilename);
-		return;
-	}
-
-	int precision = getPrecision(pair.getCurrentPrice());
-
-	logfile << "-----------------" << std::endl;
-	logfile << "Pair Name: " << pair.pairName << std::endl;
-	logfile << "Base Asset: " << pair.baseAsset << std::endl;
-	logfile << "Quote Asset: " << pair.quoteAsset << std::endl;
-	logfile << "Current Price: " << std::fixed << std::setprecision(precision) << pair.getCurrentPrice() << std::endl;
-	logfile << "Ask Price: " << std::fixed << std::setprecision(2) << pair.askPrice << std::endl;
-	logfile << "Bid Price: " << std::fixed << std::setprecision(2) << pair.bidPrice << std::endl;
-	logfile << "Ask Quantity: " << std::fixed << std::setprecision(2) << pair.askQty << std::endl;
-	logfile << "Bid Quantity: " << std::fixed << std::setprecision(2) << pair.bidQty << std::endl;
-	logfile << "Volume: " << std::fixed << std::setprecision(2) << pair.volume << std::endl;
-	logfile << "Quote Volume: " << std::fixed << std::setprecision(2) << pair.quoteVolume << std::endl;
-
-	if (!logfile) {
-		Log::logError("Failed to write to log file: " + logFilename);
-		return;
-	}
-}
-
-void Log::logPairs(const TradingPairs& pairs) {
-	string logFilename = "Logs/pairs.txt";
-	std::ofstream logfile(logFilename, std::ios::app);
-	if (!logfile.is_open()) {
-		Log::logError("Failed to open log file: " + logFilename);
-		return;
-	}
-
-	logfile << "-----------------" << std::endl;
-	logfile << "Pairs Details:" << std::endl;
-	logfile << "total pairs: " << pairs.size() << std::endl;
-	logfile << "total quote volume: " << std::endl;
-	logfile << "USDT:" << std::fixed << std::setprecision(2) << pairs.quoteVolumeUSDT << std::endl;
-	logfile << "USDC:" << std::fixed << std::setprecision(2) << pairs.quoteVolumeUSDC << std::endl;
-	logfile << "BTC:" << std::fixed << std::setprecision(2) << pairs.quoteVolumeBTC << std::endl;
-	logfile << "ETH:" << std::fixed << std::setprecision(2) << pairs.quoteVolumeETH << std::endl;
-	logfile << "TUSD:" << std::fixed << std::setprecision(2) << pairs.quoteVolumeTUSD << std::endl;
-	logfile << "-----------------" << std::endl;
-
-	for(auto& pair : pairs.pairs) {
-		logfile << "-----------------" << std::endl;
-		logfile << "Pair Name: " << pair.first << std::endl;
-		logfile << "Base Asset: " << pair.second.baseAsset << std::endl;
-		logfile << "Quote Asset: " << pair.second.quoteAsset << std::endl;
-		logfile << "Current Price: " << std::fixed << std::setprecision(2) << pair.second.getCurrentPrice() << std::endl;
-		logfile << "Ask Price: " << std::fixed << std::setprecision(2) << pair.second.askPrice << std::endl;
-		logfile << "Bid Price: " << std::fixed << std::setprecision(2) << pair.second.bidPrice << std::endl;
-		logfile << "Ask Quantity: " << std::fixed << std::setprecision(2) << pair.second.askQty << std::endl;
-		logfile << "Bid Quantity: " << std::fixed << std::setprecision(2) << pair.second.bidQty << std::endl;
-		logfile << "Volume: " << std::fixed << std::setprecision(2) << pair.second.volume << std::endl;
-		logfile << "Quote Volume: " << std::fixed << std::setprecision(2) << pair.second.quoteVolume << std::endl;
-	}
-
-	logfile.close();
-}
-
-void Log::logStrategyConsistentMovement(const TradingPair& pair, int duration, double trendingStrengthPercent) {
-	string logFilename = "Logs/strategy.txt";
-	std::ofstream logfile(logFilename, std::ios::app);
-	if (!logfile.is_open()) {
-		Log::logError("Failed to open log file: " + logFilename);
-		return;
-	}
-
-	int precision = getPrecision(pair.getCurrentPrice());
-
-	logfile << "-----------------" << std::endl;
-	logfile << "Pair Name: " << pair.pairName << std::endl;
-	logfile << "Base Asset: " << pair.baseAsset << std::endl;
-	logfile << "Quote Asset: " << pair.quoteAsset << std::endl;
-	logfile << "Current Price: " << std::fixed << std::setprecision(precision) << pair.getCurrentPrice() << std::endl;
-	logfile << "Duration of Trend: " << duration << " minutes" << std::endl;
-	logfile << "Trending Strength%: " << trendingStrengthPercent << std::endl;
-}
-
-string Log::baseFilename = "log";
-string Log::currentFilename = "";

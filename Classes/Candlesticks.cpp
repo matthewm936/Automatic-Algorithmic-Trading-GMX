@@ -7,7 +7,6 @@
 using std::string;
 using std::deque;
 
-
 int MAX_NUM_CANDLES = 20;
 
 class Candlesticks {

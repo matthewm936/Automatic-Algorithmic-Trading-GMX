@@ -1,196 +1,64 @@
 #include <deque>
 #include <cmath>
 #include <string>
-#include "../nlohmann/json.hpp"
+#include <iostream>
+#include <string>
 
-#include "Headers/Positions.h"
-#include "Headers/Log.h"
-#include "Headers/TradingPair.h"
-#include "Headers/TradingPairs.h"
-#include "Headers/TradingStrategy.h"
-#include "Headers/RunCommand.h"
+#include "Positions.cpp"
+#include "RunCommand.cpp"
 
-using namespace std;
+using std::string;
+using std::deque;
+using std::to_string;
 
-double portfolioProfitLoss = 0;
+class TradingStrategy {
+public:
+	TradingStrategy() {}
 
-Positions positions;
-TradingPairs tradingPairs;
+	double calculateVariance(double* data, int size);
+	double calculateVolatility(const std::deque<double>& prices, int start, int end);
+	// double consistentMovement();
+
+private:
+};
 
 double TradingStrategy::calculateVariance(double* data, int size) {
 	double sum = 0.0, mean, variance = 0.0;
-	for(int i = 0; i < size; ++i) {
+	for (int i = 0; i < size; ++i) {
 		sum += data[i];
 	}
-	mean = sum/size;
+	mean = sum / size;
 
-	for(int i = 0; i < size; ++i) {
+	for (int i = 0; i < size; ++i) {
 		variance += pow(data[i] - mean, 2);
 	}
 	return variance / size;
 }
 
-double TradingStrategy::calculateVolatility(const deque<double>& prices, int start, int end) {
+double TradingStrategy::calculateVolatility(const std::deque<double>& prices, int start, int end) {
 	int size = end - start + 1;
-	vector<double> data(size);
+	std::vector<double> data(size);
 	for (int i = 0; i < size; ++i) {
 		data[i] = prices[start + i];
 	}
-	vector<double> returns(size - 1);
+	std::vector<double> returns(size - 1);
 	for (int i = 0; i < size - 1; ++i) {
 		returns[i] = log(data[i + 1] / data[i]);
 	}
 	return sqrt(calculateVariance(returns.data(), size - 1));
 }
 
-double TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDuration, std::deque<double> pricesInterval) {
-	deque<double> prices = pricesInterval;
+// double TradingStrategy::consistentMovement(const TradingPair& pair, int minutesDuration, std::deque<double> pricesInterval) {
+// 	std::deque<double> prices = pricesInterval;
 
-	int trendingStrength = 0;
-	int totalIterations = 0;
-	for(int i = 0; i < minutesDuration; i++) {
-		totalIterations += 1;
-		if(prices[i] > prices[i + 1]) {
-			trendingStrength++;
-		}
-	}
-	double strengthPercent = trendingStrength / totalIterations;
-	return strengthPercent;
-}
-
-
-double TradingStrategy::getAssetBalance(string asset) { 
-	string result = runCommand((string("node mexc-api/asset-free-balance.js ") + asset).c_str());
-	double resultDouble = stod(result);
-	return resultDouble;
-}
-
-bool TradingStrategy::buy(string pairName, int amount) {
-	TradingPair pair = tradingPairs.getPair(pairName);
-	string result = runCommand((string("node mexc-api/buy.js ") + pairName + " " + to_string(amount)).c_str());
-	if(result == "error") {
-		return false;
-	}
-
-	string message = "pair " + pairName + " virtual buying rn bought " + to_string(amount) + " at price " + to_string(pair.getCurrentPrice());
-	Log::log(message);
-	return true;
-}
-
-bool TradingStrategy::sellAsset(const TradingPair& pair) {
-	double assetBalance = getAssetBalance(pair.baseAsset);
-	string pairName = pair.pairName;
-
-	if(assetBalance == -1) {
-		Log::log("getAssetBalance failed " + pairName + " returned -1");
-		return false;
-	}
-	if(assetBalance == 0) {
-		Log::log("Asset balance " + pairName + " is 0, cant sell an asset with 0 balance");
-		return false;
-	}
-	string result = runCommand((string("node mexc-api/sell.js ") + pairName + " " + to_string(assetBalance)).c_str());
-
-	if(result == "error") {
-		return false;
-	}
-	Log::log("Pair " + pairName + " sold " + to_string(assetBalance));
-	positions.removePosition(pairName);
-	return true;
-}
-
-bool TradingStrategy::stopLossTakeProfit(string asset, double stopPrice, double takeProfit) {
-	double assetBalance = getAssetBalance(asset);
-	if(assetBalance == -1) {
-		Log::log("getAssetBalance failed " + asset + " returned -1");
-		return false;
-	}
-	if(assetBalance == 0) {
-		Log::log("Asset balance " + asset + " is 0, cant sell an asset with 0 balance");
-		return false;
-	}
-	string result = runCommand((string("node mexc-api/stop-loss-take-profit.js ") + asset +  " " + to_string(stopPrice) + " " + to_string(takeProfit) + " " + to_string(assetBalance)).c_str());
-
-	if(result == "error") {
-		return false;
-	}
-	Log::LogWithTimestamp("Pair " + asset + " sold " + to_string(assetBalance));
-	return true;
-}
-
-void TradingStrategy::trade(const TradingPair& pair) {
-	string pairName = pair.pairName;
-	cout << "trading strategy::trade for pairName: " << pairName << endl;
-
-	if(!(pair.quoteAsset == "USDT"  || pair.quoteAsset == "USDC")) {
-		return;
-	} else if(pair.quoteVolume < 100000) {
-		return;
-	}
-
-	if(positions.exists(pairName)) {
-		Log::log("Pair " + pairName + " already in a position");
-		cout << "pair " << pairName << " already in a position" << endl;
-
-		if(positions[pairName].takeProfit != -1 && positions[pairName].stopLoss != -1) {
-			if(pair.getCurrentPrice() >= positions[pairName].takeProfit) {
-				Log::LogWithTimestamp("Pair " + pairName + " hit take profit");
-				sellAsset(pair);
-			} else if(pair.getCurrentPrice() <= positions[pairName].stopLoss) {
-				Log::LogWithTimestamp("Pair " + pairName + " hit stop loss");
-				sellAsset(pair);
-			}
-		}
-		return;
-	}
-
-	if(pair.prices1minInterval.size() > 40) {
-		int durationOfTrend1Min = 38;
-		int trendingStrengthPercent1Min = consistentMovement(pair, durationOfTrend1Min, pair.prices1minInterval);
-
-		if(trendingStrengthPercent1Min > .6) {
-			Log::logStrategyConsistentMovement(pair, durationOfTrend1Min, trendingStrengthPercent1Min);
-		}
-		if(trendingStrengthPercent1Min > .7) {
-			Log::logStrategyConsistentMovement(pair, durationOfTrend1Min, trendingStrengthPercent1Min);
-		}
-		if(trendingStrengthPercent1Min > .75) {
-			Log::logStrategyConsistentMovement(pair, durationOfTrend1Min, trendingStrengthPercent1Min);
-		}
-	}
-
-	if(pair.prices5minInterval.size() > 22) {
-		int durationOfTrend5Min = 20; // x * 5 minutes 
-		double THREASHOLD_trendStrength = 0.75; // .x% of prices every 5 minutes increasing
-		int trendingStrengthPercent = consistentMovement(pair, durationOfTrend5Min, pair.prices5minInterval);
-
-		if(trendingStrengthPercent > .6) {
-			Log::logStrategyConsistentMovement(pair, durationOfTrend5Min * 5, trendingStrengthPercent);
-		}
-
-		if(trendingStrengthPercent > .7) {
-			Log::logStrategyConsistentMovement(pair, durationOfTrend5Min * 5, trendingStrengthPercent);
-		}
-
-		if(trendingStrengthPercent > THREASHOLD_trendStrength) {
-
-			if(buy(pairName, 20)) {
-				double percentChange40Mins = (pair.prices5minInterval[0] - pair.prices5minInterval[40]) / pair.prices5minInterval[40];
-				double takeProfitMult = trendingStrengthPercent - 0.25;
-				int takeProfitPercent = pow(percentChange40Mins * takeProfitMult, 2);
-				double stopLoss = (1 - (percentChange40Mins / 2.0)) * pair.getCurrentPrice(); 
-				double takeProfit = (1 + takeProfitPercent) * pair.getCurrentPrice();
-				
-				positions.addPosition(pairName, pair.prices1minInterval[0], takeProfit, stopLoss, -1);
-				Log::logAndEmail("Bought " + pairName + " at " + to_string(pair.getCurrentPrice()) + " with take profit at " + to_string(takeProfit) + " and stop loss at " + to_string(stopLoss) + " with a trending strength of " + to_string(trendingStrengthPercent) + " over " + to_string(durationOfTrend5Min * 5) + " minutes");
-			}
-			else {
-				string message = "Failed to buy after hitting consistent movement of " + to_string(trendingStrengthPercent) + " on pair " + pair.baseAsset;
-				Log::LogWithTimestamp(message.c_str());
-			}
-			return;
-		} else {
-			return;
-		}
-	}
-}
+// 	int trendingStrength = 0;
+// 	int totalIterations = 0;
+// 	for (int i = 0; i < minutesDuration; i++) {
+// 		totalIterations += 1;
+// 		if (prices[i] > prices[i + 1]) {
+// 			trendingStrength++;
+// 		}
+// 	}
+// 	double strengthPercent = trendingStrength / totalIterations;
+// 	return strengthPercent;
+// }

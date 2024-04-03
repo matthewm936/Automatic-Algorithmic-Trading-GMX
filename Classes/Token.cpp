@@ -29,5 +29,4 @@ class Token {
 			std::cout << "Candlesticks added to token: " << token << std::endl;
 			std::cout << "Time frame: " << candlesticks.getTimeFrame() << std::endl;
 		}
-	
 };

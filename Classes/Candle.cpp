@@ -13,7 +13,6 @@ class Candle {
 			// std::cout << "Candle object created" << std::endl;
 		};
 		
-		// todo:: the order of these mihgt be wrong, check gmx josn result
 		Candle(time_t timeStamp, double open, double high, double low, double close) {
 			this->timeStamp = timeStamp;
 			this->open = open;

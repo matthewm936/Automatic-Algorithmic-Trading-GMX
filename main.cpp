@@ -6,11 +6,15 @@
 #include <locale>
 #include <sstream>
 
-#include "Classes/Headers/RunCommand.h"
+#include "nlohmann/json.hpp"
 
-#include "Classes/Headers/TradingStrategy.h"
+#include "Classes/RunCommand.cpp"
+
+#include "Classes/TradingStrategy.cpp"
 
 #include "Classes/Token.cpp"
+
+#include "Classes/Positions.cpp"
 
 using std::cout;
 using std::endl;
@@ -39,12 +43,9 @@ int main() {
 	// setup objects
 	Time time;
 
-	TradingPairs MEXC_tradingPairs;
-
 	unordered_map<string, Token> GMX_tokens;
 
 	Positions positions;
-	TradingStrategy MEXC_tradingStrategy(positions, MEXC_tradingPairs);
 
 	// import data from apis into objects
 	runCommand("node gmx-api/gmx-rest-endpoints.js candles");
@@ -69,43 +70,24 @@ int main() {
 		}
 	}
 
-	runCommand("node mexc-api/ticker24hrALL.js");
-
-	std::ifstream i("prices.json");
-	i >> j;
-
-	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
-		string symbol = it->at("symbol").get<std::string>();
-		double lastPrice = getDoubleFromJson(it, "lastPrice");
-		double askPrice = getDoubleFromJson(it, "askPrice");
-		double bidPrice = getDoubleFromJson(it, "bidPrice");
-		double askQty = getDoubleFromJson(it, "askQty");
-		double bidQty = getDoubleFromJson(it, "bidQty");
-		double volume = getDoubleFromJson(it, "volume");
-		double quoteVolume = getDoubleFromJson(it, "quoteVolume");
-
-		MEXC_tradingPairs.addPair(lastPrice, symbol, askPrice, bidPrice, askQty, bidQty, volume, quoteVolume);
-	}
-
 	// init done, starting main loop that runs every minute watching prices
 	while(true) {
 		time.start();
 
 		string prices = runCommand("node mexc-api/pair-prices.js");
 
-		std::istringstream iss(prices);
+		// std::istringstream iss(prices);
 
-		string pairName;
-		double price;
+		// string pairName;
+		// double price;
 
-		while (iss >> pairName >> price) {
-			MEXC_tradingPairs.pairs[pairName].updatePrice(price);
+		// while (iss >> pairName >> price) {
+		// 	MEXC_tradingPairs.pairs[pairName].updatePrice(price);
 
-			MEXC_tradingStrategy.trade(MEXC_tradingPairs.pairs[pairName]);
-		}
+		// 	MEXC_tradingStrategy.trade(MEXC_tradingPairs.pairs[pairName]);
+		// }
 
 		time.end();
-		Log::logPositions(positions);
 
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - time.getDuration();

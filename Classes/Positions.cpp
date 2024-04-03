@@ -1,51 +1,75 @@
+#ifndef Positions_cpp
+#define Positions_cpp
+
 #include <unordered_map>
 #include <string>
 #include <ctime>
 #include <string>
 
-#include "Headers/Positions.h"
+struct Position {
+	std::string pairName;
+	double entryPrice;
+	double currentPrice;
+	double profitLoss;
 
-Positions::Positions() {}
+	time_t entryTime;
+	time_t exitTime;
 
-Position& Positions::operator[](const std::string& key) {
-	return positions[key];
-}
+	double takeProfit;
+	double stopLoss;
 
-std::unordered_map<std::string, Position>::iterator Positions::find(const std::string& key) {
-	return positions.find(key);
-}
+	time_t exitTimeCondition;
+};
 
-bool Positions::exists(const std::string& key) {
-	return positions.find(key) != positions.end();
-}
+class Positions {
+private:
+	std::unordered_map<std::string, Position> positions;
 
-std::unordered_map<std::string, Position>::iterator Positions::end() {
-	return positions.end();
-}
+public:
+	Positions() {}
 
-void Positions::addPosition(const std::string& pairName, double entryPrice, double takeProfit = -1, double stopLoss = -1, time_t exitTimeCondition = -1) {
-	Position position;
-	
-	position.pairName = pairName;
-	position.entryPrice = entryPrice;
+	Position& operator[](const std::string& key) {
+		return positions[key];
+	}
 
-	position.takeProfit = takeProfit;
-	position.stopLoss = stopLoss;
+	std::unordered_map<std::string, Position>::iterator find(const std::string& key) {
+		return positions.find(key);
+	}
 
-	position.exitTimeCondition = exitTimeCondition;
+	bool exists(const std::string& key) {
+		return positions.find(key) != positions.end();
+	}
 
-	position.entryTime = time(0);
-	positions[pairName] = position;
-}
+	std::unordered_map<std::string, Position>::iterator end() {
+		return positions.end();
+	}
 
-void Positions::removePosition(const std::string& pairName) {
-	positions.erase(pairName);
-}
+	void addPosition(const std::string& pairName, double entryPrice, double takeProfit = -1, double stopLoss = -1, time_t exitTimeCondition = -1) {
+		Position position;
 
-size_t Positions::size() const {
-	return positions.size();
-}
+		position.pairName = pairName;
+		position.entryPrice = entryPrice;
 
-Position& Positions::getPosition(const std::string& pairName) {
-	return positions[pairName];
-}
+		position.takeProfit = takeProfit;
+		position.stopLoss = stopLoss;
+
+		position.exitTimeCondition = exitTimeCondition;
+
+		position.entryTime = time(0);
+		positions[pairName] = position;
+	}
+
+	void removePosition(const std::string& pairName) {
+		positions.erase(pairName);
+	}
+
+	size_t size() const {
+		return positions.size();
+	}
+
+	Position& getPosition(const std::string& pairName) {
+		return positions[pairName];
+	}
+};
+
+#endif

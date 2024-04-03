@@ -1,7 +1,11 @@
-#include <array>
+#ifndef RunCommand_cpp
+#define RunCommand_cpp
 
-#include "Headers/Log.h"
-#include "Headers/RunCommand.h"
+#include <array>
+#include <string>
+
+#include "Log.cpp"
+#include "Time.cpp"
 
 using namespace std;
 
@@ -39,3 +43,5 @@ std::string runCommand(const char *cmd) {
 	}
 	return result;
 }
+
+#endif
