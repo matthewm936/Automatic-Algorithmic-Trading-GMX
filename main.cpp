@@ -20,6 +20,8 @@
 #include "Classes/Headers/TradingPairs.h"
 #include "Classes/Headers/TradingStrategy.h"
 
+#include "Classes/Candles.cpp"
+
 using namespace std;
 
 double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
@@ -50,7 +52,7 @@ int main() {
 	TradingStrategy GMX_tradingStrategy(positions, GMX_tradingPairs);
 
 	//setup trading pairs
-	string GMX_tickers = runCommand("node gmx-api/gmx-rest-endpoints.js tickers");
+	runCommand("node gmx-api/gmx-rest-endpoints.js candles");
 
 	string MEXC_tickers = runCommand("node mexc-api/ticker24hrALL.js");
 

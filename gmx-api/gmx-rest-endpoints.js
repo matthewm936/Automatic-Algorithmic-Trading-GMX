@@ -1,9 +1,8 @@
 const axios = require('axios');
+const fs = require('fs');
 
 // Base URL of the API
 const baseURL = 'https://arbitrum-api.gmxinfra.io';
-
-
 
 function ping() {
 	return axios.get(`${baseURL}/ping`)
@@ -52,7 +51,6 @@ function latest() {
 		});
 }
 
-function candles() {
 	// Added on April 2, 2024
 	// At 5x leverage of 500 USDC Long on GMX
 		// Token: Fee and Price Impact: Network Fee
@@ -72,28 +70,37 @@ function candles() {
 		// OP: $1.17 + $0.46
 		// ATOM: $4.35 + $0.46
 	// looks like shorting has different price impact fees, the network fees seem to be the same
+
+async function candles() {
 	const tokensOnGMX = ["BTC", "ETH", "SOL", "ARB", "LINK", "DOGE", "AVAX", "XRP", "NEAR", "UNI", "LTC", "AAVE", "BNB", "OP", "ATOM"]
 	const timeFrameParams = ['1m', '5m', '15m', '1h', '4h', '1d'];
 
-	//Arbitrum URL: https://arbitrum-api.gmxinfra.io/prices/candles?tokenSymbol=ETH&period=1d
-	// No optional params?
+	let data = {};
 
-	let token = tokensOnGMX[0];
-	let timeFrame = timeFrameParams[0];
-	return axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=1`)
-	.then(response => {
-		if (response.status >= 200 && response.status < 300) {
-			console.log(response.data);
-			return response.data;
-		} else {
-			throw new Error('Unexpected response: ' + JSON.stringify(response.data));
+	for (let token of tokensOnGMX) {
+		data[token] = {};
+		for (let timeFrame of timeFrameParams) {
+			try {
+				const response = await axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=20`);
+				if (response.status >= 200 && response.status < 300) {
+					data[token][timeFrame] = response.data;
+				} else {
+					throw new Error('Unexpected response: ' + JSON.stringify(response.data));
+				}
+			} catch (error) {
+				console.error('Error:', error.message);
+			}
 		}
-	})
-	.catch(error => {
-		console.error('Error:', error.message);
-		return [];
+	}
+
+	fs.writeFile('gmx-api/data.json', JSON.stringify(data, null, 2), (err) => {
+		if (err) {
+			console.error('Error writing file:', err);
+		}
 	});
 }
+
+candles();
 
 function tokens() {
 	return axios.get(`${baseURL}/tokens`)
@@ -129,10 +136,7 @@ function main() {
 					console.log(tokens);
 				});
 			} else if (args[0] == 'candles') {
-				candles().then(candles => {
-					console.log(candles);
-				});
-
+				candles().then(() => console.log("candles"));
 			}
 		} else {
 			console.error('API is not reachable.');
