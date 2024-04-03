@@ -23,10 +23,6 @@ using std::to_string;
 
 using json = nlohmann::json;
 
-double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
-	string str = it->at(key).get<string>();
-	return stod(str);
-}
 
 string formatWithCommas(int value) {
 	std::stringstream ss;

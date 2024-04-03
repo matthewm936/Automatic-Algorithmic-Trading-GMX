@@ -7,7 +7,7 @@
 #include "Log.cpp"
 #include "Time.cpp"
 
-using namespace std;
+using std::string;
 
 std::string runCommand(const char *cmd) {
 	std::array<char, 128> buffer;

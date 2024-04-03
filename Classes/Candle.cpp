@@ -2,6 +2,12 @@
 #include <iostream>
 
 class Candle {
+	private:
+		void checkCorrectness() {
+			if(high < low) {
+				throw std::runtime_error("High value is less than low value");
+			}
+		}
 	public:
 		time_t timeStamp;
 		double open;
@@ -20,10 +26,12 @@ class Candle {
 			this->low = low;
 			this->close = close;
 
-			// std::cout << "Candle object created with time stamp: " << timeStamp << std::endl;
-			// std::cout << "Open: " << open << std::endl;
-			// std::cout << "High: " << high << std::endl;
-			// std::cout << "Low: " << low << std::endl;
-			// std::cout << "Close: " << close << std::endl;
+			std::cout << "Candle object created with time stamp: " << timeStamp << std::endl;
+			std::cout << "Open: " << open << std::endl;
+			std::cout << "High: " << high << std::endl;
+			std::cout << "Low: " << low << std::endl;
+			std::cout << "Close: " << close << std::endl;
+
+			checkCorrectness();
 		}		
 };
