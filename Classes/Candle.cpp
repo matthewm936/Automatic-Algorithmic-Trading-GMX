@@ -8,6 +8,8 @@ class Candle {
 		double low;
 		double close;
 
+		Candle() {};
+		
 		Candle(time_t timeStamp, double open, double high, double low, double close) {
 			this->timeStamp = timeStamp;
 			this->open = open;

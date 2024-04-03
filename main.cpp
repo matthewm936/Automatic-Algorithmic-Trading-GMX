@@ -22,14 +22,17 @@
 
 #include "Classes/Token.cpp"
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::string;
+using std::to_string;
 
 double getDoubleFromJson(nlohmann::json::iterator& it, const string& key) {
 	string str = it->at(key).get<string>();
 	return stod(str);
 }
 
-std::string formatWithCommas(int value) {
+string formatWithCommas(int value) {
 	std::stringstream ss;
 	ss.imbue(std::locale(""));
 	ss << std::fixed << value;
@@ -45,25 +48,23 @@ int main() {
 	Time time;
 
 	TradingPairs MEXC_tradingPairs;
-	TradingPairs GMX_tradingPairs;
 
-	unordered_map<string, Token> tokens;
+	unordered_map<string, Token> GMX_tokens;
 
 	Positions positions;
 	TradingStrategy MEXC_tradingStrategy(positions, MEXC_tradingPairs);
-	TradingStrategy GMX_tradingStrategy(positions, GMX_tradingPairs);
 
 	//setup trading pairs
 	runCommand("node gmx-api/gmx-rest-endpoints.js candles");
 
 	string MEXC_tickers = runCommand("node mexc-api/ticker24hrALL.js");
 
-	ifstream i("prices.json");
+	std::ifstream i("prices.json");
 	nlohmann::json j;
 	i >> j;
 
 	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
-		std::string symbol = it->at("symbol").get<std::string>();
+		string symbol = it->at("symbol").get<std::string>();
 		double lastPrice = getDoubleFromJson(it, "lastPrice");
 		double askPrice = getDoubleFromJson(it, "askPrice");
 		double bidPrice = getDoubleFromJson(it, "bidPrice");
@@ -83,7 +84,7 @@ int main() {
 
 		string prices = runCommand("node mexc-api/pair-prices.js");
 
-		istringstream iss(prices);
+		std::istringstream iss(prices);
 
 		string pairName;
 		double price;

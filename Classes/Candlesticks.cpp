@@ -13,6 +13,8 @@ class Candlesticks {
 		deque<Candle>::size_type maxNumCandles;
 		
 	public:
+		Candlesticks() {};
+		
 		Candlesticks(string timeFrame, int maxNumCandles) {
 			this->timeFrame = timeFrame;
 			this->maxNumCandles = maxNumCandles;
