@@ -12,15 +12,14 @@ class Token {
 		string token;
 		unordered_map<string, Candlesticks> timeframeCandlesticks;
 		
+		Token() {};
+		
 		Token(string token) {
 			this->token = token;
 		}
 
-		void initCandlesticks(string timeFrame, int maxNumCandles) {
-			timeframeCandlesticks[timeFrame] = Candlesticks(timeFrame, maxNumCandles);
+		void addCandlesticks(Candlesticks candlesticks) {
+			timeframeCandlesticks[candlesticks.getTimeFrame()] = candlesticks;
 		}
-
-		
-
-		
+	
 };

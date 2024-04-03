@@ -93,7 +93,7 @@ async function candles() {
 		}
 	}
 
-	fs.writeFile('gmx-api/data.json', JSON.stringify(data, null, 2), (err) => {
+	fs.writeFile('gmx-api/token-candles.json', JSON.stringify(data, null, 2), (err) => {
 		if (err) {
 			console.error('Error writing file:', err);
 		}

@@ -6,18 +6,19 @@
 using std::string;
 using std::deque;
 
+int MAX_NUM_CANDLES = 20;
+
 class Candlesticks {
 	private:
 		std::deque<Candle> candles;
 		std::string timeFrame = "";
-		deque<Candle>::size_type maxNumCandles;
+		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 		
 	public:
 		Candlesticks() {};
 		
-		Candlesticks(string timeFrame, int maxNumCandles) {
+		Candlesticks(string timeFrame) {
 			this->timeFrame = timeFrame;
-			this->maxNumCandles = maxNumCandles;
 		}
 
 		void addCandle(Candle candle) {
