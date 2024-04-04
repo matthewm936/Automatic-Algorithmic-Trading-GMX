@@ -70,19 +70,7 @@ int main() {
 	while(true) {
 		time.start();
 
-		string prices = runCommand("node mexc-api/pair-prices.js");
-
-		// std::istringstream iss(prices);
-
-		// string pairName;
-		// double price;
-
-		// while (iss >> pairName >> price) {
-		// 	MEXC_tradingPairs.pairs[pairName].updatePrice(price);
-
-		// 	MEXC_tradingStrategy.trade(MEXC_tradingPairs.pairs[pairName]);
-		// }
-
+	
 		time.end();
 
 		double sleepTimeMins = 1;

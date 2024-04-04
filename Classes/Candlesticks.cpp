@@ -26,7 +26,7 @@ class Candlesticks {
 			std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
-		void addCandle(Candle candle) { //should keep descending order of candles on init and future candle updates
+		void addCandle(Candle candle) {
 			if(candles.size() == 0) {
 				candles.push_front(candle);
 			} else if(candles.size() >= 1) {
@@ -35,7 +35,7 @@ class Candlesticks {
 				} else if(candles[0].timeStamp > candle.timeStamp) {
 					candles.push_back(candle);
 				} else if(candles[0].timeStamp == candle.timeStamp) {
-					throw std::runtime_error("Candle with same timestamp already exists");
+					std::cout << "Candle with same timestamp already exists" << std::endl;
 				}
 			}
 			if(candles.size() > maxNumCandles) {
