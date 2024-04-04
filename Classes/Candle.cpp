@@ -4,10 +4,11 @@
 class Candle {
 	private:
 		void checkCorrectness() {
-			if(high < low) {
-				throw std::runtime_error("High value is less than low value");
-			}
+			if(high < low || high < open || high < close || low > open || low > close) {
+				throw std::runtime_error("a high low close or open doenst follow");
+			} 
 		}
+
 	public:
 		time_t timeStamp;
 		double open;

@@ -14,7 +14,7 @@ class Candlesticks {
 		std::deque<Candle> candles;
 		std::string timeFrame = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
-		
+
 	public:
 		Candlesticks() {
 			// std::cout << "Candlesticks object created" << std::endl;
@@ -59,5 +59,21 @@ class Candlesticks {
 			}
 		}
 
+		Candle getHighestCandle() {
+			Candle highestCandle = candles[0];
+			for(const auto& candle : candles) {
+				if(candle.high > highestCandle.high) {
+					highestCandle = candle;
+				}
+			} return highestCandle;
+		}
 
+		Candle getLowestCandle() {
+			Candle lowestCandle = candles[0];
+			for(const auto& candle : candles) {
+				if(candle.low < lowestCandle.low) {
+					lowestCandle = candle;
+				}
+			} return lowestCandle;
+		}
 };

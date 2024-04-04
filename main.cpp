@@ -23,7 +23,6 @@ using std::to_string;
 
 using json = nlohmann::json;
 
-
 string formatWithCommas(int value) {
 	std::stringstream ss;
 	ss.imbue(std::locale(""));

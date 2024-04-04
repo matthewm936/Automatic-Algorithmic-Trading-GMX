@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cassert>
+
 #include "../Classes/Candlesticks.cpp"
 using std::cout;
 using std::endl;
@@ -88,11 +90,102 @@ void testCandleOrder() {
     }
 }
 
+void testGetTimeFrame() {
+    std::string timeFrame = "1h";
+    Candlesticks candlesticks(timeFrame);
+
+    // Verify that the getTimeFrame() method returns the correct time frame
+    assert(candlesticks.getTimeFrame() == timeFrame);
+}
+
+void testGetCandles() {
+    Candle candle1(1234567890, 100.0, 110.0, 90.0, 105.0);
+    Candle candle2(1234567891, 105.0, 115.0, 95.0, 110.0);
+
+    Candlesticks candlesticks("1h");
+    candlesticks.addCandle(candle1);
+    candlesticks.addCandle(candle2);
+
+    // Verify that the getCandles() method returns the correct deque of candles
+    std::deque<Candle> candles = candlesticks.getCandles();
+    assert(candles.size() == 2);
+    assert(candles.front().timeStamp == candle2.timeStamp);
+}
+
+void testGetHighestCandle() {
+    Candle candle1(1234567890, 100.0, 110.0, 90.0, 105.0);
+    Candle candle2(1234567891, 105.0, 115.0, 95.0, 110.0);
+    Candle candle3(1234567892, 110.0, 120.0, 100.0, 115.0);
+    Candle candle4(1234567893, 115.0, 125.0, 105.0, 120.0);
+    Candle candle5(1234567894, 150.0, 150.0, 110.0, 150.0);
+
+    Candlesticks candlesticks("1h");
+    candlesticks.addCandle(candle1);
+
+    Candle highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle1.high);
+
+    candlesticks.addCandle(candle2);
+
+    highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle2.high);
+
+    candlesticks.addCandle(candle3);
+
+    highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle3.high);
+
+    candlesticks.addCandle(candle4);
+
+    highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle4.high);
+
+    candlesticks.addCandle(candle5);
+
+    highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle5.high);
+
+    candlesticks.addCandle(candle4);
+
+    highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle5.high);
+
+    candlesticks.addCandle(candle4);
+    candlesticks.addCandle(candle3);
+    candlesticks.addCandle(candle1);
+
+    highestCandle = candlesticks.getHighestCandle();
+    assert(highestCandle.high == candle5.high);
+}
+
+void testGetLowestCandle() {
+    Candle candle1(1234567890, 100.0, 115.0, 100.0, 105.0);
+    Candle candle2(1234567891, 105.0, 115.0, 95.0, 110.0);
+    Candle candle3(1234567892, 110.0, 120.0, 100.0, 115.0);
+    Candle candle4(1234567893, 115.0, 125.0, 105.0, 120.0);
+    Candle candle5(1234567894, 150.0, 150.0, 110.0, 150.0);
+
+    Candlesticks candlesticks("1h");
+    candlesticks.addCandle(candle1);
+    candlesticks.addCandle(candle2);
+    candlesticks.addCandle(candle3);
+    candlesticks.addCandle(candle4);
+    candlesticks.addCandle(candle5);
+
+    // Verify that the getLowestCandle() method returns the candle with the lowest low value
+    Candle lowestCandle = candlesticks.getLowestCandle();
+    assert(lowestCandle.low == candle2.low);
+}
+
 int main() {
     testCandlesticksConstructor();
     testCandlesticksConstructorWithTimeFrame();
     testAddCandle();
     testCandleOrder();
+    testGetTimeFrame();
+    testGetCandles();
+    testGetHighestCandle();
+    testGetLowestCandle();
 
     return 0;
 }
