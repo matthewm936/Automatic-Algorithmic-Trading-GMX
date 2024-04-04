@@ -16,6 +16,10 @@ class Candle {
 		double low;
 		double close;
 
+		bool green = false;
+		bool red = false;
+		bool doji = false;
+
 		Candle() {
 			// std::cout << "Candle object created" << std::endl;
 		};
@@ -26,6 +30,14 @@ class Candle {
 			this->high = high;
 			this->low = low;
 			this->close = close;
+
+			if(close > open) {
+				green = true;
+			} else if(close < open) {
+				red = true;
+			} else if(close == open) {
+				doji = true;
+			}
 
 			checkCorrectness();
 

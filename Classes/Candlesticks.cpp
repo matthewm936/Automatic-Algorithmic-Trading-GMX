@@ -26,10 +26,26 @@ class Candlesticks {
 			std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
-		void addCandle(Candle candle) {
+		void addCandle(Candle candle) { // todo: this has some unexpected problems, bc of how the api data gets fed into addCandle
+		// loop through and find it candle already exists
+
+		// if not then
+
+		// if candles.size() == 0, push_front(candle)
+
+		// loop and find its exact spot?
+		
 			if(candles.size() == 0) {
 				candles.push_front(candle);
-			} else if(candles.size() >= 1) {
+			} else if(candles.size() == 1) {
+				if(candles[0].timeStamp < candle.timeStamp) {
+					candles.push_front(candle);
+				} else if(candles[0].timeStamp > candle.timeStamp) {
+					candles.push_back(candle);
+				} else if(candles[0].timeStamp == candle.timeStamp) {
+					std::cout << "Candle with same timestamp already exists" << std::endl;
+				}
+			} else if(candles.size() > 1) {
 				if(candles[0].timeStamp < candle.timeStamp) {
 					candles.push_front(candle);
 				} else if(candles[0].timeStamp > candle.timeStamp) {
@@ -75,5 +91,32 @@ class Candlesticks {
 					lowestCandle = candle;
 				}
 			} return lowestCandle;
+		}
+
+		int getGreenCandles() {
+			int greenCandles = 0;
+			for(const auto& candle : candles) {
+				if(candle.green) {
+					greenCandles++;
+				}
+			} return greenCandles;
+		}
+
+		int getRedCandles() {
+			int redCandles = 0;
+			for(const auto& candle : candles) {
+				if(candle.red) {
+					redCandles++;
+				}
+			} return redCandles;
+		}
+
+		int getDojiCandles() {
+			int dojiCandles = 0;
+			for(const auto& candle : candles) {
+				if(candle.doji) {
+					dojiCandles++;
+				}
+			} return dojiCandles;
 		}
 };
