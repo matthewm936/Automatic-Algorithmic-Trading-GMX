@@ -138,7 +138,7 @@ function main() {
 					console.log(tokens);
 				});
 			} else if (args[0] == 'candles') {
-				const limit = args[1] || 100;
+				const limit = args[1];
 				
 				// Get timeframes from command line arguments
 				const timeFrameParams = args.slice(2);

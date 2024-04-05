@@ -40,6 +40,10 @@ class Candlesticks {
 			// std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
+		int getSize() {
+			return candles.size();
+		}
+
 		void addCandle(Candle candle) { 
 			for(const auto& c : candles) {
 				if(c.timeStamp == candle.timeStamp) {
@@ -47,22 +51,24 @@ class Candlesticks {
 					return;
 				}
 			}
-			// if not then
 			auto pos = std::find_if(candles.begin(), candles.end(), [&candle](const Candle& c) {
 				return c.timeStamp < candle.timeStamp;
 			});
-			candles.insert(pos, candle); // todo: is this the best way to insert a candle into the deque? or should I just
+			candles.insert(pos, candle);
 		
 			if(candles.size() > maxNumCandles) {
 				candles.pop_back();
 			}
+
+			cout << "Candle added to candlesticks" << endl;
+			cout << "timeFrame: " << timeFrame << endl;
 		}
 
 		string getTimeFrame() {
 			return timeFrame;
 		}
 
-		deque<Candle> getCandles() {
+		deque<Candle>& getCandles() {
 			return candles;
 		}
 
