@@ -10,7 +10,7 @@
 
 #include "Classes/RunCommand.cpp"
 
-#include "Classes/TradingStrategy.cpp"
+// #include "Classes/TradingStrategy.cpp"
 
 #include "Classes/Token.cpp"
 

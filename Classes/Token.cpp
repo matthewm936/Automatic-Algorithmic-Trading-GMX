@@ -14,19 +14,19 @@ class Token {
 		unordered_map<string, Candlesticks> timeframeCandlesticks;
 		
 		Token() {
-			std::cout << "Token object created" << std::endl;
+			// std::cout << "Token object created" << std::endl;
 		};
 		
 		Token(string token) {
 			this->token = token;
 
-			std::cout << "Token object created with token: " << token << std::endl;
+			// std::cout << "Token object created with token: " << token << std::endl;
 		}
 
 		void addCandlesticks(Candlesticks candlesticks) {
 			timeframeCandlesticks[candlesticks.getTimeFrame()] = candlesticks;
 
-			std::cout << "Candlesticks added to token: " << token << std::endl;
-			std::cout << "Time frame: " << candlesticks.getTimeFrame() << std::endl;
+			// std::cout << "Candlesticks added to token: " << token << std::endl;
+			// std::cout << "Time frame: " << candlesticks.getTimeFrame() << std::endl;
 		}
 };

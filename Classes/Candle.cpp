@@ -3,9 +3,9 @@
 
 class Candle {
 	private:
-		void checkCorrectness() {
-			if(high < low || high < open || high < close || low > open || low > close) {
-				throw std::runtime_error("a high low close or open doenst follow");
+		void checkCorrectness() { // according to prelim testing on candlestick data, this api is returning incorrect data of the open can be the low or high
+			if(high < low) { // so switching this to just catch incorrect if breaks by definition
+				throw std::runtime_error("ERROR: high  not greater than low");
 			} 
 		}
 
@@ -40,11 +40,11 @@ class Candle {
 			}
 
 
-			std::cout << "Candle object created with time stamp: " << timeStamp << std::endl;
-			std::cout << "Open: " << open << std::endl;
-			std::cout << "High: " << high << std::endl;
-			std::cout << "Low: " << low << std::endl;
-			std::cout << "Close: " << close << std::endl;
+			// std::cout << "Candle object created with time stamp: " << timeStamp << std::endl;
+			// std::cout << "Open: " << open << std::endl;
+			// std::cout << "High: " << high << std::endl;
+			// std::cout << "Low: " << low << std::endl;
+			// std::cout << "Close: " << close << std::endl;
 
 			checkCorrectness();
 		}		

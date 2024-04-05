@@ -15,7 +15,7 @@ private:
 
 public:
 	Time() {
-		std::cout << "Time object created" << std::endl;
+		// std::cout << "Time object created" << std::endl;
 	};
 
 	double start() {
@@ -39,12 +39,12 @@ public:
 	double getDuration() {
 		std::chrono::duration<double> duration = endTime - startTime;
 
-		std::cout << "Time::getDuration() called for " << duration.count() << " seconds" << std::endl;
+		// std::cout << "Time::getDuration() called for " << duration.count() << " seconds" << std::endl;
 		return duration.count();
 	}
 
 	void sleep(double seconds) {
-		std::cout << "Time::sleep() called for s" << seconds << std::endl;
+		std::cout << "Time::sleep() called for " << seconds << "s" << std::endl;
 
 		std::this_thread::sleep_for(std::chrono::duration<double>(seconds));
 	}
