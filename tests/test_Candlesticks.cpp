@@ -49,24 +49,32 @@ void testAddCandle() {
 }
 
 void testCandleOrder() {
-    Candle candle11(1234567890, 100.0, 110.0, 90.0, 105.0);
+    // candles added from api in descending order
+    Candle candle11(1234567892, 100.0, 110.0, 90.0, 105.0);
     Candle candle21(1234567891, 105.0, 115.0, 95.0, 110.0);
-    Candle candle31(1234567892, 110.0, 120.0, 100.0, 115.0);  
+    Candle candle31(1234567890, 110.0, 120.0, 100.0, 115.0);
 
-    Candle candle1(1234567890, 100.0, 110.0, 90.0, 105.0);
-    Candle candle2(1234567891, 105.0, 115.0, 95.0, 110.0);
+    // aded in descending order but with repeats from above
+    // like how the api data is fed into addCandle
+    Candle candle1(1234567894, 100.0, 110.0, 90.0, 105.0);
+    Candle candle2(1234567893, 105.0, 115.0, 95.0, 110.0);
     Candle candle3(1234567892, 110.0, 120.0, 100.0, 115.0);
-    Candle candle4(1234567893, 115.0, 125.0, 105.0, 120.0);
-    Candle candle5(1234567894, 120.0, 130.0, 110.0, 125.0);
+    Candle candle4(1234567891, 115.0, 125.0, 105.0, 120.0);
+    Candle candle5(1234567890, 120.0, 130.0, 110.0, 125.0);
 
     Candlesticks candlesticks("1h");
+    candlesticks.addCandle(candle11);
+    candlesticks.addCandle(candle21);
+    candlesticks.addCandle(candle31);
+
     candlesticks.addCandle(candle1);
     candlesticks.addCandle(candle2);
     candlesticks.addCandle(candle3);
     candlesticks.addCandle(candle4);
     candlesticks.addCandle(candle5);
 
-    // Verify that the candles are in the correct order
+    candlesticks.checkCandleOrderCorrectness();
+
     std::deque<Candle> candles = candlesticks.getCandles();
 
     cout << candles[0].timeStamp << endl;
@@ -83,6 +91,7 @@ void testCandleOrder() {
     for (size_t i = 1; i < candles.size(); ++i) {
         if (candles[i-1].timeStamp < candles[i].timeStamp) {
             std::cout << "Error: Candles are not in the correct order" << std::endl;
+            assert(false);
             break;
         }
     }
@@ -267,13 +276,24 @@ void testGetDojiCandles() {
 }
 
 void testCheckCandleOrderCorrectness() {
-    Candle candle1(1234567890, 100.0, 110.0, 90.0, 105.0);
-    Candle candle2(1234567894, 105.0, 115.0, 95.0, 110.0);
-    Candle candle3(1234567893, 110.0, 120.0, 100.0, 115.0);
-    Candle candle4(1234567896, 115.0, 125.0, 105.0, 120.0);
-    Candle candle5(1234567895, 120.0, 130.0, 110.0, 125.0);
+    // candles added from api in descending order
+    Candle candle11(1234567892, 100.0, 110.0, 90.0, 105.0);
+    Candle candle21(1234567891, 105.0, 115.0, 95.0, 110.0);
+    Candle candle31(1234567890, 110.0, 120.0, 100.0, 115.0);
+
+    // aded in descending order but with repeats from above
+    // like how the api data is fed into addCandle
+    Candle candle1(1234567894, 100.0, 110.0, 90.0, 105.0);
+    Candle candle2(1234567893, 105.0, 115.0, 95.0, 110.0);
+    Candle candle3(1234567892, 110.0, 120.0, 100.0, 115.0);
+    Candle candle4(1234567891, 115.0, 125.0, 105.0, 120.0);
+    Candle candle5(1234567890, 120.0, 130.0, 110.0, 125.0);
 
     Candlesticks candlesticks("1h");
+    candlesticks.addCandle(candle11);
+    candlesticks.addCandle(candle21);
+    candlesticks.addCandle(candle31);
+
     candlesticks.addCandle(candle1);
     candlesticks.addCandle(candle2);
     candlesticks.addCandle(candle3);
@@ -281,15 +301,39 @@ void testCheckCandleOrderCorrectness() {
     candlesticks.addCandle(candle5);
 
     // Verify that the checkCandleOrderCorrectness() method throws an exception if candles are not in the correct order
-    try {
-        candlesticks.checkCandleOrderCorrectness();
-        assert(false);
-    } catch (const std::runtime_error& e) {
-        assert(true);
-    
+    candlesticks.checkCandleOrderCorrectness();
+
+    for(size_t i = 1; i < candlesticks.getCandles().size() - 1; ++i) {
+        if(candlesticks.getCandles()[i-1].timeStamp > candlesticks.getCandles()[i].timeStamp && candlesticks.getCandles()[i].timeStamp > candlesticks.getCandles()[i+1].timeStamp) {
+        } else {
+            std::cout << "Error: Candles are not in the correct order" << std::endl;
+            assert(false);
+            break;
+        }
     }
 }
 
+void testCheckCandleMissingness() {
+    Candle candle11(1712177760, 100.0, 110.0, 90.0, 105.0);
+    Candle candle21(1712177700, 105.0, 115.0, 95.0, 110.0);
+
+    Candle candle1(1712177880, 100.0, 110.0, 90.0, 105.0);
+    Candle candle2(1712177820, 105.0, 115.0, 95.0, 110.0);
+    Candle candle3(1712177760, 110.0, 120.0, 100.0, 115.0);
+    Candle candle4(1712177700, 115.0, 125.0, 105.0, 120.0);
+
+    Candlesticks candlesticks("1m");
+    candlesticks.addCandle(candle11);
+    candlesticks.addCandle(candle21);
+
+    candlesticks.addCandle(candle1);
+    candlesticks.addCandle(candle2);
+    candlesticks.addCandle(candle3);
+    candlesticks.addCandle(candle4);
+
+    candlesticks.checkCandleOrderCorrectness();
+    candlesticks.checkCandleMissingness();
+}
 int main() {
     testCandlesticksConstructor();
     testCandlesticksConstructorWithTimeFrame();

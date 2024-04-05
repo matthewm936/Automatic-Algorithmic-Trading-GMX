@@ -62,6 +62,7 @@ int main() {
 				candlesticks.addCandle(candle);
 			}
 			candlesticks.checkCandleOrderCorrectness();
+			candlesticks.checkCandleMissingness();
 			token.addCandlesticks(candlesticks);
 		}
 	}

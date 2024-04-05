@@ -3,11 +3,22 @@
 #include <deque>
 #include <string>
 #include <iostream>
+#include <algorithm>
+#include <unordered_map>
 
 using std::string;
 using std::deque;
 
 int MAX_NUM_CANDLES = 50;
+
+const std::unordered_map<string, int> timeFrameToUnixOffset = {
+	{"1m", 60},
+	{"5m", 300},
+	{"15m", 900},
+	{"1h", 3600},
+	{"4h", 14400},
+	{"1d", 86400}
+};
 
 class Candlesticks {
 	private:
@@ -26,34 +37,19 @@ class Candlesticks {
 			std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
-		void addCandle(Candle candle) { // todo: this has some unexpected problems, bc of how the api data gets fed into addCandle
-		// loop through and find it candle already exists
-
-		// if not then
-
-		// if candles.size() == 0, push_front(candle)
-
-		// loop and find its exact spot?
-		
-			if(candles.size() == 0) {
-				candles.push_front(candle);
-			} else if(candles.size() == 1) {
-				if(candles[0].timeStamp < candle.timeStamp) {
-					candles.push_front(candle);
-				} else if(candles[0].timeStamp > candle.timeStamp) {
-					candles.push_back(candle);
-				} else if(candles[0].timeStamp == candle.timeStamp) {
+		void addCandle(Candle candle) { 
+			for(const auto& c : candles) {
+				if(c.timeStamp == candle.timeStamp) {
 					std::cout << "Candle with same timestamp already exists" << std::endl;
-				}
-			} else if(candles.size() > 1) {
-				if(candles[0].timeStamp < candle.timeStamp) {
-					candles.push_front(candle);
-				} else if(candles[0].timeStamp > candle.timeStamp) {
-					candles.push_back(candle);
-				} else if(candles[0].timeStamp == candle.timeStamp) {
-					std::cout << "Candle with same timestamp already exists" << std::endl;
+					return;
 				}
 			}
+			// if not then
+			auto pos = std::find_if(candles.begin(), candles.end(), [&candle](const Candle& c) {
+				return c.timeStamp < candle.timeStamp;
+			});
+			candles.insert(pos, candle); // todo: is this the best way to insert a candle into the deque? or should I just
+		
 			if(candles.size() > maxNumCandles) {
 				candles.pop_back();
 			}
@@ -71,6 +67,15 @@ class Candlesticks {
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp < candles[i].timeStamp) {
 					throw std::runtime_error("Candles are not in the correct order");
+				}
+			}
+		}
+
+		void checkCandleMissingness() {
+			int offset = timeFrameToUnixOffset.at(timeFrame);
+			for (size_t i = 1; i < candles.size(); ++i) {
+				if (candles[i-1].timeStamp + offset != candles[i].timeStamp) {
+					throw std::runtime_error("Candles are missing");
 				}
 			}
 		}

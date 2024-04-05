@@ -39,12 +39,13 @@ class Candle {
 				doji = true;
 			}
 
-			checkCorrectness();
 
-			// std::cout << "Candle object created with time stamp: " << timeStamp << std::endl;
-			// std::cout << "Open: " << open << std::endl;
-			// std::cout << "High: " << high << std::endl;
-			// std::cout << "Low: " << low << std::endl;
-			// std::cout << "Close: " << close << std::endl;
+			std::cout << "Candle object created with time stamp: " << timeStamp << std::endl;
+			std::cout << "Open: " << open << std::endl;
+			std::cout << "High: " << high << std::endl;
+			std::cout << "Low: " << low << std::endl;
+			std::cout << "Close: " << close << std::endl;
+
+			checkCorrectness();
 		}		
 };
