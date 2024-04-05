@@ -71,26 +71,29 @@ function latest() {
 		// ATOM: $4.35 + $0.46
 	// looks like shorting has different price impact fees, the network fees seem to be the same
 
-async function candles() {
+async function candles(limit, timeFrameParams) {
 	const tokensOnGMX = ["BTC", "ETH", "SOL", "ARB", "LINK", "DOGE", "AVAX", "XRP", "NEAR", "UNI", "LTC", "AAVE", "BNB", "OP", "ATOM"]
-	const timeFrameParams = ['1m', '5m', '15m', '1h', '4h', '1d'];
 
 	let data = {};
 
 	for (let token of tokensOnGMX) {
 		data[token] = {};
-		for (let timeFrame of timeFrameParams) {
-			try {
-				const response = await axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=100`);
-				if (response.status >= 200 && response.status < 300) {
-					data[token][timeFrame] = response.data;
-				} else {
-					throw new Error('Unexpected response: ' + JSON.stringify(response.data));
-				}
-			} catch (error) {
-				console.error('Error:', error.message);
-			}
-		}
+		let promises = timeFrameParams.map(timeFrame => {
+			return axios.get(`${baseURL}/prices/candles?tokenSymbol=${token}&period=${timeFrame}&limit=${limit}`)
+				.then(response => {
+					if (response.status >= 200 && response.status < 300) {
+						data[token][timeFrame] = response.data;
+					} else {
+						throw new Error('Unexpected response: ' + JSON.stringify(response.data));
+					}
+				})
+				.catch(error => {
+					console.error('Error:', error.message);
+				});
+		});
+
+		// Wait for all promises to resolve
+		await Promise.all(promises);
 	}
 
 	fs.writeFile('gmx-api/token-candles.json', JSON.stringify(data, null, 2), (err) => {
@@ -100,7 +103,6 @@ async function candles() {
 	});
 }
 
-candles();
 
 function tokens() {
 	return axios.get(`${baseURL}/tokens`)
@@ -136,7 +138,12 @@ function main() {
 					console.log(tokens);
 				});
 			} else if (args[0] == 'candles') {
-				candles().then(() => console.log("candles"));
+				const limit = args[1] || 100;
+				
+				// Get timeframes from command line arguments
+				const timeFrameParams = args.slice(2);
+
+				candles(limit, timeFrameParams).then(() => console.log("candles"));
 			}
 		} else {
 			console.error('API is not reachable.');

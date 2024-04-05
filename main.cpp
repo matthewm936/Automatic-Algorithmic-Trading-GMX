@@ -10,8 +10,6 @@
 
 #include "Classes/RunCommand.cpp"
 
-// #include "Classes/TradingStrategy.cpp"
-
 #include "Classes/Token.cpp"
 
 #include "Classes/Positions.cpp"
@@ -43,7 +41,7 @@ int main() {
 	Positions positions;
 
 	// import data from apis into objects
-	runCommand("node gmx-api/gmx-rest-endpoints.js candles");
+	runCommand("node gmx-api/gmx-rest-endpoints.js candles 1m 5m 15m 4h 1d");
 
 	std::ifstream gmx_token_candles_data("gmx-api/token-candles.json");
 	nlohmann::json j;
@@ -71,7 +69,8 @@ int main() {
 	while(true) {
 		time.start();
 
-	
+		runCommand("node gmx-api/gmx-rest-endpoints.js candles 3 1m");
+
 		time.end();
 
 		double sleepTimeMins = 1;
