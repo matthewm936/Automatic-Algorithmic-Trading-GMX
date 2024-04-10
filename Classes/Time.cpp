@@ -43,10 +43,14 @@ public:
 		return duration.count();
 	}
 
-	void sleep(double seconds) {
-		std::cout << "Time::sleep() called for " << seconds << "s" << std::endl;
+	void sleep() {
+		double sleepTimeMins = 1;
+		double sleepTime = sleepTimeMins * 60 - getDuration();
+		if (sleepTime < 0) sleepTime = 0; 
 
-		std::this_thread::sleep_for(std::chrono::duration<double>(seconds));
+		std::cout << "Time::sleep() called for " << sleepTime << "s" << std::endl;
+
+		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
 	}
 
 	int now() {

@@ -103,11 +103,7 @@ int main() {
 
 		time.end();
 
-		double sleepTimeMins = 1;
-		double sleepTime = sleepTimeMins * 60 - time.getDuration();
-		if (sleepTime < 0) sleepTime = 0; 
-
-		time.sleep(sleepTime);			
+		time.sleep();
 	}
 
 	return 0;

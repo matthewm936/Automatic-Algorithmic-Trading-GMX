@@ -122,37 +122,27 @@ function tokens() {
 function main() {
 	let args = process.argv.slice(2);
 
-	ping().then(pingResult => {
-		if (pingResult) {
-			if (args[0] == 'tickers') {
-				tickers().then(tickers => {
-					console.log(tickers);
-				});
-			} else if (args[0] == 'latest') {
-				console.log('Getting latest prices...');
-				latest().then(latest => {
-					console.log('Latest:', latest);
-				});
-			} else if (args[0] == 'tokens') {
-				tokens().then(latest => {
-					console.log(tokens);
-				});
-			} else if (args[0] == 'candles') {
-				const limit = args[1];
-				
-				// Get timeframes from command line arguments
-				const timeFrameParams = args.slice(2);
+	if (args[0] == 'tickers') {
+		tickers().then(tickers => {
+			console.log(tickers);
+		});
+	} else if (args[0] == 'latest') {
+		console.log('Getting latest prices...');
+		latest().then(latest => {
+			console.log('Latest:', latest);
+		});
+	} else if (args[0] == 'tokens') {
+		tokens().then(latest => {
+			console.log(tokens);
+		});
+	} else if (args[0] == 'candles') {
+		const limit = args[1];
+		
+		// Get timeframes from command line arguments
+		const timeFrameParams = args.slice(2);
 
-				candles(limit, timeFrameParams).then(() => console.log("candles"));
-			}
-		} else {
-			console.error('API is not reachable.');
-			process.exit(1); 
-		}
-	}).catch(error => {
-		console.error('Error:', error.message);
-		process.exit(1); 
-	});
+		candles(limit, timeFrameParams).then(() => console.log("candles"));
+	}
 }
 
 main(); 
