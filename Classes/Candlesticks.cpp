@@ -40,6 +40,8 @@ class Candlesticks {
 			// std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
+		
+
 		int getSize() {
 			return candles.size();
 		}
@@ -139,5 +141,52 @@ class Candlesticks {
 					dojiCandles++;
 				}
 			} return dojiCandles;
+		}
+
+		double getGreenRedRatio() {
+			return (double)getGreenCandles() / (double)getRedCandles();
+		}
+
+		double getGreenCandlePercent() {
+			int greenTrendingStrength = 0;
+			for(const auto& candle : candles) {
+				if(candle.green) {
+					greenTrendingStrength += 1;
+				}
+			} return greenTrendingStrength / candles.size();
+		}
+
+		double getRedCandlePercent() {
+			int redTrendingStrength = 0;
+			for(const auto& candle : candles) {
+				if(candle.red) {
+					redTrendingStrength += 1;
+				}
+			} return redTrendingStrength / candles.size();
+		}
+
+		double getCloseAbovePrevClosePercent() {
+			int closeAbovePrevClose = 0;
+			for(size_t i = 1; i < candles.size(); ++i) {
+				if(candles[i].close > candles[i-1].close) {
+					closeAbovePrevClose += 1;
+				}
+			} return closeAbovePrevClose / candles.size(); //todo, bc close above prev close counts sequential it will always be one less then the candles.size
+		}
+
+		string printStats() {
+			string stats = "";
+			stats += "Time frame: " + timeFrame + "\n";
+			stats += "Num candles: " + std::to_string(candles.size()) + "\n";
+			stats += "Highest candle: " + std::to_string(getHighestCandle().high) + "\n";
+			stats += "Lowest candle: " + std::to_string(getLowestCandle().low) + "\n";
+			stats += "Green candles: " + std::to_string(getGreenCandles()) + "\n";
+			stats += "Red candles: " + std::to_string(getRedCandles()) + "\n";
+			stats += "Doji candles: " + std::to_string(getDojiCandles()) + "\n";
+			stats += "Green red ratio: " + std::to_string(getGreenRedRatio()) + "\n";
+			stats += "Green candle percent: " + std::to_string(getGreenCandlePercent()) + "\n";
+			stats += "Red candle percent: " + std::to_string(getRedCandlePercent()) + "\n";
+			stats += "Close above prev close percent: " + std::to_string(getCloseAbovePrevClosePercent()) + "\n";
+			return stats;
 		}
 };
