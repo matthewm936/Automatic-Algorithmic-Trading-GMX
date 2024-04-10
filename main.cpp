@@ -75,7 +75,7 @@ int main() {
 	while(true) {
 		time.start();
 
-		runCommand("node gmx-api/gmx-rest-endpoints.js candles 2 1m");
+		runCommand("node gmx-api/gmx-rest-endpoints.js candles 2 1m"); //todo: add more timeframes when the time to get them gets close
 		gmx_token_candles_data.clear();  // Clear the previous contents
 		gmx_token_candles_data.seekg(0);  // Move the cursor back to the start of the file
 		gmx_token_candles_data >> j;  // Read the new data
