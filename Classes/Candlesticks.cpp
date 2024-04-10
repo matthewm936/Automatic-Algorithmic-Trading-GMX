@@ -49,7 +49,7 @@ class Candlesticks {
 		void addCandle(Candle candle) { 
 			for(const auto& c : candles) {
 				if(c.timeStamp == candle.timeStamp) {
-					std::cout << "Candle with same timestamp already exists" << std::endl;
+					// std::cout << "Candle with same timestamp already exists" << std::endl;
 					return;
 				}
 			}
@@ -62,8 +62,8 @@ class Candlesticks {
 				candles.pop_back();
 			}
 
-			cout << "Candle added to candlesticks" << endl;
-			cout << "timeFrame: " << timeFrame << endl;
+			// cout << "Candle added to candlesticks" << endl;
+			// cout << "timeFrame: " << timeFrame << endl;
 		}
 
 		string getTimeFrame() {
@@ -146,23 +146,12 @@ class Candlesticks {
 		double getGreenRedRatio() {
 			return (double)getGreenCandles() / (double)getRedCandles();
 		}
-
 		double getGreenCandlePercent() {
-			int greenTrendingStrength = 0;
-			for(const auto& candle : candles) {
-				if(candle.green) {
-					greenTrendingStrength += 1;
-				}
-			} return greenTrendingStrength / candles.size();
+			return (double)getGreenCandles() / (double)candles.size();
 		}
 
 		double getRedCandlePercent() {
-			int redTrendingStrength = 0;
-			for(const auto& candle : candles) {
-				if(candle.red) {
-					redTrendingStrength += 1;
-				}
-			} return redTrendingStrength / candles.size();
+			return (double)getRedCandles() / (double)candles.size();
 		}
 
 		double getCloseAbovePrevClosePercent() {
@@ -171,10 +160,10 @@ class Candlesticks {
 				if(candles[i].close > candles[i-1].close) {
 					closeAbovePrevClose += 1;
 				}
-			} return closeAbovePrevClose / candles.size(); //todo, bc close above prev close counts sequential it will always be one less then the candles.size
+			} return (double)closeAbovePrevClose / (double)candles.size();
 		}
 
-		string printStats() {
+		string getStats() {
 			string stats = "";
 			stats += "Time frame: " + timeFrame + "\n";
 			stats += "Num candles: " + std::to_string(candles.size()) + "\n";

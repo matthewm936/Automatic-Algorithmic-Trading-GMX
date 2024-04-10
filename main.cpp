@@ -95,9 +95,8 @@ int main() {
 				candlesticks.checkCandleOrderCorrectness();
 				candlesticks.checkCandleMissingness();
 
-				cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << " Num candles: " << candlesticks.getCandles().size() << endl;
-
-				Log::logAndEmail(candlesticks.printStats());
+				// Log::logAndEmail(candlesticks.getStats());
+				cout << candlesticks.getStats() << endl;
 			}
 		}
 
