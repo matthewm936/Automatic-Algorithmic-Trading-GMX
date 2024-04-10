@@ -63,13 +63,11 @@ int main() {
 			candlesticks.checkCandleMissingness();
 			token.addCandlesticks(candlesticks);
 
-			// cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << " Num candles: " << candlesticks.getCandles().size() << endl;
-
+			// cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << endl;
 		}
 
 		GMX_tokens[tokenIt.key()] = token;
 	}
-
 
 	// init done, starting main loop that runs every minute watching prices
 	while(true) {
@@ -94,9 +92,6 @@ int main() {
 				}
 				candlesticks.checkCandleOrderCorrectness();
 				candlesticks.checkCandleMissingness();
-
-				// Log::logAndEmail(candlesticks.getStats());
-				cout << candlesticks.getStats() << endl;
 			}
 		}
 

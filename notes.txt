@@ -2,8 +2,6 @@ TODO:
 
 * fix position log which main's position object isnt printing the correct position size
 
-
-
 Done:
 * fix email log not sending hourly updates
 
