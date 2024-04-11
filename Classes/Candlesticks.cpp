@@ -40,8 +40,6 @@ class Candlesticks {
 			// std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
 
-		
-
 		int getSize() {
 			return candles.size();
 		}
