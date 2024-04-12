@@ -3,6 +3,7 @@
 
 #include <array>
 #include <string>
+#include <iostream>
 
 #include "Log.cpp"
 #include "Time.cpp"
@@ -10,6 +11,8 @@
 using std::string;
 
 std::string runCommand(const char *cmd) {
+	std::cout << "Running command: " << cmd << std::endl;
+
 	std::array<char, 128> buffer;
 	std::string result;
 	int exitCode;

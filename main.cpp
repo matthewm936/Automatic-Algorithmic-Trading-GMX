@@ -36,7 +36,7 @@ int main() {
 	unordered_map<string, Token> GMX_tokens;
 	Positions positions;
 
-	runCommand("node gmx-api/gmx-rest-endpoints.js candles 10 1m 5m 15m 4h 1d");
+	runCommand("node gmx-api/gmx-rest-endpoints.js candles 10 1m 5m 15m 1h 4h 1d");
 
 	std::ifstream gmx_token_candles_data("gmx-api/token-candles.json");
 	nlohmann::json j;
@@ -60,7 +60,6 @@ int main() {
 
 			cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << endl;
 		}
-
 		GMX_tokens[tokenIt.key()] = token;
 	}
 
@@ -71,6 +70,7 @@ int main() {
 		time.start();
 
 		int unixTime = std::stoi(time.getUnixTime());
+
 		int timeMod5min = unixTime % 300;
 		int timeMod15min = unixTime % 900;
 		int timeMod1h = unixTime % 3600;
@@ -88,33 +88,35 @@ int main() {
 		if(timeMod1h >= 0 && timeMod1h < 60) {
 			updateCandleStickDataCommand += " 1h";
 			cout << "Updating 1h candlestick data" << endl;
-			Log::email("Updating 1hr candlestick data")
+			Log::logAndEmail("Updating 1hr candlestick data");
 
 		}
 		if(timeMod4h >= 0 && timeMod4h < 60) {
 			updateCandleStickDataCommand += " 4h";
 			cout << "Updating 4h candlestick data" << endl;
-			Log::email("Updating 4hr candlestick data")
+			Log::logAndEmail("Updating 4hr candlestick data");
 		}
 		if(timeMod1d >= 0 && timeMod1d < 60) {
 			updateCandleStickDataCommand += " 1d";
 			cout << "Updating 1d candlestick data" << endl;
-			Log::email("Updating 1d candlestick data")
+			Log::logAndEmail("Updating 1d candlestick data");
 		}
 
-		runCommand(updateCandleStickDataCommand.c_str()); //todo: add more timeframes when the time to get them gets close
+		runCommand(updateCandleStickDataCommand.c_str()); 
 
-		// Reset the command to the base command plus the 1-minute interval
 		updateCandleStickDataCommand = baseCommand + " 1m";
 
 		gmx_token_candles_data.clear();  // Clear the previous contents
 		gmx_token_candles_data.seekg(0);  // Move the cursor back to the start of the file
 		gmx_token_candles_data >> j;  // Read the new data
 		
-		for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) {
+		for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program
+
+			cout << "Token key: " << tokenIt.key() << endl;
 			Token& token = GMX_tokens[tokenIt.key()];
 
 			for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
+				cout << "Timeframe key: " << timeframeIt.key() << endl;
 				Candlesticks& candlesticks = token.getCandlesticks(timeframeIt.key());
 				nlohmann::json candlesArray = timeframeIt->at("candles");
 
