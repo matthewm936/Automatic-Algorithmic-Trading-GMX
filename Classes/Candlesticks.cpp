@@ -44,9 +44,11 @@ class Candlesticks {
 		}
 
 		void addCandle(Candle candle) { 
-			for(const auto& c : candles) {
-				if(c.timeStamp == candle.timeStamp) {
+			for(auto& c : candles) {
+				if(c.timeStamp == candle.timeStamp) { //update candle, bc non-closed candles are still sent as a candle in progress so anytime you get the new a candle with the same timestamp update it
 					// std::cout << "Candle with same timestamp already exists" << std::endl;
+					//todo test this new adition which is updating current in progress candles
+					c = candle;
 					return;
 				}
 			}
