@@ -11,7 +11,6 @@ using std::deque;
 using std::cout;
 using std::endl;
 
-
 int MAX_NUM_CANDLES = 10;
 
 const std::unordered_map<string, int> timeFrameToUnixOffset = {
@@ -25,7 +24,7 @@ const std::unordered_map<string, int> timeFrameToUnixOffset = {
 
 class Candlesticks {
 	private:
-		std::deque<Candle> candles;
+		std::deque<Candle> candles; // added in descinding order so most recent at the front ie. largest timestamp at the front
 		std::string timeFrame = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 
@@ -75,8 +74,14 @@ class Candlesticks {
 		void checkCandleOrderCorrectness() {
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp < candles[i].timeStamp) {
+					cout << "candlsticks deque candles is in ASCENDING ORDER" << endl;
 					throw std::runtime_error("Candles are not in the correct order");
-				}
+				} 
+				// else if(candles[i - 1].timeStamp > candles[i].timeStamp) {
+				// 	cout << "candlsticks deque candles is in DESCENDING ORDER" << endl;
+				// } else {
+				// 	cout << "candlsticks deque candles is in NOT CORRECT" << endl;
+				// }
 			}
 		}
 
@@ -154,11 +159,12 @@ class Candlesticks {
 
 		double getCloseAbovePrevClosePercent() {
 			int closeAbovePrevClose = 0;
-			for(size_t i = 1; i < candles.size(); ++i) {
+			for(size_t i = candles.size() - 1; i > 0; --i) {
 				if(candles[i].close > candles[i-1].close) {
 					closeAbovePrevClose += 1;
-				}
-			} return (double)closeAbovePrevClose / (double)candles.size();
+				} 
+			} 
+			return (double)closeAbovePrevClose / (double)candles.size();
 		}
 
 		string getStats() {

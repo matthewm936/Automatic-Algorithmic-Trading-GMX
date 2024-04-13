@@ -7,6 +7,18 @@ class Candle {
 			if(high < low) { // so switching this to just catch incorrect if breaks by definition
 				throw std::runtime_error("ERROR: high  not greater than low");
 			} 
+			// if(close < low) {
+			// 	throw std::runtime_error("ERROR: close not greater than low");
+			// }
+			// if(close > high) {
+			// 	throw std::runtime_error("ERROR: close not less than high");
+			// }
+			// if(open < low) {
+			// 	throw std::runtime_error("ERROR: open not greater than low");
+			// }
+			// if(open > high) {
+			// 	throw std::runtime_error("ERROR: open not less than high");
+			// }
 		}
 
 	public:
@@ -48,4 +60,8 @@ class Candle {
 
 			checkCorrectness();
 		}		
+
+		string toString() {
+			return "Candle: " + std::to_string(timeStamp) + " Open: " + std::to_string(open) + " High: " + std::to_string(high) + " Low: " + std::to_string(low) + " Close: " + std::to_string(close);
+		}
 };

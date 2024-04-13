@@ -48,9 +48,11 @@ public:
 		double sleepTime = sleepTimeMins * 60 - getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
+		std::cout << "====================================" << std::endl;
 		std::cout << "Time::sleep() called for " << sleepTime << "s" << std::endl;
-		std::cout << "Time::sleep() called at GMT " << getGMTTime() << std::endl;
-		std::cout << "Time::sleep() called at Unix " << getUnixTime() << std::endl;
+		std::cout << "at GMT " << getGMTTime() << std::endl;
+		std::cout << "at Unix " << getUnixTime() << std::endl;
+		std::cout << "====================================" << std::endl;
 		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
 	}
 
