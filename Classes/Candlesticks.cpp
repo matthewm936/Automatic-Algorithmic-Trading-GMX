@@ -103,7 +103,7 @@ class Candlesticks {
 			}
 		}
 
-		Candle getHighestCandle() const {
+		Candle getHighestCandle() const { // bc these next few methods are all looping through the object I could loop only once and find the values of the highest candle, lowest candle, etc. and even return them all in a struct, only needed for efficieny reseasons
 			Candle highestCandle = candles[0];
 			for(const auto& candle : candles) {
 				if(candle.high > highestCandle.high) {
