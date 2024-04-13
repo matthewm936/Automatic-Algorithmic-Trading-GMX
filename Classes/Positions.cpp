@@ -9,6 +9,9 @@
 struct Position {
 	std::string pairName;
 	double entryPrice;
+	double entrySize;
+	int leverage;
+
 	double currentPrice;
 	double profitLoss;
 
@@ -24,6 +27,8 @@ struct Position {
 class Positions {
 private:
 	std::unordered_map<std::string, Position> positions;
+
+	double totalSize;
 
 public:
 	Positions() {}
