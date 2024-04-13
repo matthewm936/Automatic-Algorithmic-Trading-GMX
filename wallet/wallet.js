@@ -1,7 +1,7 @@
 const { ethers } = require('ethers');
 
 // this is my wallet address it should have aeth on arbitrum one
-// .0003 aeth
+// .0003 aeth (rounding in metamask ig so its really .00025...)
 // 0x03Ef040e2Bf78593e49d58447044C50B5b3475A1
 
 // const ethers = require('ethers')
@@ -16,5 +16,7 @@ console.log("ethers.js version: " + ethers.version);
     let balance = await provider.getBalance("0x03Ef040e2Bf78593e49d58447044C50B5b3475A1");
 
     console.log("Balance: " + ethers.formatEther(String(balance)) + " ether");
+
+    console.log("Network: " + (await provider.getNetwork()).name);
 })();
 
