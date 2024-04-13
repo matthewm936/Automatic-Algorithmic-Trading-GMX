@@ -12,7 +12,7 @@ using std::cout;
 using std::endl;
 
 
-int MAX_NUM_CANDLES = 50;
+int MAX_NUM_CANDLES = 10;
 
 const std::unordered_map<string, int> timeFrameToUnixOffset = {
 	{"1m", 60},
@@ -162,7 +162,7 @@ class Candlesticks {
 		}
 
 		string getStats() {
-			string stats = "";
+			string stats = "\n";
 			stats += "Time frame: " + timeFrame + "\n";
 			stats += "Num candles: " + std::to_string(candles.size()) + "\n";
 			stats += "Highest candle: " + std::to_string(getHighestCandle().high) + "\n";
@@ -173,7 +173,7 @@ class Candlesticks {
 			stats += "Green red ratio: " + std::to_string(getGreenRedRatio()) + "\n";
 			stats += "Green candle percent: " + std::to_string(getGreenCandlePercent()) + "\n";
 			stats += "Red candle percent: " + std::to_string(getRedCandlePercent()) + "\n";
-			stats += "Close above prev close percent: " + std::to_string(getCloseAbovePrevClosePercent()) + "\n";
+			stats += "Close above prev close percent: " + std::to_string(getCloseAbovePrevClosePercent()) + "\n"; //todo this result looks wrong
 			return stats;
 		}
 };

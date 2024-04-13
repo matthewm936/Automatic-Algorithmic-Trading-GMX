@@ -111,12 +111,11 @@ int main() {
 		gmx_token_candles_data >> j;  // Read the new data
 		
 		for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program
-
-			cout << "Token key: " << tokenIt.key() << endl;
+			// cout << "Token key: " << tokenIt.key() << endl;
 			Token& token = GMX_tokens[tokenIt.key()];
 
 			for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
-				cout << "Timeframe key: " << timeframeIt.key() << endl;
+				// cout << "Timeframe key: " << timeframeIt.key() << endl;
 				Candlesticks& candlesticks = token.getCandlesticks(timeframeIt.key());
 				nlohmann::json candlesArray = timeframeIt->at("candles");
 
@@ -127,6 +126,8 @@ int main() {
 				}
 				candlesticks.checkCandleOrderCorrectness();
 				candlesticks.checkCandleMissingness();
+
+				// Log::logAndEmail("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
 			}
 		}
 
