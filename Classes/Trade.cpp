@@ -13,7 +13,9 @@ private:
 public:
 	Trade() {}
 
-	void buy(string pairname, double price, double size, int leverage, double takeProfit, double stopLoss, time_t exitTimeCondition) {
+	// for now buy 1k worth of token at market price and sell
+	// after several candles
+	void buy(string pairname) {
 		runCommand();
 	}
 

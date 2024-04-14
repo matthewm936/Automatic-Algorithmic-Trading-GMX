@@ -20,3 +20,10 @@ console.log("ethers.js version: " + ethers.version);
     console.log("Network: " + (await provider.getNetwork()).name);
 })();
 
+let generatedWallet = ethers.Wallet.createRandom();
+console.log("Generated Wallet: " + generatedWallet.address);
+console.log("Generated Wallet Private Key: " + generatedWallet.privateKey);
+
+// random generated wallet
+// address: 0xE29998F2836a05C68CE3e984c2acB810fdC5eD0F
+// priv key: 0xb40346c3cb3dab36980ec73476e9b719da22a2804b24acb9de0c711eae6d8a16
