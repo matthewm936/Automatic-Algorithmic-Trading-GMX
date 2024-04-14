@@ -129,11 +129,14 @@ int main() {
 					Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
 				}
 				string movement = candlesticks.movement();
+				string email = "Token " + token.token + " Timeframe " + candlesticks.getTimeFrame() + " is " + movement + " trending of ";
 				if(movement == "green") {
-					Log::logAndEmail("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " is green trending of " + candlesticks.redCandlePercent() + "%");
+					email += std::to_string(candlesticks.getGreenCandlePercent()) + "%";
+					Log::logAndEmail(email.c_str());
 				}
 				if(movement == "red") {
-					Log::logAndEmail("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " is red trending of " + candlesticks.redCandlePercent() + "%");
+					email += std::to_string(candlesticks.getRedCandlePercent()) + "%";
+					Log::logAndEmail(email.c_str());
 				}
 			}
 		}
