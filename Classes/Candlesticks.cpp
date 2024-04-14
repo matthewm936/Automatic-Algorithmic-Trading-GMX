@@ -11,7 +11,7 @@ using std::deque;
 using std::cout;
 using std::endl;
 
-int MAX_NUM_CANDLES = 10;
+int MAX_NUM_CANDLES = 15;
 
 const std::unordered_map<string, int> timeFrameToUnixOffset = {
 	{"1m", 60},
@@ -167,6 +167,24 @@ class Candlesticks {
 				} 
 			} 
 			return (double)closeAbovePrevClose / (double)candles.size();
+		}
+
+		string movement() {
+			double greenRedRatio = getGreenRedRatio();
+			double greenCandlePercent = getGreenCandlePercent();
+			double redCandlePercent = getRedCandlePercent();
+
+			if(greenRedRatio =< 0.60 && 0.40 =< greenRedRatio) {
+				return "ranging";
+			}
+			if(greenCandlePercent > 0.60) {
+				return "bullish";
+			}
+			if(redCandlePercent > 0.60) {
+				return "bearish";
+			} else {
+				return "unknown";
+			}
 		}
 
 		string getStats() {

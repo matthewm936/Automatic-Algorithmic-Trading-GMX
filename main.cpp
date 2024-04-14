@@ -89,18 +89,14 @@ int main() {
 		if(timeMod1h >= 0 && timeMod1h < 60) {
 			updateCandleStickDataCommand += " 1h";
 			cout << "Updating 1h candlestick data" << endl;
-			Log::logAndEmail("Updating 1hr candlestick data");
-
 		}
 		if(timeMod4h >= 0 && timeMod4h < 60) {
 			updateCandleStickDataCommand += " 4h";
 			cout << "Updating 4h candlestick data" << endl;
-			Log::logAndEmail("Updating 4hr candlestick data");
 		}
 		if(timeMod1d >= 0 && timeMod1d < 60) {
 			updateCandleStickDataCommand += " 1d";
 			cout << "Updating 1d candlestick data" << endl;
-			Log::logAndEmail("Updating 1d candlestick data");
 		}
 
 		runCommand(updateCandleStickDataCommand.c_str()); 
@@ -129,8 +125,11 @@ int main() {
 				candlesticks.checkCandleOrderCorrectness();
 				candlesticks.checkCandleMissingness();
 
-				// Log::logAndEmail("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
-				cout << candlesticks.getStats();
+				if(candlesticks.getTimeFrame() != "1m") {
+					Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
+				}
+
+				cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << " movement type: " << candlesticks.movement() << endl;
 			}
 		}
 
