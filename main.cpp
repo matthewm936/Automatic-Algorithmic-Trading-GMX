@@ -128,8 +128,13 @@ int main() {
 				if(candlesticks.getTimeFrame() != "1m") {
 					Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
 				}
-
-				cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << " movement type: " << candlesticks.movement() << endl;
+				string movement = candlesticks.movement();
+				if(movement == "green") {
+					Log::logAndEmail("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " is green trending of " + candlesticks.redCandlePercent() + "%");
+				}
+				if(movement == "red") {
+					Log::logAndEmail("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " is red trending of " + candlesticks.redCandlePercent() + "%");
+				}
 			}
 		}
 
