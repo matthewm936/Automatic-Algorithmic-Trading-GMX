@@ -28,6 +28,10 @@ string formatWithCommas(int value) {
 	return ss.str();
 }
 
+Candle createCandle(const nlohmann::json& jsonArray) {
+    return Candle(jsonArray[0].get<double>(), jsonArray[1].get<double>(), jsonArray[2].get<double>(), jsonArray[3].get<double>(), jsonArray[4].get<double>());
+} 
+
 int main() {
 	Log::clearLogFiles();
 	Log::LogWithTimestamp("MAIN.cpp Started");
@@ -50,8 +54,7 @@ int main() {
 			nlohmann::json candlesArray = timeframeIt->at("candles");
 
 			for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
-				Candle candle((*candleIt)[0].get<double>(), (*candleIt)[1].get<double>(), (*candleIt)[2].get<double>(), (*candleIt)[3].get<double>(), (*candleIt)[4].get<double>());
-				candlesticks.addCandle(candle);
+				candlesticks.addCandle(createCandle(*candleIt));
 			}
 			candlesticks.checkCandleOrderCorrectness();
 			candlesticks.checkCandleMissingness();
@@ -105,19 +108,15 @@ int main() {
 		}		
 
 		try {
-			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program
+			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program, so ig just try catch for now, this might need to be revisited
 				Token& token = GMX_tokens[tokenIt.key()];
 
 				for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
-					// cout << "Timeframe key: " << timeframeIt.key() << endl;
 					Candlesticks& candlesticks = token.getCandlesticks(timeframeIt.key());
 					nlohmann::json candlesArray = timeframeIt->at("candles");
 
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
-						Candle candle((*candleIt)[0].get<double>(), (*candleIt)[1].get<double>(), (*candleIt)[2].get<double>(), (*candleIt)[3].get<double>(), (*candleIt)[4].get<double>());
-
-						candlesticks.addCandle(candle);
-						candlesticks.getCloseAbovePrevClosePercent();
+						candlesticks.addCandle(createCandle(*candleIt));
 					}
 					candlesticks.checkCandleOrderCorrectness();
 					candlesticks.checkCandleMissingness();
