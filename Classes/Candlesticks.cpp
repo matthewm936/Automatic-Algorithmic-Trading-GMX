@@ -77,6 +77,7 @@ class Candlesticks {
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp < candles[i].timeStamp) {
 					cout << "candlsticks deque candles is in ASCENDING ORDER" << endl;
+					Log::logError("Candles are not in the correct order RUNTIME ERROR THROWN");
 					throw std::runtime_error("Candles are not in the correct order");
 				} 
 				// else if(candles[i - 1].timeStamp > candles[i].timeStamp) {
@@ -98,6 +99,7 @@ class Candlesticks {
 					cout << "Candle i-1 timestamp: " << candles[i-1].timeStamp << endl;
 					cout << "Candle i timestamp: " << candles[i].timeStamp << endl;
 
+					Log::logError("Candles are missing, throwing RUNTIME ERROR THROWN");
 					throw std::runtime_error("Candles are missing");
 				}
 			}

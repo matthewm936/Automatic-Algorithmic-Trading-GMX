@@ -12,6 +12,7 @@ using std::string;
 
 std::string runCommand(const char *cmd) {
 	std::cout << "Running command: " << cmd << std::endl;
+	Log::log("Running command: " + string(cmd));
 
 	std::array<char, 128> buffer;
 	std::string result;

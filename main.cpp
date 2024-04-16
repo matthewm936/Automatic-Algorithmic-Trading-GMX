@@ -144,7 +144,7 @@ int main() {
 		}
 
 		time.end();
-		Log::log(time.sleep());
+		Log::log(time.sleep()); //sleeps then logs when the sleep occured, not sure if this is what I want
 	}
 
 	return 0;
