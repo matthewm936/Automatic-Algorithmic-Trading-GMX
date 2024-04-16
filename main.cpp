@@ -42,7 +42,7 @@ int main() {
 	nlohmann::json j;
 	gmx_token_candles_data >> j;
 
-	for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { //todo; only add a candle if its done moving, ie. if its closed, or else this doesnt update the high low close as those values will change depending on the behavoir of the close
+	for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) {
 		Token token(tokenIt.key());
 
 		for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
@@ -52,14 +52,10 @@ int main() {
 			for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 				Candle candle((*candleIt)[0].get<double>(), (*candleIt)[1].get<double>(), (*candleIt)[2].get<double>(), (*candleIt)[3].get<double>(), (*candleIt)[4].get<double>());
 				candlesticks.addCandle(candle);
-
-				cout << candle.toString() << endl;
 			}
 			candlesticks.checkCandleOrderCorrectness();
 			candlesticks.checkCandleMissingness();
 			token.addCandlesticks(candlesticks);
-
-			cout << "Token: " << token.token << " Timeframe: " << candlesticks.getTimeFrame() << endl;
 		}
 		GMX_tokens[tokenIt.key()] = token;
 	}
