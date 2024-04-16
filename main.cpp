@@ -50,7 +50,7 @@ int main() {
 		Token token(tokenIt.key());
 
 		for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
-			Candlesticks candlesticks(timeframeIt.key());
+			Candlesticks candlesticks(timeframeIt.key(), token.token);
 			nlohmann::json candlesArray = timeframeIt->at("candles");
 
 			for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
@@ -108,7 +108,7 @@ int main() {
 		}		
 
 		try {
-			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program, so ig just try catch for now, this might need to be revisited
+			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program, so ig just try catch for now, this might need to be
 				Token& token = GMX_tokens[tokenIt.key()];
 
 				for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {

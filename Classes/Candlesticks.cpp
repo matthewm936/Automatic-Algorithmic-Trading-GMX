@@ -26,6 +26,7 @@ class Candlesticks {
 	private:
 		std::deque<Candle> candles; // added in descinding order so most recent at the front ie. largest timestamp at the front
 		std::string timeFrame = "";
+		std::string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 
 	public:
@@ -33,8 +34,9 @@ class Candlesticks {
 			// std::cout << "Candlesticks object created" << std::endl;
 		};
 		
-		Candlesticks(string timeFrame) {
+		Candlesticks(string timeFrame, string token) {
 			this->timeFrame = timeFrame;
+			this->token = token;
 
 			// std::cout << "Candlesticks object created with time frame: " << timeFrame << std::endl;
 		}
