@@ -30,6 +30,8 @@ private:
 
 	double totalSize;
 
+	int MAX_POSITIONS = 10;
+
 public:
 	Positions() {}
 

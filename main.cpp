@@ -80,23 +80,18 @@ int main() {
 
 		if(timeMod5min >= 0 && timeMod5min < 60) {
 			updateCandleStickDataCommand += " 5m";
-			cout << "Updating 5m candlestick data" << endl;
 		}
 		if(timeMod15min >= 0 && timeMod15min < 60) {
 			updateCandleStickDataCommand += " 15m";
-			cout << "Updating 15m candlestick data" << endl;
 		}
 		if(timeMod1h >= 0 && timeMod1h < 60) {
 			updateCandleStickDataCommand += " 1h";
-			cout << "Updating 1h candlestick data" << endl;
 		}
 		if(timeMod4h >= 0 && timeMod4h < 60) {
 			updateCandleStickDataCommand += " 4h";
-			cout << "Updating 4h candlestick data" << endl;
 		}
 		if(timeMod1d >= 0 && timeMod1d < 60) {
 			updateCandleStickDataCommand += " 1d";
-			cout << "Updating 1d candlestick data" << endl;
 		}
 
 		runCommand(updateCandleStickDataCommand.c_str()); 
@@ -105,43 +100,53 @@ int main() {
 
 		gmx_token_candles_data.clear();  // Clear the previous contents
 		gmx_token_candles_data.seekg(0);  // Move the cursor back to the start of the file
-		gmx_token_candles_data >> j;  // Read the new data
-		
-		for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program
-			// cout << "Token key: " << tokenIt.key() << endl;
-			Token& token = GMX_tokens[tokenIt.key()];
 
-			for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
-				// cout << "Timeframe key: " << timeframeIt.key() << endl;
-				Candlesticks& candlesticks = token.getCandlesticks(timeframeIt.key());
-				nlohmann::json candlesArray = timeframeIt->at("candles");
+		try {
+			gmx_token_candles_data >> j;  // Read the new data
+		} catch (json::parse_error& e) {
+			Log::logError("JSON parse error: " + string(e.what()));
+			std::cerr << "JSON parse error: " << e.what() << '\n';
+		}		
 
-				for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
-					Candle candle((*candleIt)[0].get<double>(), (*candleIt)[1].get<double>(), (*candleIt)[2].get<double>(), (*candleIt)[3].get<double>(), (*candleIt)[4].get<double>());
+		try {
+			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program
+				Token& token = GMX_tokens[tokenIt.key()];
 
-					candlesticks.addCandle(candle);
-					candlesticks.getCloseAbovePrevClosePercent();
-				}
-				candlesticks.checkCandleOrderCorrectness();
-				candlesticks.checkCandleMissingness();
+				for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {
+					// cout << "Timeframe key: " << timeframeIt.key() << endl;
+					Candlesticks& candlesticks = token.getCandlesticks(timeframeIt.key());
+					nlohmann::json candlesArray = timeframeIt->at("candles");
 
-				if(candlesticks.getTimeFrame() != "1m" && candlesticks.getTimeFrame() != "5m") {
-					Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
+					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
+						Candle candle((*candleIt)[0].get<double>(), (*candleIt)[1].get<double>(), (*candleIt)[2].get<double>(), (*candleIt)[3].get<double>(), (*candleIt)[4].get<double>());
 
-					string movement = candlesticks.movement();
-					string email = "Token " + token.token + " Timeframe " + candlesticks.getTimeFrame() + " is " + movement + " trending of ";
-					if(movement == "green") {
-						email += std::to_string(candlesticks.getGreenCandlePercent()) + "%" + " at price " + std::to_string(candlesticks.getCandles()[0].close);
-						Log::logAndEmail(email.c_str());
+						candlesticks.addCandle(candle);
+						candlesticks.getCloseAbovePrevClosePercent();
 					}
-					if(movement == "red") {
-						email += std::to_string(candlesticks.getRedCandlePercent()) + "%" + " at price " + std::to_string(candlesticks.getCandles()[0].close);
-						Log::logAndEmail(email.c_str());
+					candlesticks.checkCandleOrderCorrectness();
+					candlesticks.checkCandleMissingness();
+
+					if(candlesticks.getTimeFrame() != "1m" && candlesticks.getTimeFrame() != "5m") {
+						Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
+
+						string movement = candlesticks.movement();
+						string email = "Token " + token.token + " Timeframe " + candlesticks.getTimeFrame() + " is " + movement + " trending of ";
+						if(movement == "green") {
+							email += std::to_string(candlesticks.getGreenCandlePercent()) + "%" + " at price " + std::to_string(candlesticks.getCandles()[0].close);
+							Log::logAndEmail(email.c_str());
+						}
+						if(movement == "red") {
+							email += std::to_string(candlesticks.getRedCandlePercent()) + "%" + " at price " + std::to_string(candlesticks.getCandles()[0].close);
+							Log::logAndEmail(email.c_str());
+						}
 					}
 				}
-
 			}
+		} catch {
+			Log::logError("Error: " + string(e.what()));
+			std::cerr << "Error: " << e.what() << '\n';
 		}
+
 
 		time.end();
 		Log::log(time.sleep()); //sleeps then logs when the sleep occured, not sure if this is what I want
