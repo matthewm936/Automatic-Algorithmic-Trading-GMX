@@ -125,7 +125,7 @@ int main() {
 				candlesticks.checkCandleOrderCorrectness();
 				candlesticks.checkCandleMissingness();
 
-				if(candlesticks.getTimeFrame() != "1m" || candlesticks.getTimeFrame() != "5m") {
+				if(candlesticks.getTimeFrame() != "1m" && candlesticks.getTimeFrame() != "5m") {
 					Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
 
 					string movement = candlesticks.movement();
