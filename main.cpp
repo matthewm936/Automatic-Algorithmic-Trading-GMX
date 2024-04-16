@@ -125,24 +125,26 @@ int main() {
 				candlesticks.checkCandleOrderCorrectness();
 				candlesticks.checkCandleMissingness();
 
-				if(candlesticks.getTimeFrame() != "1m") {
+				if(candlesticks.getTimeFrame() != "1m" || candlesticks.getTimeFrame() != "5m") {
 					Log::LogWithTimestamp("Token: " + token.token + " Timeframe: " + candlesticks.getTimeFrame() + " data updated" + candlesticks.getStats());
+
+					string movement = candlesticks.movement();
+					string email = "Token " + token.token + " Timeframe " + candlesticks.getTimeFrame() + " is " + movement + " trending of ";
+					if(movement == "green") {
+						email += std::to_string(candlesticks.getGreenCandlePercent()) + "%" + " at price " + std::to_string(candlesticks.getCandles()[0].close);
+						Log::logAndEmail(email.c_str());
+					}
+					if(movement == "red") {
+						email += std::to_string(candlesticks.getRedCandlePercent()) + "%" + " at price " + std::to_string(candlesticks.getCandles()[0].close);
+						Log::logAndEmail(email.c_str());
+					}
 				}
-				string movement = candlesticks.movement();
-				string email = "Token " + token.token + " Timeframe " + candlesticks.getTimeFrame() + " is " + movement + " trending of ";
-				if(movement == "green") {
-					email += std::to_string(candlesticks.getGreenCandlePercent()) + "%";
-					Log::logAndEmail(email.c_str());
-				}
-				if(movement == "red") {
-					email += std::to_string(candlesticks.getRedCandlePercent()) + "%";
-					Log::logAndEmail(email.c_str());
-				}
+
 			}
 		}
 
 		time.end();
-		time.sleep();
+		Log::log(time.sleep());
 	}
 
 	return 0;

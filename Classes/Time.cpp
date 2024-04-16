@@ -43,17 +43,21 @@ public:
 		return duration.count();
 	}
 
-	void sleep() {
+	std::string sleep() {
 		double sleepTimeMins = 1;
 		double sleepTime = sleepTimeMins * 60 - getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
-		std::cout << "====================================" << std::endl;
-		std::cout << "Time::sleep() called for " << sleepTime << "s" << std::endl;
-		std::cout << "at GMT " << getGMTTime() << std::endl;
-		std::cout << "at Unix " << getUnixTime() << std::endl;
-		std::cout << "====================================" << std::endl;
+		std::string output;
+		output += "====================================\n";
+		output += "Time::sleep() called for " + std::to_string(sleepTime) + "s\n";
+		output += "at GMT " + getGMTTime() + "\n";
+		output += "at Unix " + getUnixTime() + "\n";
+		output += "====================================\n";
+
 		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
+
+		return output;
 	}
 
 	int now() {
