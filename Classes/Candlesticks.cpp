@@ -5,6 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
+#include <variant>
 
 using std::string;
 using std::deque;
@@ -96,7 +97,7 @@ class Candlesticks {
 				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
 					std::string errorMessage = "CANDLE MISSING\n";
 					errorMessage += "Token: " + token + "\n";
-					errorMessage += "Time frame: " + std::to_string(timeFrame) + "\n";
+					errorMessage += "Time frame: " + timeFrame + "\n";
 					errorMessage += "Expected offset: " + std::to_string(offset) + "\n";
 					errorMessage += "Difference: " + std::to_string(candles[i].timeStamp - candles[i-1].timeStamp) + "\n";
 					errorMessage += "Candle i-1 timestamp: " + std::to_string(candles[i-1].timeStamp) + "\n";
@@ -109,60 +110,39 @@ class Candlesticks {
 			}
 		}
 
-		Candle getHighestCandle() const { // bc these next few methods are all looping through the object I could loop only once and find the values of the highest candle, lowest candle, etc. and even return them all in a struct, only needed for efficieny reseasons
-			Candle highestCandle = candles[0];
-			for(const auto& candle : candles) {
-				if(candle.high > highestCandle.high) {
-					highestCandle = candle;
-				}
-			} return highestCandle;
+		std::map<string, std::variant<Candle, int, double>> getCandleInfo() { //untested
+			// This is your existing method, which defaults to using all candles
+			return getCandleInfo(0, candles.size());
 		}
 
-		Candle getLowestCandle() const {
-			Candle lowestCandle = candles[0];
-			for(const auto& candle : candles) {
-				if(candle.low < lowestCandle.low) {
-					lowestCandle = candle;
-				}
-			} return lowestCandle;
-		}
-
-		int getGreenCandles() {
+		std::map<string, std::variant<Candle, int, double>> getCandleInfo(int start, int end) { //untested
+			// This is the overloaded method, which uses a specific range of candles
+			Candle highestCandle = candles[start];
+			Candle lowestCandle = candles[start];
 			int greenCandles = 0;
-			for(const auto& candle : candles) {
-				if(candle.green) {
-					greenCandles++;
-				}
-			} return greenCandles;
-		}
-
-		int getRedCandles() {
 			int redCandles = 0;
-			for(const auto& candle : candles) {
-				if(candle.red) {
-					redCandles++;
-				}
-			} return redCandles;
-		}
-
-		int getDojiCandles() {
 			int dojiCandles = 0;
-			for(const auto& candle : candles) {
-				if(candle.doji) {
-					dojiCandles++;
-				}
-			} return dojiCandles;
-		}
 
-		double getGreenRedRatio() {
-			return (double)getGreenCandles() / (double)getRedCandles();
-		}
-		double getGreenCandlePercent() {
-			return (double)getGreenCandles() / (double)candles.size();
-		}
+			for(int i = start; i < end; i++) {
+				const auto& candle = candles[i];
+				if(candle.high > highestCandle.high) highestCandle = candle;
+				if(candle.low < lowestCandle.low) lowestCandle = candle;
+				if(candle.green) greenCandles++;
+				if(candle.red) redCandles++;
+				if(candle.doji) dojiCandles++;
+			}
 
-		double getRedCandlePercent() {
-			return (double)getRedCandles() / (double)candles.size();
+			std::map<std::string, std::variant<Candle, int, double>> candleInfo;
+			candleInfo["highestCandle"] = highestCandle;
+			candleInfo["lowestCandle"] = lowestCandle;
+			candleInfo["numGreenCandles"] = greenCandles;
+			candleInfo["numRedCandles"] = redCandles;
+			candleInfo["numDojiCandles"] = dojiCandles;
+			candleInfo["greenRedRatio"] = (double)greenCandles / (double)redCandles;
+			candleInfo["greenCandlePercent"] = (double)greenCandles / (double)(end - start);
+			candleInfo["redCandlePercent"] = (double)redCandles / (double)(end - start);
+
+			return candleInfo;
 		}
 
 		double getCloseAbovePrevClosePercent() {
@@ -176,8 +156,9 @@ class Candlesticks {
 		}
 
 		string movement() {
-			double greenCandlePercent = getGreenCandlePercent();
-			double redCandlePercent = getRedCandlePercent();
+			auto candleInfo = getCandleInfo();
+			double greenCandlePercent = std::get<double>(candleInfo["greenCandlePercent"]);
+			double redCandlePercent = std::get<double>(candleInfo["redCandlePercent"]);
 
 			if(greenCandlePercent <= 0.65 && 0.35 <= greenCandlePercent) {
 				return "ranging";
@@ -196,18 +177,19 @@ class Candlesticks {
 		}
 
 		string getStats() {
+			auto candleInfo = getCandleInfo();
 			string stats = "\n";
 			stats += "Time frame: " + timeFrame + "\n";
 			stats += "Num candles: " + std::to_string(candles.size()) + "\n";
-			stats += "Highest candle: " + std::to_string(getHighestCandle().high) + "\n";
-			stats += "Lowest candle: " + std::to_string(getLowestCandle().low) + "\n";
-			stats += "Green candles: " + std::to_string(getGreenCandles()) + "\n";
-			stats += "Red candles: " + std::to_string(getRedCandles()) + "\n";
-			stats += "Doji candles: " + std::to_string(getDojiCandles()) + "\n";
-			stats += "Green red ratio: " + std::to_string(getGreenRedRatio()) + "\n";
-			stats += "Green candle percent: " + std::to_string(getGreenCandlePercent()) + "\n";
-			stats += "Red candle percent: " + std::to_string(getRedCandlePercent()) + "\n";
-			stats += "Close above prev close percent: " + std::to_string(getCloseAbovePrevClosePercent()) + "\n"; //todo this result looks wrong
+			stats += "Highest candle: " + std::to_string(std::get<Candle>(candleInfo["highestCandle"]).high) + "\n";
+			stats += "Lowest candle: " + std::to_string(std::get<Candle>(candleInfo["lowestCandle"]).low) + "\n";
+			stats += "Green candles: " + std::to_string(std::get<int>(candleInfo["numGreenCandles"])) + "\n";
+			stats += "Red candles: " + std::to_string(std::get<int>(candleInfo["numRedCandles"])) + "\n";
+			stats += "Doji candles: " + std::to_string(std::get<int>(candleInfo["numDojiCandles"])) + "\n";
+			stats += "Green red ratio: " + std::to_string(std::get<double>(candleInfo["greenRedRatio"])) + "\n";
+			stats += "Green candle percent: " + std::to_string(std::get<double>(candleInfo["greenCandlePercent"])) + "\n";
+			stats += "Red candle percent: " + std::to_string(std::get<double>(candleInfo["redCandlePercent"])) + "\n";
+			stats += "Close above prev close percent: " + std::to_string(getCloseAbovePrevClosePercent()) + "\n";
 			return stats;
 		}
 };
