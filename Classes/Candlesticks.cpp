@@ -165,8 +165,8 @@ class Candlesticks {
 
 		double getCloseAbovePrevClosePercent() {
 			int closeAbovePrevClose = 0;
-			for(size_t i = candles.size() - 1; i > 0; --i) {
-				if(candles[i].close > candles[i-1].close) {
+			for(size_t i = candles.size() - 1; i > 0; --i) { // is this loop condition correct
+				if(candles[i].close > candles[i-1].close) { //this if might need to be <
 					closeAbovePrevClose += 1;
 				} 
 			} 

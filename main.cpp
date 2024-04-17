@@ -29,7 +29,7 @@ string formatWithCommas(int value) {
 }
 
 Candle createCandle(const nlohmann::json& jsonArray) {
-    return Candle(jsonArray[0].get<double>(), jsonArray[1].get<double>(), jsonArray[2].get<double>(), jsonArray[3].get<double>(), jsonArray[4].get<double>());
+	return Candle(jsonArray[0].get<double>(), jsonArray[1].get<double>(), jsonArray[2].get<double>(), jsonArray[3].get<double>(), jsonArray[4].get<double>());
 } 
 
 int main() {
@@ -137,11 +137,10 @@ int main() {
 					}
 				}
 			}
-		} catch {
+		} catch (const std::exception& e) {
 			Log::logError("Error: " + string(e.what()));
 			std::cerr << "Error: " << e.what() << '\n';
 		}
-
 
 		time.end();
 		Log::log(time.sleep()); //sleeps then logs when the sleep occured, not sure if this is what I want
