@@ -148,6 +148,11 @@ class Candlesticks {
 		double higherLowsPercent;
 		double lowerHighsPercent;
 
+		int	numIncreasingOpens;
+		int numIncreasingCloses;
+		int	numDecreasingOpens;
+		int	numDecreasingCloses;
+
 		double increasingOpensPercent;
 		double increasingClosesPercent;
 		double decreasingOpensPercent;
