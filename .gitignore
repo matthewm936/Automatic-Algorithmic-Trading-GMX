@@ -11,3 +11,4 @@ error_log.txt
 Logs/
 gmx-api/token-candles.json
 main.exe
+node_modules
