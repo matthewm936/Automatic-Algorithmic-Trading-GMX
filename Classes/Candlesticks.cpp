@@ -43,8 +43,6 @@ class Candlesticks {
 		}
 
 		void checkCandleMissingness() {
-			string test = "test";
-			Log::logError(test);
 			int offset = timeFrameToUnixOffset.at(timeFrame);
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {

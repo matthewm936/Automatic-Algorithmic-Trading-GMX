@@ -20,8 +20,8 @@ def send_email(subject, message):
 
 if __name__ == "__main__":
 	if len(sys.argv) > 1:
-		header = sys.argv[1]
+		subject = sys.argv[1]
 		message = sys.argv[2]
-		send_email(header, message)
+		send_email(subject, message)
 	else:
 		print("Please provide a message as a command-line argument.")
