@@ -56,7 +56,7 @@ int main() {
 			for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 				candlesticks.addCandle(createCandle(*candleIt));
 			}
-			candlesticks.checkCandleOrderCorrectness();
+			candlesticks.checkCandlesDescendingOrder();
 			candlesticks.checkCandleMissingness();
 			token.addCandlesticks(candlesticks);
 		}
@@ -77,21 +77,11 @@ int main() {
 		int timeMod4h = unixTime % 14400;
 		int timeMod1d = unixTime % 86400;
 
-		if(timeMod5min >= 0 && timeMod5min < 60) {
-			updateCandleStickDataCommand += " 5m";
-		}
-		if(timeMod15min >= 0 && timeMod15min < 60) {
-			updateCandleStickDataCommand += " 15m";
-		}
-		if(timeMod1h >= 0 && timeMod1h < 60) {
-			updateCandleStickDataCommand += " 1h";
-		}
-		if(timeMod4h >= 0 && timeMod4h < 60) {
-			updateCandleStickDataCommand += " 4h";
-		}
-		if(timeMod1d >= 0 && timeMod1d < 60) {
-			updateCandleStickDataCommand += " 1d";
-		}
+		if(timeMod5min >= 0 && timeMod5min < 60) updateCandleStickDataCommand += " 5m";
+		if(timeMod15min >= 0 && timeMod15min < 60) updateCandleStickDataCommand += " 15m";
+		if(timeMod1h >= 0 && timeMod1h < 60) updateCandleStickDataCommand += " 1h";
+		if(timeMod4h >= 0 && timeMod4h < 60) updateCandleStickDataCommand += " 4h";
+		if(timeMod1d >= 0 && timeMod1d < 60) updateCandleStickDataCommand += " 1d";
 
 		runCommand(updateCandleStickDataCommand.c_str()); 
 
@@ -118,7 +108,7 @@ int main() {
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
-					candlesticks.checkCandleOrderCorrectness();
+					candlesticks.checkCandlesDescendingOrder();
 					candlesticks.checkCandleMissingness();
 
 					if(candlesticks.getTimeFrame() != "1m" && candlesticks.getTimeFrame() != "5m") {

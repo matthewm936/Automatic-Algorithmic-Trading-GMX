@@ -11,6 +11,7 @@ using std::string;
 using std::deque;
 using std::cout;
 using std::endl;
+using std::to_string;
 
 int MAX_NUM_CANDLES = 20;
 
@@ -72,18 +73,14 @@ class Candlesticks {
 			return candles;
 		}
 
-		void checkCandleOrderCorrectness() {
-			for (size_t i = 1; i < candles.size(); ++i) {
-				if (candles[i-1].timeStamp < candles[i].timeStamp) {
-					cout << "candlsticks deque candles is in ASCENDING ORDER" << endl;
-					Log::logError("Candles are not in the correct order RUNTIME ERROR THROWN");
+		void checkCandlesDescendingOrder() {
+			for (size_t i = 0; i < candles.size() - 1; i++) {
+				if (candles[i].timeStamp > candles[i + 1].timeStamp) {
+					// correct order, most recent at the front
+				} else {
+					Log::logError("Candles are not in the correct order, RUNTIME ERROR THROWN");
 					throw std::runtime_error("Candles are not in the correct order");
-				} 
-				// else if(candles[i - 1].timeStamp > candles[i].timeStamp) {
-				// 	cout << "candlsticks deque candles is in DESCENDING ORDER" << endl;
-				// } else {
-				// 	cout << "candlsticks deque candles is in NOT CORRECT" << endl;
-				// }
+				}
 			}
 		}
 
@@ -92,13 +89,11 @@ class Candlesticks {
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
 					std::string errorMessage = "CANDLE MISSING\n";
-					errorMessage += "Token: " + token + "\n";
-					errorMessage += "Time frame: " + timeFrame + "\n";
-					errorMessage += "Expected offset: " + std::to_string(offset) + "\n";
-					errorMessage += "Difference: " + std::to_string(candles[i].timeStamp - candles[i-1].timeStamp) + "\n";
-					errorMessage += "Candle i-1 timestamp: " + std::to_string(candles[i-1].timeStamp) + "\n";
-					errorMessage += "Candle i timestamp: " + std::to_string(candles[i].timeStamp) + "\n";
-					errorMessage += "Candles are missing, throwing RUNTIME ERROR THROWN";
+					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
+					errorMessage += "Expected offset: " + to_string(offset) + "\n";
+					errorMessage += "Difference: " + to_string(candles[i].timeStamp - candles[i-1].timeStamp) + " at index i: " + to_string(i) + "\n";
+					errorMessage += "Candle i-1 timestamp: " + to_string(candles[i-1].timeStamp) + "\n";
+					errorMessage += "Candle i timestamp: " + to_string(candles[i].timeStamp) + "\n";
 
 					Log::logError(errorMessage);
 					throw std::runtime_error("Candles are missing");
@@ -174,16 +169,16 @@ class Candlesticks {
 			auto candleInfo = getCandleInfo();
 			string stats = "\n";
 			stats += "Time frame: " + timeFrame + "\n";
-			stats += "Num candles: " + std::to_string(candles.size()) + "\n";
-			stats += "Highest candle: " + std::to_string(std::get<Candle>(candleInfo["highestCandle"]).high) + "\n";
-			stats += "Lowest candle: " + std::to_string(std::get<Candle>(candleInfo["lowestCandle"]).low) + "\n";
-			stats += "Green candles: " + std::to_string(std::get<int>(candleInfo["numGreenCandles"])) + "\n";
-			stats += "Red candles: " + std::to_string(std::get<int>(candleInfo["numRedCandles"])) + "\n";
-			stats += "Doji candles: " + std::to_string(std::get<int>(candleInfo["numDojiCandles"])) + "\n";
-			stats += "Green red ratio: " + std::to_string(std::get<double>(candleInfo["greenRedRatio"])) + "\n";
-			stats += "Green candle percent: " + std::to_string(std::get<double>(candleInfo["greenCandlePercent"])) + "\n";
-			stats += "Red candle percent: " + std::to_string(std::get<double>(candleInfo["redCandlePercent"])) + "\n";
-			stats += "Close above prev close percent: " + std::to_string(getCloseAbovePrevClosePercent()) + "\n";
+			stats += "Num candles: " + to_string(candles.size()) + "\n";
+			stats += "Highest candle: " + to_string(std::get<Candle>(candleInfo["highestCandle"]).high) + "\n";
+			stats += "Lowest candle: " + to_string(std::get<Candle>(candleInfo["lowestCandle"]).low) + "\n";
+			stats += "Green candles: " + to_string(std::get<int>(candleInfo["numGreenCandles"])) + "\n";
+			stats += "Red candles: " + to_string(std::get<int>(candleInfo["numRedCandles"])) + "\n";
+			stats += "Doji candles: " + to_string(std::get<int>(candleInfo["numDojiCandles"])) + "\n";
+			stats += "Green red ratio: " + to_string(std::get<double>(candleInfo["greenRedRatio"])) + "\n";
+			stats += "Green candle percent: " + to_string(std::get<double>(candleInfo["greenCandlePercent"])) + "\n";
+			stats += "Red candle percent: " + to_string(std::get<double>(candleInfo["redCandlePercent"])) + "\n";
+			stats += "Close above prev close percent: " + to_string(getCloseAbovePrevClosePercent()) + "\n";
 			return stats;
 		}
 };
