@@ -89,6 +89,8 @@ int main() {
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
+
+					Log::logAndEmail(candlesticks.getStats());
 				}
 			}
 		} catch (const std::exception& e) {

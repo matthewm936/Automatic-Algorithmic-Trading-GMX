@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <variant>
+#include <iomanip> 
 
 using std::string;
 using std::deque;
@@ -173,29 +174,32 @@ class Candlesticks {
 			return candles;
 		}
 
-		string getStats() {
-			calculateCandleStatistics();
-			string stats = "\n";
-			stats += "Time frame: " + timeFrame + "\n";
-			stats += "Num candles: " + to_string(candles.size()) + "\n";
-			stats += "Highest candle: " + to_string(highestCandle.high) + "\n";
-			stats += "Lowest candle: " + to_string(lowestCandle.low) + "\n";
-			stats += "Green candles: " + to_string(numGreenCandles) + "\n";
-			stats += "Red candles: " + to_string(numRedCandles) + "\n";
-			stats += "Doji candles: " + to_string(numDojiCandles) + "\n";
-			stats += "Green red ratio: " + to_string(greenRedRatio) + "\n";
-			stats += "Red green ratio: " + to_string(redGreenRatio) + "\n";
-			stats += "Green candle percent: " + to_string(greenCandlePercent) + "\n";
-			stats += "Red candle percent: " + to_string(redCandlePercent) + "\n";
-			stats += "Num higher highs: " + to_string(numHigherHighs) + "\n";
-			stats += "Num lower lows: " + to_string(numLowerLows) + "\n";
-			stats += "Num higher lows: " + to_string(numHigherLows) + "\n";
-			stats += "Num lower highs: " + to_string(numLowerHighs) + "\n";
-			stats += "Higher highs percent: " + to_string(higherHighsPercent) + "\n";
-			stats += "Lower lows percent: " + to_string(lowerLowsPercent) + "\n";
-			stats += "Higher lows percent: " + to_string(higherLowsPercent) + "\n";
-			stats += "Lower highs percent: " + to_string(lowerHighsPercent) + "\n";
-			stats += "Current price: " + to_string(currentPrice) + "\n";
-			return stats;
-		}
+	string getStats() {
+		calculateCandleStatistics();
+		std::ostringstream stats;
+		stats << std::fixed << std::setprecision(2);  // Set fixed-point notation and 2 decimal places
+		stats << "\n";
+		stats << "Token: " << token << "\n";
+		stats << "Time frame: " << timeFrame << "\n";
+		stats << "Num candles: " << candles.size() << "\n";
+		stats << "Highest candle: " << highestCandle.high << "\n";
+		stats << "Lowest candle: " << lowestCandle.low << "\n";
+		stats << "Green candles: " << numGreenCandles << "\n";
+		stats << "Red candles: " << numRedCandles << "\n";
+		stats << "Doji candles: " << numDojiCandles << "\n";
+		stats << "Green red ratio: " << greenRedRatio << "\n";
+		stats << "Red green ratio: " << redGreenRatio << "\n";
+		stats << "Green candle percent: " << greenCandlePercent << "\n";
+		stats << "Red candle percent: " << redCandlePercent << "\n";
+		stats << "Num higher highs: " << numHigherHighs << "\n";
+		stats << "Num lower lows: " << numLowerLows << "\n";
+		stats << "Num higher lows: " << numHigherLows << "\n";
+		stats << "Num lower highs: " << numLowerHighs << "\n";
+		stats << "Higher highs percent: " << higherHighsPercent << "\n";
+		stats << "Lower lows percent: " << lowerLowsPercent << "\n";
+		stats << "Higher lows percent: " << higherLowsPercent << "\n";
+		stats << "Lower highs percent: " << lowerHighsPercent << "\n";
+		stats << "Current price: " << currentPrice << "\n";
+		return stats.str();
+	}
 };

@@ -45,7 +45,7 @@ void Log::checkLogFile() {
 	}
 }
 
-void Log::email(std::string message, std::string header) {
+void Log::email(std::string header, std::string message) {
 	std::string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + header + "\" \"" + message + "\"";
 	system(command.c_str());
 }
