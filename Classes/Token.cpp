@@ -9,6 +9,9 @@ using std::string;
 using std::unordered_map;
 
 class Token {
+	private:
+
+
 	public:
 		string token;
 		unordered_map<string, Candlesticks> timeframeCandlesticks;

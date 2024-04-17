@@ -31,7 +31,71 @@ class Candlesticks {
 		std::string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 
+		void calculateCandleInfo() {
+			calculateCandleInfo(0, candles.size());
+		}
+
+		void calculateCandleInfo(int start, int end) {
+			highestCandle = candles[start];
+			lowestCandle = candles[start];
+			numGreenCandles = 0;
+			numRedCandles = 0;
+			numDojiCandles = 0;
+
+			for(int i = start; i < end; i++) {
+				const auto& candle = candles[i];
+				if(candle.high > highestCandle.high) highestCandle = candle;
+				if(candle.low < lowestCandle.low) lowestCandle = candle;
+				if(candle.green) numGreenCandles++;
+				if(candle.red) numRedCandles++;
+				if(candle.doji) numDojiCandles++;
+			}
+
+			greenRedRatio = (double)numGreenCandles / (double)numRedCandles;
+			greenCandlePercent = (double)numGreenCandles / (double)(end - start);
+			redCandlePercent = (double)numRedCandles / (double)(end - start);
+			currentPrice = candles[0].close;
+		}
+
+		void checkCandlesDescendingOrder() {
+			for (size_t i = 0; i < candles.size() - 1; i++) {
+				if (candles[i].timeStamp > candles[i + 1].timeStamp) {
+					// correct order, most recent at the front
+				} else {
+					Log::logError("Candles are not in the correct order, RUNTIME ERROR THROWN");
+					throw std::runtime_error("Candles are not in the correct order");
+				}
+			}
+		}
+
+		void checkCandleMissingness() {
+			int offset = timeFrameToUnixOffset.at(timeFrame);
+			for (size_t i = 1; i < candles.size(); ++i) {
+				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
+					std::string errorMessage = "CANDLE MISSING\n";
+					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
+					errorMessage += "Expected offset: " + to_string(offset) + "\n";
+					errorMessage += "Difference: " + to_string(candles[i].timeStamp - candles[i-1].timeStamp) + " at index i: " + to_string(i) + "\n";
+					errorMessage += "Candle i-1 timestamp: " + to_string(candles[i-1].timeStamp) + "\n";
+					errorMessage += "Candle i timestamp: " + to_string(candles[i].timeStamp) + "\n";
+
+					Log::logError(errorMessage);
+					throw std::runtime_error("Candles are missing");
+				}
+			}
+		}
+
 	public:
+		Candle highestCandle;
+		Candle lowestCandle;
+		int numGreenCandles;
+		int numRedCandles;
+		int numDojiCandles;
+		double greenRedRatio;
+		double greenCandlePercent;
+		double redCandlePercent;
+		double currentPrice;
+
 		Candlesticks() {
 			// std::cout << "Candlesticks object created" << std::endl;
 		};
@@ -63,6 +127,11 @@ class Candlesticks {
 			if(candles.size() > maxNumCandles) {
 				candles.pop_back();
 			}
+
+			calculateCandleInfo(); //update stats on each candle addition
+			
+			checkCandleMissingness();
+			checkCandlesDescendingOrder();
 		}
 
 		string getTimeFrame() {
@@ -73,82 +142,8 @@ class Candlesticks {
 			return candles;
 		}
 
-		void checkCandlesDescendingOrder() {
-			for (size_t i = 0; i < candles.size() - 1; i++) {
-				if (candles[i].timeStamp > candles[i + 1].timeStamp) {
-					// correct order, most recent at the front
-				} else {
-					Log::logError("Candles are not in the correct order, RUNTIME ERROR THROWN");
-					throw std::runtime_error("Candles are not in the correct order");
-				}
-			}
-		}
-
-		void checkCandleMissingness() {
-			int offset = timeFrameToUnixOffset.at(timeFrame);
-			for (size_t i = 1; i < candles.size(); ++i) {
-				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
-					std::string errorMessage = "CANDLE MISSING\n";
-					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
-					errorMessage += "Expected offset: " + to_string(offset) + "\n";
-					errorMessage += "Difference: " + to_string(candles[i].timeStamp - candles[i-1].timeStamp) + " at index i: " + to_string(i) + "\n";
-					errorMessage += "Candle i-1 timestamp: " + to_string(candles[i-1].timeStamp) + "\n";
-					errorMessage += "Candle i timestamp: " + to_string(candles[i].timeStamp) + "\n";
-
-					Log::logError(errorMessage);
-					throw std::runtime_error("Candles are missing");
-				}
-			}
-		}
-
-		std::map<string, std::variant<Candle, int, double>> getCandleInfo() { //untested todo
-			return getCandleInfo(0, candles.size());
-		}
-
-		std::map<string, std::variant<Candle, int, double>> getCandleInfo(int start, int end) { //untested
-			Candle highestCandle = candles[start];
-			Candle lowestCandle = candles[start];
-			int greenCandles = 0;
-			int redCandles = 0;
-			int dojiCandles = 0;
-
-			for(int i = start; i < end; i++) {
-				const auto& candle = candles[i];
-				if(candle.high > highestCandle.high) highestCandle = candle;
-				if(candle.low < lowestCandle.low) lowestCandle = candle;
-				if(candle.green) greenCandles++;
-				if(candle.red) redCandles++;
-				if(candle.doji) dojiCandles++;
-			}
-
-			std::map<std::string, std::variant<Candle, int, double>> candleInfo;
-			candleInfo["highestCandle"] = highestCandle;
-			candleInfo["lowestCandle"] = lowestCandle;
-			candleInfo["numGreenCandles"] = greenCandles;
-			candleInfo["numRedCandles"] = redCandles;
-			candleInfo["numDojiCandles"] = dojiCandles;
-			candleInfo["greenRedRatio"] = (double)greenCandles / (double)redCandles;
-			candleInfo["greenCandlePercent"] = (double)greenCandles / (double)(end - start);
-			candleInfo["redCandlePercent"] = (double)redCandles / (double)(end - start);
-
-			return candleInfo;
-		}
-
-		double getCloseAbovePrevClosePercent() {
-			int closeAbovePrevClose = 0;
-			for(size_t i = candles.size() - 1; i > 0; --i) { // is this loop condition correct
-				if(candles[i].close > candles[i-1].close) { //todo this if might need to be <
-					closeAbovePrevClose += 1;
-				} 
-			} 
-			return (double)closeAbovePrevClose / (double)candles.size();
-		}
-
 		string movement() {
-			auto candleInfo = getCandleInfo();
-			double greenCandlePercent = std::get<double>(candleInfo["greenCandlePercent"]);
-			double redCandlePercent = std::get<double>(candleInfo["redCandlePercent"]);
-
+			calculateCandleInfo();
 			if(greenCandlePercent <= 0.65 && 0.35 <= greenCandlePercent) {
 				return "ranging";
 			}
@@ -166,19 +161,18 @@ class Candlesticks {
 		}
 
 		string getStats() {
-			auto candleInfo = getCandleInfo();
+			calculateCandleInfo();
 			string stats = "\n";
 			stats += "Time frame: " + timeFrame + "\n";
 			stats += "Num candles: " + to_string(candles.size()) + "\n";
-			stats += "Highest candle: " + to_string(std::get<Candle>(candleInfo["highestCandle"]).high) + "\n";
-			stats += "Lowest candle: " + to_string(std::get<Candle>(candleInfo["lowestCandle"]).low) + "\n";
-			stats += "Green candles: " + to_string(std::get<int>(candleInfo["numGreenCandles"])) + "\n";
-			stats += "Red candles: " + to_string(std::get<int>(candleInfo["numRedCandles"])) + "\n";
-			stats += "Doji candles: " + to_string(std::get<int>(candleInfo["numDojiCandles"])) + "\n";
-			stats += "Green red ratio: " + to_string(std::get<double>(candleInfo["greenRedRatio"])) + "\n";
-			stats += "Green candle percent: " + to_string(std::get<double>(candleInfo["greenCandlePercent"])) + "\n";
-			stats += "Red candle percent: " + to_string(std::get<double>(candleInfo["redCandlePercent"])) + "\n";
-			stats += "Close above prev close percent: " + to_string(getCloseAbovePrevClosePercent()) + "\n";
+			stats += "Highest candle: " + to_string(highestCandle.high) + "\n";
+			stats += "Lowest candle: " + to_string(lowestCandle.low) + "\n";
+			stats += "Green candles: " + to_string(numGreenCandles) + "\n";
+			stats += "Red candles: " + to_string(numRedCandles) + "\n";
+			stats += "Doji candles: " + to_string(numDojiCandles) + "\n";
+			stats += "Green red ratio: " + to_string(greenRedRatio) + "\n";
+			stats += "Green candle percent: " + to_string(greenCandlePercent) + "\n";
+			stats += "Red candle percent: " + to_string(redCandlePercent) + "\n";
 			return stats;
 		}
 };

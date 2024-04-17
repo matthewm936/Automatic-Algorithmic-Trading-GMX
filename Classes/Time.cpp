@@ -45,15 +45,16 @@ public:
 
 	std::string sleep() {
 		double sleepTimeMins = 1;
-		double sleepTime = sleepTimeMins * 60 - getDuration();
+		double sleepTime = sleepTimeMins * 30 - getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
 		std::string output;
 		output += "====================================\n";
 		output += "Time::sleep() called for " + std::to_string(sleepTime) + "s\n";
+		output += "Duration: " + std::to_string(getDuration()) + "s\n";
 		output += "at GMT " + getGMTTime() + "\n";
 		output += "at Unix " + getUnixTime() + "\n";
-		output += "====================================\n";
+		output += "====================================";
 
 		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
 

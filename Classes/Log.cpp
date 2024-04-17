@@ -93,7 +93,7 @@ void Log::LogWithTimestamp(std::string log) {
 	std::string unixTime = time.getUnixTime();
 	std::string mstTime = time.getMSTTime();
 
-	file << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] " << log << "\n";
+	file << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] " << log;
 }
 
 void Log::logError(std::string log) {
