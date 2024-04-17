@@ -89,17 +89,6 @@ int main() {
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
-
-					string movement = candlesticks.movement();
-					string email = "Token " + token.token + " Timeframe " + candlesticks.getTimeFrame() + " is " + movement + " trending of ";
-					if(movement == "green") {
-						email += to_string(candlesticks.greenCandlePercent * 100) + "%" + " at price " + to_string(candlesticks.getCandles()[0].close);
-						Log::logAndEmail(email.c_str());
-					}
-					if(movement == "red") {
-						email += to_string(candlesticks.redCandlePercent * 100) + "%" + " at price " + to_string(candlesticks.getCandles()[0].close);
-						Log::logAndEmail(email.c_str());
-					}
 				}
 			}
 		} catch (const std::exception& e) {
