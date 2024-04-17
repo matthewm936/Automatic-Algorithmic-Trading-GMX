@@ -61,25 +61,25 @@ int main() {
 		GMX_tokens[tokenIt.key()] = token;
 	}
 
-	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1m 5m 15m 1h 4h 1d"; // update current price i.e the close of the current canlde every 30s
+	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1m 5m 15m 1h 4h 1d"; 
 
 	while(true) {
 		time.start();
 
 		runCommand(updateCandleStickDataCommand.c_str()); 
 
-		gmx_token_candles_data.clear();  // Clear the previous contents
-		gmx_token_candles_data.seekg(0);  // Move the cursor back to the start of the file
+		gmx_token_candles_data.clear(); 
+		gmx_token_candles_data.seekg(0); 
 
 		try {
-			gmx_token_candles_data >> j;  // Read the new data
+			gmx_token_candles_data >> j;  
 		} catch (json::parse_error& e) {
 			Log::logError("JSON parse error: " + string(e.what()));
 			std::cerr << "JSON parse error: " << e.what() << '\n';
 		}		
 
 		try {
-			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) { // if a token is grabbed that the init didnt get or a candlestick timeframe, this will cause unordermap errors which exit the program, so ig just try catch for now, this might need to be
+			for (nlohmann::json::iterator tokenIt = j.begin(); tokenIt != j.end(); ++tokenIt) {
 				Token& token = GMX_tokens[tokenIt.key()];
 
 				for (nlohmann::json::iterator timeframeIt = tokenIt->begin(); timeframeIt != tokenIt->end(); ++timeframeIt) {

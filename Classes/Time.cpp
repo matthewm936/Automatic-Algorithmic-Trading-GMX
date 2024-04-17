@@ -50,12 +50,11 @@ public:
 
 		std::string output;
 		output += "====================================\n";
-		output += "Time::sleep() called for " + std::to_string(sleepTime) + "s\n";
-		output += "Duration: " + std::to_string(getDuration()) + "s\n";
-		output += "at GMT " + getGMTTime() + "\n";
-		output += "at Unix " + getUnixTime() + "\n";
+		output += "| Time::sleep() called for " + std::to_string(sleepTime) + "s |\n";
+		output += "| Duration: " + std::to_string(getDuration()) + "s |\n";
+		output += "| at GMT " + getGMTTime() + " |\n";
+		output += "| at Unix " + getUnixTime() + " |\n";
 		output += "====================================";
-
 		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
 
 		return output;
