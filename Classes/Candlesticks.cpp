@@ -94,14 +94,16 @@ class Candlesticks {
 			int offset = timeFrameToUnixOffset.at(timeFrame);
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
-					cout << "CANDLE MISSING" << endl;
-					cout << "Time frame: " << timeFrame << endl;
-					cout << "Offset: " << offset << endl;
-					cout << "Difference: " << candles[i].timeStamp - candles[i-1].timeStamp << endl;
-					cout << "Candle i-1 timestamp: " << candles[i-1].timeStamp << endl;
-					cout << "Candle i timestamp: " << candles[i].timeStamp << endl;
+					std::string errorMessage = "CANDLE MISSING\n";
+					errorMessage += "Token: " + token + "\n";
+					errorMessage += "Time frame: " + std::to_string(timeFrame) + "\n";
+					errorMessage += "Expected offset: " + std::to_string(offset) + "\n";
+					errorMessage += "Difference: " + std::to_string(candles[i].timeStamp - candles[i-1].timeStamp) + "\n";
+					errorMessage += "Candle i-1 timestamp: " + std::to_string(candles[i-1].timeStamp) + "\n";
+					errorMessage += "Candle i timestamp: " + std::to_string(candles[i].timeStamp) + "\n";
+					errorMessage += "Candles are missing, throwing RUNTIME ERROR THROWN";
 
-					Log::logError("Candles are missing, throwing RUNTIME ERROR THROWN");
+					Log::logError(errorMessage);
 					throw std::runtime_error("Candles are missing");
 				}
 			}
