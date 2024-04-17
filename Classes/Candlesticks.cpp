@@ -12,7 +12,7 @@ using std::deque;
 using std::cout;
 using std::endl;
 
-int MAX_NUM_CANDLES = 7;
+int MAX_NUM_CANDLES = 20;
 
 const std::unordered_map<string, int> timeFrameToUnixOffset = {
 	{"1m", 60},
@@ -25,7 +25,7 @@ const std::unordered_map<string, int> timeFrameToUnixOffset = {
 
 class Candlesticks {
 	private:
-		std::deque<Candle> candles; // added in descinding order so most recent at the front ie. largest timestamp at the front
+		std::deque<Candle> candles; // DESCENDING order; ie most recent at the front
 		std::string timeFrame = "";
 		std::string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
@@ -49,7 +49,6 @@ class Candlesticks {
 		void addCandle(Candle candle) { 
 			for(auto& c : candles) {
 				if(c.timeStamp == candle.timeStamp) { //update candle, bc non-closed candles are still sent as a candle in progress so anytime you get the new a candle with the same timestamp update it
-					// std::cout << "Candle with same timestamp already exists" << std::endl;
 					//todo test this new adition which is updating current in progress candles
 					c = candle;
 					return;
@@ -63,9 +62,6 @@ class Candlesticks {
 			if(candles.size() > maxNumCandles) {
 				candles.pop_back();
 			}
-
-			// cout << "Candle added to candlesticks" << endl;
-			// cout << "timeFrame: " << timeFrame << endl;
 		}
 
 		string getTimeFrame() {
@@ -110,13 +106,11 @@ class Candlesticks {
 			}
 		}
 
-		std::map<string, std::variant<Candle, int, double>> getCandleInfo() { //untested
-			// This is your existing method, which defaults to using all candles
+		std::map<string, std::variant<Candle, int, double>> getCandleInfo() { //untested todo
 			return getCandleInfo(0, candles.size());
 		}
 
 		std::map<string, std::variant<Candle, int, double>> getCandleInfo(int start, int end) { //untested
-			// This is the overloaded method, which uses a specific range of candles
 			Candle highestCandle = candles[start];
 			Candle lowestCandle = candles[start];
 			int greenCandles = 0;
@@ -148,7 +142,7 @@ class Candlesticks {
 		double getCloseAbovePrevClosePercent() {
 			int closeAbovePrevClose = 0;
 			for(size_t i = candles.size() - 1; i > 0; --i) { // is this loop condition correct
-				if(candles[i].close > candles[i-1].close) { //this if might need to be <
+				if(candles[i].close > candles[i-1].close) { //todo this if might need to be <
 					closeAbovePrevClose += 1;
 				} 
 			} 

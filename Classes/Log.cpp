@@ -15,7 +15,7 @@ private:
 	static std::string currentFilename;
 
 	static void checkLogFile();
-	static void email(std::string message);
+	static void email(std::string message, std::string header);
 
 public:
 	static void clearLogFiles();
@@ -45,8 +45,8 @@ void Log::checkLogFile() {
 	}
 }
 
-void Log::email(std::string message) {
-	std::string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + message + "\"";
+void Log::email(std::string message, std::string header) {
+	std::string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + header + "\" \"" + message + "\"";
 	system(command.c_str());
 }
 
@@ -82,7 +82,7 @@ void Log::logAndEmail(std::string log) {
 	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log << "\n";
 
-	email(log);
+	email("regular log", log);
 }
 
 void Log::LogWithTimestamp(std::string log) {
@@ -104,5 +104,5 @@ void Log::logError(std::string log) {
 	std::ofstream file("error_log.txt", std::ios_base::app);
 	file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] " << log << "\n";
 
-	email(log);
+	email("ERROR", log);
 }
