@@ -40,7 +40,7 @@ int main() {
 	unordered_map<string, Token> GMX_tokens;
 	Positions positions;
 
-	runCommand("node gmx-api/gmx-rest-endpoints.js candles 20 1m 5m 15m 1h 4h 1d");
+	runCommand("node gmx-api/gmx-rest-endpoints.js candles 30 1m 5m 15m 1h 4h 1d");
 
 	std::ifstream gmx_token_candles_data("gmx-api/token-candles.json");
 	nlohmann::json j;
@@ -90,7 +90,7 @@ int main() {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
 
-					Log::logAndEmail(candlesticks.getStats());
+					Log::log(candlesticks.getStats());
 				}
 			}
 		} catch (const std::exception& e) {

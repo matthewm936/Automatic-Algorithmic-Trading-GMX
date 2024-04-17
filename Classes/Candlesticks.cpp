@@ -95,18 +95,33 @@ class Candlesticks {
 			numLowerLows = 0;
 			numHigherLows = 0;
 			numLowerHighs = 0;
+			
+			numIncreasingOpens = 0;
+			numIncreasingCloses = 0;
+			numDecreasingOpens = 0;
+			numDecreasingCloses = 0;
 
 			for(int i = start; i < end - 1; i++) {
 				if(candles[i].high > candles[i + 1].high) numHigherHighs++;
 				if(candles[i].low < candles[i + 1].low) numLowerLows++;
 				if(candles[i].low > candles[i + 1].low) numHigherLows++;
 				if(candles[i].high < candles[i + 1].high) numLowerHighs++;
+
+				if(candles[i].open > candles[i + 1].open) numIncreasingOpens++;
+				if(candles[i].close > candles[i + 1].close) numIncreasingCloses++;
+				if(candles[i].open < candles[i + 1].open) numDecreasingOpens++;
+				if(candles[i].close < candles[i + 1].close) numDecreasingCloses++;
 			}
 
 			higherHighsPercent = (double)numHigherHighs / (double)candlePairsChecked;
 			lowerLowsPercent = (double)numLowerLows / (double)candlePairsChecked;
 			higherLowsPercent = (double)numHigherLows / (double)candlePairsChecked;
 			lowerHighsPercent = (double)numLowerHighs / (double)candlePairsChecked;
+
+			increasingOpensPercent = (double)numIncreasingOpens / (double)candlePairsChecked;
+			increasingClosesPercent = (double)numIncreasingCloses / (double)candlePairsChecked;	
+			decreasingOpensPercent = (double)numDecreasingOpens / (double)candlePairsChecked;
+			decreasingClosesPercent = (double)numDecreasingCloses / (double)candlePairsChecked;
 		}
 
 	public:
@@ -132,6 +147,11 @@ class Candlesticks {
 		double lowerLowsPercent;
 		double higherLowsPercent;
 		double lowerHighsPercent;
+
+		double increasingOpensPercent;
+		double increasingClosesPercent;
+		double decreasingOpensPercent;
+		double decreasingClosesPercent;
 
 		double currentPrice;
 
@@ -180,6 +200,7 @@ class Candlesticks {
 		stats << std::fixed << std::setprecision(2);  // Set fixed-point notation and 2 decimal places
 		stats << "\n";
 		stats << "Token: " << token << "\n";
+		stats << "Current price: " << currentPrice << "\n";
 		stats << "Time frame: " << timeFrame << "\n";
 		stats << "Num candles: " << candles.size() << "\n";
 		stats << "Highest candle: " << highestCandle.high << "\n";
@@ -199,7 +220,11 @@ class Candlesticks {
 		stats << "Lower lows percent: " << lowerLowsPercent << "\n";
 		stats << "Higher lows percent: " << higherLowsPercent << "\n";
 		stats << "Lower highs percent: " << lowerHighsPercent << "\n";
-		stats << "Current price: " << currentPrice << "\n";
+		stats << "Increasing opens percent: " << increasingOpensPercent << "\n";
+		stats << "Increasing closes percent: " << increasingClosesPercent << "\n";
+		stats << "Decreasing opens percent: " << decreasingOpensPercent << "\n";
+		stats << "Decreasing closes percent: " << decreasingClosesPercent << "\n";
+
 		return stats.str();
 	}
 };
