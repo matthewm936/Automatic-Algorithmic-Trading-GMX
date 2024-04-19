@@ -32,7 +32,69 @@ class Candlesticks {
 		std::string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 
-		void checkCandlesDescendingOrder() {
+	public:
+		Candle highestCandle;
+		Candle lowestCandle;
+
+		int numGreenCandles;
+		int numRedCandles;
+		int numDojiCandles;
+
+		double greenRedRatio;
+		double redGreenRatio;
+
+		double greenCandlePercent;
+		double redCandlePercent;
+
+		int numHigherHighs;
+		int numLowerLows;
+		int numHigherLows;
+		int numLowerHighs;
+
+		double higherHighsPercent;
+		double lowerLowsPercent;
+		double higherLowsPercent;
+		double lowerHighsPercent;
+
+		int	numIncreasingOpens;
+		int numIncreasingCloses;
+		int	numDecreasingOpens;
+		int	numDecreasingCloses;
+
+		double increasingOpensPercent;
+		double increasingClosesPercent;
+		double decreasingOpensPercent;
+		double decreasingClosesPercent;
+
+		double currentPrice;
+
+		Candlesticks() {
+		};
+		
+		Candlesticks(string timeFrame, string token) {
+			this->timeFrame = timeFrame;
+			this->token = token;
+		}
+
+		void addCandle(Candle candle) { 
+			for(auto& c : candles) {
+				if(c.timeStamp == candle.timeStamp) { //update candle, bc non-closed candles are still sent as a candle in progress so anytime you get the new a candle with the same timestamp update it
+					//todo test this new adition which is updating current in progress candles
+					c = candle;
+					return;
+				}
+			}
+			auto pos = std::find_if(candles.begin(), candles.end(), [&candle](const Candle& c) {
+				return c.timeStamp < candle.timeStamp;
+			});
+			candles.insert(pos, candle);
+		
+			if(candles.size() > maxNumCandles) {
+				candles.pop_back();
+			}
+		}
+
+		void checkCandlesDescendingOrder() { //check after all candles have been added
 			for (size_t i = 0; i < candles.size() - 1; i++) {
 				if (candles[i].timeStamp > candles[i + 1].timeStamp) {
 					// correct order, most recent at the front
@@ -43,7 +105,7 @@ class Candlesticks {
 			}
 		}
 
-		void checkCandleMissingness() {
+		void checkCandleMissingness() { //check after all candles have been added
 			int offset = timeFrameToUnixOffset.at(timeFrame);
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
@@ -60,7 +122,7 @@ class Candlesticks {
 			}
 		}
 
-		void calculateCandleStatistics() {
+		void calculateCandleStatistics() { //calc after all candles have been added
 			calculateCandleStatistics(0, candles.size());
 		}
 
@@ -124,73 +186,6 @@ class Candlesticks {
 			decreasingClosesPercent = (double)numDecreasingCloses / (double)candlePairsChecked;
 		}
 
-	public:
-		Candle highestCandle;
-		Candle lowestCandle;
-
-		int numGreenCandles;
-		int numRedCandles;
-		int numDojiCandles;
-
-		double greenRedRatio;
-		double redGreenRatio;
-
-		double greenCandlePercent;
-		double redCandlePercent;
-
-		int numHigherHighs;
-		int numLowerLows;
-		int numHigherLows;
-		int numLowerHighs;
-
-		double higherHighsPercent;
-		double lowerLowsPercent;
-		double higherLowsPercent;
-		double lowerHighsPercent;
-
-		int	numIncreasingOpens;
-		int numIncreasingCloses;
-		int	numDecreasingOpens;
-		int	numDecreasingCloses;
-
-		double increasingOpensPercent;
-		double increasingClosesPercent;
-		double decreasingOpensPercent;
-		double decreasingClosesPercent;
-
-		double currentPrice;
-
-		Candlesticks() {
-		};
-		
-		Candlesticks(string timeFrame, string token) {
-			this->timeFrame = timeFrame;
-			this->token = token;
-		}
-
-		void addCandle(Candle candle) { 
-			for(auto& c : candles) {
-				if(c.timeStamp == candle.timeStamp) { //update candle, bc non-closed candles are still sent as a candle in progress so anytime you get the new a candle with the same timestamp update it
-					//todo test this new adition which is updating current in progress candles
-					c = candle;
-					return;
-				}
-			}
-			auto pos = std::find_if(candles.begin(), candles.end(), [&candle](const Candle& c) {
-				return c.timeStamp < candle.timeStamp;
-			});
-			candles.insert(pos, candle);
-		
-			if(candles.size() > maxNumCandles) {
-				candles.pop_back();
-			}
-
-			calculateCandleStatistics(); //update stats on each candle addition
-
-			checkCandleMissingness();
-			checkCandlesDescendingOrder();
-		}
-
 		string getTimeFrame() {
 			return timeFrame;
 		}
@@ -199,37 +194,37 @@ class Candlesticks {
 			return candles;
 		}
 
-	string getStats() {
-		calculateCandleStatistics();
-		std::ostringstream stats;
-		stats << std::fixed << std::setprecision(2);  // Set fixed-point notation and 2 decimal places
-		stats << "\n";
-		stats << "Token: " << token << "\n";
-		stats << "Current price: " << currentPrice << "\n";
-		stats << "Time frame: " << timeFrame << "\n";
-		stats << "Num candles: " << candles.size() << "\n";
-		stats << "Highest candle: " << highestCandle.high << "\n";
-		stats << "Lowest candle: " << lowestCandle.low << "\n";
-		stats << "Green candles: " << numGreenCandles << "\n";
-		stats << "Red candles: " << numRedCandles << "\n";
-		stats << "Doji candles: " << numDojiCandles << "\n";
-		stats << "Green red ratio: " << greenRedRatio << "\n";
-		stats << "Red green ratio: " << redGreenRatio << "\n";
-		stats << "Green candle percent: " << greenCandlePercent << "\n";
-		stats << "Red candle percent: " << redCandlePercent << "\n";
-		stats << "Num higher highs: " << numHigherHighs << "\n";
-		stats << "Num lower lows: " << numLowerLows << "\n";
-		stats << "Num higher lows: " << numHigherLows << "\n";
-		stats << "Num lower highs: " << numLowerHighs << "\n";
-		stats << "Higher highs percent: " << higherHighsPercent << "\n";
-		stats << "Lower lows percent: " << lowerLowsPercent << "\n";
-		stats << "Higher lows percent: " << higherLowsPercent << "\n";
-		stats << "Lower highs percent: " << lowerHighsPercent << "\n";
-		stats << "Increasing opens percent: " << increasingOpensPercent << "\n";
-		stats << "Increasing closes percent: " << increasingClosesPercent << "\n";
-		stats << "Decreasing opens percent: " << decreasingOpensPercent << "\n";
-		stats << "Decreasing closes percent: " << decreasingClosesPercent << "\n";
+		string getStats() {
+			calculateCandleStatistics();
+			std::ostringstream stats;
+			stats << std::fixed << std::setprecision(2);  // Set fixed-point notation and 2 decimal places
+			stats << "\n";
+			stats << "Token: " << token << "\n";
+			stats << "Current price: " << currentPrice << "\n";
+			stats << "Time frame: " << timeFrame << "\n";
+			stats << "Num candles: " << candles.size() << "\n";
+			stats << "Highest candle: " << highestCandle.high << "\n";
+			stats << "Lowest candle: " << lowestCandle.low << "\n";
+			stats << "Green candles: " << numGreenCandles << "\n";
+			stats << "Red candles: " << numRedCandles << "\n";
+			stats << "Doji candles: " << numDojiCandles << "\n";
+			stats << "Green red ratio: " << greenRedRatio << "\n";
+			stats << "Red green ratio: " << redGreenRatio << "\n";
+			stats << "Green candle percent: " << greenCandlePercent << "\n";
+			stats << "Red candle percent: " << redCandlePercent << "\n";
+			stats << "Num higher highs: " << numHigherHighs << "\n";
+			stats << "Num lower lows: " << numLowerLows << "\n";
+			stats << "Num higher lows: " << numHigherLows << "\n";
+			stats << "Num lower highs: " << numLowerHighs << "\n";
+			stats << "Higher highs percent: " << higherHighsPercent << "\n";
+			stats << "Lower lows percent: " << lowerLowsPercent << "\n";
+			stats << "Higher lows percent: " << higherLowsPercent << "\n";
+			stats << "Lower highs percent: " << lowerHighsPercent << "\n";
+			stats << "Increasing opens percent: " << increasingOpensPercent << "\n";
+			stats << "Increasing closes percent: " << increasingClosesPercent << "\n";
+			stats << "Decreasing opens percent: " << decreasingOpensPercent << "\n";
+			stats << "Decreasing closes percent: " << decreasingClosesPercent << "\n";
 
-		return stats.str();
-	}
+			return stats.str();
+		}
 };

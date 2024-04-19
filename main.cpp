@@ -57,6 +57,10 @@ int main() {
 				candlesticks.addCandle(createCandle(*candleIt));
 			}
 			token.addCandlesticks(candlesticks);
+
+			candlesticks.checkCandleMissingness();
+			candlesticks.calculateCandleStatistics();
+			candlesticks.checkCandlesDescendingOrder();
 		}
 		GMX_tokens[tokenIt.key()] = token;
 	}
@@ -89,6 +93,10 @@ int main() {
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
+
+					candlesticks.checkCandleMissingness();
+					candlesticks.calculateCandleStatistics();
+					candlesticks.checkCandlesDescendingOrder();
 				}
 			}
 		} catch (const std::exception& e) {
