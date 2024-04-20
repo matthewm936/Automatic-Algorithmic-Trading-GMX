@@ -57,10 +57,6 @@ int main() {
 				candlesticks.addCandle(createCandle(*candleIt));
 			}
 			token.addCandlesticks(candlesticks);
-
-			candlesticks.checkCandleMissingness();
-			candlesticks.calculateCandleStatistics();
-			candlesticks.checkCandlesDescendingOrder();
 		}
 		GMX_tokens[tokenIt.key()] = token;
 	}

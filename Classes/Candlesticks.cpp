@@ -7,6 +7,7 @@
 #include <unordered_map>
 #include <variant>
 #include <iomanip> 
+#include <ctime>
 
 using std::string;
 using std::deque;
@@ -31,6 +32,15 @@ class Candlesticks {
 		std::string timeFrame = "";
 		std::string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
+
+		std::vector<int> missingTimestamps;
+
+		int calculateMostRecentCandlestickTimestamp(const std::string& timeFrame) {
+			int offset = timeFrameToUnixOffset.at(timeFrame);
+			std::time_t currentTime = std::time(nullptr); // Get current Unix timestamp
+			int mostRecentCandlestickTimestamp = currentTime - (currentTime % offset);
+			return mostRecentCandlestickTimestamp;
+		}
 
 	public:
 		Candle highestCandle;
@@ -94,6 +104,7 @@ class Candlesticks {
 			}
 		}
 
+
 		void checkCandlesDescendingOrder() { //check after all candles have been added
 			for (size_t i = 0; i < candles.size() - 1; i++) {
 				if (candles[i].timeStamp > candles[i + 1].timeStamp) {
@@ -107,22 +118,26 @@ class Candlesticks {
 
 		void checkCandleMissingness() { //check after all candles have been added
 			int offset = timeFrameToUnixOffset.at(timeFrame);
-			for (size_t i = 1; i < candles.size(); ++i) {
-				if (candles[i-1].timeStamp - offset != candles[i].timeStamp) {
-					std::string errorMessage = "CANDLE MISSING\n";
-					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
-					errorMessage += "Expected offset: " + to_string(offset) + "\n";
-					errorMessage += "Difference: " + to_string(candles[i].timeStamp - candles[i-1].timeStamp) + " at index i: " + to_string(i) + "\n";
-					errorMessage += "Candle i-1 timestamp: " + to_string(candles[i-1].timeStamp) + "\n";
-					errorMessage += "Candle i timestamp: " + to_string(candles[i].timeStamp) + "\n";
+			int expectedTimestamp = calculateMostRecentCandlestickTimestamp(timeFrame);
+			for (size_t i = 0; i < candles.size(); ++i) {
+				if(candles[i].timeStamp != expectedTimestamp) {
+					// Check if expectedTimestamp is already in missingTimestamps
+					if (std::find(missingTimestamps.begin(), missingTimestamps.end(), expectedTimestamp) == missingTimestamps.end()) {
+						std::string errorMessage = "Candles Timestamp errors, possible missing candle\n";
+						errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
+						errorMessage += "Expected timestamp: " + to_string(expectedTimestamp) + "\n";
+						errorMessage += "Got candle timestamp: " + to_string(candles[i].timeStamp) + "\n";
 
-					Log::logError(errorMessage);
-					throw std::runtime_error("Candles are missing");
+						Log::log(errorMessage);
+
+						missingTimestamps.push_back(expectedTimestamp);
+					}
 				}
+				expectedTimestamp -= offset;
 			}
 		}
 
-		void calculateCandleStatistics() { //calc after all candles have been added
+		void calculateCandleStatistics() { // calc after all candles have been added
 			calculateCandleStatistics(0, candles.size());
 		}
 
