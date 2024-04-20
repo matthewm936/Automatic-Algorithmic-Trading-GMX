@@ -74,7 +74,7 @@ int main() {
 		try {
 			gmx_token_candles_data >> j;  
 		} catch (json::parse_error& e) {
-			Log::logError("JSON parse error: " + string(e.what()));
+			Log::logError("JSON parse error: " + string(e.what()), true);
 			std::cerr << "JSON parse error: " << e.what() << '\n';
 		}		
 
@@ -96,7 +96,7 @@ int main() {
 				}
 			}
 		} catch (const std::exception& e) {
-			Log::logError("Error: " + string(e.what()));
+			Log::logError("Error: " + string(e.what()), true);
 			std::cerr << "Error: " << e.what() << '\n';
 		}
 

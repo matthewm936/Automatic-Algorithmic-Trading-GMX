@@ -23,7 +23,7 @@ public:
 	static void log(std::string log);
 	static void logAndEmail(std::string log);
 	static void LogWithTimestamp(std::string log);
-	static void logError(std::string log);
+	static void logError(std::string log, bool emailFlag, bool timestampFlag);
 };
 
 // Define static member variables
@@ -96,13 +96,25 @@ void Log::LogWithTimestamp(std::string log) {
 	file << log << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] \n";
 }
 
-void Log::logError(std::string log) {
+void Log::logError(std::string log, bool emailFlag = false, bool timestampFlag = false) {
 	Time time;
-	std::string gmtTime = time.getGMTTime();
-	std::string unixTime = time.getUnixTime();
+	std::string gmtTime;
+	std::string unixTime;
+
+	if (timestampFlag) {
+		gmtTime = time.getGMTTime();
+		unixTime = time.getUnixTime();
+	}
 
 	std::ofstream file("error_log.txt", std::ios_base::app);
-	file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] " << log << "\n";
 
-	email("ERROR", log);
+	if (timestampFlag) {
+		file << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << "] ";
+	}
+
+	file << log << "\n";
+
+	if (emailFlag) {
+		email("ERROR", log);
+	}
 }

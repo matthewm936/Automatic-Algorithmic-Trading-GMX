@@ -48,26 +48,23 @@ public:
 		double sleepTime = sleepTimeMins * 30 - getDuration();
 		if (sleepTime < 0) sleepTime = 0; 
 
-		std::string line1 = "| Time::sleep() called for " + std::to_string(sleepTime) + "s |";
-		std::string line2 = "| Duration: " + std::to_string(getDuration()) + "s |";
-		std::string line3 = "| at GMT " + getGMTTime() + " |";
-		std::string line4 = "| at Unix " + getUnixTime() + " |";
-
-		int maxLength = std::max({line1.length(), line2.length(), line3.length(), line4.length()});
+		std::string line1 = "| Time::sleep() called for " + std::to_string(sleepTime) + "s";
+		std::string line2 = "| Duration: " + std::to_string(getDuration()) + "s";
+		std::string line3 = "| at GMT " + getGMTTime();
+		std::string line4 = "| at Unix " + getUnixTime();
 
 		std::string output;
-		output += std::string(maxLength, '=') + "\n";
-		output += line1 + std::string(maxLength - line1.length(), ' ') + "\n";
-		output += line2 + std::string(maxLength - line2.length(), ' ') + "\n";
-		output += line3 + std::string(maxLength - line3.length(), ' ') + "\n";
-		output += line4 + std::string(maxLength - line4.length(), ' ') + "\n";
-		output += std::string(maxLength, '=');
+		output += "=====================================\n";
+		output += line1 + "\n";
+		output += line2 + "\n";
+		output += line3 + "\n";
+		output += line4 + "\n";
+		output += "=====================================";
 
 		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
 
 		return output;
 	}
-	
 	int now() {
 		auto now = std::chrono::high_resolution_clock::now();
 		auto epoch = now.time_since_epoch();
