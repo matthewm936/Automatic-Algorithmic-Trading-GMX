@@ -38,9 +38,6 @@ class Candlesticks {
 
 		std::vector<int> missingTimestamps;
 
-		boolean buySignal; // I need a way to wip ethese after x amount
-		boolean sellSignal;
-
 		int expectedMostRecentTimestamp(const std::string& timeFrame) {
 			int offset = timeframeToSeconds.at(timeFrame);
 			std::time_t currentTime = std::time(nullptr); // Get current Unix timestamp
@@ -56,6 +53,9 @@ class Candlesticks {
 	public:
 		Candle highestCandle;
 		Candle lowestCandle;
+
+		bool buySignal; 
+		bool sellSignal;
 
 		int numGreenCandles;
 		int numRedCandles;
