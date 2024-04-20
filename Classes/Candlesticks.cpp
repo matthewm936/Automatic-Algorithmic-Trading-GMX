@@ -18,7 +18,7 @@ using std::to_string;
 
 int MAX_NUM_CANDLES = 30;
 
-const std::unordered_map<string, int> timeFrameToUnix = {
+const std::unordered_map<string, int> timeframeToSeconds = {
 	{"1m", 60},
 	{"5m", 300},
 	{"15m", 900},
@@ -39,10 +39,20 @@ class Candlesticks {
 		std::vector<int> missingTimestamps;
 
 		int expectedMostRecentTimestamp(const std::string& timeFrame) {
-			int offset = timeFrameToUnix.at(timeFrame);
+			int offset = timeframeToSeconds.at(timeFrame);
 			std::time_t currentTime = std::time(nullptr); // Get current Unix timestamp
 			int mostRecentCandlestickTimestamp = currentTime - (currentTime % offset);
 			return mostRecentCandlestickTimestamp;
+		}
+
+		int findTimestampOffset() {
+			int offset = timeframeToSeconds.at(timeFrame);
+			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
+			if(candles[0].timeStamp <= expectedTimestamp - (2 * offset)){
+				Log::logError("ERROR; most recent candle behind by more then two candles", true);
+				throw std::runtime_error("ERROR; most recent candle behind by more then two candles");
+			}		
+			return candles[0].timeStamp - expectedTimestamp;
 		}
 
 	public:
@@ -110,31 +120,15 @@ class Candlesticks {
 
 		void checkCandlesDescendingOrder() { 
 			for (size_t i = 0; i < candles.size() - 1; i++) {
-				if (candles[i].timeStamp > candles[i + 1].timeStamp) {
-					// correct order, most recent at the front
-				} else {
+				if (candles[i].timeStamp < candles[i + 1].timeStamp) {
 					Log::logError("Candles are not in the correct order, RUNTIME ERROR THROWN", true);
 				}
 			}
 		}
 
-		int findTimestampOffset() {
-			int offset = timeFrameToUnix.at(timeFrame);
-			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
-			if(candles[0].timeStamp == expectedTimestamp - offset) {
-				return offset;
-			} else if(candles[0].timeStamp == expectedTimestamp) {
-				return 0;
-			} else {
-				Log::logError("ERROR; candlestick timestamp offset greater then two candles", true);
-				throw std::runtime_error("ERROR; candlestick timestamp offset greater then two candles");
-			}		
-			return 0;
-		}
-
 		void checkCandleMissingness() { 
 			int offset = findTimestampOffset();
-			int timeFrameUnix = timeFrameToUnix.at(timeFrame);
+			int timeframeSeconds = timeframeToSeconds.at(timeFrame);
 			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
 			for (size_t i = 0; i < candles.size(); ++i) {
 				if(candles[i].timeStamp != expectedTimestamp - offset) {
@@ -147,7 +141,7 @@ class Candlesticks {
 						missingTimestamps.push_back(expectedTimestamp);
 					}
 				}
-				expectedTimestamp -= timeFrameUnix;
+				expectedTimestamp -= timeframeSeconds;
 			}
 		}
 
