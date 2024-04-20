@@ -45,7 +45,7 @@ public:
 
 	std::string sleep() {
 		double sleepTimeMins = 1;
-		double sleepTime = sleepTimeMins * 30 - getDuration();
+		double sleepTime = sleepTimeMins * 15 - getDuration(); // 15 second sleeptime
 		if (sleepTime < 0) sleepTime = 0; 
 
 		std::string line1 = "| Time::sleep() called for " + std::to_string(sleepTime) + "s";

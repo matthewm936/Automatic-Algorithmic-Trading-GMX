@@ -129,7 +129,7 @@ class Candlesticks {
 					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
 					errorMessage += "Candles i-1 timestamp: " + to_string(candles[i - 1].timeStamp) + "\n";
 					errorMessage += "Candles i   timestamp: " + to_string(candles[i].timeStamp) + "\n";
-					Log::logError(errorMessage);
+					Log::logError(errorMessage, true);
 				}
 			}
 		}

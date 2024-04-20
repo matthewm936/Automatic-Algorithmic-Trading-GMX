@@ -61,7 +61,7 @@ int main() {
 		GMX_tokens[tokenIt.key()] = token;
 	}
 
-	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1m 5m 15m 1h 4h 1d";
+	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 4 1m 5m 15m 1h 4h 1d";
 
 	while(true) {
 		time.start();
@@ -103,7 +103,7 @@ int main() {
 		}
 
 		time.end();
-		Log::log(time.sleep()); //sleeps then logs when the sleep occured, not sure if this is what I want
+		Log::log(time.sleep());
 	}
 
 	return 0;
