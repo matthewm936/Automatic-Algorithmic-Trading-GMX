@@ -12,4 +12,4 @@ Logs/
 gmx-api/token-candles.json
 main.exe
 node_modules
-state_log.txt
+candlesticks.txt

@@ -24,7 +24,7 @@ public:
 	static void logAndEmail(std::string log);
 	static void LogWithTimestamp(std::string log);
 	static void logError(std::string log, bool emailFlag, bool timestampFlag);
-	static void logCurrentState(std::map<std::string, std::string> updatedState);
+	static void logCurrentState(std::map<std::string, std::string> updatedState, std::string filename);
 };
 
 // Define static member variables
@@ -120,12 +120,12 @@ void Log::logError(std::string log, bool emailFlag = false, bool timestampFlag =
 	}
 }
 
-void Log::logCurrentState(std::map<std::string, std::string> updatedState) {
+void Log::logCurrentState(std::map<std::string, std::string> updatedState, std::string filename) {
 	checkLogFile();
 
 	// Read current state from log file
 	std::map<std::string, std::string> currentState;
-	std::ifstream fileIn("state_log.txt");
+	std::ifstream fileIn(filename);
 	std::string line;
 	while (std::getline(fileIn, line)) {
 		size_t pos = line.find(": ");
@@ -143,7 +143,7 @@ void Log::logCurrentState(std::map<std::string, std::string> updatedState) {
 	}
 
 	// Write updated state to log file
-	std::ofstream fileOut("state_log.txt", std::ios_base::trunc);
+	std::ofstream fileOut(filename, std::ios_base::trunc);
 	for (const auto& [key, value] : currentState) {
 		fileOut << key << ": " << value << "\n";
 	}

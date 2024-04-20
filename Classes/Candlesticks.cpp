@@ -1,5 +1,3 @@
-#include "Candle.cpp"
-
 #include <deque>
 #include <string>
 #include <iostream>
@@ -9,6 +7,9 @@
 #include <iomanip> 
 #include <ctime>
 
+#include "Candle.cpp"
+#include "Time.cpp"
+
 using std::string;
 using std::deque;
 using std::cout;
@@ -17,7 +18,7 @@ using std::to_string;
 
 int MAX_NUM_CANDLES = 30;
 
-const std::unordered_map<string, int> timeFrameToUnixOffset = {
+const std::unordered_map<string, int> timeFrameToUnix = {
 	{"1m", 60},
 	{"5m", 300},
 	{"15m", 900},
@@ -33,10 +34,12 @@ class Candlesticks {
 		std::string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 
+		Time time;
+
 		std::vector<int> missingTimestamps;
 
-		int calculateMostRecentCandlestickTimestamp(const std::string& timeFrame) {
-			int offset = timeFrameToUnixOffset.at(timeFrame);
+		int expectedMostRecentTimestamp(const std::string& timeFrame) {
+			int offset = timeFrameToUnix.at(timeFrame);
 			std::time_t currentTime = std::time(nullptr); // Get current Unix timestamp
 			int mostRecentCandlestickTimestamp = currentTime - (currentTime % offset);
 			return mostRecentCandlestickTimestamp;
@@ -115,39 +118,36 @@ class Candlesticks {
 			}
 		}
 
-		void checkCandleMissingness() { 
-			std::map<std::string, std::string> currentState = {
-				{token + timeFrame, "candles size:" + to_string(candles.size())},
-			};
-			Log::logCurrentState(currentState);
-
-			int offset = timeFrameToUnixOffset.at(timeFrame);
-			int expectedTimestamp = calculateMostRecentCandlestickTimestamp(timeFrame);
+		int findTimestampOffset() {
+			int offset = timeFrameToUnix.at(timeFrame);
+			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
 			if(candles[0].timeStamp == expectedTimestamp - offset) {
-				std::string errorMessage = token + " " + timeFrame + " Candle Behind by " + to_string(offset) + "\n";
-				errorMessage += "Expected timestamp: " + to_string(expectedTimestamp) + " Got candle timestamp: " + to_string(candles[0].timeStamp) + " difference:" + to_string(candles[0].timeStamp - expectedTimestamp);
+				return offset;
+			} else if(candles[0].timeStamp == expectedTimestamp) {
+				return 0;
+			} else {
+				Log::logError("ERROR; candlestick timestamp offset greater then two candles", true);
+				throw std::runtime_error("ERROR; candlestick timestamp offset greater then two candles");
+			}		
+			return 0;
+		}
 
-				Log::logError(errorMessage);
-				expectedTimestamp = expectedTimestamp - offset;
-			} 
-			if(candles[0].timeStamp == expectedTimestamp) {
-				string log = token + " " + timeFrame + " most recent candle up to date";
-				Log::log(log);
-			}
-
+		void checkCandleMissingness() { 
+			int offset = findTimestampOffset();
+			int timeFrameUnix = timeFrameToUnix.at(timeFrame);
+			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
 			for (size_t i = 0; i < candles.size(); ++i) {
-				if(candles[i].timeStamp != expectedTimestamp) {
+				if(candles[i].timeStamp != expectedTimestamp - offset) {
 					if (std::find(missingTimestamps.begin(), missingTimestamps.end(), expectedTimestamp) == missingTimestamps.end()) {
-						std::string errorMessage = "Candles Timestamp errors, possible missing candle\n";
-						// errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
-						// errorMessage += "Expected timestamp: " + to_string(expectedTimestamp) + "\n";
-						// errorMessage += "Got candle timestamp: " + to_string(candles[i].timeStamp) + "\n";
-
+						std::string errorMessage = "ERROR; Timestamp errors, possible missing candle\n";
+						errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
+						errorMessage += "Expected timestamp: " + to_string(expectedTimestamp) + "\n";
+						errorMessage += "Got candle timestamp: " + to_string(candles[i].timeStamp) + "\n";
 						Log::logError(errorMessage);
 						missingTimestamps.push_back(expectedTimestamp);
 					}
 				}
-				expectedTimestamp -= offset;
+				expectedTimestamp -= timeFrameUnix;
 			}
 		}
 
@@ -221,6 +221,16 @@ class Candlesticks {
 
 		deque<Candle>& getCandles() {
 			return candles;
+		}
+
+		void printStats() {
+			std::map<std::string, std::string> currentState = {
+				{"Last Updated MST:", time.getMSTTime()},
+				{token + " " + timeFrame + " size", to_string(candles.size())},
+				{token + " " + timeFrame + " highestCandle", to_string(highestCandle.high)},
+				{token + " " + timeFrame + " lowestCandle", to_string(lowestCandle.low)},
+			};
+			Log::logCurrentState(currentState, "candlesticks.txt"); //todo move later
 		}
 
 		string getStats() {
