@@ -116,15 +116,24 @@ class Candlesticks {
 		}
 
 		void checkCandleMissingness() { 
+			std::map<std::string, std::string> currentState = {
+				{token + timeFrame, "candles size:" + to_string(candles.size())},
+			};
+			Log::logCurrentState(currentState);
+
 			int offset = timeFrameToUnixOffset.at(timeFrame);
 			int expectedTimestamp = calculateMostRecentCandlestickTimestamp(timeFrame);
 			if(candles[0].timeStamp == expectedTimestamp - offset) {
 				std::string errorMessage = token + " " + timeFrame + " Candle Behind by " + to_string(offset) + "\n";
 				errorMessage += "Expected timestamp: " + to_string(expectedTimestamp) + " Got candle timestamp: " + to_string(candles[0].timeStamp) + " difference:" + to_string(candles[0].timeStamp - expectedTimestamp);
-				
+
 				Log::logError(errorMessage);
 				expectedTimestamp = expectedTimestamp - offset;
 			} 
+			if(candles[0].timeStamp == expectedTimestamp) {
+				string log = token + " " + timeFrame + " most recent candle up to date";
+				Log::log(log);
+			}
 
 			for (size_t i = 0; i < candles.size(); ++i) {
 				if(candles[i].timeStamp != expectedTimestamp) {
