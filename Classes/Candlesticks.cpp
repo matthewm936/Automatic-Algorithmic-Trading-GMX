@@ -123,12 +123,12 @@ class Candlesticks {
 
 		void checkForMissingCandles() { 
 			int timeframeSeconds = timeframeToSeconds.at(timeFrame);
-			for (size_t i = 0; i < candles.size(); ++i) {
-				if(candles[i].timeStamp != candles[i + 1].timeStamp + timeframeSeconds) {
+			for (size_t i = 1; i < candles.size(); ++i) {
+				if(candles[i].timeStamp != candles[i - 1].timeStamp - timeframeSeconds) {
 					std::string errorMessage = "ERROR; Timestamp errors\n";
 					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
+					errorMessage += "Candles i-1 timestamp: " + to_string(candles[i - 1].timeStamp) + "\n";
 					errorMessage += "Candles i   timestamp: " + to_string(candles[i].timeStamp) + "\n";
-					errorMessage += "Candles i+1 timestamp: " + to_string(candles[i + 1].timeStamp) + "\n";
 					Log::logError(errorMessage);
 				}
 			}
