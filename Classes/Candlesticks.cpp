@@ -70,19 +70,21 @@ class Candlesticks {
 		int numLowerHighs;
 
 		double higherHighsPercent;
-		double lowerLowsPercent;
 		double higherLowsPercent;
+
 		double lowerHighsPercent;
+		double lowerLowsPercent;
 
-		int	numIncreasingOpens;
-		int numIncreasingCloses;
-		int	numDecreasingOpens;
-		int	numDecreasingCloses;
+		int	numHigherOpens;
+		int numHigherCloses;
+		int	numLowerOpens;
+		int	numLowerCloses;
 
-		double increasingOpensPercent;
-		double increasingClosesPercent;
-		double decreasingOpensPercent;
-		double decreasingClosesPercent;
+		double higherOpensPercent;
+		double higherClosesPercent;
+
+		double lowerOpensPercent;
+		double lowerClosesPercent;
 
 		double currentPrice;
 
@@ -179,10 +181,10 @@ class Candlesticks {
 			numHigherLows = 0;
 			numLowerHighs = 0;
 			
-			numIncreasingOpens = 0;
-			numIncreasingCloses = 0;
-			numDecreasingOpens = 0;
-			numDecreasingCloses = 0;
+			numHigherOpens = 0;
+			numHigherCloses = 0;
+			numLowerOpens = 0;
+			numLowerCloses = 0;
 
 			for(int i = start; i < end - 1; i++) {
 				if(candles[i].high > candles[i + 1].high) numHigherHighs++;
@@ -190,10 +192,10 @@ class Candlesticks {
 				if(candles[i].low > candles[i + 1].low) numHigherLows++;
 				if(candles[i].high < candles[i + 1].high) numLowerHighs++;
 
-				if(candles[i].open > candles[i + 1].open) numIncreasingOpens++;
-				if(candles[i].close > candles[i + 1].close) numIncreasingCloses++;
-				if(candles[i].open < candles[i + 1].open) numDecreasingOpens++;
-				if(candles[i].close < candles[i + 1].close) numDecreasingCloses++;
+				if(candles[i].open > candles[i + 1].open) numHigherOpens++;
+				if(candles[i].close > candles[i + 1].close) numHigherCloses++;
+				if(candles[i].open < candles[i + 1].open) numLowerOpens++;
+				if(candles[i].close < candles[i + 1].close) numLowerCloses++;
 			}
 
 			higherHighsPercent = (double)numHigherHighs / (double)candlePairsChecked;
@@ -201,10 +203,10 @@ class Candlesticks {
 			higherLowsPercent = (double)numHigherLows / (double)candlePairsChecked;
 			lowerHighsPercent = (double)numLowerHighs / (double)candlePairsChecked;
 
-			increasingOpensPercent = (double)numIncreasingOpens / (double)candlePairsChecked;
-			increasingClosesPercent = (double)numIncreasingCloses / (double)candlePairsChecked;	
-			decreasingOpensPercent = (double)numDecreasingOpens / (double)candlePairsChecked;
-			decreasingClosesPercent = (double)numDecreasingCloses / (double)candlePairsChecked;
+			higherOpensPercent = (double)numHigherOpens / (double)candlePairsChecked;
+			higherClosesPercent = (double)numHigherCloses / (double)candlePairsChecked;	
+			lowerOpensPercent = (double)numLowerOpens / (double)candlePairsChecked;
+			lowerClosesPercent = (double)numLowerCloses / (double)candlePairsChecked;
 		}
 
 		string getTimeFrame() {
@@ -251,10 +253,10 @@ class Candlesticks {
 			stats << "Lower lows percent: " << lowerLowsPercent << "\n";
 			stats << "Higher lows percent: " << higherLowsPercent << "\n";
 			stats << "Lower highs percent: " << lowerHighsPercent << "\n";
-			stats << "Increasing opens percent: " << increasingOpensPercent << "\n";
-			stats << "Increasing closes percent: " << increasingClosesPercent << "\n";
-			stats << "Decreasing opens percent: " << decreasingOpensPercent << "\n";
-			stats << "Decreasing closes percent: " << decreasingClosesPercent << "\n";
+			stats << "Increasing opens percent: " << higherOpensPercent << "\n";
+			stats << "Increasing closes percent: " << higherClosesPercent << "\n";
+			stats << "Decreasing opens percent: " << lowerOpensPercent << "\n";
+			stats << "Decreasing closes percent: " << lowerClosesPercent << "\n";
 
 			return stats.str();
 		}

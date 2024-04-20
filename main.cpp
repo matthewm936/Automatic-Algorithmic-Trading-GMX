@@ -95,10 +95,14 @@ int main() {
 
 					candlesticks.calculateCandleStatistics(0, 4);
 
-					if(candlesticks.higherHighsPercent == 1 && candlesticks.higherLowsPercent == 1) {
-						Log::logAndEmail("BUY SIGNAL: " + token.token + " " + timeframeIt.key());
-					} else if(candlesticks.lowerHighsPercent == 1 && candlesticks.lowerLowsPercent == 1) {
-						Log::logAndEmail("SELL SIGNAL: " + token.token + " " + timeframeIt.key());
+					if(candlesticks.greenCandlePercent == 1) {
+						if(candlesticks.higherOpensPercent == 1 && candlesticks.higherClosesPercent == 1) {
+							Log::LogWithTimestamp("BUY SIGNAL: " + token.token + " " + timeframeIt.key()); // past four candles are green and have increasing opens and closes
+						} 
+					} else if(candlesticks.redCandlePercent == 1) {
+						if(candlesticks.lowerOpensPercent == 1 && candlesticks.lowerClosesPercent == 1) {
+							Log::LogWithTimestamp("SELL SIGNAL: " + token.token + " " + timeframeIt.key()); // past four candles are red and have decreasing opens and closes
+						}
 					}
 				}
 			}
