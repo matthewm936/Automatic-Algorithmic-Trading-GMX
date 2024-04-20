@@ -89,12 +89,17 @@ int main() {
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
-
 					candlesticks.checkForMissingCandles();
 					candlesticks.checkCandleUpToDate();
 					candlesticks.checkCandlesDescendingOrder();
 
-					candlesticks.calculateCandleStatistics();
+					candlesticks.calculateCandleStatistics(0, 4);
+
+					if(candlesticks.higherHighsPercent == 1 && candlesticks.higherLowsPercent == 1) {
+						Log::logAndEmail("BUY SIGNAL: " + token.token + " " + timeframeIt.key());
+					} else if(candlesticks.lowerHighsPercent == 1 && candlesticks.lowerLowsPercent == 1) {
+						Log::logAndEmail("SELL SIGNAL: " + token.token + " " + timeframeIt.key());
+					}
 				}
 			}
 		} catch (const std::exception& e) {
