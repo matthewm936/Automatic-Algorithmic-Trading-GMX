@@ -90,9 +90,11 @@ int main() {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
 
-					candlesticks.checkCandleMissingness();
-					candlesticks.calculateCandleStatistics();
+					candlesticks.checkForMissingCandles();
+					candlesticks.checkCandleUpToDate();
 					candlesticks.checkCandlesDescendingOrder();
+
+					candlesticks.calculateCandleStatistics();
 				}
 			}
 		} catch (const std::exception& e) {

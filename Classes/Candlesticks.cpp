@@ -45,13 +45,8 @@ class Candlesticks {
 			return mostRecentCandlestickTimestamp;
 		}
 
-		int findTimestampOffset() {
-			int offset = timeframeToSeconds.at(timeFrame);
-			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
-			if(candles[0].timeStamp <= expectedTimestamp - (2 * offset)){
-				Log::logError("ERROR; most recent candle behind by more then two candles", true);
-				throw std::runtime_error("ERROR; most recent candle behind by more then two candles");
-			}		
+		int calculateTimestampDifference() {
+			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);	
 			return candles[0].timeStamp - expectedTimestamp;
 		}
 
@@ -126,23 +121,26 @@ class Candlesticks {
 			}
 		}
 
-		void checkCandleMissingness() { 
-			int offset = findTimestampOffset();
+		void checkForMissingCandles() { 
 			int timeframeSeconds = timeframeToSeconds.at(timeFrame);
-			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
 			for (size_t i = 0; i < candles.size(); ++i) {
-				if(candles[i].timeStamp != expectedTimestamp - offset) {
-					if (std::find(missingTimestamps.begin(), missingTimestamps.end(), expectedTimestamp) == missingTimestamps.end()) {
-						std::string errorMessage = "ERROR; Timestamp errors, possible missing candle\n";
-						errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
-						errorMessage += "Expected timestamp: " + to_string(expectedTimestamp) + "\n";
-						errorMessage += "Got candle timestamp: " + to_string(candles[i].timeStamp) + "\n";
-						Log::logError(errorMessage);
-						missingTimestamps.push_back(expectedTimestamp);
-					}
+				if(candles[i].timeStamp != candles[i + 1].timeStamp + timeframeSeconds) {
+					std::string errorMessage = "ERROR; Timestamp errors\n";
+					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
+					errorMessage += "Candles i   timestamp: " + to_string(candles[i].timeStamp) + "\n";
+					errorMessage += "Candles i+1 timestamp: " + to_string(candles[i + 1].timeStamp) + "\n";
+					Log::logError(errorMessage);
 				}
-				expectedTimestamp -= timeframeSeconds;
 			}
+		}
+
+		void checkCandleUpToDate() {
+			int offset = timeframeToSeconds.at(timeFrame);
+			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
+			if(candles[0].timeStamp <= expectedTimestamp - (2 * offset)){
+				Log::logError("ERROR; most recent candle behind by more then two candles", true);
+				throw std::runtime_error("ERROR; most recent candle behind by more then two candles");
+			}	
 		}
 
 		void calculateCandleStatistics() { 
