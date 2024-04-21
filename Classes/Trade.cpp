@@ -8,10 +8,6 @@ public:
 	Trade() {}
 
 	void checkForTradeOpportunity(Candlesticks& candlesticks) {
-		if(candlesticks.cooldownDuration > 0) {
-			candlesticks.cooldownDuration--;
-			return;
-		}
 		if(!candlesticks.position) {
 			candlesticks.calculateCandleStatistics(0, 4);
 
@@ -34,7 +30,7 @@ public:
 			if(bullish >= 4) {
 				buy(candlesticks.getTokenName());
 				candlesticks.position = true; //leave position on sell? or can multiple signals arise and positons double donw?
-				candlesticks.cooldownDuration = 5;
+				candlesticks.entryPrice = candlesticks.getCurrentPrice();
 
 				Log::log("Bought " + candlesticks.getTokenName());
 			}	

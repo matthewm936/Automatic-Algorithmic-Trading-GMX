@@ -55,7 +55,7 @@ class Candlesticks {
 		Candle lowestCandle;
 
 		bool position = false;
-		int cooldownDuration = 0;
+		double entryPrice = -1;
 
 		int numGreenCandles;
 		int numRedCandles;
@@ -88,8 +88,6 @@ class Candlesticks {
 
 		double lowerOpensPercent;
 		double lowerClosesPercent;
-
-		double currentPrice;
 
 		Candlesticks() {
 		};
@@ -177,7 +175,6 @@ class Candlesticks {
 			redGreenRatio = (double)numRedCandles / (double)numGreenCandles;
 			greenCandlePercent = (double)numGreenCandles / (double)candlesChecked;
 			redCandlePercent = (double)numRedCandles / (double)candlesChecked;
-			currentPrice = candles[0].close;
 
 			numHigherHighs = 0;
 			numLowerLows = 0;
@@ -220,53 +217,26 @@ class Candlesticks {
 			return token;
 		}
 
+		double getCurrentPrice() {
+			return candles[0].open;
+		}
+
 		deque<Candle>& getCandles() {
 			return candles;
 		}
 
 		void logState() {
+			string positionDetails = "";
+			if(position == true) {
+				positionDetails = " entry price: " + to_string(entryPrice) + " current price: " + to_string(getCurrentPrice()) + " profit: " + to_string(getCurrentPrice() - entryPrice) + " profit%: " + to_string((getCurrentPrice() - entryPrice) / entryPrice);
+			}
 			std::map<std::string, std::string> currentState = {
-				{"Last Updated MST:", time.getMSTTime()},
-				{token + " " + timeFrame + " size", to_string(candles.size())},
-				{token + " " + timeframe + " price", to_string(currentPrice)},
-				{token + " " + timeFrame + " position", to_string(candles.position)},
-				{token + " " + timeFrame + " cooldown", to_string(candles.cooldownDuration)},
-				{token + " " + timeFrame + " candle[0].timestamp", to_string(candles[0].timeStamp)},
+				{"AA  === Last Updated MST:", time.getMSTTime() + " ==="},
+				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
+				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},
+				{"\t" + token + timeFrame + "\tposition", positionDetails},
+				{"\t" + token + timeFrame + "\tcandle[0].timestamp", to_string(candles[0].timeStamp)},
 			};
 			Log::logCurrentState(currentState, "candlesticks.txt"); 
-		}
-
-		string getStats() {
-			calculateCandleStatistics();
-			std::ostringstream stats;
-			stats << std::fixed << std::setprecision(2);  
-			stats << "\n";
-			stats << "Token: " << token << "\n";
-			stats << "Current price: " << currentPrice << "\n";
-			stats << "Time frame: " << timeFrame << "\n";
-			stats << "Num candles: " << candles.size() << "\n";
-			stats << "Highest candle: " << highestCandle.high << "\n";
-			stats << "Lowest candle: " << lowestCandle.low << "\n";
-			stats << "Green candles: " << numGreenCandles << "\n";
-			stats << "Red candles: " << numRedCandles << "\n";
-			stats << "Doji candles: " << numDojiCandles << "\n";
-			stats << "Green red ratio: " << greenRedRatio << "\n";
-			stats << "Red green ratio: " << redGreenRatio << "\n";
-			stats << "Green candle percent: " << greenCandlePercent << "\n";
-			stats << "Red candle percent: " << redCandlePercent << "\n";
-			stats << "Num higher highs: " << numHigherHighs << "\n";
-			stats << "Num lower lows: " << numLowerLows << "\n";
-			stats << "Num higher lows: " << numHigherLows << "\n";
-			stats << "Num lower highs: " << numLowerHighs << "\n";
-			stats << "Higher highs percent: " << higherHighsPercent << "\n";
-			stats << "Lower lows percent: " << lowerLowsPercent << "\n";
-			stats << "Higher lows percent: " << higherLowsPercent << "\n";
-			stats << "Lower highs percent: " << lowerHighsPercent << "\n";
-			stats << "Increasing opens percent: " << higherOpensPercent << "\n";
-			stats << "Increasing closes percent: " << higherClosesPercent << "\n";
-			stats << "Decreasing opens percent: " << lowerOpensPercent << "\n";
-			stats << "Decreasing closes percent: " << lowerClosesPercent << "\n";
-
-			return stats.str();
 		}
 };
