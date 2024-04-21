@@ -55,6 +55,7 @@ class Candlesticks {
 		Candle lowestCandle;
 
 		bool position = false;
+		int cooldownDuration = 0;
 
 		int numGreenCandles;
 		int numRedCandles;
