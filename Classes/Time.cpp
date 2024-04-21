@@ -38,8 +38,6 @@ public:
 
 	double getDuration() {
 		std::chrono::duration<double> duration = endTime - startTime;
-
-		// std::cout << "Time::getDuration() called for " << duration.count() << " seconds" << std::endl;
 		return duration.count();
 	}
 
@@ -50,7 +48,7 @@ public:
 
 		std::string line1 = "| Time::sleep() called for " + std::to_string(sleepTime) + "s";
 		std::string line2 = "| Duration: " + std::to_string(getDuration()) + "s";
-		std::string line3 = "| at GMT " + getGMTTime();
+		std::string line3 = "| at MST " + getMSTTime();
 		std::string line4 = "| at Unix " + getUnixTime();
 
 		std::string output;

@@ -34,6 +34,21 @@ Candle createCandle(const nlohmann::json& jsonArray) {
 	return Candle(jsonArray[0].get<double>(), jsonArray[1].get<double>(), jsonArray[2].get<double>(), jsonArray[3].get<double>(), jsonArray[4].get<double>());
 } 
 
+void checkWifi() {
+	if (system("ping -c 1 8.8.8.8 > /dev/null 2>&1")) { 
+		cout << "No WiFi connection" << endl;
+		Log::logError("No WiFi connection");
+		if (system("wpa_cli -i wlan0 reconfigure > /dev/null 2>&1")) {
+			Log::logError("Failed to reconnect to WiFi");
+		} else {
+			Log::logError("Attempted to reconnect to WiFi");
+		}
+		// exit(1);  // Exit if there is no WiFi connection
+	} else {
+		cout << "WiFi CONNECTION GOOGLE DNS" << endl;
+	}
+}
+
 int main() {
 	Log::clearLogFiles();
 	Log::LogWithTimestamp("MAIN.cpp Started");
@@ -64,10 +79,12 @@ int main() {
 		GMX_tokens[tokenIt.key()] = token;
 	}
 
-	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1h 4h 1d";
+	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1m 1h 4h 1d";
 
 	while(true) {
 		time.start();
+
+		checkWifi();
 
 		runCommand(updateCandleStickDataCommand.c_str()); 
 
@@ -92,13 +109,10 @@ int main() {
 					for (nlohmann::json::iterator candleIt = candlesArray.begin(); candleIt != candlesArray.end(); ++candleIt) {
 						candlesticks.addCandle(createCandle(*candleIt));
 					}
-					candlesticks.checkForMissingCandles();
-					candlesticks.checkCandleUpToDate();
-					candlesticks.checkCandlesDescendingOrder();
-
-					candlesticks.logState();
+					candlesticks.checkCandleCorrectness();
 
 					trade.checkForTradeOpportunity(candlesticks);
+					candlesticks.logState();
 				}
 			}
 		} catch (const std::exception& e) {
