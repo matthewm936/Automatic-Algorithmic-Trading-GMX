@@ -54,8 +54,7 @@ class Candlesticks {
 		Candle highestCandle;
 		Candle lowestCandle;
 
-		bool buySignal; 
-		bool sellSignal;
+		bool position = false;
 
 		int numGreenCandles;
 		int numRedCandles;
@@ -214,6 +213,10 @@ class Candlesticks {
 
 		string getTimeFrame() {
 			return timeFrame;
+		}
+
+		string getTokenName() {
+			return token;
 		}
 
 		deque<Candle>& getCandles() {

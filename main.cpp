@@ -14,6 +14,8 @@
 
 #include "Classes/Positions.cpp"
 
+#include "Classes/Trade.cpp"
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -39,6 +41,7 @@ int main() {
 	Time time;
 	unordered_map<string, Token> GMX_tokens;
 	Positions positions;
+	Trade trade;
 
 	runCommand("node gmx-api/gmx-rest-endpoints.js candles 30 1m 5m 15m 1h 4h 1d");
 
@@ -93,19 +96,7 @@ int main() {
 					candlesticks.checkCandleUpToDate();
 					candlesticks.checkCandlesDescendingOrder();
 
-					candlesticks.calculateCandleStatistics(0, 4);
-
-					if(candlesticks.greenCandlePercent == 1 && !candlesticks.buySignal) {
-						if(candlesticks.higherOpensPercent == 1 && candlesticks.higherClosesPercent == 1) {
-							Log::LogWithTimestamp("BUY SIGNAL: " + token.token + " " + timeframeIt.key()); // past four candles are green and have increasing opens and closes
-							candlesticks.buySignal = true;
-						} 
-					} else if(candlesticks.redCandlePercent == 1 && !candlesticks.sellSignal) {
-						if(candlesticks.lowerOpensPercent == 1 && candlesticks.lowerClosesPercent == 1) {
-							Log::LogWithTimestamp("SELL SIGNAL: " + token.token + " " + timeframeIt.key()); // past four candles are red and have decreasing opens and closes
-							candlesticks.sellSignal = true;
-						}
-					}
+					trade.checkForTradeOpportunity(candlesticks);
 				}
 			}
 		} catch (const std::exception& e) {
