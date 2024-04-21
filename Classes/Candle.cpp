@@ -27,6 +27,11 @@ class Candle {
 			// 	Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " High: " + std::to_string(high));
 			// 	// throw std::runtime_error("ERROR: open not less than high");
 			// }
+
+			if(bullishMeter > 1 || bullishMeter < -1) {
+				Log::logError("CANDLE ERROR; Bullish Meter: " + std::to_string(bullishMeter));
+				// throw std::runtime_error("ERROR: bullish meter not between -1 and 1");
+			}
 		}
 
 	public:
@@ -39,6 +44,8 @@ class Candle {
 		bool green = false;
 		bool red = false;
 		bool doji = false;
+
+		double candleStrength; // -1 to 1; 1 being most bullish -1 being more bearish
 
 		Candle() {
 			// std::cout << "Candle object created" << std::endl;
@@ -58,6 +65,8 @@ class Candle {
 			} else if(close == open) {
 				doji = true;
 			}
+
+			candleStrength = (close - open) / (high - low);
 
 			checkCorrectness();
 		}		

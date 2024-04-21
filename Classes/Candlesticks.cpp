@@ -81,9 +81,6 @@ class Candlesticks {
 		}
 
 	public:
-		Candle highestCandle;
-		Candle lowestCandle;
-
 		bool position = false;
 		double entryPrice = -1;
 
@@ -161,16 +158,12 @@ class Candlesticks {
 			int candlesChecked = end - start;
 			int candlePairsChecked = candlesChecked - 1;
 
-			highestCandle = candles[start];
-			lowestCandle = candles[start];
 			numGreenCandles = 0;
 			numRedCandles = 0;
 			numDojiCandles = 0;
 
 			for(int i = start; i < end; i++) {
 				const auto& candle = candles[i];
-				if(candle.high > highestCandle.high) highestCandle = candle;
-				if(candle.low < lowestCandle.low) lowestCandle = candle;
 				if(candle.green) numGreenCandles++;
 				if(candle.red) numRedCandles++;
 				if(candle.doji) numDojiCandles++;
@@ -212,6 +205,26 @@ class Candlesticks {
 			higherClosesPercent = (double)numHigherCloses / (double)candlePairsChecked;	
 			lowerOpensPercent = (double)numLowerOpens / (double)candlePairsChecked;
 			lowerClosesPercent = (double)numLowerCloses / (double)candlePairsChecked;
+		}
+
+		Candle getHighestCandle(int start, int end) {
+			if(end > MAX_NUM_CANDLES) { Log::logError("attempting to calculate candle stats for more than MAX_NUM_CANDLES candles"); }
+			Candle highestCandle = candles[start];
+			for(int i = start; i < end; i++) {
+				const auto& candle = candles[i];
+				if(candle.high > highestCandle.high) highestCandle = candle;
+			}		
+			return highestCandle;
+		}
+
+		Candle getLowestCandle(int start, int end) {
+			if(end > MAX_NUM_CANDLES) { Log::logError("attempting to calculate candle stats for more than MAX_NUM_CANDLES candles"); }
+			Candle lowestCandle = candles[start];
+			for(int i = start; i < end; i++) {
+				const auto& candle = candles[i];
+				if(candle.low < lowestCandle.low) lowestCandle = candle;
+			}		
+			return lowestCandle;
 		}
 
 		string getTimeFrame() {
