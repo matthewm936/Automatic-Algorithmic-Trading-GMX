@@ -218,7 +218,7 @@ class Candlesticks {
 		}
 
 		double getCurrentPrice() {
-			return candles[0].open;
+			return candles[0].close;
 		}
 
 		deque<Candle>& getCandles() {

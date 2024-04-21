@@ -29,9 +29,9 @@ public:
 			} 
 			if(bullish >= 4) {
 				buy(candlesticks.getTokenName());
-				candlesticks.position = true; //leave position on sell? or can multiple signals arise and positons double donw?
+				candlesticks.position = true; // curerntly no logic ot leave position
 				candlesticks.entryPrice = candlesticks.getCurrentPrice();
-
+				
 				Log::log("Bought " + candlesticks.getTokenName());
 			}	
 		}

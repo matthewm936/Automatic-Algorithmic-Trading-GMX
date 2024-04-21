@@ -58,12 +58,15 @@ void Log::clearLogFiles() {
 	std::ofstream positionsFile("Logs/positions.txt", std::ios_base::trunc);
 	std::ofstream pairsFile("Logs/pairs.txt", std::ios_base::trunc);
 	std::ofstream strategyFile("Logs/strategy.txt", std::ios_base::trunc);
+	std::ofstream candlesticks("candlesticks.txt", std::ios_base::trunc);
+	
 
 	file.close();
 	errorFile.close();
 	positionsFile.close();
 	pairsFile.close();
 	strategyFile.close();
+	candlesticks.close();
 }
 
 void Log::logNoNewline(std::string log) {
