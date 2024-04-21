@@ -224,14 +224,16 @@ class Candlesticks {
 			return candles;
 		}
 
-		void printStats() {
+		void logState() {
 			std::map<std::string, std::string> currentState = {
 				{"Last Updated MST:", time.getMSTTime()},
 				{token + " " + timeFrame + " size", to_string(candles.size())},
-				{token + " " + timeFrame + " highestCandle", to_string(highestCandle.high)},
-				{token + " " + timeFrame + " lowestCandle", to_string(lowestCandle.low)},
+				{token + " " + timeframe + " price", to_string(currentPrice)},
+				{token + " " + timeFrame + " position", to_string(candles.position)},
+				{token + " " + timeFrame + " cooldown", to_string(candles.cooldownDuration)},
+				{token + " " + timeFrame + " candle[0].timestamp", to_string(candles[0].timeStamp)},
 			};
-			Log::logCurrentState(currentState, "candlesticks.txt"); //todo move later
+			Log::logCurrentState(currentState, "candlesticks.txt"); 
 		}
 
 		string getStats() {

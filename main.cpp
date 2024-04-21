@@ -64,7 +64,7 @@ int main() {
 		GMX_tokens[tokenIt.key()] = token;
 	}
 
-	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 4 1h 4h 1d";
+	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1h 4h 1d";
 
 	while(true) {
 		time.start();
@@ -95,6 +95,8 @@ int main() {
 					candlesticks.checkForMissingCandles();
 					candlesticks.checkCandleUpToDate();
 					candlesticks.checkCandlesDescendingOrder();
+
+					candlesticks.logState();
 
 					trade.checkForTradeOpportunity(candlesticks);
 				}
