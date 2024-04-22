@@ -152,17 +152,17 @@ class Candlesticks {
 			calculateCandleStatistics(0, candles.size());
 		}
 
-		void calculateCandleStatistics(int start, int end) {
+		void calculateCandleStatistics(int start, int end) { 
 			if(end > MAX_NUM_CANDLES) { Log::logError("attempting to calculate candle stats for more than MAX_NUM_CANDLES candles"); }
 
-			int candlesChecked = end - start;
+			int candlesChecked = end - start + 1;
 			int candlePairsChecked = candlesChecked - 1;
 
 			numGreenCandles = 0;
 			numRedCandles = 0;
 			numDojiCandles = 0;
 
-			for(int i = start; i < end; i++) {
+			for(int i = start; i <= end; i++) {
 				const auto& candle = candles[i];
 				if(candle.green) numGreenCandles++;
 				if(candle.red) numRedCandles++;
@@ -184,7 +184,7 @@ class Candlesticks {
 			numLowerOpens = 0;
 			numLowerCloses = 0;
 
-			for(int i = start; i < end - 1; i++) {
+			for(int i = start; i <= end - 1; i++) {
 				if(candles[i].high > candles[i + 1].high) numHigherHighs++;
 				if(candles[i].low < candles[i + 1].low) numLowerLows++;
 				if(candles[i].low > candles[i + 1].low) numHigherLows++;
@@ -205,6 +205,29 @@ class Candlesticks {
 			higherClosesPercent = (double)numHigherCloses / (double)candlePairsChecked;	
 			lowerOpensPercent = (double)numLowerOpens / (double)candlePairsChecked;
 			lowerClosesPercent = (double)numLowerCloses / (double)candlePairsChecked;
+		}
+
+		double getStandardDeviationOfCandlesWickRatio(int start, int end) {
+			double sum = 0;
+			double mean = 0;
+			double variance = 0;
+			double standardDeviation = 0;
+
+			for(int i = start; i < end; i++) {
+				sum += candles[i].WickRatioIndex;
+			}
+
+			mean = sum / (end - start);
+
+			for(int i = start; i < end; i++) {
+				variance += pow(candles[i].WickRatioIndex - mean, 2);
+			}
+
+			variance /= (end - start);
+
+			standardDeviation = sqrt(variance);
+
+			return standardDeviation;
 		}
 
 		Candle getHighestCandle(int start, int end) {

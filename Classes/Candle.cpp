@@ -45,7 +45,8 @@ class Candle {
 		bool red = false;
 		bool doji = false;
 
-		double candleStrength; // -1 to 1; 1 being most bullish -1 being more bearish
+		double WickRatioIndex; // -1 to 1; 1 being most bullish -1 being more bearish
+		doubel PercentChange;
 
 		Candle() {
 			// std::cout << "Candle object created" << std::endl;
@@ -66,7 +67,8 @@ class Candle {
 				doji = true;
 			}
 
-			candleStrength = (close - open) / (high - low);
+			WickRatioIndex = (close - open) / (high - low);
+			PercentChange = (close - open) / open;
 
 			checkCorrectness();
 		}		

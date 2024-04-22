@@ -9,31 +9,37 @@ public:
 
 	void checkForTradeOpportunity(Candlesticks& candlesticks) {
 		if(!candlesticks.position) {
-			candlesticks.calculateCandleStatistics(0, 4);
-
-			int bullish = 0;
-			if(candlesticks.greenCandlePercent >= .75) {
-				bullish++;
-			} 
-			if(candlesticks.higherHighsPercent >= .75) {
-				bullish++;
-			} 
-			if(candlesticks.higherLowsPercent >= .75) {
-				bullish++;
-			} 
-			if(candlesticks.higherOpensPercent >= .75) {
-				bullish++;
-			} 
-			if(candlesticks.higherClosesPercent >= .75) {
-				bullish++;
-			} 
-			if(bullish >= 4) {
+			if(strategyConsistent()) {
 				buy(candlesticks.getTokenName());
 				candlesticks.position = true; // curerntly no logic ot leave position
 				candlesticks.entryPrice = candlesticks.getCurrentPrice();
 				
-				Log::log("Bought " + candlesticks.getTokenName());
-			}	
+				Log::log("Bought " + candlesticks.getTokenName());	
+			}
+		}
+	}
+
+	bool strategyConsistent() {
+		candlesticks.calculateCandleStatistics(1, 4);
+
+		int bullish = 0;
+		if(candlesticks.greenCandlePercent == 1 ) {
+			bullish++;
+		} 
+		if(candlesticks.higherHighsPercent == 1) {
+			bullish++;
+		} 
+		if(candlesticks.higherLowsPercent == 1) {
+			bullish++;
+		} 
+		if(candlesticks.higherOpensPercent == 1) {
+			bullish++;
+		} 
+		if(candlesticks.higherClosesPercent == 1) {
+			bullish++;
+		} 
+		if(bullish > 4) {
+			return true;
 		}
 	}
 
