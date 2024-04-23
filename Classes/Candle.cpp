@@ -6,33 +6,6 @@ using std::endl;
 
 class Candle {
 	private:
-		void checkCorrectness() { // according to prelim testing on candlestick data, this api is returning incorrect data of the open can be the low or high
-			if(high < low) { // so switching this to just catch incorrect if breaks by definition
-				Log::logError("CANDLE ERROR; High: " + std::to_string(high) + " Low: " + std::to_string(low));
-				throw std::runtime_error("ERROR: high  not greater than low");
-			} 
-			// if(close < low) {
-			// 	Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " Low: " + std::to_string(low));
-			// 	// throw std::runtime_error("ERROR: close not greater than low");
-			// }
-			// if(close > high) {
-			// 	Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " High: " + std::to_string(high));
-			// 	// throw std::runtime_error("ERROR: close not less than high");
-			// }
-			// if(open < low) {
-			// 	Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " Low: " + std::to_string(low));
-			// 	// throw std::runtime_error("ERROR: open not greater than low");
-			// }
-			// if(open > high) {
-			// 	Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " High: " + std::to_string(high));
-			// 	// throw std::runtime_error("ERROR: open not less than high");
-			// }
-
-			if(WickRatioIndex > 1 || WickRatioIndex < -1) {
-				Log::logError("CANDLE ERROR; Bullish Meter: " + std::to_string(WickRatioIndex));
-				// throw std::runtime_error("ERROR: bullish meter not between -1 and 1");
-			}
-		}
 
 	public:
 		time_t timeStamp;
@@ -72,8 +45,6 @@ class Candle {
 			WickRatioIndex = (close - open) / (high - low);
 			OpenClosePercentChange = (close - open) / open;
 			HighLowPercentChange = (high - low) / low;
-
-			checkCorrectness();
 		}		
 
 		string toString() {

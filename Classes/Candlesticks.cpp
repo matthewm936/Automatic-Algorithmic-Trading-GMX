@@ -71,6 +71,36 @@ class Candlesticks {
 			}
 		}
 
+		void checkCandlesHighLowOpenCloseCorrectness() {
+			for (size_t i = 1; i < candles.size(); ++i) { 
+				double high = candles[i].high;
+				double low = candles[i].low;
+				double open = candles[i].open;
+				double close = candles[i].close;
+				double WickRatioIndex = candles[i].WickRatioIndex;
+
+				if(WickRatioIndex > 1 || WickRatioIndex < -1) {
+					Log::logError("CANDLE ERROR; Bullish Meter: " + std::to_string(WickRatioIndex));
+				}
+				
+				if (high < low) {
+					Log::logError("CANDLE ERROR; High: " + std::to_string(high) + " Low: " + std::to_string(low));
+				}
+				if (close < low) {
+					Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " Low: " + std::to_string(low));
+				}
+				if (close > high) {
+					Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " High: " + std::to_string(high));
+				}
+				if (open < low) {
+					Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " Low: " + std::to_string(low));
+				}
+				if (open > high) {
+					Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " High: " + std::to_string(high));
+				}
+			}
+		}
+
 		void checkCandleUpToDate() {
 			int offset = timeframeToSeconds.at(timeFrame);
 			int expectedTimestamp = expectedMostRecentTimestamp(timeFrame);
@@ -146,6 +176,8 @@ class Candlesticks {
 			checkCandlesDescendingOrder();
 			checkForMissingCandles();
 			checkCandleUpToDate();
+
+			checkCandlesHighLowOpenCloseCorrectness();
 		}
 
 		void calculateCandleStatistics() { 
