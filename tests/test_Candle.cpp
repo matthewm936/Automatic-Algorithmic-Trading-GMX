@@ -49,9 +49,20 @@ void testCandleDefaultConstructor() {
     }
 }
 
+void testCandleWickRatio() {
+    Candle candle(0, 100.0, 110.0, 90.0, 105.0);
+
+    // Verify that the wick ratio is calculated correctly
+    if (candle.getWickRatio() != 0.2) {
+        std::cout << "Error: Incorrect wick ratio" << std::endl;
+    }
+}
+
 int main() {
     testCandleConstructor();
     testCandleDefaultConstructor();
+
+    testCandleWickRatio();
 
     return 0;
 }

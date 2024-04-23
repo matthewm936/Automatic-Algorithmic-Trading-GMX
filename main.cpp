@@ -79,7 +79,7 @@ int main() {
 		GMX_tokens[tokenIt.key()] = token;
 	}
 
-	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 2 1m 1h 4h 1d";
+	string updateCandleStickDataCommand = "node gmx-api/gmx-rest-endpoints.js candles 1 1h 4h 1d";
 
 	while(true) {
 		time.start();

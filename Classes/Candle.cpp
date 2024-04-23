@@ -28,8 +28,8 @@ class Candle {
 			// 	// throw std::runtime_error("ERROR: open not less than high");
 			// }
 
-			if(bullishMeter > 1 || bullishMeter < -1) {
-				Log::logError("CANDLE ERROR; Bullish Meter: " + std::to_string(bullishMeter));
+			if(WickRatioIndex > 1 || WickRatioIndex < -1) {
+				Log::logError("CANDLE ERROR; Bullish Meter: " + std::to_string(WickRatioIndex));
 				// throw std::runtime_error("ERROR: bullish meter not between -1 and 1");
 			}
 		}

@@ -9,7 +9,7 @@ public:
 
 	void checkForTradeOpportunity(Candlesticks& candlesticks) {
 		if(!candlesticks.position) {
-			if(strategyConsistent()) {
+			if(strategyConsistent(candlesticks)) {
 				buy(candlesticks.getTokenName());
 				candlesticks.position = true; // curerntly no logic ot leave position
 				candlesticks.entryPrice = candlesticks.getCurrentPrice();
@@ -19,7 +19,7 @@ public:
 		}
 	}
 
-	bool strategyConsistent() {
+	bool strategyConsistent(Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
 
 		int bullish = 0;
@@ -41,6 +41,7 @@ public:
 		if(bullish > 4) {
 			return true;
 		}
+		return false;
 	}
 
 	void buy(string pairname) {
