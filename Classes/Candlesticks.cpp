@@ -6,6 +6,7 @@
 #include <variant>
 #include <iomanip> 
 #include <ctime>
+#include <set>
 
 #include "Candle.cpp"
 #include "Time.cpp"
@@ -37,6 +38,7 @@ class Candlesticks {
 		Time time;
 
 		std::vector<int> missingTimestamps;
+		std::set<int> checkedCandles;
 
 		int expectedMostRecentTimestamp(const std::string& timeFrame) {
 			int offset = timeframeToSeconds.at(timeFrame);
@@ -73,6 +75,12 @@ class Candlesticks {
 
 		void checkCandlesHighLowOpenCloseCorrectness() {
 			for (size_t i = 1; i < candles.size(); ++i) { 
+				int timestamp = candles[i].timeStamp;
+				if (checkedCandles.find(timestamp) != checkedCandles.end()) {
+					// This candle has already been checked, skip it
+					continue;
+				}
+
 				double high = candles[i].high;
 				double low = candles[i].low;
 				double open = candles[i].open;
@@ -80,23 +88,28 @@ class Candlesticks {
 				double WickRatioIndex = candles[i].WickRatioIndex;
 
 				if(WickRatioIndex > 1 || WickRatioIndex < -1) {
-					Log::logError("CANDLE ERROR; Bullish Meter: " + std::to_string(WickRatioIndex));
+					Log::logError("CANDLE ERROR; wick ratio index Meter: " + std::to_string(WickRatioIndex));
 				}
 				
 				if (high < low) {
 					Log::logError("CANDLE ERROR; High: " + std::to_string(high) + " Low: " + std::to_string(low));
+					checkedCandles.insert(timestamp);
 				}
 				if (close < low) {
 					Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " Low: " + std::to_string(low));
+					checkedCandles.insert(timestamp);
 				}
 				if (close > high) {
 					Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " High: " + std::to_string(high));
+					checkedCandles.insert(timestamp);
 				}
 				if (open < low) {
 					Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " Low: " + std::to_string(low));
+					checkedCandles.insert(timestamp);
 				}
 				if (open > high) {
 					Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " High: " + std::to_string(high));
+					checkedCandles.insert(timestamp);
 				}
 			}
 		}

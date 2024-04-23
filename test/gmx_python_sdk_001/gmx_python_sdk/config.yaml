@@ -1,0 +1,8 @@
+arbitrum:
+  rpc: "https://arbitrum-mainnet.infura.io/v3/e0177d37cfd24c28bc1f1ceb3e5c77a3"
+  chain_id: "42161"
+avalanche:
+  rpc: rpc_url
+  chain_id: chain_id
+private_key: "0xb40346c3cb3dab36980ec73476e9b719da22a2804b24acb9de0c711eae6d8a16"
+user_wallet_address: "0xE29998F2836a05C68CE3e984c2acB810fdC5eD0F"
