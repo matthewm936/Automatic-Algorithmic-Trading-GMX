@@ -1,16 +1,11 @@
 .env
 run
 prices.json
-configuration notes.txt
 log.txt
-
 trades.txt
 run.exe
 log*
-error_log.txt
 Logs/
 gmx-api/token-candles.json
 main.exe
-node_modules
-candlesticks.txt
 node_modules
