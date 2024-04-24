@@ -5,6 +5,7 @@
 #include <map>
 #include <locale>
 #include <sstream>
+#include <unistd.h> 
 
 #include "nlohmann/json.hpp"
 
@@ -34,8 +35,9 @@ Candle createCandle(const nlohmann::json& jsonArray) {
 	return Candle(jsonArray[0].get<double>(), jsonArray[1].get<double>(), jsonArray[2].get<double>(), jsonArray[3].get<double>(), jsonArray[4].get<double>());
 } 
 
+
 void checkWifi() {
-	if (system("ping -c 1 8.8.8.8 > /dev/null 2>&1")) { 
+	while (system("ping -c 1 8.8.8.8 > /dev/null 2>&1")) { 
 		cout << "No WiFi connection" << endl;
 		Log::logError("No WiFi connection");
 		if (system("wpa_cli -i wlan0 reconfigure > /dev/null 2>&1")) {
@@ -43,9 +45,9 @@ void checkWifi() {
 		} else {
 			Log::logError("Attempted to reconnect to WiFi");
 		}
-	} else {
-		cout << "WiFi ACTIVE" << endl;
+		sleep(600); // Wait for 10 minutes before trying again
 	}
+	cout << "WiFi CONNECTION GOOGLE DNS" << endl;
 }
 
 int main() {

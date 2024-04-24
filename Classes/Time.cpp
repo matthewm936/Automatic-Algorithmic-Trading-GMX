@@ -63,6 +63,7 @@ public:
 
 		return output;
 	}
+	
 	int now() {
 		auto now = std::chrono::high_resolution_clock::now();
 		auto epoch = now.time_since_epoch();
