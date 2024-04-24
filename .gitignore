@@ -4,8 +4,10 @@ prices.json
 log.txt
 trades.txt
 run.exe
-log*
 Logs/
 gmx-api/token-candles.json
 main.exe
 node_modules
+
+candlesticks.txt
+log*
