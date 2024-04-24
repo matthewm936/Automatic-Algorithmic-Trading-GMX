@@ -299,9 +299,12 @@ class Candlesticks {
 			if(position == true) {
 				double currentPrice = getCurrentPrice();
 				string positionDirection = (entryPrice < currentPrice) ? "Long" : "Short";
+				double profitPercent = (positionDirection == "Long") ? 
+									   (currentPrice - entryPrice) / entryPrice :
+									   (entryPrice - currentPrice) / entryPrice;
 				positionDetails = " entry price: " + to_string(entryPrice) + 
 								  " current price: " + to_string(currentPrice) + 
-								  " profit%: " + to_string((currentPrice - entryPrice) / entryPrice) + 
+								  " profit%: " + to_string(profitPercent) + 
 								  " distance to stop loss%: " + to_string((stopLoss - currentPrice) / currentPrice) + 
 								  " distance to take profit%: " + to_string((takeProfit - currentPrice) / currentPrice) +
 								  " position direction: " + positionDirection;
