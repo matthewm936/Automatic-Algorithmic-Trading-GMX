@@ -43,9 +43,8 @@ void checkWifi() {
 		} else {
 			Log::logError("Attempted to reconnect to WiFi");
 		}
-		// exit(1);  // Exit if there is no WiFi connection
 	} else {
-		cout << "WiFi CONNECTION GOOGLE DNS" << endl;
+		cout << "WiFi ACTIVE" << endl;
 	}
 }
 

@@ -31,8 +31,8 @@ const std::unordered_map<string, int> timeframeToSeconds = {
 class Candlesticks {
 	private:
 		std::deque<Candle> candles; // DESCENDING order; ie most recent at the front
-		std::string timeFrame = "";
-		std::string token = "";
+		string timeFrame = "";
+		string token = "";
 		deque<Candle>::size_type maxNumCandles = MAX_NUM_CANDLES;
 
 		Time time;
@@ -40,7 +40,7 @@ class Candlesticks {
 		std::vector<int> missingTimestamps;
 		std::set<int> checkedCandles;
 
-		int expectedMostRecentTimestamp(const std::string& timeFrame) {
+		int expectedMostRecentTimestamp(const string& timeFrame) {
 			int offset = timeframeToSeconds.at(timeFrame);
 			std::time_t currentTime = std::time(nullptr); // Get current Unix timestamp
 			int mostRecentCandlestickTimestamp = currentTime - (currentTime % offset);
@@ -64,7 +64,7 @@ class Candlesticks {
 			int timeframeSeconds = timeframeToSeconds.at(timeFrame);
 			for (size_t i = 1; i < candles.size(); ++i) {
 				if(candles[i].timeStamp != candles[i - 1].timeStamp - timeframeSeconds) {
-					std::string errorMessage = "ERROR; Timestamp errors\n";
+					string errorMessage = "ERROR; Timestamp errors\n";
 					errorMessage += "Token: " + token + " Time frame: " + timeFrame + "\n";
 					errorMessage += "Candles i-1 timestamp: " + to_string(candles[i - 1].timeStamp) + "\n";
 					errorMessage += "Candles i   timestamp: " + to_string(candles[i].timeStamp) + "\n";
@@ -88,27 +88,27 @@ class Candlesticks {
 				double WickRatioIndex = candles[i].WickRatioIndex;
 
 				if(WickRatioIndex > 1 || WickRatioIndex < -1) {
-					Log::logError("CANDLE ERROR; wick ratio index Meter: " + std::to_string(WickRatioIndex));
+					Log::logError("CANDLE ERROR; wick ratio index Meter: " + to_string(WickRatioIndex));
 				}
 				
 				if (high < low) {
-					Log::logError("CANDLE ERROR; High: " + std::to_string(high) + " Low: " + std::to_string(low));
+					Log::logError("CANDLE ERROR; High: " + to_string(high) + " Low: " + to_string(low));
 					checkedCandles.insert(timestamp);
 				}
 				if (close < low) {
-					Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " Low: " + std::to_string(low));
+					Log::logError("CANDLE ERROR; Close: " + to_string(close) + " Low: " + to_string(low));
 					checkedCandles.insert(timestamp);
 				}
 				if (close > high) {
-					Log::logError("CANDLE ERROR; Close: " + std::to_string(close) + " High: " + std::to_string(high));
+					Log::logError("CANDLE ERROR; Close: " + to_string(close) + " High: " + to_string(high));
 					checkedCandles.insert(timestamp);
 				}
 				if (open < low) {
-					Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " Low: " + std::to_string(low));
+					Log::logError("CANDLE ERROR; Open: " + to_string(open) + " Low: " + to_string(low));
 					checkedCandles.insert(timestamp);
 				}
 				if (open > high) {
-					Log::logError("CANDLE ERROR; Open: " + std::to_string(open) + " High: " + std::to_string(high));
+					Log::logError("CANDLE ERROR; Open: " + to_string(open) + " High: " + to_string(high));
 					checkedCandles.insert(timestamp);
 				}
 			}
@@ -124,8 +124,14 @@ class Candlesticks {
 		}
 
 	public:
+		string positionDirection = "";
 		bool position = false;
 		double entryPrice = -1;
+		time_t entryTime = -1;
+		
+		double stopLoss = -1;
+		double takeProfit = -1;
+
 
 		int numGreenCandles;
 		int numRedCandles;
@@ -252,29 +258,6 @@ class Candlesticks {
 			lowerClosesPercent = (double)numLowerCloses / (double)candlePairsChecked;
 		}
 
-		double getStandardDeviationOfCandlesWickRatio(int start, int end) {
-			double sum = 0;
-			double mean = 0;
-			double variance = 0;
-			double standardDeviation = 0;
-
-			for(int i = start; i < end; i++) {
-				sum += candles[i].WickRatioIndex;
-			}
-
-			mean = sum / (end - start);
-
-			for(int i = start; i < end; i++) {
-				variance += pow(candles[i].WickRatioIndex - mean, 2);
-			}
-
-			variance /= (end - start);
-
-			standardDeviation = sqrt(variance);
-
-			return standardDeviation;
-		}
-
 		Candle getHighestCandle(int start, int end) {
 			if(end > MAX_NUM_CANDLES) { Log::logError("attempting to calculate candle stats for more than MAX_NUM_CANDLES candles"); }
 			Candle highestCandle = candles[start];
@@ -314,9 +297,16 @@ class Candlesticks {
 		void logState() {
 			string positionDetails = "";
 			if(position == true) {
-				positionDetails = " entry price: " + to_string(entryPrice) + " current price: " + to_string(getCurrentPrice()) + " profit: " + to_string(getCurrentPrice() - entryPrice) + " profit%: " + to_string((getCurrentPrice() - entryPrice) / entryPrice);
+				double currentPrice = getCurrentPrice();
+				string positionDirection = (entryPrice < currentPrice) ? "Long" : "Short";
+				positionDetails = " entry price: " + to_string(entryPrice) + 
+								  " current price: " + to_string(currentPrice) + 
+								  " profit%: " + to_string((currentPrice - entryPrice) / entryPrice) + 
+								  " distance to stop loss%: " + to_string((stopLoss - currentPrice) / currentPrice) + 
+								  " distance to take profit%: " + to_string((takeProfit - currentPrice) / currentPrice) +
+								  " position direction: " + positionDirection;
 			}
-			std::map<std::string, std::string> currentState = {
+			std::map<string, string> currentState = {
 				{"AA  === Last Updated MST:", time.getMSTTime() + " ==="},
 				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
 				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},
