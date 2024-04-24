@@ -46,24 +46,13 @@ public:
 		double sleepTime = sleepTimeMins * 15 - getDuration(); // 15 second sleeptime
 		if (sleepTime < 0) sleepTime = 0; 
 
-		std::string line1 = "| Time::sleep() called for " + std::to_string(sleepTime) + "s";
-		std::string line2 = "| Duration: " + std::to_string(getDuration()) + "s";
-		std::string line3 = "| at MST " + getMSTTime();
-		std::string line4 = "| at Unix " + getUnixTime();
-
-		std::string output;
-		output += "=====================================\n";
-		output += line1 + "\n";
-		output += line2 + "\n";
-		output += line3 + "\n";
-		output += line4 + "\n";
-		output += "=====================================";
+		std::string output = "Time::sleep() called for " + std::to_string(sleepTime) + "s at MST " + getMSTTime() + " and Unix " + getUnixTime();
 
 		std::this_thread::sleep_for(std::chrono::duration<double>(sleepTime));
 
 		return output;
 	}
-	
+
 	int now() {
 		auto now = std::chrono::high_resolution_clock::now();
 		auto epoch = now.time_since_epoch();
