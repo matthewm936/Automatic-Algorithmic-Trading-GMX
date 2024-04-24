@@ -64,7 +64,7 @@ private:
 public:
 	Trade() {}
 
-	void checkForTradeOpportunity(Candlesticks& candlesticks) {
+	void trade(Candlesticks& candlesticks) {
 		if(!candlesticks.position) {
 			if(strategyConsistentBullish(candlesticks)) {
 				buyLong(candlesticks);

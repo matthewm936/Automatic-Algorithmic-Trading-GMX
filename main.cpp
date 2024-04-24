@@ -110,7 +110,7 @@ int main() {
 					}
 					candlesticks.checkCandleCorrectness();
 
-					trade.checkForTradeOpportunity(candlesticks);
+					trade.trade(candlesticks);
 					candlesticks.logState();
 				}
 			}
