@@ -113,7 +113,7 @@ int main() {
 					candlesticks.checkCandleCorrectness();
 
 					trade.trade(candlesticks);
-					candlesticks.logState();
+					positions.logState();
 				}
 			}
 		} catch (const std::exception& e) {

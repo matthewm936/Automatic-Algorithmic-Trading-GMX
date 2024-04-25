@@ -66,44 +66,49 @@ private:
 	}
 
 	void buyLong(Candlesticks& candlesticks) {
-		candlesticks.positionDirection = "long";
-		candlesticks.position = true;
-		candlesticks.entryPrice = candlesticks.getCurrentPrice();
-		candlesticks.entryTime = time(NULL);
+		//actually long
+
+		double sizeUSD = -1;
+		int leverage = -1;
 
 		double stopProfit = calculateStopProfit(candlesticks);
-		candlesticks.stopLoss = candlesticks.entryPrice * (1 - stopProfit);
-		candlesticks.takeProfit = candlesticks.entryPrice * (1 + stopProfit);
+		double stopLoss = candlesticks.entryPrice * (1 - stopProfit);
+		double takeProfit = candlesticks.entryPrice * (1 + stopProfit);
+
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", candlesticks.entryPrice, candlesticks.takeProfit, candlesticks.stopLoss, sizeUSD, leverage);
 	}
 
 	void sellShort(Candlesticks& candlesticks) {
-		candlesticks.positionDirection = "short";
-		candlesticks.position = true;
-		candlesticks.entryPrice = candlesticks.getCurrentPrice();
-		candlesticks.entryTime = time(NULL);
+		//actually short
+
+		double sizeUSD = -1;
+		int leverage = -1;
 
 		double stopProfit = calculateStopProfit(candlesticks);
-		candlesticks.stopLoss = candlesticks.entryPrice * (1 + stopProfit);
-		candlesticks.takeProfit = candlesticks.entryPrice * (1 - stopProfit);
+		double stopLoss = candlesticks.entryPrice * (1 + stopProfit);
+		double takeProfit = candlesticks.entryPrice * (1 - stopProfit);
+
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", candlesticks.entryPrice, candlesticks.takeProfit, candlesticks.stopLoss, sizeUSD, leverage);
 	}
 
 public:
-	Trade() {}
+	Positions positions;
+
+	Trade(Positions& positions) : positions(positions) {}
 
 	void trade(Candlesticks& candlesticks) {
-		if(!candlesticks.position) {
-			if(strategyConsistentBullish(candlesticks)) {
-				buyLong(candlesticks);
-				
-				Log::log("Long " + candlesticks.getTokenName());	
-			}
+		if(positions.exists(candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame())) {
+			return;
 		}
-		if(!candlesticks.position) {
-			if(strategyConsistentBearish(candlesticks)) {
-				sellShort(candlesticks);
-				
-				Log::log("Short " + candlesticks.getTokenName());	
-			}
+		if(strategyConsistentBullish(candlesticks)) {
+			buyLong(candlesticks);
+			
+			Log::log("Long " + candlesticks.getTokenName());	
+		}
+		if(strategyConsistentBearish(candlesticks)) {
+			sellShort(candlesticks);
+			
+			Log::log("Short " + candlesticks.getTokenName());	
 		}
 	}
 };

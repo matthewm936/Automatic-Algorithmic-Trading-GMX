@@ -6,10 +6,19 @@
 #include <ctime>
 #include <string>
 
+using std::string;
+
 struct Position {
-	std::string pairName;
+	string tokenName;
+	string positionDirection = "";
+
 	double entryPrice;
-	double entrySize;
+	double entryTime;
+
+	double takeProfit;
+	double stopLoss;
+
+	double sizeUSD;
 	int leverage;
 
 	double currentPrice;
@@ -17,65 +26,83 @@ struct Position {
 
 	time_t entryTime;
 	time_t exitTime;
-
-	double takeProfit;
-	double stopLoss;
-
-	time_t exitTimeCondition;
 };
 
 class Positions {
 private:
-	std::unordered_map<std::string, Position> positions;
+	std::unordered_map<string, Position> positions;
 
-	double totalSize;
+	double totalExposureUSD;
 
-	int MAX_POSITIONS = 10;
+	int MAX_POSITIONS = 5;
 
 public:
 	Positions() {}
 
-	Position& operator[](const std::string& key) {
+	Position& operator[](const string& key) {
 		return positions[key];
 	}
 
-	std::unordered_map<std::string, Position>::iterator find(const std::string& key) {
+	std::unordered_map<string, Position>::iterator find(const string& key) {
 		return positions.find(key);
 	}
 
-	bool exists(const std::string& key) {
+	bool exists(const string& key) {
 		return positions.find(key) != positions.end();
 	}
 
-	std::unordered_map<std::string, Position>::iterator end() {
+	std::unordered_map<string, Position>::iterator end() {
 		return positions.end();
 	}
 
-	void addPosition(const std::string& pairName, double entryPrice, double takeProfit = -1, double stopLoss = -1, time_t exitTimeCondition = -1) {
-		Position position;
-
-		position.pairName = pairName;
-		position.entryPrice = entryPrice;
-
-		position.takeProfit = takeProfit;
-		position.stopLoss = stopLoss;
-
-		position.exitTimeCondition = exitTimeCondition;
-
-		position.entryTime = time(0);
-		positions[pairName] = position;
+	void addPosition(const string& tokenName, const string& timeFrame, string direction, double entryPrice, double takeProfit, double stopLoss, double sizeUSD, int leverage) {
+		string positionId = tokenName + "_" + timeFrame;  // Concatenate tokenName and timeFrame
+	
+		positions.emplace(positionId, Position{
+			.tokenName = tokenName,
+			.timeFrame = timeFrame,
+			.positionDirection = direction,
+			.entryPrice = entryPrice,
+			.takeProfit = takeProfit,
+			.stopLoss = stopLoss,
+			.sizeUSD = sizeUSD,
+			.leverage = leverage,
+			.entryTime = time(NULL)
+		});
 	}
 
-	void removePosition(const std::string& pairName) {
-		positions.erase(pairName);
+	void removePosition(const string& tokenName) {
+		positions.erase(tokenName);
 	}
 
 	size_t size() const {
 		return positions.size();
 	}
 
-	Position& getPosition(const std::string& pairName) {
-		return positions[pairName];
+	Position& getPosition(const string& tokenName) {
+		return positions[tokenName];
+	}
+
+	void logPositions() {
+		for (const auto& [positionId, position] : positions) {
+			string positionDirection = (position.entryPrice < position.currentPrice) ? "Long" : "Short";
+			double profitPercent = (positionDirection == "Long") ? 
+								   (position.currentPrice - position.entryPrice) / position.entryPrice :
+								   (position.entryPrice - position.currentPrice) / position.entryPrice;
+	
+			std::map<string, string> currentState = {
+				{"Position ID", positionId},
+				{"Token Name", position.tokenName},
+				{"Position Direction", positionDirection},
+				{"Entry Price", to_string(position.entryPrice)},
+				{"Current Price", to_string(position.currentPrice)},
+				{"Profit%", to_string(profitPercent)},
+				{"Distance to Stop Loss%", to_string((position.stopLoss - position.currentPrice) / position.currentPrice)},
+				{"Distance to Take Profit%", to_string((position.takeProfit - position.currentPrice) / position.currentPrice)},
+			};
+	
+			Log::logCurrentState(currentState, "positions.txt");
+		}
 	}
 };
 

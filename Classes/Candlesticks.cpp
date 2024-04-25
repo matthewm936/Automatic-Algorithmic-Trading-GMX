@@ -124,15 +124,6 @@ class Candlesticks {
 		}
 
 	public:
-		string positionDirection = "";
-		bool position = false;
-		double entryPrice = -1;
-		time_t entryTime = -1;
-		
-		double stopLoss = -1;
-		double takeProfit = -1;
-
-
 		int numGreenCandles;
 		int numRedCandles;
 		int numDojiCandles;
@@ -295,25 +286,10 @@ class Candlesticks {
 		}
 
 		void logState() {
-			string positionDetails = "";
-			if(position == true) {
-				double currentPrice = getCurrentPrice();
-				string positionDirection = (entryPrice < currentPrice) ? "Long" : "Short";
-				double profitPercent = (positionDirection == "Long") ? 
-									   (currentPrice - entryPrice) / entryPrice :
-									   (entryPrice - currentPrice) / entryPrice;
-				positionDetails = " entry price: " + to_string(entryPrice) + 
-								  " current price: " + to_string(currentPrice) + 
-								  " profit%: " + to_string(profitPercent) + 
-								  " distance to stop loss%: " + to_string((stopLoss - currentPrice) / currentPrice) + 
-								  " distance to take profit%: " + to_string((takeProfit - currentPrice) / currentPrice) +
-								  " position direction: " + positionDirection;
-			}
 			std::map<string, string> currentState = {
 				{"AA  === Last Updated MST:", time.getMSTTime() + " ==="},
 				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
 				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},
-				{"\t" + token + timeFrame + "\tposition", positionDetails},
 				{"\t" + token + timeFrame + "\tcandle[0].timestamp", to_string(candles[0].timeStamp)},
 			};
 			Log::logCurrentState(currentState, "candlesticks.txt"); 
