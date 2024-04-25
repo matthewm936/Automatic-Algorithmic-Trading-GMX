@@ -1,10 +1,31 @@
-AA  === Last Updated MST:: 2024-04-24 20:58:16 ===
-LTC_4h Current Price: 83.380929
-LTC_4h Distance to Stop Loss%: 0.040273
-LTC_4h Distance to Take Profit%: -0.039748
-LTC_4h Entry Price: 83.402835
+AA  === Last Updated MST:: 2024-04-24 22:14:16 ===
+AAVE_4h Current Price: 88.503185
+AAVE_4h Distance to Stop Loss%: 0.050610
+AAVE_4h Distance to Take Profit%: -0.030206
+AAVE_4h Entry Price: 89.406117
+AAVE_4h Position Direction: Short
+AAVE_4h Profit%: 0.010099
+AAVE_4h Token Name: AAVE
+ARB_4h Current Price: 1.084750
+ARB_4h Distance to Stop Loss%: 0.051948
+ARB_4h Distance to Take Profit%: -0.028971
+ARB_4h Entry Price: 1.097213
+ARB_4h Position Direction: Short
+ARB_4h Profit%: 0.011358
+ARB_4h Token Name: ARB
+LTC_4h Current Price: 82.864134
+LTC_4h Distance to Stop Loss%: 0.046411
+LTC_4h Distance to Take Profit%: -0.034082
+LTC_4h Entry Price: 83.374973
 LTC_4h Position Direction: Short
-LTC_4h Profit%: 0.000263
+LTC_4h Profit%: 0.006127
 LTC_4h Token Name: LTC
+SOL_4h Current Price: 145.314084
+SOL_4h Distance to Stop Loss%: 0.043501
+SOL_4h Distance to Take Profit%: -0.036768
+SOL_4h Entry Price: 145.803284
+SOL_4h Position Direction: Short
+SOL_4h Profit%: 0.003355
+SOL_4h Token Name: SOL
 Total Exposure USD: 0.000000
-Total Positions: 1
+Total Positions: 4

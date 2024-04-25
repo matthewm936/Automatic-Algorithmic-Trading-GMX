@@ -141,7 +141,7 @@ void Log::logCurrentState(std::map<std::string, std::string> updatedState, std::
 	}
 	 
 	Time time;
-	currentState["AA  === Last Updated MST:"] = time.getMSTTime() + " ===";
+	currentState["===== Last Updated MST:"] = time.getMSTTime() + " =====";
 
 	std::ofstream fileOut(filename, std::ios_base::trunc);
 	for (const auto& [key, value] : currentState) {
