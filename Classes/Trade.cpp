@@ -5,64 +5,36 @@ class Trade {
 private:
 	bool strategyConsistentBullish(Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
-
+	
 		int bullish = 0;
-		if(candlesticks.greenCandlePercent == 1 ) {
-			bullish++;
-		} 
-		if(candlesticks.higherHighsPercent == 1) {
-			bullish++;
-		} 
-		if(candlesticks.higherLowsPercent == 1) {
-			bullish++;
-		} 
-		if(candlesticks.higherOpensPercent == 1) {
-			bullish++;
-		} 
-		if(candlesticks.higherClosesPercent == 1) {
-			bullish++;
-		} 
-		if(bullish > 4) {
-			return true;
-		}
-		return false;
+		bullish += (candlesticks.greenCandlePercent == 1);
+		bullish += (candlesticks.higherHighsPercent == 1);
+		bullish += (candlesticks.higherLowsPercent == 1);
+		bullish += (candlesticks.higherOpensPercent == 1);
+		bullish += (candlesticks.higherClosesPercent == 1);
+	
+		return (bullish > 4);
 	}
-
+	
 	bool strategyConsistentBearish(Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
-
+	
 		int bearish = 0;
-		if(candlesticks.redCandlePercent == 1 ) {
-			bearish++;
-		} 
-		if(candlesticks.lowerLowsPercent == 1) {
-			bearish++;
-		} 
-		if(candlesticks.lowerHighsPercent == 1) {
-			bearish++;
-		} 
-		if(candlesticks.lowerOpensPercent == 1) {
-			bearish++;
-		} 
-		if(candlesticks.lowerClosesPercent == 1) {
-			bearish++;
-		} 
-		if(bearish > 4) {
-			return true;
-		}
-		return false;
+		bearish += (candlesticks.redCandlePercent == 1);
+		bearish += (candlesticks.lowerLowsPercent == 1);
+		bearish += (candlesticks.lowerHighsPercent == 1);
+		bearish += (candlesticks.lowerOpensPercent == 1);
+		bearish += (candlesticks.lowerClosesPercent == 1);
+	
+		return (bearish > 4);
 	}
-
+	
 	double calculateStopProfit(Candlesticks& candlesticks) {
-		if(candlesticks.getTimeFrame() == "1h") {
-			return 0.02;
-		} else if(candlesticks.getTimeFrame() == "4h") {
-			return 0.04;
-		} else if(candlesticks.getTimeFrame() == "1d") {
-			return 0.08;
-		} else {
-			return -1;
-		}
+		if(candlesticks.getTimeFrame() == "5m") return 0.01;
+		else if(candlesticks.getTimeFrame() == "1h") return 0.02;
+		else if(candlesticks.getTimeFrame() == "4h") return 0.04;
+		else if(candlesticks.getTimeFrame() == "1d") return 0.08;
+		else return -1;
 	}
 
 	void buyLong(Candlesticks& candlesticks) {

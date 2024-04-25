@@ -91,14 +91,13 @@ public:
 								   (position.entryPrice - position.currentPrice) / position.entryPrice;
 	
 			std::map<string, string> currentState = {
-				{"Position ID", positionId},
-				{"Token Name", position.tokenName},
-				{"Position Direction", positionDirection},
-				{"Entry Price", to_string(position.entryPrice)},
-				{"Current Price", to_string(position.currentPrice)},
-				{"Profit%", to_string(profitPercent)},
-				{"Distance to Stop Loss%", to_string((position.stopLoss - position.currentPrice) / position.currentPrice)},
-				{"Distance to Take Profit%", to_string((position.takeProfit - position.currentPrice) / position.currentPrice)},
+				{positionId + " Token Name", position.tokenName},
+				{positionId + " Position Direction", positionDirection},
+				{positionId + " Entry Price", to_string(position.entryPrice)},
+				{positionId + " Current Price", to_string(position.currentPrice)},
+				{positionId + " Profit%", to_string(profitPercent)},
+				{positionId + " Distance to Stop Loss%", to_string((position.stopLoss - position.currentPrice) / position.currentPrice)},
+				{positionId + " Distance to Take Profit%", to_string((position.takeProfit - position.currentPrice) / position.currentPrice)},
 			};
 	
 			Log::logCurrentState(currentState, "positions.txt");
