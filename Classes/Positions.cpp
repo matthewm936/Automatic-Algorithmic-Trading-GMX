@@ -10,10 +10,10 @@ using std::string;
 
 struct Position {
 	string tokenName;
+	string timeFrame;
 	string positionDirection = "";
 
 	double entryPrice;
-	double entryTime;
 
 	double takeProfit;
 	double stopLoss;
@@ -21,11 +21,9 @@ struct Position {
 	double sizeUSD;
 	int leverage;
 
-	double currentPrice;
-	double profitLoss;
-
 	time_t entryTime;
-	time_t exitTime;
+
+	double profitLoss;
 };
 
 class Positions {
@@ -83,25 +81,34 @@ public:
 		return positions[tokenName];
 	}
 
-	void logPositions() {
+	void logPositions(Candlesticks& candlesticks) const {
+		std::map<string, string> currentState;
+
+		currentState["Total Exposure USD"] = std::to_string(totalExposureUSD);
+		currentState["Total Positions"] = std::to_string(positions.size());
+
 		for (const auto& [positionId, position] : positions) {
-			string positionDirection = (position.entryPrice < position.currentPrice) ? "Long" : "Short";
-			double profitPercent = (positionDirection == "Long") ? 
-								   (position.currentPrice - position.entryPrice) / position.entryPrice :
-								   (position.entryPrice - position.currentPrice) / position.entryPrice;
-	
-			std::map<string, string> currentState = {
-				{positionId + " Token Name", position.tokenName},
-				{positionId + " Position Direction", positionDirection},
-				{positionId + " Entry Price", to_string(position.entryPrice)},
-				{positionId + " Current Price", to_string(position.currentPrice)},
-				{positionId + " Profit%", to_string(profitPercent)},
-				{positionId + " Distance to Stop Loss%", to_string((position.stopLoss - position.currentPrice) / position.currentPrice)},
-				{positionId + " Distance to Take Profit%", to_string((position.takeProfit - position.currentPrice) / position.currentPrice)},
-			};
-	
-			Log::logCurrentState(currentState, "positions.txt");
+			if (position.tokenName == candlesticks.getTokenName() && position.timeFrame == candlesticks.getTimeFrame()) {
+				string positionDirection = (position.entryPrice < candlesticks.getCurrentPrice()) ? "Long" : "Short";
+				double profitPercent = (positionDirection == "Long") ? 
+									   (candlesticks.getCurrentPrice() - position.entryPrice) / position.entryPrice :
+									   (position.entryPrice - candlesticks.getCurrentPrice()) / position.entryPrice;
+		
+				std::map<string, string> currentState = {
+					{positionId + " Token Name", position.tokenName},
+					{positionId + " Position Direction", positionDirection},
+					{positionId + " Entry Price", to_string(position.entryPrice)},
+					{positionId + " Current Price", to_string(candlesticks.getCurrentPrice())},
+					{positionId + " Profit%", to_string(profitPercent)},
+					{positionId + " Distance to Stop Loss%", to_string((position.stopLoss - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice())},
+					{positionId + " Distance to Take Profit%", to_string((position.takeProfit - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice())},
+				};
+		
+				Log::logCurrentState(currentState, "positions.txt");
+			}
 		}
+
+		Log::logCurrentState(currentState, "positions.txt");
 	}
 };
 

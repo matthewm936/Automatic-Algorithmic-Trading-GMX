@@ -269,15 +269,15 @@ class Candlesticks {
 			return lowestCandle;
 		}
 
-		string getTimeFrame() {
+		string getTimeFrame() const {
 			return timeFrame;
 		}
 
-		string getTokenName() {
+		string getTokenName() const {
 			return token;
 		}
 
-		double getCurrentPrice() {
+		double getCurrentPrice() const {
 			return candles[0].close;
 		}
 
@@ -285,7 +285,7 @@ class Candlesticks {
 			return candles;
 		}
 
-		void logState() {
+		void logState() const {
 			std::map<string, string> currentState = {
 				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
 				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},

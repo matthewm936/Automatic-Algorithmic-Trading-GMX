@@ -56,11 +56,13 @@ void Log::clearLogFiles() {
 	std::ofstream file(currentFilename, std::ios_base::trunc);
 	std::ofstream errorFile("error_log.txt", std::ios_base::trunc);
 	std::ofstream candlesticks("candlesticks.txt", std::ios_base::trunc);
+	std::ofstream positions("positions.txt", std::ios_base::trunc);
 	
 
 	file.close();
 	errorFile.close();
 	candlesticks.close();
+	positions.close();
 }
 
 void Log::logNoNewline(std::string log) {
@@ -137,7 +139,8 @@ void Log::logCurrentState(std::map<std::string, std::string> updatedState, std::
 	for (const auto& [key, value] : updatedState) {
 		currentState[key] = value;
 	}
-
+	 
+	Time time;
 	currentState["AA  === Last Updated MST:"] = time.getMSTTime() + " ===";
 
 	std::ofstream fileOut(filename, std::ios_base::trunc);

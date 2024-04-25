@@ -3,7 +3,7 @@
 
 class Trade {
 private:
-	bool strategyConsistentBullish(Candlesticks& candlesticks) {
+	bool strategyConsistentBullish(Candlesticks candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
 	
 		int bullish = 0;
@@ -16,7 +16,7 @@ private:
 		return (bullish > 4);
 	}
 	
-	bool strategyConsistentBearish(Candlesticks& candlesticks) {
+	bool strategyConsistentBearish(Candlesticks candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
 	
 		int bearish = 0;
@@ -29,7 +29,7 @@ private:
 		return (bearish > 4);
 	}
 	
-	double calculateStopProfit(Candlesticks& candlesticks) {
+	double calculateStopProfit(const Candlesticks candlesticks) {
 		if(candlesticks.getTimeFrame() == "5m") return 0.01;
 		else if(candlesticks.getTimeFrame() == "1h") return 0.02;
 		else if(candlesticks.getTimeFrame() == "4h") return 0.04;
@@ -41,7 +41,7 @@ private:
 		return 100;
 	}
 
-	int calcualteLeverage() {
+	int calcualteLeverage(const Candlesticks candlesticks) {
 		if(candlesticks.getTimeFrame() == "5m") return 5;
 		else if(candlesticks.getTimeFrame() == "1h") return 10;
 		else if(candlesticks.getTimeFrame() == "4h") return 10;
@@ -49,38 +49,40 @@ private:
 		else return -1;	
 	}
 
-	void buyLong(Candlesticks& candlesticks) {
+	void buyLong(const Candlesticks candlesticks) {
 		//actually long
+		double currentPrice = candlesticks.getCurrentPrice();
 
 		double sizeUSD = calculateSizeUSD();
-		int leverage = calcualteLeverage();
+		int leverage = calcualteLeverage(candlesticks);
 
 		double stopProfit = calculateStopProfit(candlesticks);
-		double stopLoss = candlesticks.currentPrice * (1 - stopProfit);
-		double takeProfit = candlesticks.currentPrice * (1 + stopProfit);
+		double stopLoss = currentPrice * (1 - stopProfit);
+		double takeProfit = currentPrice * (1 + stopProfit);
 
-		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", candlesticks.currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
 	}
 
-	void sellShort(Candlesticks& candlesticks) {
+	void sellShort(const Candlesticks candlesticks) {
 		//actually short
+		double currentPrice = candlesticks.getCurrentPrice();
 
 		double sizeUSD = calculateSizeUSD();
-		int leverage = calcualteLeverage();
+		int leverage = calcualteLeverage(candlesticks);
 
 		double stopProfit = calculateStopProfit(candlesticks);
-		double stopLoss = candlesticks.currentPrice * (1 + stopProfit);
-		double takeProfit = candlesticks.currentPrice * (1 - stopProfit);
+		double stopLoss = currentPrice * (1 + stopProfit);
+		double takeProfit = currentPrice * (1 - stopProfit);
 
-		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", candlesticks.currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
 	}
 
 public:
-	Positions positions;
+    Positions& positions;
 
 	Trade(Positions& positions) : positions(positions) {}
 
-	void trade(Candlesticks& candlesticks) {
+	void trade(const Candlesticks candlesticks) {
 		if(positions.exists(candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame())) {
 			return;
 		}

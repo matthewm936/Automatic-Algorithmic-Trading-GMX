@@ -57,7 +57,7 @@ int main() {
 	Time time;
 	unordered_map<string, Token> GMX_tokens;
 	Positions positions;
-	Trade trade;
+	Trade trade(positions);
 
 	runCommand("node gmx-api/gmx-rest-endpoints.js candles 30 1m 5m 15m 1h 4h 1d");
 
@@ -113,7 +113,8 @@ int main() {
 					candlesticks.checkCandleCorrectness();
 
 					trade.trade(candlesticks);
-					positions.logState();
+					candlesticks.logState();
+					positions.logPositions(candlesticks);
 				}
 			}
 		} catch (const std::exception& e) {

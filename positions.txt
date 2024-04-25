@@ -1,0 +1,10 @@
+AA  === Last Updated MST:: 2024-04-24 20:58:16 ===
+LTC_4h Current Price: 83.380929
+LTC_4h Distance to Stop Loss%: 0.040273
+LTC_4h Distance to Take Profit%: -0.039748
+LTC_4h Entry Price: 83.402835
+LTC_4h Position Direction: Short
+LTC_4h Profit%: 0.000263
+LTC_4h Token Name: LTC
+Total Exposure USD: 0.000000
+Total Positions: 1
