@@ -287,7 +287,6 @@ class Candlesticks {
 
 		void logState() {
 			std::map<string, string> currentState = {
-				{"AA  === Last Updated MST:", time.getMSTTime() + " ==="},
 				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
 				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},
 				{"\t" + token + timeFrame + "\tcandle[0].timestamp", to_string(candles[0].timeStamp)},

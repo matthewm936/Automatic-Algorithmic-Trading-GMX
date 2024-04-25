@@ -134,12 +134,12 @@ void Log::logCurrentState(std::map<std::string, std::string> updatedState, std::
 	}
 	fileIn.close();
 
-	// Update state
 	for (const auto& [key, value] : updatedState) {
 		currentState[key] = value;
 	}
 
-	// Write updated state to log file
+	currentState["AA  === Last Updated MST:"] = time.getMSTTime() + " ===";
+
 	std::ofstream fileOut(filename, std::ios_base::trunc);
 	for (const auto& [key, value] : currentState) {
 		fileOut << key << ": " << value << "\n";

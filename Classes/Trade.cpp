@@ -37,30 +37,42 @@ private:
 		else return -1;
 	}
 
+	double calculateSizeUSD() {
+		return 100;
+	}
+
+	int calcualteLeverage() {
+		if(candlesticks.getTimeFrame() == "5m") return 5;
+		else if(candlesticks.getTimeFrame() == "1h") return 10;
+		else if(candlesticks.getTimeFrame() == "4h") return 10;
+		else if(candlesticks.getTimeFrame() == "1d") return 10;
+		else return -1;	
+	}
+
 	void buyLong(Candlesticks& candlesticks) {
 		//actually long
 
-		double sizeUSD = -1;
-		int leverage = -1;
+		double sizeUSD = calculateSizeUSD();
+		int leverage = calcualteLeverage();
 
 		double stopProfit = calculateStopProfit(candlesticks);
-		double stopLoss = candlesticks.entryPrice * (1 - stopProfit);
-		double takeProfit = candlesticks.entryPrice * (1 + stopProfit);
+		double stopLoss = candlesticks.currentPrice * (1 - stopProfit);
+		double takeProfit = candlesticks.currentPrice * (1 + stopProfit);
 
-		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", candlesticks.entryPrice, candlesticks.takeProfit, candlesticks.stopLoss, sizeUSD, leverage);
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", candlesticks.currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
 	}
 
 	void sellShort(Candlesticks& candlesticks) {
 		//actually short
 
-		double sizeUSD = -1;
-		int leverage = -1;
+		double sizeUSD = calculateSizeUSD();
+		int leverage = calcualteLeverage();
 
 		double stopProfit = calculateStopProfit(candlesticks);
-		double stopLoss = candlesticks.entryPrice * (1 + stopProfit);
-		double takeProfit = candlesticks.entryPrice * (1 - stopProfit);
+		double stopLoss = candlesticks.currentPrice * (1 + stopProfit);
+		double takeProfit = candlesticks.currentPrice * (1 - stopProfit);
 
-		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", candlesticks.entryPrice, candlesticks.takeProfit, candlesticks.stopLoss, sizeUSD, leverage);
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", candlesticks.currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
 	}
 
 public:
