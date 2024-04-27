@@ -6,32 +6,35 @@ using std::endl;
 
 class Candle {
 	private:
-		checkCandleValues() {
+		validateAndCorrectCandleValues() {
 			if (high < low) {
-				Log::logError("CANDLE ERROR; High: " + to_string(high) + " Low: " + to_string(low));
+				Log::logError("CANDLE ERROR; High: " + to_string(high) + " Low: " + to_string(low) + " low larger by:" + to_string(high - low));
 				
 			}
 			if (close < low) {
-				Log::logError("CANDLE ERROR; Close: " + to_string(close) + " Low: " + to_string(low));
+				Log::logError("CANDLE ERROR; Close: " + to_string(close) + " Low: " + to_string(low) + " close less by:" + to_string(low - low));
 				low = close;
 				Log::logError("Setting low to the close: " + to_string(close) + " Low: " + to_string(low));
 			}
 			if (close > high) {
-				Log::logError("CANDLE ERROR; Close: " + to_string(close) + " High: " + to_string(high));
+				Log::logError("CANDLE ERROR; Close: " + to_string(close) + " High: " + to_string(high) + " close larger by:" + to_string(close - high));
 				high = close;
 				Log::logError("Setting high to the close: " + to_string(close) + " High: " + to_string(high));
 			}
 			if (open < low) {
-				Log::logError("CANDLE ERROR; Open: " + to_string(open) + " Low: " + to_string(low));
+				Log::logError("CANDLE ERROR; Open: " + to_string(open) + " Low: " + to_string(low) + " open less by:" + to_string(low - open));
 				low = open;
 				Log::logError("Setting low to the open: " + to_string(open) + " Low: " + to_string(low));
 			}
 			if (open > high) {
-				Log::logError("CANDLE ERROR; Open: " + to_string(open) + " High: " + to_string(high));
+				Log::logError("CANDLE ERROR; Open: " + to_string(open) + " High: " + to_string(high) + " open larger by:" + to_string(open - high));
 				high = open;
 				Log::logError("Setting high to the open: " + to_string(open) + " High: " + to_string(high));
 			}
+		}
 
+		calculateAndValidateWickRatioIndex() {
+			WickRatioIndex = (close - open) / (high - low);
 			if(WickRatioIndex > 1 || WickRatioIndex < -1) {
 				Log::logError("CANDLE ERROR; wick ratio index Meter: " + to_string(WickRatioIndex));
 			}
@@ -64,6 +67,9 @@ class Candle {
 			this->low = low;
 			this->close = close;
 
+			validateAndCorrectCandleValues();
+			calculateAndValidateWickRatioIndex();
+			
 			if(close > open) {
 				green = true;
 			} else if(close < open) {
@@ -72,11 +78,8 @@ class Candle {
 				doji = true;
 			}
 
-			WickRatioIndex = (close - open) / (high - low);
 			OpenClosePercentChange = (close - open) / open;
 			HighLowPercentChange = (high - low) / low;
-
-			checkCandleValues();
 		}		
 
 		string toString() {
