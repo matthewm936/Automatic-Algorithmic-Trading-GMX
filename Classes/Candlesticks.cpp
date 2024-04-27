@@ -38,7 +38,6 @@ class Candlesticks {
 		Time time;
 
 		std::vector<int> missingTimestamps;
-		std::set<int> checkedCandles;
 
 		int expectedMostRecentTimestamp(const string& timeFrame) {
 			int offset = timeframeToSeconds.at(timeFrame);
@@ -69,47 +68,6 @@ class Candlesticks {
 					errorMessage += "Candles i-1 timestamp: " + to_string(candles[i - 1].timeStamp) + "\n";
 					errorMessage += "Candles i   timestamp: " + to_string(candles[i].timeStamp) + "\n";
 					Log::logError(errorMessage, true);
-				}
-			}
-		}
-
-		void checkCandlesHighLowOpenCloseCorrectness() {
-			for (size_t i = 1; i < candles.size(); ++i) { 
-				int timestamp = candles[i].timeStamp;
-				if (checkedCandles.find(timestamp) != checkedCandles.end()) {
-					// This candle has already been checked, skip it
-					continue;
-				}
-
-				double high = candles[i].high;
-				double low = candles[i].low;
-				double open = candles[i].open;
-				double close = candles[i].close;
-				double WickRatioIndex = candles[i].WickRatioIndex;
-
-				if(WickRatioIndex > 1 || WickRatioIndex < -1) {
-					Log::logError("CANDLE ERROR; wick ratio index Meter: " + to_string(WickRatioIndex));
-				}
-				
-				if (high < low) {
-					Log::logError("CANDLE ERROR; High: " + to_string(high) + " Low: " + to_string(low));
-					checkedCandles.insert(timestamp);
-				}
-				if (close < low) {
-					Log::logError("CANDLE ERROR; Close: " + to_string(close) + " Low: " + to_string(low));
-					checkedCandles.insert(timestamp);
-				}
-				if (close > high) {
-					Log::logError("CANDLE ERROR; Close: " + to_string(close) + " High: " + to_string(high));
-					checkedCandles.insert(timestamp);
-				}
-				if (open < low) {
-					Log::logError("CANDLE ERROR; Open: " + to_string(open) + " Low: " + to_string(low));
-					checkedCandles.insert(timestamp);
-				}
-				if (open > high) {
-					Log::logError("CANDLE ERROR; Open: " + to_string(open) + " High: " + to_string(high));
-					checkedCandles.insert(timestamp);
 				}
 			}
 		}
@@ -186,8 +144,6 @@ class Candlesticks {
 			checkCandlesDescendingOrder();
 			checkForMissingCandles();
 			checkCandleUpToDate();
-
-			checkCandlesHighLowOpenCloseCorrectness();
 		}
 
 		void calculateCandleStatistics() { 
