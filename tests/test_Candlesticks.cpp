@@ -5,7 +5,7 @@
 using std::cout;
 using std::endl;
 
-void testCandlesticksConstructor() {
+void testInstant() {
     Candlesticks candlesticks;
     // Verify that the default values are set correctly
     if (candlesticks.getTimeFrame() != "") {
@@ -14,18 +14,18 @@ void testCandlesticksConstructor() {
     if (candlesticks.getCandles().size() != 0) {
         std::cout << "Error: Incorrect default number of candles" << std::endl;
     }
-}
 
-void testCandlesticksConstructorWithTimeFrame() {
     std::string timeFrame = "1h";
-    Candlesticks candlesticks(timeFrame);
+    std::string token = "BTC";
+    Candlesticks candlesticks(timeFrame, token);
 
     // Verify that the time frame is set correctly
     if (candlesticks.getTimeFrame() != timeFrame) {
-        std::cout << "Error: Incorrect time frame" << std::endl;
+        std::cerr << "Error: Incorrect time frame" << std::endl;
     }
-    if (candlesticks.getCandles().size() != 0) {
-        std::cout << "Error: Incorrect default number of candles" << std::endl;
+
+    if(candlesticks.getToken() != token) {
+        std::cerr << "Error: Incorrect token" << std::endl;
     }
 }
 
@@ -72,7 +72,7 @@ void testCandleOrder() {
     candlesticks.addCandle(candle4);
     candlesticks.addCandle(candle5);
 
-    candlesticks.checkCandleOrderCorrectness();
+    candlesticks.checkCandleCorrectness();
 
     std::deque<Candle> candles = candlesticks.getCandles();
 
@@ -94,14 +94,6 @@ void testCandleOrder() {
             break;
         }
     }
-}
-
-void testGetTimeFrame() {
-    std::string timeFrame = "1h";
-    Candlesticks candlesticks(timeFrame);
-
-    // Verify that the getTimeFrame() method returns the correct time frame
-    assert(candlesticks.getTimeFrame() == timeFrame);
 }
 
 void testGetCandles() {
@@ -243,7 +235,6 @@ void testGetRedCandles() {
     
     candlesticks.addCandle(candle5);
 
-    // Verify that the getRedCandles() method returns the correct number of red candles
     redCandles = candlesticks.getRedCandles();
     assert(redCandles == 1);
 }
@@ -300,7 +291,7 @@ void testCheckCandleOrderCorrectness() {
     candlesticks.addCandle(candle5);
 
     // Verify that the checkCandleOrderCorrectness() method throws an exception if candles are not in the correct order
-    candlesticks.checkCandleOrderCorrectness();
+    candlesticks.checkCandleCorrectness();
 
     for(size_t i = 1; i < candlesticks.getCandles().size() - 1; ++i) {
         if(candlesticks.getCandles()[i-1].timeStamp > candlesticks.getCandles()[i].timeStamp && candlesticks.getCandles()[i].timeStamp > candlesticks.getCandles()[i+1].timeStamp) {
@@ -330,8 +321,7 @@ void testCheckCandleMissingness() {
     candlesticks.addCandle(candle3);
     candlesticks.addCandle(candle4);
 
-    candlesticks.checkCandleOrderCorrectness();
-    candlesticks.checkCandleMissingness();
+    candlesticks.checkCandleCorrectness();
 }
 
 int main() {
