@@ -7,7 +7,6 @@ using std::endl;
 
 void testCandlesticksConstructor() {
     Candlesticks candlesticks;
-
     // Verify that the default values are set correctly
     if (candlesticks.getTimeFrame() != "") {
         std::cout << "Error: Incorrect default time frame" << std::endl;
@@ -334,6 +333,7 @@ void testCheckCandleMissingness() {
     candlesticks.checkCandleOrderCorrectness();
     candlesticks.checkCandleMissingness();
 }
+
 int main() {
     testCandlesticksConstructor();
     testCandlesticksConstructorWithTimeFrame();
