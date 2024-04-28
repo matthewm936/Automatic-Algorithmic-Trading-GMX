@@ -3,10 +3,11 @@
 
 using std::cout;
 using std::endl;
+using std::to_string;
 
 class Candle {
 	private:
-		validateAndCorrectCandleValues() {
+		void validateAndCorrectCandleValues() {
 			if (high < low) {
 				Log::logError("CANDLE ERROR; High: " + to_string(high) + " Low: " + to_string(low) + " low larger by:" + to_string(high - low));
 				
@@ -33,7 +34,7 @@ class Candle {
 			}
 		}
 
-		calculateAndValidateWickRatioIndex() {
+		void SetAndValidateWickRatioIndex() {
 			WickRatioIndex = (close - open) / (high - low);
 			if(WickRatioIndex > 1 || WickRatioIndex < -1) {
 				Log::logError("CANDLE ERROR; wick ratio index Meter: " + to_string(WickRatioIndex));
@@ -68,7 +69,7 @@ class Candle {
 			this->close = close;
 
 			validateAndCorrectCandleValues();
-			calculateAndValidateWickRatioIndex();
+			SetAndValidateWickRatioIndex();
 			
 			if(close > open) {
 				green = true;

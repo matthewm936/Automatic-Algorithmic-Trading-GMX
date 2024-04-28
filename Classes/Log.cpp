@@ -118,7 +118,7 @@ void Log::logError(std::string log, bool emailFlag = false, bool timestampFlag =
 		email("ERROR", log);
 	}
 
-	cout << "ERROR: " << log << endl;
+	std::cout << "ERROR: " << log << std::endl;
 }
 
 void Log::logCurrentState(std::map<std::string, std::string> updatedState, std::string filename) {

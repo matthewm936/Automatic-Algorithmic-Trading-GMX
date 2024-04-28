@@ -55,7 +55,12 @@ public:
 
 	void addPosition(const string& tokenName, const string& timeFrame, string direction, double entryPrice, double takeProfit, double stopLoss, double sizeUSD, int leverage) {
 		string positionId = tokenName + "_" + timeFrame;  // Concatenate tokenName and timeFrame
-	
+
+		if (positions.find(positionId) != positions.end()) {
+			Log::log("Position already exists, attempting to " + direction + " " + tokenName + " " + timeFrame);
+			return;
+		}
+
 		positions.emplace(positionId, Position{
 			.tokenName = tokenName,
 			.timeFrame = timeFrame,
@@ -81,22 +86,21 @@ public:
 		return positions[tokenName];
 	}
 
-	void logPositions(Candlesticks& candlesticks) const {
+	void logPositions(Candlesticks& candlesticks) const { // TODO, logging should not be this hard lol
 		std::map<string, string> currentState;
 
 		currentState["Total Exposure USD"] = std::to_string(totalExposureUSD);
 		currentState["Total Positions"] = std::to_string(positions.size());
 
 		for (const auto& [positionId, position] : positions) {
-			if (position.tokenName == candlesticks.getTokenName() && position.timeFrame == candlesticks.getTimeFrame()) {
-				string positionDirection = (position.entryPrice < candlesticks.getCurrentPrice()) ? "Long" : "Short";
-				double profitPercent = (positionDirection == "Long") ? 
+			if (position.tokenName == candlesticks.getTokenName() && position.timeFrame == candlesticks.getTimeFrame()) { 
+				double profitPercent = (position.positionDirection == "Long") ? 
 									   (candlesticks.getCurrentPrice() - position.entryPrice) / position.entryPrice :
 									   (position.entryPrice - candlesticks.getCurrentPrice()) / position.entryPrice;
 		
 				std::map<string, string> currentState = {
 					{positionId + " Token Name", position.tokenName},
-					{positionId + " Position Direction", positionDirection},
+					{positionId + " Position Direction", position.positionDirection},
 					{positionId + " Entry Price", to_string(position.entryPrice)},
 					{positionId + " Current Price", to_string(candlesticks.getCurrentPrice())},
 					{positionId + " Profit%", to_string(profitPercent)},

@@ -45,7 +45,7 @@ void checkWifi() {
 		} else {
 			Log::logError("Attempted to reconnect to WiFi");
 		}
-		sleep(600); // Wait for 10 minutes before trying again
+		sleep(60); // Wait for 10 minutes before trying again
 	}
 	cout << "WiFi CONNECTION GOOGLE DNS" << endl;
 }

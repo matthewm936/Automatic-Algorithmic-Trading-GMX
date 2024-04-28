@@ -84,7 +84,7 @@ public:
 
 	void trade(const Candlesticks candlesticks) {
 		if(positions.exists(candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame())) {
-			return;
+			return; // this logic is repeated twice, once here and again is positions to not enter into a postiion again, not sure which I want
 		}
 		if(strategyConsistentBullish(candlesticks)) {
 			buyLong(candlesticks);
