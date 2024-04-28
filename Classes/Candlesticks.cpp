@@ -241,12 +241,18 @@ class Candlesticks {
 			return candles;
 		}
 
-		void logState() const {
+		std::string toStringCandlesticks() const {
 			std::map<string, string> currentState = {
 				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
 				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},
 				{"\t" + token + timeFrame + "\tcandle[0].timestamp", to_string(candles[0].timeStamp)},
 			};
-			Log::logCurrentState(currentState, "candlesticks.txt"); 
+
+			std::string log;
+			for (const auto& [key, value] : currentState) {
+				log += key + ": " + value + "\n";
+			}
+
+			return log;
 		}
 };

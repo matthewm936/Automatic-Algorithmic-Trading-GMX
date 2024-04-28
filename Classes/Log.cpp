@@ -9,35 +9,36 @@
 
 #include "Time.cpp"
 
+using std::string;
+
 class Log {
 private:
-	static std::string baseFilename;
-	static std::string currentFilename;
+	static string baseFilename;
+	static string currentFilename;
 
 	static void checkLogFile();
-	static void email(std::string message, std::string header);
-
+	static void email(string message, string header);
+	
 public:
 	static void clearLogFiles();
-	static void logNoNewline(std::string log);
-	static void log(std::string log);
-	static void logAndEmail(std::string log);
-	static void LogWithTimestamp(std::string log);
-	static void logError(std::string log, bool emailFlag, bool timestampFlag);
-	static void logCurrentState(std::map<std::string, std::string> updatedState, std::string filename);
+	static void logNoNewline(string log);
+	static void log(string log);
+	static void logAndEmail(string log);
+	static void LogWithTimestamp(string log);
+	static void logState(string log, string filename);
+	static void logError(string log, bool emailFlag, bool timestampFlag);
 };
 
-// Define static member variables
-std::string Log::baseFilename = "log";
-std::string Log::currentFilename = "";
+string Log::baseFilename = "log";
+string Log::currentFilename = "";
 
-// Define static member functions
 void Log::checkLogFile() {
 	Time time;
-	std::string currentDate = time.getGMTTime().substr(0, 10); 
+
+	string currentDate = time.getGMTTime().substr(0, 10); 
 
 	if (currentFilename != baseFilename + currentDate) {
-		std::string oldFilename = currentFilename;
+		string oldFilename = currentFilename;
 		currentFilename = baseFilename + currentDate;
 
 		if (!oldFilename.empty()) {
@@ -46,8 +47,8 @@ void Log::checkLogFile() {
 	}
 }
 
-void Log::email(std::string header, std::string message) {
-	std::string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + header + "\" \"" + message + "\"";
+void Log::email(string header, string message) {
+	string command = "python3 /home/johnsmith/Trading/Algorithmic-Trading/Notifications/pi-email-message.py \"" + header + "\" \"" + message + "\"";
 	system(command.c_str());
 }
 
@@ -58,26 +59,25 @@ void Log::clearLogFiles() {
 	std::ofstream candlesticks("candlesticks.txt", std::ios_base::trunc);
 	std::ofstream positions("positions.txt", std::ios_base::trunc);
 	
-
 	file.close();
 	errorFile.close();
 	candlesticks.close();
 	positions.close();
 }
 
-void Log::logNoNewline(std::string log) {
+void Log::logNoNewline(string log) {
 	checkLogFile();
 	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log;
 }
 
-void Log::log(std::string log) {
+void Log::log(string log) {
 	checkLogFile();
 	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log << "\n";
 }
 
-void Log::logAndEmail(std::string log) {
+void Log::logAndEmail(string log) {
 	checkLogFile();
 	std::ofstream file(currentFilename, std::ios_base::app);
 	file << log << "\n";
@@ -85,21 +85,33 @@ void Log::logAndEmail(std::string log) {
 	email("regular log", log);
 }
 
-void Log::LogWithTimestamp(std::string log) {
-	checkLogFile();
+void Log::LogWithTimestamp(string log) {
 	Time time;
+
+	checkLogFile();
 	std::ofstream file(currentFilename, std::ios_base::app);
-	std::string gmtTime = time.getGMTTime();
-	std::string unixTime = time.getUnixTime();
-	std::string mstTime = time.getMSTTime();
+	string gmtTime = time.getGMTTime();
+	string unixTime = time.getUnixTime();
+	string mstTime = time.getMSTTime();
 
 	file << log << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] \n";
 }
 
-void Log::logError(std::string log, bool emailFlag = false, bool timestampFlag = false) {
+void Log::logState(string log, string filename) {
 	Time time;
-	std::string gmtTime;
-	std::string unixTime;
+
+	checkLogFile();
+	std::ofstream file(filename, std::ios_base::trunc);
+
+	file << log << "\n";
+	file << log << "-------------- Last Updated: " + time.getMSTTime() + " --------------\n";
+}
+
+void Log::logError(string log, bool emailFlag = false, bool timestampFlag = false) {
+	Time time;
+
+	string gmtTime;
+	string unixTime;
 
 	if (timestampFlag) {
 		gmtTime = time.getGMTTime();
@@ -119,35 +131,4 @@ void Log::logError(std::string log, bool emailFlag = false, bool timestampFlag =
 	}
 
 	std::cout << "ERROR: " << log << std::endl;
-}
-
-void Log::logCurrentState(std::map<std::string, std::string> updatedState, std::string filename) {
-	checkLogFile();
-
-	// Read current state from log file
-	std::map<std::string, std::string> currentState;
-	std::ifstream fileIn(filename);
-	std::string line;
-	while (std::getline(fileIn, line)) {
-		size_t pos = line.find(": ");
-		if (pos != std::string::npos) {
-			std::string key = line.substr(0, pos);
-			std::string value = line.substr(pos + 2);
-			currentState[key] = value;
-		}
-	}
-	fileIn.close();
-
-	for (const auto& [key, value] : updatedState) {
-		currentState[key] = value;
-	}
-	 
-	Time time;
-	currentState["===== Last Updated MST:"] = time.getMSTTime() + " =====";
-
-	std::ofstream fileOut(filename, std::ios_base::trunc);
-	for (const auto& [key, value] : currentState) {
-		fileOut << key << ": " << value << "\n";
-	}
-	fileOut.close();
 }

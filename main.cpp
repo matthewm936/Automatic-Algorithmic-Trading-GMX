@@ -113,8 +113,8 @@ int main() {
 					candlesticks.checkCandleCorrectness();
 
 					trade.trade(candlesticks);
-					candlesticks.logState();
-					positions.logPositions(candlesticks);
+					Log::logState(candlesticks.toStringCandlesticks(), "candlesticks.txt");
+					Log::logState(positions.toStringPositions(candlesticks), "positions.txt");
 				}
 			}
 		} catch (const std::exception& e) {

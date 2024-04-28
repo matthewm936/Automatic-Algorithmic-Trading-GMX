@@ -72,6 +72,8 @@ public:
 			.leverage = leverage,
 			.entryTime = time(NULL)
 		});
+
+		totalExposureUSD += sizeUSD;
 	}
 
 	void removePosition(const string& tokenName) {
@@ -86,33 +88,34 @@ public:
 		return positions[tokenName];
 	}
 
-	void logPositions(Candlesticks& candlesticks) const { // TODO, logging should not be this hard lol
-		std::map<string, string> currentState;
+	std::string toStringPositions(Candlesticks& candlesticks) const {
+		std::string log;
+		double totalProfit = 0.0;
 
-		currentState["Total Exposure USD"] = std::to_string(totalExposureUSD);
-		currentState["Total Positions"] = std::to_string(positions.size());
+		log += "Total Exposure USD: " + std::to_string(totalExposureUSD) + "\n";
+		log += "Total Positions: " + std::to_string(positions.size()) + "\n";
 
 		for (const auto& [positionId, position] : positions) {
 			if (position.tokenName == candlesticks.getTokenName() && position.timeFrame == candlesticks.getTimeFrame()) { 
 				double profitPercent = (position.positionDirection == "Long") ? 
 									   (candlesticks.getCurrentPrice() - position.entryPrice) / position.entryPrice :
 									   (position.entryPrice - candlesticks.getCurrentPrice()) / position.entryPrice;
-		
-				std::map<string, string> currentState = {
-					{positionId + " Token Name", position.tokenName},
-					{positionId + " Position Direction", position.positionDirection},
-					{positionId + " Entry Price", to_string(position.entryPrice)},
-					{positionId + " Current Price", to_string(candlesticks.getCurrentPrice())},
-					{positionId + " Profit%", to_string(profitPercent)},
-					{positionId + " Distance to Stop Loss%", to_string((position.stopLoss - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice())},
-					{positionId + " Distance to Take Profit%", to_string((position.takeProfit - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice())},
-				};
-		
-				Log::logCurrentState(currentState, "positions.txt");
+
+				totalProfit += profitPercent;
+
+				log += positionId + " Token Name: " + position.tokenName + "\n";
+				log += positionId + " Position Direction: " + position.positionDirection + "\n";
+				log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
+				log += positionId + " Current Price: " + std::to_string(candlesticks.getCurrentPrice()) + "\n";
+				log += positionId + " Profit%: " + std::to_string(profitPercent) + "\n";
+				log += positionId + " Distance to Stop Loss%: " + std::to_string((position.stopLoss - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice()) + "\n";
+				log += positionId + " Distance to Take Profit%: " + std::to_string((position.takeProfit - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice()) + "\n";
 			}
 		}
 
-		Log::logCurrentState(currentState, "positions.txt");
+		log += "Total Profit%: " + std::to_string(totalProfit) + "\n";
+
+		return log;
 	}
 };
 
