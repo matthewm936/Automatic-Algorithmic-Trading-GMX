@@ -34,8 +34,10 @@ private:
 
 	int MAX_POSITIONS = 5;
 
+	unordered_map<string, Token>& GMX_tokens;
+
 public:
-	Positions() {}
+    Positions(unordered_map<string, Token>& GMX_tokens) : tokens(GMX_tokens) {}
 
 	Position& operator[](const string& key) {
 		return positions[key];
@@ -88,7 +90,11 @@ public:
 		return positions[tokenName];
 	}
 
-	std::string toStringPositions(Candlesticks& candlesticks) const {
+	double getCurrentPrice(const string& tokenName, const string& timeFrame) {
+		return GMX_tokens[tokenName].getCandlesticks(timeFrame).getCurrentPrice();
+	}
+
+	std::string toStringPositions() const {
 		std::string log;
 		double totalProfit = 0.0;
 
@@ -96,21 +102,21 @@ public:
 		log += "Total Positions: " + std::to_string(positions.size()) + "\n";
 
 		for (const auto& [positionId, position] : positions) {
-			if (position.tokenName == candlesticks.getTokenName() && position.timeFrame == candlesticks.getTimeFrame()) { 
-				double profitPercent = (position.positionDirection == "Long") ? 
-									   (candlesticks.getCurrentPrice() - position.entryPrice) / position.entryPrice :
-									   (position.entryPrice - candlesticks.getCurrentPrice()) / position.entryPrice;
+			string currentPrice = to_string(getCurrentPrice(position.tokenName, position.timeFrame));
 
-				totalProfit += profitPercent;
+			double profitPercent = (position.positionDirection == "Long") ? 
+									(currentPrice - position.entryPrice) / position.entryPrice :
+									(position.entryPrice - currentPrice) / position.entryPrice;
 
-				log += positionId + " Token Name: " + position.tokenName + "\n";
-				log += positionId + " Position Direction: " + position.positionDirection + "\n";
-				log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
-				log += positionId + " Current Price: " + std::to_string(candlesticks.getCurrentPrice()) + "\n";
-				log += positionId + " Profit%: " + std::to_string(profitPercent) + "\n";
-				log += positionId + " Distance to Stop Loss%: " + std::to_string((position.stopLoss - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice()) + "\n";
-				log += positionId + " Distance to Take Profit%: " + std::to_string((position.takeProfit - candlesticks.getCurrentPrice()) / candlesticks.getCurrentPrice()) + "\n";
-			}
+			totalProfit += profitPercent;
+
+			log += positionId + " Token Name: " + position.tokenName + "\n";
+			log += positionId + " Position Direction: " + position.positionDirection + "\n";
+			log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
+			log += positionId + " Current Price: " + std::to_string(currentPrice) + "\n";
+			log += positionId + " Profit%: " + std::to_string(profitPercent) + "\n";
+			log += positionId + " Distance to Stop Loss%: " + std::to_string((position.stopLoss - currentPrice) / currentPrice) + "\n";
+			log += positionId + " Distance to Take Profit%: " + std::to_string((position.takeProfit - currentPrice) / currentPrice) + "\n";
 		}
 
 		log += "Total Profit%: " + std::to_string(totalProfit) + "\n";
