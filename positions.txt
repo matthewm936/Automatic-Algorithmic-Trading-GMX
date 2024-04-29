@@ -1,10 +1,8 @@
-===== Last Updated MST:: 2024-04-28 00:56:52 =====
-DOGE_1d Current Price: 0.150229
-DOGE_1d Distance to Stop Loss%: 0.076842
-DOGE_1d Distance to Take Profit%: -0.082690
-DOGE_1d Entry Price: 0.149790
-DOGE_1d Position Direction: short
-DOGE_1d Profit%: -0.002932
-DOGE_1d Token Name: DOGE
-Total Exposure USD: 0.000000
-Total Positions: 1
+Total Exposure USD: 1200.000000
+Total Positions: 12
+Total Profit%: 0.000000
+
+Total Exposure USD: 1200.000000
+Total Positions: 12
+Total Profit%: 0.000000
+-------------- Last Updated: 2024-04-28 20:21:03 --------------

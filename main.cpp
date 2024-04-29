@@ -56,7 +56,7 @@ int main() {
 
 	Time time;
 	unordered_map<string, Token> GMX_tokens;
-	Positions positions();
+	Positions positions(GMX_tokens);
 	Trade trade(positions);
 
 	runCommand("node gmx-api/gmx-rest-endpoints.js candles 30 1h 4h 1d");

@@ -3,13 +3,12 @@
 
 class Trade {
 private:
-	DEFUALT_USD_SIZE = 100;
-	DEFUALT_LEVERAGE = 10;
-
-	DEFUALT_STOP_PROFIT_5M = 0.02;
-	DEFUALT_STOP_PROFIT_1H = 0.02;
-	DEFUALT_STOP_PROFIT_4H = 0.02;
-	DEFUALT_STOP_PROFIT_1D = 0.02;
+    static constexpr double DEFUALT_USD_SIZE = 100;
+    static constexpr double DEFUALT_LEVERAGE = 10;
+    static constexpr double DEFUALT_STOP_PROFIT_5M = 0.02;
+    static constexpr double DEFUALT_STOP_PROFIT_1H = 0.02;
+    static constexpr double DEFUALT_STOP_PROFIT_4H = 0.02;
+    static constexpr double DEFUALT_STOP_PROFIT_1D = 0.02;
 
 	bool strategyConsistentBullish(Candlesticks candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);

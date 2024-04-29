@@ -29,15 +29,14 @@ struct Position {
 class Positions {
 private:
 	std::unordered_map<string, Position> positions;
+	std::unordered_map<string, Token>& GMX_tokens;
 
 	double totalExposureUSD;
 
 	int MAX_POSITIONS = 5;
 
-	unordered_map<string, Token>& GMX_tokens;
-
 public:
-    Positions(unordered_map<string, Token>& GMX_tokens) : tokens(GMX_tokens) {}
+    Positions(unordered_map<string, Token>& GMX_tokens) : GMX_tokens(GMX_tokens) {}
 
 	Position& operator[](const string& key) {
 		return positions[key];
@@ -90,11 +89,11 @@ public:
 		return positions[tokenName];
 	}
 
-	double getCurrentPrice(const string& tokenName, const string& timeFrame) {
+	double getCurrentPriceForToken(const string& tokenName, const string& timeFrame) {
 		return GMX_tokens[tokenName].getCandlesticks(timeFrame).getCurrentPrice();
 	}
 
-	std::string toStringPositions() const {
+	std::string toStringPositions() {
 		std::string log;
 		double totalProfit = 0.0;
 
@@ -102,7 +101,7 @@ public:
 		log += "Total Positions: " + std::to_string(positions.size()) + "\n";
 
 		for (const auto& [positionId, position] : positions) {
-			string currentPrice = to_string(getCurrentPrice(position.tokenName, position.timeFrame));
+			double currentPrice = getCurrentPriceForToken(position.tokenName, position.timeFrame);
 
 			double profitPercent = (position.positionDirection == "Long") ? 
 									(currentPrice - position.entryPrice) / position.entryPrice :
