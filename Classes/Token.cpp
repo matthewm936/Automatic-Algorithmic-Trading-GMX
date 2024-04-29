@@ -36,4 +36,17 @@ class Token {
 		Candlesticks& getCandlesticks(string timeframe) {
 			return timeframeCandlesticks[timeframe];
 		}
+
+		string toStringToken() {
+			string output;
+
+			output += "Token: " + token + "\n";
+			output += "Timeframes: \n";
+
+			for(const auto& [key, value] : timeframeCandlesticks) {
+				output += "Timeframe: " + key + "\n";
+				output += "Current Price: " + std::to_string(timeframeCandlesticks[key].getCurrentPrice()) + "\n";
+			}
+			return output;
+		}
 };

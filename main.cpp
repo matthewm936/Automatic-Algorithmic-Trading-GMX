@@ -45,7 +45,7 @@ void checkWifi() {
 		} else {
 			Log::logError("Attempted to reconnect to WiFi");
 		}
-		sleep(60); // Wait for 10 minutes before trying again
+		sleep(60); 
 	}
 	cout << "WiFi CONNECTION GOOGLE DNS" << endl;
 }
@@ -113,7 +113,6 @@ int main() {
 					candlesticks.checkCandleCorrectness();
 
 					trade.trade(candlesticks);
-					Log::logState(candlesticks.toStringCandlesticks(), "candlesticks.txt");
 				}
 			}
 

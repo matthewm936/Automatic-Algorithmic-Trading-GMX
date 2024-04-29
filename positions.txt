@@ -1,22 +1,13 @@
 Total Exposure USD: 100.000000
 Total Positions: 1
 NEAR_1h Token Name: NEAR
+NEAR_1h Time Frame: 1h
 NEAR_1h Position Direction: short
-NEAR_1h Entry Price: 6.947834
-NEAR_1h Current Price: 6.970543
-NEAR_1h Profit%: -0.003269
-NEAR_1h Distance to Stop Loss%: 0.016677
-NEAR_1h Distance to Take Profit%: -0.023193
-Total Profit%: -0.003269
+NEAR_1h Entry Price: 6.756523
+NEAR_1h Current Price: 6.756523
+NEAR_1h Profit%: 0.000000
+NEAR_1h Distance to Stop Loss%: 0.020000
+NEAR_1h Distance to Take Profit%: -0.020000
+Total Profit%: 0.000000
 
-Total Exposure USD: 100.000000
-Total Positions: 1
-NEAR_1h Token Name: NEAR
-NEAR_1h Position Direction: short
-NEAR_1h Entry Price: 6.947834
-NEAR_1h Current Price: 6.970543
-NEAR_1h Profit%: -0.003269
-NEAR_1h Distance to Stop Loss%: 0.016677
-NEAR_1h Distance to Take Profit%: -0.023193
-Total Profit%: -0.003269
--------------- Last Updated: 2024-04-28 20:25:09 --------------
+-------------- Last Updated MST: 2024-04-29 06:59:41 --------------
