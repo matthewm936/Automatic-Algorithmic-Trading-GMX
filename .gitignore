@@ -6,9 +6,9 @@ gmx-api/token-candles.json
 main.exe
 node_modules
 
-candlesticks.txt
+positions.txt
+error_log.txt
+
 log*
-log.txt
-trades.txt
 
 config.yaml
