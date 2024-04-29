@@ -56,12 +56,10 @@ void Log::clearLogFiles() {
 	checkLogFile();
 	std::ofstream file(currentFilename, std::ios_base::trunc);
 	std::ofstream errorFile("error_log.txt", std::ios_base::trunc);
-	std::ofstream candlesticks("candlesticks.txt", std::ios_base::trunc);
 	std::ofstream positions("positions.txt", std::ios_base::trunc);
 	
 	file.close();
 	errorFile.close();
-	candlesticks.close();
 	positions.close();
 }
 

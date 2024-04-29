@@ -7,8 +7,12 @@ main.exe
 node_modules
 
 positions.txt
+
 error_log.txt
 
 log*
 
 config.yaml
+
+gmx_python_sdk/*
+gmx_python_sdk
