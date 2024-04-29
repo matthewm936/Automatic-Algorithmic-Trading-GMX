@@ -3,6 +3,14 @@
 
 class Trade {
 private:
+	DEFUALT_USD_SIZE = 100;
+	DEFUALT_LEVERAGE = 10;
+
+	DEFUALT_STOP_PROFIT_5M = 0.02;
+	DEFUALT_STOP_PROFIT_1H = 0.02;
+	DEFUALT_STOP_PROFIT_4H = 0.02;
+	DEFUALT_STOP_PROFIT_1D = 0.02;
+
 	bool strategyConsistentBullish(Candlesticks candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
 	
@@ -13,11 +21,11 @@ private:
 		bullish += (candlesticks.higherOpensPercent == 1);
 		bullish += (candlesticks.higherClosesPercent == 1);
 	
-		return (bullish > 4);
+		return (bullish >= 4);
 	}
 	
 	bool strategyConsistentBearish(Candlesticks candlesticks) {
-		candlesticks.calculateCandleStatistics(1, 4);
+		candlesticks.calculateCandleStatistics(0, 3);
 	
 		int bearish = 0;
 		bearish += (candlesticks.redCandlePercent == 1);
@@ -26,55 +34,44 @@ private:
 		bearish += (candlesticks.lowerOpensPercent == 1);
 		bearish += (candlesticks.lowerClosesPercent == 1);
 	
-		return (bearish > 4);
+		return (bearish >= 4);
 	}
-	
+
 	double calculateStopProfit(const Candlesticks candlesticks) {
-		if(candlesticks.getTimeFrame() == "5m") return 0.01;
-		else if(candlesticks.getTimeFrame() == "1h") return 0.02;
-		else if(candlesticks.getTimeFrame() == "4h") return 0.04;
-		else if(candlesticks.getTimeFrame() == "1d") return 0.08;
-		else return -1;
-	}
-
-	double calculateSizeUSD() {
-		return 100;
-	}
-
-	int calcualteLeverage(const Candlesticks candlesticks) {
-		if(candlesticks.getTimeFrame() == "5m") return 5;
-		else if(candlesticks.getTimeFrame() == "1h") return 10;
-		else if(candlesticks.getTimeFrame() == "4h") return 10;
-		else if(candlesticks.getTimeFrame() == "1d") return 10;
-		else return -1;	
+		if(candlesticks.getTimeFrame() == "5m") {
+			return DEFUALT_STOP_PROFIT_5M;
+		} else if(candlesticks.getTimeFrame() == "1h") {
+		return DEFUALT_STOP_PROFIT_1H;
+		} else if(candlesticks.getTimeFrame() == "4h") {
+			return DEFUALT_STOP_PROFIT_4H;
+		} else if(candlesticks.getTimeFrame() == "1d") {
+			return DEFUALT_STOP_PROFIT_1D;
+		} else {
+			Log::logError("Invalid time frame");
+			return 0;
+		}
 	}
 
 	void buyLong(const Candlesticks candlesticks) {
 		//actually long
 		double currentPrice = candlesticks.getCurrentPrice();
 
-		double sizeUSD = calculateSizeUSD();
-		int leverage = calcualteLeverage(candlesticks);
-
 		double stopProfit = calculateStopProfit(candlesticks);
 		double stopLoss = currentPrice * (1 - stopProfit);
 		double takeProfit = currentPrice * (1 + stopProfit);
 
-		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", currentPrice, takeProfit, stopLoss, DEFUALT_USD_SIZE, DEFUALT_LEVERAGE);
 	}
 
 	void sellShort(const Candlesticks candlesticks) {
 		//actually short
 		double currentPrice = candlesticks.getCurrentPrice();
 
-		double sizeUSD = calculateSizeUSD();
-		int leverage = calcualteLeverage(candlesticks);
-
 		double stopProfit = calculateStopProfit(candlesticks);
 		double stopLoss = currentPrice * (1 + stopProfit);
 		double takeProfit = currentPrice * (1 - stopProfit);
 
-		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", currentPrice, takeProfit, stopLoss, sizeUSD, leverage);
+		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", currentPrice, takeProfit, stopLoss, DEFUALT_USD_SIZE, DEFUALT_LEVERAGE);
 	}
 
 public:
