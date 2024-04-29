@@ -1,6 +1,5 @@
 .env
 run
-prices.json
 
 run.exe
 gmx-api/token-candles.json
