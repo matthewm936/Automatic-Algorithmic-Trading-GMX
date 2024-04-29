@@ -110,6 +110,7 @@ public:
 			totalProfit += profitPercent;
 
 			log += positionId + " Token Name: " + position.tokenName + "\n";
+			log += positionId + " Time Frame: " + position.timeFrame + "\n";
 			log += positionId + " Position Direction: " + position.positionDirection + "\n";
 			log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
 			log += positionId + " Current Price: " + std::to_string(currentPrice) + "\n";

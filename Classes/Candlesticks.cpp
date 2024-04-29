@@ -241,7 +241,7 @@ class Candlesticks {
 			return candles;
 		}
 
-		std::string toStringCandlesticks() const {
+		std::string toStringCandlesticks() const { //FIXME TODO
 			std::map<string, string> currentState = {
 				{"\t" + token + timeFrame + "\tsize", to_string(candles.size())},
 				{"\t" + token + timeFrame + "\tprice", to_string(getCurrentPrice())},

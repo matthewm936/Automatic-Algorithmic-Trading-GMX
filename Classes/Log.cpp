@@ -104,7 +104,7 @@ void Log::logState(string log, string filename) {
 	std::ofstream file(filename, std::ios_base::trunc);
 
 	file << log << "\n";
-	file << log << "-------------- Last Updated: " + time.getMSTTime() + " --------------\n";
+	file << "-------------- Last Updated: " + time.getMSTTime() + " --------------\n";
 }
 
 void Log::logError(string log, bool emailFlag = false, bool timestampFlag = false) {

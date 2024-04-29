@@ -114,9 +114,11 @@ int main() {
 
 					trade.trade(candlesticks);
 					Log::logState(candlesticks.toStringCandlesticks(), "candlesticks.txt");
-					Log::logState(positions.toStringPositions(), "positions.txt");
 				}
 			}
+
+			Log::logState(positions.toStringPositions(), "positions.txt");
+
 		} catch (const std::exception& e) {
 			Log::logError("Error: " + string(e.what()), true);
 			std::cerr << "Error: " << e.what() << '\n';
