@@ -80,7 +80,8 @@ public:
 
 	void trade(const Candlesticks candlesticks) {
 		if(positions.exists(candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame())) {
-			return; // this logic is repeated twice, once here and again is positions to not enter into a postiion again, not sure which I want
+			Log::log("Position already exists, attempting to trade " + candlesticks.getTokenName() + " " + candlesticks.getTimeFrame());
+			return; 
 		}
 		if(strategyConsistentBullish(candlesticks)) {
 			buyLong(candlesticks);

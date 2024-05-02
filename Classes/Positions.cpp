@@ -76,12 +76,7 @@ public:
 	}
 
 	void addPosition(const string& tokenName, const string& timeFrame, string direction, double entryPrice, double takeProfit, double stopLoss, double sizeUSD, int leverage) {
-		string positionId = tokenName + "_" + timeFrame;  // Concatenate tokenName and timeFrame
-
-		if (positions.find(positionId) != positions.end()) {
-			Log::log("Position already exists, attempting to " + direction + " " + tokenName + " " + timeFrame);
-			return;
-		}
+		string positionId = tokenName + "_" + timeFrame;
 
 		positions.emplace(positionId, Position{
 			.tokenName = tokenName,
