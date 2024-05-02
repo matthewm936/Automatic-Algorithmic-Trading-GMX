@@ -114,7 +114,7 @@ public:
 		log += "Total Exposure USD: " + std::to_string(totalExposureUSD) + "\n";
 		log += "Total Positions: " + std::to_string(positions.size()) + "\n";
 
-		for (const auto& [positionId, position] : positions) {
+		for (auto& [positionId, position] : positions) {
 			double currentPrice = getCurrentPriceForToken(position.tokenName, position.timeFrame);
 
 			double profitPercent = (position.positionDirection == "Long") ? 
