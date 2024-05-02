@@ -54,8 +54,6 @@ private:
 
 	double totalExposureUSD;
 
-	int MAX_POSITIONS = 5;
-
 public:
     Positions(unordered_map<string, Token>& GMX_tokens) : GMX_tokens(GMX_tokens) {}
 
