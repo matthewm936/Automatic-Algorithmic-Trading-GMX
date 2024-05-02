@@ -8,6 +8,22 @@
 
 using std::string;
 
+std::string formatDuration(time_t duration) {
+    const time_t minute = 60;
+    const time_t hour = 60 * minute;
+    const time_t day = 24 * hour;
+
+    std::stringstream ss;
+    if (duration < hour) {
+        ss << duration / minute << " minutes";
+    } else if (duration < day) {
+        ss << duration / hour << " hours";
+    } else {
+        ss << duration / day << " days";
+    }
+    return ss.str();
+}
+
 struct Position {
 	string tokenName;
 	string timeFrame;
@@ -23,7 +39,12 @@ struct Position {
 
 	time_t entryTime;
 
+	time_t positionDuration;
+
 	double profitLoss;
+
+	double highestProfit;
+	double highestLoss;
 };
 
 class Positions {
@@ -109,12 +130,21 @@ public:
 
 			totalProfit += profitPercent;
 
-			log += positionId + " Token Name: " + position.tokenName + "\n";
-			log += positionId + " Time Frame: " + position.timeFrame + "\n";
-			log += positionId + " Position Direction: " + position.positionDirection + "\n";
+			if(profitPercent > position.highestProfit) {
+				position.highestProfit = profitPercent;
+			}
+			if(profitPercent < position.highestLoss) {
+				position.highestLoss = profitPercent;
+			}
+			position.positionDuration = time(NULL) - position.entryTime;
+
+			log += positionId + " position direction: " + position.positionDirection + "\n";
+			log += positionId + " duration " + formatDuration(position.positionDuration) + "\n";
 			log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
 			log += positionId + " Current Price: " + std::to_string(currentPrice) + "\n";
-			log += positionId + " Profit%: " + std::to_string(profitPercent) + "\n";
+			log += positionId + " Profit %: " + std::to_string(profitPercent) + "\n";
+			log += positionId + " Highest Profit%: " + std::to_string(position.highestProfit) + "\n";
+			log += positionId + " Highest Loss%: " + std::to_string(position.highestLoss) + "\n";
 			log += positionId + " Distance to Stop Loss%: " + std::to_string((position.stopLoss - currentPrice) / currentPrice) + "\n";
 			log += positionId + " Distance to Take Profit%: " + std::to_string((position.takeProfit - currentPrice) / currentPrice) + "\n";
 		}
