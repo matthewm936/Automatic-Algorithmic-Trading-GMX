@@ -3,8 +3,8 @@
 
 class Trade {
 private:
-    static constexpr double DEFUALT_USD_SIZE = 200;
-    static constexpr double DEFUALT_LEVERAGE = 2;
+    static constexpr double DEFUALT_USD_SIZE = 80;
+    static constexpr double DEFUALT_LEVERAGE = 4;
     static constexpr double DEFUALT_STOP_PROFIT_5M = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_1H = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_4H = 0.02;
@@ -80,7 +80,6 @@ public:
 
 	void trade(const Candlesticks candlesticks) {
 		if(positions.exists(candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame())) {
-			Log::log("Position already exists, attempting to trade " + candlesticks.getTokenName() + " " + candlesticks.getTimeFrame());
 			return; 
 		}
 		if(strategyConsistentBullish(candlesticks)) {
