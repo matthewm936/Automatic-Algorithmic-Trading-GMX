@@ -98,11 +98,16 @@ void Log::LogWithTimestamp(string log) {
 void Log::logState(string log, string filename) {
 	Time time;
 
-	checkLogFile();
 	std::ofstream file(filename, std::ios_base::trunc);
 
 	file << log << "\n";
 	file << "-------------- Last Updated MST: " + time.getMSTTime() + " --------------\n";
+}
+
+void Log::logTrade(string log) {
+	std::ofstream file("trade_log.txt", std::ios_base::app);
+
+	file << log << "\n";
 }
 
 void Log::logError(string log, bool emailFlag = false, bool timestampFlag = false) {

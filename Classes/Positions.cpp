@@ -107,6 +107,15 @@ public:
 		return GMX_tokens[tokenName].getCandlesticks(timeFrame).getCurrentPrice();
 	}
 
+	string getPositionDuration(string positionId) {
+		auto it = positions.find(positionId);
+		if (it != positions.end()) {
+			Position& position = it->second;
+			return formatDuration(position.positionDuration);
+		}
+		return "Position not found";
+	}
+
 	std::string toStringPositions() {
 		std::string log;
 		double totalProfit = 0.0;
@@ -129,10 +138,10 @@ public:
 			if(profitPercent < position.highestLoss) {
 				position.highestLoss = profitPercent;
 			}
-			position.positionDuration = time(NULL) - position.entryTime;
+			position.positionDuration = ;
 
 			log += positionId + " position direction: " + position.positionDirection + "\n";
-			log += positionId + " duration " + formatDuration(position.positionDuration) + "\n";
+			log += positionId + " duration " + getPositionDuration(positionId) + "\n";
 			log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
 			log += positionId + " Current Price: " + std::to_string(currentPrice) + "\n";
 			log += positionId + " Profit %: " + std::to_string(profitPercent) + "\n";

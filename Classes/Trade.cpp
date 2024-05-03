@@ -10,7 +10,7 @@ private:
     static constexpr double DEFUALT_STOP_PROFIT_4H = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_1D = 0.02;
 
-	bool strategyConsistentBullish(Candlesticks candlesticks) {
+	bool strategyConsistentBullish(const Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
 	
 		int bullish = 0;
@@ -23,7 +23,7 @@ private:
 		return (bullish >= 4);
 	}
 	
-	bool strategyConsistentBearish(Candlesticks candlesticks) {
+	bool strategyConsistentBearish(cosnt Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(0, 3);
 	
 		int bearish = 0;
@@ -36,22 +36,24 @@ private:
 		return (bearish >= 4);
 	}
 
-	double calculateStopProfit(const Candlesticks candlesticks) {
-		if(candlesticks.getTimeFrame() == "5m") {
-			return DEFUALT_STOP_PROFIT_5M;
-		} else if(candlesticks.getTimeFrame() == "1h") {
-		return DEFUALT_STOP_PROFIT_1H;
-		} else if(candlesticks.getTimeFrame() == "4h") {
-			return DEFUALT_STOP_PROFIT_4H;
-		} else if(candlesticks.getTimeFrame() == "1d") {
-			return DEFUALT_STOP_PROFIT_1D;
+	double calculateStopProfit(const Candlesticks& candlesticks) {
+		static const std::map<std::string, double> stopProfits = {
+			{"5m", DEFUALT_STOP_PROFIT_5M},
+			{"1h", DEFUALT_STOP_PROFIT_1H},
+			{"4h", DEFUALT_STOP_PROFIT_4H},
+			{"1d", DEFUALT_STOP_PROFIT_1D}
+		};
+
+		auto it = stopProfits.find(candlesticks.getTimeFrame());
+		if (it != stopProfits.end()) {
+			return it->second;
 		} else {
 			Log::logError("Invalid time frame");
 			return 0;
 		}
 	}
 
-	void buyLong(const Candlesticks candlesticks) {
+	void buyLong(const Candlesticks& candlesticks) {
 		//actually long
 		double currentPrice = candlesticks.getCurrentPrice();
 
@@ -62,7 +64,7 @@ private:
 		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", currentPrice, takeProfit, stopLoss, DEFUALT_USD_SIZE, DEFUALT_LEVERAGE);
 	}
 
-	void sellShort(const Candlesticks candlesticks) {
+	void sellShort(const Candlesticks& candlesticks) {
 		//actually short
 		double currentPrice = candlesticks.getCurrentPrice();
 
@@ -78,19 +80,44 @@ public:
 
 	Trade(Positions& positions) : positions(positions) {}
 
-	void trade(const Candlesticks candlesticks) {
-		if(positions.exists(candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame())) {
-			return; 
+	void trade(const Candlesticks& candlesticks) {
+		string positionKey = candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame();
+	
+		if(positions.exists(positionKey)) {
+			Position& currentPosition = positions.getPosition(positionKey);
+			string positionDirection = currentPosition.positionDirection;
+			double currentPrice = candlesticks.getCurrentPrice();
+			string positionDuration = positions.getPositionDuration(positionKey);
+	
+			if(positionDirection == "long") {
+				if(currentPrice >= currentPosition.takeProfit) {
+					positions.removePosition(positionKey);
+					Log::logTrade("Take Profit Long " + positionKey + " " + positionDuration);
+				}
+				if(currentPrice <= currentPosition.stopLoss) {
+					positions.removePosition(positionKey);
+					Log::logTrade("Stop Loss Long " + positionKey + " " + positionDuration);
+				}
+			}
+			else if(positionDirection == "short") {
+				if(currentPrice <= currentPosition.takeProfit) {
+					positions.removePosition(positionKey);
+					Log::logTrade("Take Profit Short " + positionKey + " " + positionDuration);
+				}
+				if(currentPrice >= currentPosition.stopLoss) {
+					positions.removePosition(positionKey);
+					Log::logTrade("Stop Loss Short " + positionKey + " " + positionDuration);
+				}
+			}
+			return;
 		}
 		if(strategyConsistentBullish(candlesticks)) {
 			buyLong(candlesticks);
-			
-			Log::log("Long " + candlesticks.getTokenName());	
+			Log::log("Long " + positionKey);	
 		}
 		if(strategyConsistentBearish(candlesticks)) {
 			sellShort(candlesticks);
-			
-			Log::log("Short " + candlesticks.getTokenName());	
+			Log::log("Short " + positionKey);	
 		}
 	}
 };
