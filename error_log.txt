@@ -1,2 +1,72 @@
 CANDLE ERROR; Open: 10.046915 High: 10.040903 open larger by:0.006012
 Setting high to the open: 10.046915 High: 10.046915
+CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
+Setting low to the close: 565.576950 Low: 565.576950
+CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
+Setting low to the close: 0.132458 Low: 0.132458
+CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
+Setting low to the close: 6.179806 Low: 6.179806
+CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
+Setting low to the close: 565.576950 Low: 565.576950
+CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
+Setting low to the close: 0.132458 Low: 0.132458
+CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
+Setting low to the close: 6.179806 Low: 6.179806
+CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
+Setting low to the close: 565.576950 Low: 565.576950
+CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
+Setting low to the close: 0.132458 Low: 0.132458
+CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
+Setting low to the close: 6.179806 Low: 6.179806
+CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
+Setting low to the close: 565.576950 Low: 565.576950
+CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
+Setting low to the close: 0.132458 Low: 0.132458
+CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
+Setting low to the close: 6.179806 Low: 6.179806
+CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
+Setting low to the close: 565.576950 Low: 565.576950
+CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
+Setting low to the close: 0.132458 Low: 0.132458
+CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
+Setting low to the close: 6.179806 Low: 6.179806
+CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
+Setting low to the close: 2979.088007 Low: 2979.088007
+CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
+Setting low to the close: 2979.088007 Low: 2979.088007
+CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
+Setting low to the close: 2979.088007 Low: 2979.088007
+CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
+Setting low to the close: 2979.088007 Low: 2979.088007
+CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
+Setting low to the close: 2979.088007 Low: 2979.088007
+CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
+Setting low to the close: 2.871315 Low: 2.871315
+CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
+Setting low to the close: 2.871315 Low: 2.871315
+CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
+Setting low to the close: 2.871315 Low: 2.871315
+CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
+Setting low to the close: 2.871315 Low: 2.871315
+CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
+Setting low to the close: 2.871315 Low: 2.871315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
+Setting low to the close: 3076.498315 Low: 3076.498315

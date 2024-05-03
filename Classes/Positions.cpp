@@ -111,6 +111,7 @@ public:
 		auto it = positions.find(positionId);
 		if (it != positions.end()) {
 			Position& position = it->second;
+			position.positionDuration = time(NULL) - position.entryTime;
 			return formatDuration(position.positionDuration);
 		}
 		return "Position not found";

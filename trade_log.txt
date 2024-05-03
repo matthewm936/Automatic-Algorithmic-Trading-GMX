@@ -1,0 +1,15 @@
+Stop Loss Short ATOM_1h 0 minutes
+Stop Loss Short DOGE_1h 0 minutes
+Stop Loss Short AVAX_1h 0 minutes
+Stop Loss Short NEAR_1h 0 minutes
+Stop Loss Short SOL_1h 0 minutes
+Stop Loss Short AAVE_1h 0 minutes
+Stop Loss Short BTC_1h 0 minutes
+Stop Loss Short BNB_1h 0 minutes
+Stop Loss Short LTC_1h 0 minutes
+Stop Loss Short ETH_1h 0 minutes
+Stop Loss Short LINK_1h 0 minutes
+Stop Loss Short ARB_1h 0 minutes
+Stop Loss Long OP_4h 0 minutes
+Take Profit Long NEAR_1h 0 minutes
+Take Profit Long UNI_1h 0 minutes
