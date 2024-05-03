@@ -10,7 +10,7 @@ private:
     static constexpr double DEFUALT_STOP_PROFIT_4H = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_1D = 0.02;
 
-	bool strategyConsistentBullish(const Candlesticks& candlesticks) {
+	bool strategyConsistentBullish(Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(1, 4);
 	
 		int bullish = 0;
@@ -23,7 +23,7 @@ private:
 		return (bullish >= 4);
 	}
 	
-	bool strategyConsistentBearish(cosnt Candlesticks& candlesticks) {
+	bool strategyConsistentBearish(Candlesticks& candlesticks) {
 		candlesticks.calculateCandleStatistics(0, 3);
 	
 		int bearish = 0;
@@ -80,7 +80,7 @@ public:
 
 	Trade(Positions& positions) : positions(positions) {}
 
-	void trade(const Candlesticks& candlesticks) {
+	void trade(Candlesticks& candlesticks) {
 		string positionKey = candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame();
 	
 		if(positions.exists(positionKey)) {

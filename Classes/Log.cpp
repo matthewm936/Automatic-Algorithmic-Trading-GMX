@@ -26,6 +26,7 @@ public:
 	static void logAndEmail(string log);
 	static void LogWithTimestamp(string log);
 	static void logState(string log, string filename);
+	static void logTrade(string log);
 	static void logError(string log, bool emailFlag, bool timestampFlag);
 };
 

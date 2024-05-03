@@ -138,7 +138,6 @@ public:
 			if(profitPercent < position.highestLoss) {
 				position.highestLoss = profitPercent;
 			}
-			position.positionDuration = ;
 
 			log += positionId + " position direction: " + position.positionDirection + "\n";
 			log += positionId + " duration " + getPositionDuration(positionId) + "\n";
