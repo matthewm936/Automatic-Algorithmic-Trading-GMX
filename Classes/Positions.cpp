@@ -17,9 +17,20 @@ std::string formatDuration(time_t duration) {
     if (duration < hour) {
         ss << duration / minute << " minutes";
     } else if (duration < day) {
-        ss << duration / hour << " hours";
+        time_t hours = duration / hour;
+        time_t minutes = (duration % hour) / minute;
+        ss << hours << " hours";
+        if (minutes > 0)
+            ss << " and " << minutes << " minutes";
     } else {
-        ss << duration / day << " days";
+        time_t days = duration / day;
+        time_t hours = (duration % day) / hour;
+        time_t minutes = ((duration % day) % hour) / minute;
+        ss << days << " days";
+        if (hours > 0)
+            ss << " and " << hours << " hours";
+        if (minutes > 0)
+            ss << " and " << minutes << " minutes";
     }
     return ss.str();
 }

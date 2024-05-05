@@ -55,8 +55,9 @@ def get_filenames():
 		log_filename = get_log_filename()
 		error_log_filename = '/home/johnsmith/Trading/Algorithmic-Trading/error_log.txt'
 		positions_filename = '/home/johnsmith/Trading/Algorithmic-Trading/positions.txt'
+		trade_log_filename = '/home/johnsmith/Trading/Algorithmic-Trading/trade_log.txt'
 		
-		return log_filename, error_log_filename, positions_filename
+		return log_filename, error_log_filename, positions_filename, trade_log_filename
 	except Exception as e:
 		print(f"An error occurred while getting the filenames: {e}")
 		return None

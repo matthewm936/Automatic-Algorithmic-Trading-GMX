@@ -1,72 +1,476 @@
 CANDLE ERROR; Open: 10.046915 High: 10.040903 open larger by:0.006012
 Setting high to the open: 10.046915 High: 10.046915
-CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
-Setting low to the close: 565.576950 Low: 565.576950
-CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
-Setting low to the close: 0.132458 Low: 0.132458
-CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
-Setting low to the close: 6.179806 Low: 6.179806
-CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
-Setting low to the close: 565.576950 Low: 565.576950
-CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
-Setting low to the close: 0.132458 Low: 0.132458
-CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
-Setting low to the close: 6.179806 Low: 6.179806
-CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
-Setting low to the close: 565.576950 Low: 565.576950
-CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
-Setting low to the close: 0.132458 Low: 0.132458
-CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
-Setting low to the close: 6.179806 Low: 6.179806
-CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
-Setting low to the close: 565.576950 Low: 565.576950
-CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
-Setting low to the close: 0.132458 Low: 0.132458
-CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
-Setting low to the close: 6.179806 Low: 6.179806
-CANDLE ERROR; Close: 565.576950 Low: 565.586521 close less by:0.000000
-Setting low to the close: 565.576950 Low: 565.576950
-CANDLE ERROR; Close: 0.132458 Low: 0.132458 close less by:0.000000
-Setting low to the close: 0.132458 Low: 0.132458
-CANDLE ERROR; Close: 6.179806 Low: 6.180367 close less by:0.000000
-Setting low to the close: 6.179806 Low: 6.179806
-CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
-Setting low to the close: 2979.088007 Low: 2979.088007
-CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
-Setting low to the close: 2979.088007 Low: 2979.088007
-CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
-Setting low to the close: 2979.088007 Low: 2979.088007
-CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
-Setting low to the close: 2979.088007 Low: 2979.088007
-CANDLE ERROR; Close: 2979.088007 Low: 2979.257000 close less by:0.000000
-Setting low to the close: 2979.088007 Low: 2979.088007
-CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
-Setting low to the close: 2.871315 Low: 2.871315
-CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
-Setting low to the close: 2.871315 Low: 2.871315
-CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
-Setting low to the close: 2.871315 Low: 2.871315
-CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
-Setting low to the close: 2.871315 Low: 2.871315
-CANDLE ERROR; Close: 2.871315 Low: 2.871658 close less by:0.000000
-Setting low to the close: 2.871315 Low: 2.871315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
-CANDLE ERROR; Close: 3076.498315 Low: 3076.572297 close less by:0.000000
-Setting low to the close: 3076.498315 Low: 3076.498315
+CANDLE ERROR; Close: 3069.125850 Low: 3069.170700 close less by:0.000000
+Setting low to the close: 3069.125850 Low: 3069.125850
+CANDLE ERROR; Close: 3069.125850 Low: 3069.170700 close less by:0.000000
+Setting low to the close: 3069.125850 Low: 3069.125850
+CANDLE ERROR; Close: 3069.125850 Low: 3069.170700 close less by:0.000000
+Setting low to the close: 3069.125850 Low: 3069.125850
+CANDLE ERROR; Close: 3069.125850 Low: 3069.170700 close less by:0.000000
+Setting low to the close: 3069.125850 Low: 3069.125850
+CANDLE ERROR; Close: 3069.125850 Low: 3069.170700 close less by:0.000000
+Setting low to the close: 3069.125850 Low: 3069.125850
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 0.530828 Low: 0.530886 close less by:0.000000
+Setting low to the close: 0.530828 Low: 0.530828
+CANDLE ERROR; Close: 35.589936 Low: 35.596024 close less by:0.000000
+Setting low to the close: 35.589936 Low: 35.589936
+CANDLE ERROR; Close: 14.107505 Low: 14.109105 close less by:0.000000
+Setting low to the close: 14.107505 Low: 14.107505
+CANDLE ERROR; Close: 0.532833 Low: 0.532897 close less by:0.000000
+Setting low to the close: 0.532833 Low: 0.532833
+CANDLE ERROR; Close: 35.589936 Low: 35.596024 close less by:0.000000
+Setting low to the close: 35.589936 Low: 35.589936
+CANDLE ERROR; Close: 14.107505 Low: 14.109105 close less by:0.000000
+Setting low to the close: 14.107505 Low: 14.107505
+CANDLE ERROR; Close: 0.532833 Low: 0.532897 close less by:0.000000
+Setting low to the close: 0.532833 Low: 0.532833
+CANDLE ERROR; Close: 35.589936 Low: 35.596024 close less by:0.000000
+Setting low to the close: 35.589936 Low: 35.589936
+CANDLE ERROR; Close: 14.107505 Low: 14.109105 close less by:0.000000
+Setting low to the close: 14.107505 Low: 14.107505
+CANDLE ERROR; Close: 0.532833 Low: 0.532897 close less by:0.000000
+Setting low to the close: 0.532833 Low: 0.532833
+CANDLE ERROR; Close: 35.589936 Low: 35.596024 close less by:0.000000
+Setting low to the close: 35.589936 Low: 35.589936
+CANDLE ERROR; Close: 14.107505 Low: 14.109105 close less by:0.000000
+Setting low to the close: 14.107505 Low: 14.107505
+CANDLE ERROR; Close: 0.532833 Low: 0.532897 close less by:0.000000
+Setting low to the close: 0.532833 Low: 0.532833
+CANDLE ERROR; Close: 35.589936 Low: 35.596024 close less by:0.000000
+Setting low to the close: 35.589936 Low: 35.589936
+CANDLE ERROR; Close: 14.107505 Low: 14.109105 close less by:0.000000
+Setting low to the close: 14.107505 Low: 14.107505
+CANDLE ERROR; Close: 0.532833 Low: 0.532897 close less by:0.000000
+Setting low to the close: 0.532833 Low: 0.532833
+CANDLE ERROR; Close: 35.555585 Low: 35.560362 close less by:0.000000
+Setting low to the close: 35.555585 Low: 35.555585
+CANDLE ERROR; Close: 14.078729 Low: 14.079672 close less by:0.000000
+Setting low to the close: 14.078729 Low: 14.078729
+CANDLE ERROR; Close: 6.872864 Low: 6.873666 close less by:0.000000
+Setting low to the close: 6.872864 Low: 6.872864
+CANDLE ERROR; Close: 7.607938 Low: 7.609105 close less by:0.000000
+Setting low to the close: 7.607938 Low: 7.607938
+CANDLE ERROR; Close: 0.533518 Low: 0.533578 close less by:0.000000
+Setting low to the close: 0.533518 Low: 0.533518
+CANDLE ERROR; Close: 35.555585 Low: 35.560362 close less by:0.000000
+Setting low to the close: 35.555585 Low: 35.555585
+CANDLE ERROR; Close: 14.078729 Low: 14.079672 close less by:0.000000
+Setting low to the close: 14.078729 Low: 14.078729
+CANDLE ERROR; Close: 6.872864 Low: 6.873666 close less by:0.000000
+Setting low to the close: 6.872864 Low: 6.872864
+CANDLE ERROR; Close: 7.607938 Low: 7.609105 close less by:0.000000
+Setting low to the close: 7.607938 Low: 7.607938
+CANDLE ERROR; Close: 0.533518 Low: 0.533578 close less by:0.000000
+Setting low to the close: 0.533518 Low: 0.533518
+CANDLE ERROR; Close: 35.555585 Low: 35.560362 close less by:0.000000
+Setting low to the close: 35.555585 Low: 35.555585
+CANDLE ERROR; Close: 14.078729 Low: 14.079672 close less by:0.000000
+Setting low to the close: 14.078729 Low: 14.078729
+CANDLE ERROR; Close: 6.872864 Low: 6.873666 close less by:0.000000
+Setting low to the close: 6.872864 Low: 6.872864
+CANDLE ERROR; Close: 7.607938 Low: 7.609105 close less by:0.000000
+Setting low to the close: 7.607938 Low: 7.607938
+CANDLE ERROR; Close: 0.533518 Low: 0.533578 close less by:0.000000
+Setting low to the close: 0.533518 Low: 0.533518
+CANDLE ERROR; Close: 35.555585 Low: 35.560362 close less by:0.000000
+Setting low to the close: 35.555585 Low: 35.555585
+CANDLE ERROR; Close: 14.078729 Low: 14.079672 close less by:0.000000
+Setting low to the close: 14.078729 Low: 14.078729
+CANDLE ERROR; Close: 6.872864 Low: 6.873666 close less by:0.000000
+Setting low to the close: 6.872864 Low: 6.872864
+CANDLE ERROR; Close: 7.607938 Low: 7.609105 close less by:0.000000
+Setting low to the close: 7.607938 Low: 7.607938
+CANDLE ERROR; Close: 0.533518 Low: 0.533578 close less by:0.000000
+Setting low to the close: 0.533518 Low: 0.533518
+CANDLE ERROR; Close: 35.555585 Low: 35.560362 close less by:0.000000
+Setting low to the close: 35.555585 Low: 35.555585
+CANDLE ERROR; Close: 14.078729 Low: 14.079672 close less by:0.000000
+Setting low to the close: 14.078729 Low: 14.078729
+CANDLE ERROR; Close: 6.872864 Low: 6.873666 close less by:0.000000
+Setting low to the close: 6.872864 Low: 6.872864
+CANDLE ERROR; Close: 7.607938 Low: 7.609105 close less by:0.000000
+Setting low to the close: 7.607938 Low: 7.607938
+CANDLE ERROR; Close: 0.533518 Low: 0.533578 close less by:0.000000
+Setting low to the close: 0.533518 Low: 0.533518
+CANDLE ERROR; Close: 14.055735 Low: 14.055907 close less by:0.000000
+Setting low to the close: 14.055735 Low: 14.055735
+CANDLE ERROR; Close: 14.055735 Low: 14.055907 close less by:0.000000
+Setting low to the close: 14.055735 Low: 14.055735
+CANDLE ERROR; Close: 14.055735 Low: 14.055907 close less by:0.000000
+Setting low to the close: 14.055735 Low: 14.055735
+CANDLE ERROR; Close: 14.055735 Low: 14.055907 close less by:0.000000
+Setting low to the close: 14.055735 Low: 14.055735
+CANDLE ERROR; Close: 14.055735 Low: 14.055907 close less by:0.000000
+Setting low to the close: 14.055735 Low: 14.055735
+CANDLE ERROR; Close: 14.081718 Low: 14.082733 close less by:0.000000
+Setting low to the close: 14.081718 Low: 14.081718
+CANDLE ERROR; Close: 14.081718 Low: 14.082733 close less by:0.000000
+Setting low to the close: 14.081718 Low: 14.081718
+CANDLE ERROR; Close: 14.081718 Low: 14.082733 close less by:0.000000
+Setting low to the close: 14.081718 Low: 14.081718
+CANDLE ERROR; Close: 14.081718 Low: 14.082733 close less by:0.000000
+Setting low to the close: 14.081718 Low: 14.081718
+CANDLE ERROR; Close: 14.081718 Low: 14.082733 close less by:0.000000
+Setting low to the close: 14.081718 Low: 14.081718
+CANDLE ERROR; Close: 3096.673000 Low: 3096.680100 close less by:0.000000
+Setting low to the close: 3096.673000 Low: 3096.673000
+CANDLE ERROR; Close: 3096.673000 Low: 3096.680100 close less by:0.000000
+Setting low to the close: 3096.673000 Low: 3096.673000
+CANDLE ERROR; Close: 3096.673000 Low: 3096.680100 close less by:0.000000
+Setting low to the close: 3096.673000 Low: 3096.673000
+CANDLE ERROR; Close: 3096.673000 Low: 3096.680100 close less by:0.000000
+Setting low to the close: 3096.673000 Low: 3096.673000
+CANDLE ERROR; Close: 3096.673000 Low: 3096.680100 close less by:0.000000
+Setting low to the close: 3096.673000 Low: 3096.673000
+CANDLE ERROR; Close: 1.066137 Low: 1.066218 close less by:0.000000
+Setting low to the close: 1.066137 Low: 1.066137
+CANDLE ERROR; Close: 36.537428 Low: 36.543377 close less by:0.000000
+Setting low to the close: 36.537428 Low: 36.537428
+CANDLE ERROR; Close: 0.159597 Low: 0.159613 close less by:0.000000
+Setting low to the close: 0.159597 Low: 0.159597
+CANDLE ERROR; Close: 14.369492 Low: 14.370640 close less by:0.000000
+Setting low to the close: 14.369492 Low: 14.369492
+CANDLE ERROR; Close: 146.353014 Low: 146.368015 close less by:0.000000
+Setting low to the close: 146.353014 Low: 146.353014
+CANDLE ERROR; Close: 0.532845 Low: 0.532927 close less by:0.000000
+Setting low to the close: 0.532845 Low: 0.532845
+CANDLE ERROR; Close: 1.066137 Low: 1.066218 close less by:0.000000
+Setting low to the close: 1.066137 Low: 1.066137
+CANDLE ERROR; Close: 36.537428 Low: 36.543377 close less by:0.000000
+Setting low to the close: 36.537428 Low: 36.537428
+CANDLE ERROR; Close: 0.159597 Low: 0.159613 close less by:0.000000
+Setting low to the close: 0.159597 Low: 0.159597
+CANDLE ERROR; Close: 14.369492 Low: 14.370640 close less by:0.000000
+Setting low to the close: 14.369492 Low: 14.369492
+CANDLE ERROR; Close: 146.353014 Low: 146.368015 close less by:0.000000
+Setting low to the close: 146.353014 Low: 146.353014
+CANDLE ERROR; Close: 0.532845 Low: 0.532927 close less by:0.000000
+Setting low to the close: 0.532845 Low: 0.532845
+CANDLE ERROR; Close: 1.066137 Low: 1.066218 close less by:0.000000
+Setting low to the close: 1.066137 Low: 1.066137
+CANDLE ERROR; Close: 36.537428 Low: 36.543377 close less by:0.000000
+Setting low to the close: 36.537428 Low: 36.537428
+CANDLE ERROR; Close: 0.159597 Low: 0.159613 close less by:0.000000
+Setting low to the close: 0.159597 Low: 0.159597
+CANDLE ERROR; Close: 14.369492 Low: 14.370640 close less by:0.000000
+Setting low to the close: 14.369492 Low: 14.369492
+CANDLE ERROR; Close: 146.353014 Low: 146.368015 close less by:0.000000
+Setting low to the close: 146.353014 Low: 146.353014
+CANDLE ERROR; Close: 0.532845 Low: 0.532927 close less by:0.000000
+Setting low to the close: 0.532845 Low: 0.532845
+CANDLE ERROR; Close: 1.066137 Low: 1.066218 close less by:0.000000
+Setting low to the close: 1.066137 Low: 1.066137
+CANDLE ERROR; Close: 36.537428 Low: 36.543377 close less by:0.000000
+Setting low to the close: 36.537428 Low: 36.537428
+CANDLE ERROR; Close: 0.159597 Low: 0.159613 close less by:0.000000
+Setting low to the close: 0.159597 Low: 0.159597
+CANDLE ERROR; Close: 14.369492 Low: 14.370640 close less by:0.000000
+Setting low to the close: 14.369492 Low: 14.369492
+CANDLE ERROR; Close: 146.353014 Low: 146.368015 close less by:0.000000
+Setting low to the close: 146.353014 Low: 146.353014
+CANDLE ERROR; Close: 0.532845 Low: 0.532927 close less by:0.000000
+Setting low to the close: 0.532845 Low: 0.532845
+CANDLE ERROR; Close: 1.066137 Low: 1.066218 close less by:0.000000
+Setting low to the close: 1.066137 Low: 1.066137
+CANDLE ERROR; Close: 36.537428 Low: 36.543377 close less by:0.000000
+Setting low to the close: 36.537428 Low: 36.537428
+CANDLE ERROR; Close: 0.159597 Low: 0.159613 close less by:0.000000
+Setting low to the close: 0.159597 Low: 0.159597
+CANDLE ERROR; Close: 14.369492 Low: 14.370640 close less by:0.000000
+Setting low to the close: 14.369492 Low: 14.369492
+CANDLE ERROR; Close: 146.353014 Low: 146.368015 close less by:0.000000
+Setting low to the close: 146.353014 Low: 146.353014
+CANDLE ERROR; Close: 0.532845 Low: 0.532927 close less by:0.000000
+Setting low to the close: 0.532845 Low: 0.532845
+CANDLE ERROR; Close: 146.808356 Low: 146.814327 close less by:0.000000
+Setting low to the close: 146.808356 Low: 146.808356
+CANDLE ERROR; Close: 146.808356 Low: 146.814327 close less by:0.000000
+Setting low to the close: 146.808356 Low: 146.808356
+CANDLE ERROR; Close: 146.808356 Low: 146.814327 close less by:0.000000
+Setting low to the close: 146.808356 Low: 146.808356
+CANDLE ERROR; Close: 146.808356 Low: 146.814327 close less by:0.000000
+Setting low to the close: 146.808356 Low: 146.808356
+CANDLE ERROR; Close: 146.808356 Low: 146.814327 close less by:0.000000
+Setting low to the close: 146.808356 Low: 146.808356
+No WiFi connection
+Attempted to reconnect to WiFi
+CANDLE ERROR; Close: 63852.750605 Low: 63853.222496 close less by:0.000000
+Setting low to the close: 63852.750605 Low: 63852.750605
+CANDLE ERROR; Close: 14.363966 Low: 14.364642 close less by:0.000000
+Setting low to the close: 14.363966 Low: 14.363966
+CANDLE ERROR; Close: 63852.750605 Low: 63853.222496 close less by:0.000000
+Setting low to the close: 63852.750605 Low: 63852.750605
+CANDLE ERROR; Close: 14.363966 Low: 14.364642 close less by:0.000000
+Setting low to the close: 14.363966 Low: 14.363966
+CANDLE ERROR; Close: 63852.750605 Low: 63853.222496 close less by:0.000000
+Setting low to the close: 63852.750605 Low: 63852.750605
+CANDLE ERROR; Close: 14.363966 Low: 14.364642 close less by:0.000000
+Setting low to the close: 14.363966 Low: 14.363966
+CANDLE ERROR; Close: 63852.750605 Low: 63853.222496 close less by:0.000000
+Setting low to the close: 63852.750605 Low: 63852.750605
+CANDLE ERROR; Close: 14.363966 Low: 14.364642 close less by:0.000000
+Setting low to the close: 14.363966 Low: 14.363966
+CANDLE ERROR; Close: 63852.750605 Low: 63853.222496 close less by:0.000000
+Setting low to the close: 63852.750605 Low: 63852.750605
+CANDLE ERROR; Close: 14.363966 Low: 14.364642 close less by:0.000000
+Setting low to the close: 14.363966 Low: 14.363966
+CANDLE ERROR; Close: 14.320562 Low: 14.321187 close less by:0.000000
+Setting low to the close: 14.320562 Low: 14.320562
+CANDLE ERROR; Close: 14.320562 Low: 14.321187 close less by:0.000000
+Setting low to the close: 14.320562 Low: 14.320562
+CANDLE ERROR; Close: 14.320562 Low: 14.321187 close less by:0.000000
+Setting low to the close: 14.320562 Low: 14.320562
+CANDLE ERROR; Close: 14.320562 Low: 14.321187 close less by:0.000000
+Setting low to the close: 14.320562 Low: 14.320562
+CANDLE ERROR; Close: 14.320562 Low: 14.321187 close less by:0.000000
+Setting low to the close: 14.320562 Low: 14.320562
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63900.798973 Low: 63900.817700 close less by:0.000000
+Setting low to the close: 63900.798973 Low: 63900.798973
+CANDLE ERROR; Close: 63249.353641 Low: 63249.775000 close less by:0.000000
+Setting low to the close: 63249.353641 Low: 63249.353641
+CANDLE ERROR; Close: 63249.353641 Low: 63249.775000 close less by:0.000000
+Setting low to the close: 63249.353641 Low: 63249.353641
+CANDLE ERROR; Close: 63249.353641 Low: 63249.775000 close less by:0.000000
+Setting low to the close: 63249.353641 Low: 63249.353641
+CANDLE ERROR; Close: 63249.353641 Low: 63249.775000 close less by:0.000000
+Setting low to the close: 63249.353641 Low: 63249.353641
+CANDLE ERROR; Close: 63249.353641 Low: 63249.775000 close less by:0.000000
+Setting low to the close: 63249.353641 Low: 63249.353641
+No WiFi connection
+Attempted to reconnect to WiFi
+CANDLE ERROR; Close: 1.041360 Low: 1.041366 close less by:0.000000
+Setting low to the close: 1.041360 Low: 1.041360
+CANDLE ERROR; Close: 36.982305 Low: 36.987838 close less by:0.000000
+Setting low to the close: 36.982305 Low: 36.982305
+CANDLE ERROR; Close: 3092.707421 Low: 3092.846914 close less by:0.000000
+Setting low to the close: 3092.707421 Low: 3092.707421
+CANDLE ERROR; Close: 14.220094 Low: 14.221050 close less by:0.000000
+Setting low to the close: 14.220094 Low: 14.220094
+CANDLE ERROR; Close: 6.921404 Low: 6.921540 close less by:0.000000
+Setting low to the close: 6.921404 Low: 6.921404
+CANDLE ERROR; Close: 1.041360 Low: 1.041366 close less by:0.000000
+Setting low to the close: 1.041360 Low: 1.041360
+CANDLE ERROR; Close: 36.982305 Low: 36.987838 close less by:0.000000
+Setting low to the close: 36.982305 Low: 36.982305
+CANDLE ERROR; Close: 3092.707421 Low: 3092.846914 close less by:0.000000
+Setting low to the close: 3092.707421 Low: 3092.707421
+CANDLE ERROR; Close: 14.220094 Low: 14.221050 close less by:0.000000
+Setting low to the close: 14.220094 Low: 14.220094
+CANDLE ERROR; Close: 6.921404 Low: 6.921540 close less by:0.000000
+Setting low to the close: 6.921404 Low: 6.921404
+CANDLE ERROR; Close: 1.041360 Low: 1.041366 close less by:0.000000
+Setting low to the close: 1.041360 Low: 1.041360
+CANDLE ERROR; Close: 36.982305 Low: 36.987838 close less by:0.000000
+Setting low to the close: 36.982305 Low: 36.982305
+CANDLE ERROR; Close: 3092.707421 Low: 3092.846914 close less by:0.000000
+Setting low to the close: 3092.707421 Low: 3092.707421
+CANDLE ERROR; Close: 14.220094 Low: 14.221050 close less by:0.000000
+Setting low to the close: 14.220094 Low: 14.220094
+CANDLE ERROR; Close: 6.921404 Low: 6.921540 close less by:0.000000
+Setting low to the close: 6.921404 Low: 6.921404
+CANDLE ERROR; Close: 1.041360 Low: 1.041366 close less by:0.000000
+Setting low to the close: 1.041360 Low: 1.041360
+CANDLE ERROR; Close: 36.982305 Low: 36.987838 close less by:0.000000
+Setting low to the close: 36.982305 Low: 36.982305
+CANDLE ERROR; Close: 3092.707421 Low: 3092.846914 close less by:0.000000
+Setting low to the close: 3092.707421 Low: 3092.707421
+CANDLE ERROR; Close: 14.220094 Low: 14.221050 close less by:0.000000
+Setting low to the close: 14.220094 Low: 14.220094
+CANDLE ERROR; Close: 6.921404 Low: 6.921540 close less by:0.000000
+Setting low to the close: 6.921404 Low: 6.921404
+CANDLE ERROR; Close: 1.041360 Low: 1.041366 close less by:0.000000
+Setting low to the close: 1.041360 Low: 1.041360
+CANDLE ERROR; Close: 36.982305 Low: 36.987838 close less by:0.000000
+Setting low to the close: 36.982305 Low: 36.982305
+CANDLE ERROR; Close: 3092.707421 Low: 3092.846914 close less by:0.000000
+Setting low to the close: 3092.707421 Low: 3092.707421
+CANDLE ERROR; Close: 14.220094 Low: 14.221050 close less by:0.000000
+Setting low to the close: 14.220094 Low: 14.220094
+CANDLE ERROR; Close: 6.921404 Low: 6.921540 close less by:0.000000
+Setting low to the close: 6.921404 Low: 6.921404
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 8.672227 Low: 8.673201 close less by:0.000000
+Setting low to the close: 8.672227 Low: 8.672227
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 585.210402 Low: 585.220931 close less by:0.000000
+Setting low to the close: 585.210402 Low: 585.210402
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 0.161733 Low: 0.161750 close less by:0.000000
+Setting low to the close: 0.161733 Low: 0.161733
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 81.238252 Low: 81.238448 close less by:0.000000
+Setting low to the close: 81.238252 Low: 81.238252
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 0.528714 Low: 0.528720 close less by:0.000000
+Setting low to the close: 0.528714 Low: 0.528714
+CANDLE ERROR; Close: 89.016395 Low: 89.032471 close less by:0.000000
+Setting low to the close: 89.016395 Low: 89.016395
+CANDLE ERROR; Close: 587.570201 Low: 587.629544 close less by:0.000000
+Setting low to the close: 587.570201 Low: 587.570201
+CANDLE ERROR; Close: 81.393468 Low: 81.393926 close less by:0.000000
+Setting low to the close: 81.393468 Low: 81.393468
+CANDLE ERROR; Close: 89.016395 Low: 89.032471 close less by:0.000000
+Setting low to the close: 89.016395 Low: 89.016395
+CANDLE ERROR; Close: 587.570201 Low: 587.629544 close less by:0.000000
+Setting low to the close: 587.570201 Low: 587.570201
+CANDLE ERROR; Close: 81.393468 Low: 81.393926 close less by:0.000000
+Setting low to the close: 81.393468 Low: 81.393468
+CANDLE ERROR; Close: 89.016395 Low: 89.032471 close less by:0.000000
+Setting low to the close: 89.016395 Low: 89.016395
+CANDLE ERROR; Close: 587.570201 Low: 587.629544 close less by:0.000000
+Setting low to the close: 587.570201 Low: 587.570201
+CANDLE ERROR; Close: 81.393468 Low: 81.393926 close less by:0.000000
+Setting low to the close: 81.393468 Low: 81.393468
+CANDLE ERROR; Close: 89.016395 Low: 89.032471 close less by:0.000000
+Setting low to the close: 89.016395 Low: 89.016395
+CANDLE ERROR; Close: 587.570201 Low: 587.629544 close less by:0.000000
+Setting low to the close: 587.570201 Low: 587.570201
+CANDLE ERROR; Close: 81.393468 Low: 81.393926 close less by:0.000000
+Setting low to the close: 81.393468 Low: 81.393468
+CANDLE ERROR; Close: 89.016395 Low: 89.032471 close less by:0.000000
+Setting low to the close: 89.016395 Low: 89.016395
+CANDLE ERROR; Close: 587.570201 Low: 587.629544 close less by:0.000000
+Setting low to the close: 587.570201 Low: 587.570201
+CANDLE ERROR; Close: 3156.468781 Low: 3156.535794 close less by:0.000000
+Setting low to the close: 3156.468781 Low: 3156.468781
+CANDLE ERROR; Close: 81.393468 Low: 81.393926 close less by:0.000000
+Setting low to the close: 81.393468 Low: 81.393468
+CANDLE ERROR; Close: 3156.468781 Low: 3156.535794 close less by:0.000000
+Setting low to the close: 3156.468781 Low: 3156.468781
+CANDLE ERROR; Close: 3156.468781 Low: 3156.535794 close less by:0.000000
+Setting low to the close: 3156.468781 Low: 3156.468781
+CANDLE ERROR; Close: 3156.468781 Low: 3156.535794 close less by:0.000000
+Setting low to the close: 3156.468781 Low: 3156.468781
+CANDLE ERROR; Close: 3156.468781 Low: 3156.535794 close less by:0.000000
+Setting low to the close: 3156.468781 Low: 3156.468781
+CANDLE ERROR; Close: 64129.366500 Low: 64131.734000 close less by:0.000000
+Setting low to the close: 64129.366500 Low: 64129.366500
+CANDLE ERROR; Close: 64129.366500 Low: 64131.734000 close less by:0.000000
+Setting low to the close: 64129.366500 Low: 64129.366500
+CANDLE ERROR; Close: 64129.366500 Low: 64131.734000 close less by:0.000000
+Setting low to the close: 64129.366500 Low: 64129.366500
+CANDLE ERROR; Close: 64129.366500 Low: 64131.734000 close less by:0.000000
+Setting low to the close: 64129.366500 Low: 64129.366500
+CANDLE ERROR; Close: 64129.366500 Low: 64131.734000 close less by:0.000000
+Setting low to the close: 64129.366500 Low: 64129.366500
