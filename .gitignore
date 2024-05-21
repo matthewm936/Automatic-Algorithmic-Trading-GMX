@@ -9,6 +9,9 @@ node_modules
 positions.txt
 
 error_log.txt
+trade_log.txt
+
+
 
 log*
 
