@@ -163,13 +163,13 @@ if __name__ == "__main__":
 		chain=chain,
 	)
 
-	market_symbol = "ETH"
-	is_long = False
+	# market_symbol = "ETH"
+	# is_long = False
 
-	order_params = transform_open_position_to_order_parameters(
-		chain,
-		positions,
-		market_symbol,
-		is_long,
-		0.003
-	)
+	# order_params = transform_open_position_to_order_parameters(
+	# 	chain,
+	# 	positions,
+	# 	market_symbol,
+	# 	is_long,
+	# 	0.003
+	# )
