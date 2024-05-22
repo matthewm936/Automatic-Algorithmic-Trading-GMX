@@ -54,6 +54,8 @@ int main() {
 	Log::clearLogFiles();
 	Log::LogWithTimestamp("MAIN.cpp Started");
 
+	runCommand("python3 gmx_python_sdk/get_positions.py");
+
 	Time time;
 	unordered_map<string, Token> GMX_tokens;
 	Positions positions(GMX_tokens);
@@ -124,7 +126,7 @@ int main() {
 		}
 
 		time.end();
-		Log::log(time.sleep());
+		time.sleep();
 	}
 
 	return 0;

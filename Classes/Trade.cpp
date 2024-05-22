@@ -53,8 +53,10 @@ private:
 		}
 	}
 
-	void buyLong(const Candlesticks& candlesticks) {
-		//actually long
+	void buyLong(const Candlesticks& candlesticks) { // FIXME: both the long and short trades here might fail but the position tracker might still be on
+		string longOrder = "python3 gmx_pythonsdk-0.0.4 create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		runCommand(longOrder.c_str());
+
 		double currentPrice = candlesticks.getCurrentPrice();
 
 		double stopProfit = calculateStopProfit(candlesticks);
@@ -65,7 +67,9 @@ private:
 	}
 
 	void sellShort(const Candlesticks& candlesticks) {
-		//actually short
+		string shortOrder = "python3 gmx_pythonsdk-0.0.4 create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		runCommand(shortOrder.c_str());
+	
 		double currentPrice = candlesticks.getCurrentPrice();
 
 		double stopProfit = calculateStopProfit(candlesticks);
@@ -81,6 +85,9 @@ public:
 	Trade(Positions& positions) : positions(positions) {}
 
 	void trade(Candlesticks& candlesticks) {
+		if(candlesticks.getTimeFrame() == "1h") {
+			return;
+		}
 		string positionKey = candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame();
 	
 		if(positions.exists(positionKey)) {
