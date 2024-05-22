@@ -3,8 +3,8 @@
 
 class Trade {
 private:
-    static constexpr double DEFUALT_USD_SIZE = 80;
-    static constexpr double DEFUALT_LEVERAGE = 4;
+    static constexpr double DEFUALT_USD_SIZE = 25;
+    static constexpr double DEFUALT_LEVERAGE = 2;
     static constexpr double DEFUALT_STOP_PROFIT_5M = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_1H = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_4H = 0.02;
@@ -53,7 +53,7 @@ private:
 		}
 	}
 
-	void buyLong(const Candlesticks& candlesticks) { // FIXME: both the long and short trades here might fail but the position tracker might still be on
+	void openLong(const Candlesticks& candlesticks) { // FIXME: both the long and short trades here might fail but the position tracker might still be on
 		string longOrder = "python3 gmx_pythonsdk-0.0.4 create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
 		runCommand(longOrder.c_str());
 
@@ -66,7 +66,7 @@ private:
 		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "long", currentPrice, takeProfit, stopLoss, DEFUALT_USD_SIZE, DEFUALT_LEVERAGE);
 	}
 
-	void sellShort(const Candlesticks& candlesticks) {
+	void openShort(const Candlesticks& candlesticks) {
 		string shortOrder = "python3 gmx_pythonsdk-0.0.4 create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
 		runCommand(shortOrder.c_str());
 	
@@ -77,6 +77,11 @@ private:
 		double takeProfit = currentPrice * (1 - stopProfit);
 
 		positions.addPosition(candlesticks.getTokenName(), candlesticks.getTimeFrame(), "short", currentPrice, takeProfit, stopLoss, DEFUALT_USD_SIZE, DEFUALT_LEVERAGE);
+	}
+
+	void closePosition(string symbol, string isLong) {
+		string closeOrder = "python3 gmx_python_sdk create_decrease_order_with_known_positions.py " + symbol + " " + isLong;
+		runCommand(closeOrder.c_str());
 	}
 
 public:
@@ -98,20 +103,24 @@ public:
 	
 			if(positionDirection == "long") {
 				if(currentPrice >= currentPosition.takeProfit) {
+					closePosition(candlesticks.getTokenName(), "true");
 					positions.removePosition(positionKey);
 					Log::logTrade("Take Profit Long " + positionKey + " " + positionDuration);
 				}
 				if(currentPrice <= currentPosition.stopLoss) {
+					closePosition(candlesticks.getTokenName(), "true");
 					positions.removePosition(positionKey);
 					Log::logTrade("Stop Loss Long " + positionKey + " " + positionDuration);
 				}
 			}
 			else if(positionDirection == "short") {
 				if(currentPrice <= currentPosition.takeProfit) {
+					closePosition(candlesticks.getTokenName(), "false");
 					positions.removePosition(positionKey);
 					Log::logTrade("Take Profit Short " + positionKey + " " + positionDuration);
 				}
 				if(currentPrice >= currentPosition.stopLoss) {
+					closePosition(candlesticks.getTokenName(), "false");
 					positions.removePosition(positionKey);
 					Log::logTrade("Stop Loss Short " + positionKey + " " + positionDuration);
 				}
@@ -119,11 +128,11 @@ public:
 			return;
 		}
 		if(strategyConsistentBullish(candlesticks)) {
-			buyLong(candlesticks);
+			openLong(candlesticks);
 			Log::log("Long " + positionKey);	
 		}
 		if(strategyConsistentBearish(candlesticks)) {
-			sellShort(candlesticks);
+			openShort(candlesticks);
 			Log::log("Short " + positionKey);	
 		}
 	}
