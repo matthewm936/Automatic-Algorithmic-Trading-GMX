@@ -38,7 +38,7 @@ def get_positions(chain: str, address: str = None):
 	if address is None:
 		address = get_config()['user_wallet_address']
 
-	address = "0x99f5585dcc32e2238634f11f32d9be9bd5e98b49"  # replace with the actual address
+	address = "0xeF136EfF0023C643553894577Dff00Ec0DB8f8ED"  # metamask on the matthew maloney chrome profile
 	positions = GetOpenPositions(chain=chain).get_positions(address)
 
 	if len(positions) > 0:
