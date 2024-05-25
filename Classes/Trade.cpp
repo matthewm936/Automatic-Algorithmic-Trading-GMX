@@ -54,7 +54,7 @@ private:
 	}
 
 	void openLong(const Candlesticks& candlesticks) { // FIXME: both the long and short trades here might fail but the position tracker might still be on
-		string longOrder = "python3 gmx_pythonsdk-0.0.4 create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		string longOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
 		runCommand(longOrder.c_str());
 
 		double currentPrice = candlesticks.getCurrentPrice();
@@ -67,7 +67,7 @@ private:
 	}
 
 	void openShort(const Candlesticks& candlesticks) {
-		string shortOrder = "python3 gmx_pythonsdk-0.0.4 create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		string shortOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
 		runCommand(shortOrder.c_str());
 	
 		double currentPrice = candlesticks.getCurrentPrice();
@@ -80,7 +80,7 @@ private:
 	}
 
 	void closePosition(string symbol, string isLong) {
-		string closeOrder = "python3 gmx_python_sdk create_decrease_order_with_known_positions.py " + symbol + " " + isLong;
+		string closeOrder = "python3 gmx_python_sdk/create_decrease_order_with_known_positions.py " + symbol + " " + isLong;
 		runCommand(closeOrder.c_str());
 	}
 
