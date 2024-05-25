@@ -35,7 +35,6 @@ Candle createCandle(const nlohmann::json& jsonArray) {
 	return Candle(jsonArray[0].get<double>(), jsonArray[1].get<double>(), jsonArray[2].get<double>(), jsonArray[3].get<double>(), jsonArray[4].get<double>());
 } 
 
-
 void checkWifi() {
 	while (system("ping -c 1 8.8.8.8 > /dev/null 2>&1")) { 
 		cout << "No WiFi connection" << endl;

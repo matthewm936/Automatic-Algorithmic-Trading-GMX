@@ -54,8 +54,8 @@ private:
 	}
 
 	void openLong(const Candlesticks& candlesticks) { // FIXME: both the long and short trades here might fail but the position tracker might still be on
-		string longOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
-		runCommand(longOrder.c_str());
+		// string longOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		// runCommand(longOrder.c_str());
 
 		double currentPrice = candlesticks.getCurrentPrice();
 
@@ -67,8 +67,8 @@ private:
 	}
 
 	void openShort(const Candlesticks& candlesticks) {
-		string shortOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
-		runCommand(shortOrder.c_str());
+		// string shortOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		// runCommand(shortOrder.c_str());
 	
 		double currentPrice = candlesticks.getCurrentPrice();
 
@@ -103,26 +103,34 @@ public:
 	
 			if(positionDirection == "long") {
 				if(currentPrice >= currentPosition.takeProfit) {
-					closePosition(candlesticks.getTokenName(), "true");
+					// closePosition(candlesticks.getTokenName(), "true");
 					positions.removePosition(positionKey);
 					Log::logTrade("Take Profit Long " + positionKey + " " + positionDuration);
+
+					positions.longTakeProfit++;
 				}
 				if(currentPrice <= currentPosition.stopLoss) {
 					closePosition(candlesticks.getTokenName(), "true");
 					positions.removePosition(positionKey);
 					Log::logTrade("Stop Loss Long " + positionKey + " " + positionDuration);
+
+					positions.longStopLoss++;
 				}
 			}
 			else if(positionDirection == "short") {
 				if(currentPrice <= currentPosition.takeProfit) {
-					closePosition(candlesticks.getTokenName(), "false");
+					// closePosition(candlesticks.getTokenName(), "false");
 					positions.removePosition(positionKey);
 					Log::logTrade("Take Profit Short " + positionKey + " " + positionDuration);
+
+					positions.shortTakeProfit++;
 				}
 				if(currentPrice >= currentPosition.stopLoss) {
-					closePosition(candlesticks.getTokenName(), "false");
+					// closePosition(candlesticks.getTokenName(), "false");
 					positions.removePosition(positionKey);
 					Log::logTrade("Stop Loss Short " + positionKey + " " + positionDuration);
+
+					positions.shortStopLoss++;
 				}
 			}
 			return;

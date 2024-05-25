@@ -66,6 +66,12 @@ private:
 	double totalExposureUSD;
 
 public:
+	int longStopLoss = 0;
+	int longTakeProfit = 0;
+
+	int shortStopLoss = 0;
+	int shortTakeProfit = 0;
+
     Positions(unordered_map<string, Token>& GMX_tokens) : GMX_tokens(GMX_tokens) {}
 
 	Position& operator[](const string& key) {
@@ -132,8 +138,10 @@ public:
 		std::string log;
 		double totalProfit = 0.0;
 
-		log += "Total Exposure USD: " + std::to_string(totalExposureUSD) + "\n";
-		log += "Total Positions: " + std::to_string(positions.size()) + "\n";
+		log += "Total Exposure USD: " + to_string(totalExposureUSD) + "\n";
+		log += "Total Positions: " + to_string(positions.size()) + "\n";
+		log += "total long position take profits/stop loss: " + to_string(longTakeProfit) + "/" + to_string(longStopLoss) +"\n";
+		log += "total short position take profits/stop loss: " + to_string(shortTakeProfit) + "/" + to_string(shortStopLoss) +"\n";
 
 		for (auto& [positionId, position] : positions) {
 			double currentPrice = getCurrentPriceForToken(position.tokenName, position.timeFrame);
@@ -153,16 +161,16 @@ public:
 
 			log += positionId + " position direction: " + position.positionDirection + "\n";
 			log += positionId + " duration " + getPositionDuration(positionId) + "\n";
-			log += positionId + " Entry Price: " + std::to_string(position.entryPrice) + "\n";
-			log += positionId + " Current Price: " + std::to_string(currentPrice) + "\n";
-			log += positionId + " Profit %: " + std::to_string(profitPercent) + "\n";
-			log += positionId + " Highest Profit%: " + std::to_string(position.highestProfit) + "\n";
-			log += positionId + " Highest Loss%: " + std::to_string(position.highestLoss) + "\n";
-			log += positionId + " Distance to Stop Loss%: " + std::to_string((position.stopLoss - currentPrice) / currentPrice) + "\n";
-			log += positionId + " Distance to Take Profit%: " + std::to_string((position.takeProfit - currentPrice) / currentPrice) + "\n";
+			log += positionId + " Entry Price: " + to_string(position.entryPrice) + "\n";
+			log += positionId + " Current Price: " + to_string(currentPrice) + "\n";
+			log += positionId + " Profit %: " + to_string(profitPercent) + "\n";
+			log += positionId + " Highest Profit%: " + to_string(position.highestProfit) + "\n";
+			log += positionId + " Highest Loss%: " + to_string(position.highestLoss) + "\n";
+			log += positionId + " Distance to Stop Loss%: " + to_string((position.stopLoss - currentPrice) / currentPrice) + "\n";
+			log += positionId + " Distance to Take Profit%: " + to_string((position.takeProfit - currentPrice) / currentPrice) + "\n";
 		}
 
-		log += "Total Profit%: " + std::to_string(totalProfit) + "\n";
+		log += "Total Profit%: " + to_string(totalProfit) + "\n";
 
 		return log;
 	}
