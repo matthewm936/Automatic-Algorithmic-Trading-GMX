@@ -17,5 +17,3 @@ log*
 
 config.yaml
 
-gmx_python_sdk/*
-gmx_python_sdk
