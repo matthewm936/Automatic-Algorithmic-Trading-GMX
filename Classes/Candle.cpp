@@ -91,8 +91,8 @@ class Candle {
 			PercentChange = (close - open) / open;
 			HighLowPercentChange = (high - low) / low;
 
-			LogPercentChange = std:log(PercentChange);
-			LogHighLowPercentChange = std::log(HighLowPercentChange);
+			LogPercentChange = std::log(1 + PercentChange);
+			LogHighLowPercentChange = std::log(1 + HighLowPercentChange);
 
 			HighLowAverage = (high + low) / 2;
 			Average = (open + close) / 2;
