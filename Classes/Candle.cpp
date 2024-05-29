@@ -1,5 +1,6 @@
 #include <ctime>
 #include <iostream>
+#include <cmath>
 
 using std::cout;
 using std::endl;
@@ -53,9 +54,17 @@ class Candle {
 		bool doji = false;
 
 		double WickRatioIndex; // -1 to 1; 1 being most bullish -1 being more bearish
+							 	// WickRatioIndex = (close - open) / (high - low);
 		
-		double OpenClosePercentChange;
+		double PercentChange;
 		double HighLowPercentChange;
+
+		double LogPercentChange;
+		double HighLowLogPercentChange;
+
+		double Average;
+		double HighLowAverage;
+		double HighLowOpenCloseAverage;
 
 		Candle() {
 			// std::cout << "Candle object created" << std::endl;
@@ -79,8 +88,15 @@ class Candle {
 				doji = true;
 			}
 
-			OpenClosePercentChange = (close - open) / open;
+			PercentChange = (close - open) / open;
 			HighLowPercentChange = (high - low) / low;
+
+			LogPercentChange = 0;
+			HighLowLogPercentChange = 0;
+
+			HighLowAverage = (high + low) / 2;
+			Average = (open + close) / 2;
+			HighLowOpenCloseAverage = (high + low + open + close) / 4;
 		}		
 
 		string toString() {

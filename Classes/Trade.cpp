@@ -19,8 +19,13 @@ private:
 		bullish += (candlesticks.higherLowsPercent == 1);
 		bullish += (candlesticks.higherOpensPercent == 1);
 		bullish += (candlesticks.higherClosesPercent == 1);
-	
-		return (bullish >= 4);
+
+		bullish += (candlesticks.getCandles()[1].WickRatioIndex >= 0.6);
+		bullish += (candlesticks.getCandles()[2].WickRatioIndex >= 0.6);
+		bullish += (candlesticks.getCandles()[3].WickRatioIndex >= 0.6);
+		bullish += (candlesticks.getCandles()[4].WickRatioIndex >= 0.6);
+
+		return (bullish >= 8);
 	}
 	
 	bool strategyConsistentBearish(Candlesticks& candlesticks) {

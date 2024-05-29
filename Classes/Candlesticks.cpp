@@ -114,8 +114,11 @@ class Candlesticks {
 		double lowerOpensPercent;
 		double lowerClosesPercent;
 
-		Candlesticks() {
-		};
+		double mean;
+		double averageReturn;
+		double averageLogReturn;
+
+		Candlesticks() {};
 		
 		Candlesticks(string timeFrame, string token) {
 			this->timeFrame = timeFrame;
