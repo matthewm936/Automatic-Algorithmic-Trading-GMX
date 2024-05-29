@@ -114,9 +114,10 @@ class Candlesticks {
 		double lowerOpensPercent;
 		double lowerClosesPercent;
 
-		double mean;
+		double average;
 		double averageReturn;
 		double averageLogReturn;
+		double averageLogHighLowReturn;
 
 		Candlesticks() {};
 		
@@ -159,6 +160,11 @@ class Candlesticks {
 			int candlesChecked = end - start + 1;
 			int candlePairsChecked = candlesChecked - 1;
 
+			double averageSum = 0;
+			double averageReturnSum = 0;
+			double logReturnSum = 0;
+			double logHighLowReturnSum = 0;
+
 			numGreenCandles = 0;
 			numRedCandles = 0;
 			numDojiCandles = 0;
@@ -168,7 +174,17 @@ class Candlesticks {
 				if(candle.green) numGreenCandles++;
 				if(candle.red) numRedCandles++;
 				if(candle.doji) numDojiCandles++;
+
+				averageSum += candle.Average;
+				averageReturnSum += candle.PercentChange;
+				logReturnSum += candle.LogPercentChange;
+				logHighLowReturnSum += candle.LogHighLowPercentChange;
 			}
+
+			average = averageSum / (double)candlesChecked;
+			averageReturn = averageReturnSum / (double)candlesChecked;
+			averageLogReturn = logReturnSum / (double)candlesChecked;
+			averageLogHighLowReturn = logHighLowReturnSum/ (double) candlesChecked;
 
 			greenRedRatio = (double)numGreenCandles / (double)numRedCandles;
 			redGreenRatio = (double)numRedCandles / (double)numGreenCandles;
