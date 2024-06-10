@@ -29,16 +29,19 @@ private:
 	}
 	
 	bool strategyConsistentBearish(Candlesticks& candlesticks) {
-		candlesticks.calculateCandleStatistics(0, 3);
-	
+		candlesticks.calculateCandleStatistics(1, 3);
+
 		int bearish = 0;
 		bearish += (candlesticks.redCandlePercent == 1);
 		bearish += (candlesticks.lowerLowsPercent == 1);
 		bearish += (candlesticks.lowerHighsPercent == 1);
 		bearish += (candlesticks.lowerOpensPercent == 1);
 		bearish += (candlesticks.lowerClosesPercent == 1);
-	
-		return (bearish >= 4);
+
+		bearish += (candlesticks.getCandles()[1].WickRatioIndex <= -0.6);
+		bearish += (candlesticks.getCandles()[2].WickRatioIndex <= -0.6);
+
+		return (bearish >= 6);
 	}
 
 	double calculateStopProfit(const Candlesticks& candlesticks) {
@@ -59,8 +62,10 @@ private:
 	}
 
 	void openLong(const Candlesticks& candlesticks) { // FIXME: both the long and short trades here might fail but the position tracker might still be on
-		// string longOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
-		// runCommand(longOrder.c_str());
+		string longOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " true " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		runCommand(longOrder.c_str());
+
+		Log::logAndEmail("opened long");
 
 		double currentPrice = candlesticks.getCurrentPrice();
 
@@ -72,9 +77,11 @@ private:
 	}
 
 	void openShort(const Candlesticks& candlesticks) {
-		// string shortOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
-		// runCommand(shortOrder.c_str());
-	
+		string shortOrder = "python3 gmx_python_sdk/create_increase_order.py " + candlesticks.getTokenName() + " false " + to_string(DEFUALT_USD_SIZE) + " " + to_string(DEFUALT_LEVERAGE);
+		runCommand(shortOrder.c_str());
+
+		Log::logAndEmail("opened short");
+
 		double currentPrice = candlesticks.getCurrentPrice();
 
 		double stopProfit = calculateStopProfit(candlesticks);
@@ -95,9 +102,6 @@ public:
 	Trade(Positions& positions) : positions(positions) {}
 
 	void trade(Candlesticks& candlesticks) {
-		if(candlesticks.getTimeFrame() == "1h") {
-			return;
-		}
 		string positionKey = candlesticks.getTokenName() + "_" + candlesticks.getTimeFrame();
 	
 		if(positions.exists(positionKey)) {
@@ -108,7 +112,7 @@ public:
 	
 			if(positionDirection == "long") {
 				if(currentPrice >= currentPosition.takeProfit) {
-					// closePosition(candlesticks.getTokenName(), "true");
+					closePosition(candlesticks.getTokenName(), "true");
 					positions.removePosition(positionKey);
 					Log::logTrade("Take Profit Long " + positionKey + " " + positionDuration);
 
@@ -124,14 +128,14 @@ public:
 			}
 			else if(positionDirection == "short") {
 				if(currentPrice <= currentPosition.takeProfit) {
-					// closePosition(candlesticks.getTokenName(), "false");
+					closePosition(candlesticks.getTokenName(), "false");
 					positions.removePosition(positionKey);
 					Log::logTrade("Take Profit Short " + positionKey + " " + positionDuration);
 
 					positions.shortTakeProfit++;
 				}
 				if(currentPrice >= currentPosition.stopLoss) {
-					// closePosition(candlesticks.getTokenName(), "false");
+					closePosition(candlesticks.getTokenName(), "false");
 					positions.removePosition(positionKey);
 					Log::logTrade("Stop Loss Short " + positionKey + " " + positionDuration);
 
@@ -140,13 +144,20 @@ public:
 			}
 			return;
 		}
-		if(strategyConsistentBullish(candlesticks)) {
-			openLong(candlesticks);
-			Log::log("Long " + positionKey);	
+
+		if(candlesticks.getTimeFrame() != "1h") { 
+			if(strategyConsistentBullish(candlesticks)) {
+				openLong(candlesticks);
+				Log::log("Long " + positionKey);	
+			}
 		}
-		if(strategyConsistentBearish(candlesticks)) {
-			openShort(candlesticks);
-			Log::log("Short " + positionKey);	
+
+		if(candlesticks.getTimeFrame() == "1h") {
+			if(strategyConsistentBearish(candlesticks)) {
+				openShort(candlesticks);
+				Log::log("Short " + positionKey);	
+				return;
+			}
 		}
 	}
 };
