@@ -37,7 +37,6 @@ Candle createCandle(const nlohmann::json& jsonArray) {
 
 void checkWifi() {
 	while (system("ping -c 1 8.8.8.8 > /dev/null 2>&1")) { 
-		cout << "No WiFi connection" << endl;
 		Log::logError("No WiFi connection");
 		if (system("wpa_cli -i wlan0 reconfigure > /dev/null 2>&1")) {
 			Log::logError("Failed to reconnect to WiFi");
@@ -47,6 +46,7 @@ void checkWifi() {
 		sleep(60); 
 	}
 	cout << "WiFi CONNECTION GOOGLE DNS" << endl;
+	Log::log("WiFi CONNECTION GOOGLE DNS");
 }
 
 int main() {

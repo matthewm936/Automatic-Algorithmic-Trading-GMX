@@ -108,10 +108,14 @@ public:
 		totalExposureUSD += sizeUSD;
 	}
 
-	void removePosition(const string& tokenName) {
-		positions.erase(tokenName);
+	void removePosition(const string& positionId) {
+		auto it = positions.find(positionId);
+		if (it != positions.end()) {
+			totalExposureUSD -= it->second.sizeUSD;
+			positions.erase(it);
+		}
 	}
-
+	
 	size_t size() const {
 		return positions.size();
 	}

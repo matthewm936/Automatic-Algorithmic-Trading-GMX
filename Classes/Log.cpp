@@ -17,7 +17,6 @@ private:
 	static string currentFilename;
 
 	static void checkLogFile();
-	static void email(string message, string header);
 	
 public:
 	static void clearLogFiles();
@@ -28,6 +27,8 @@ public:
 	static void logState(string log, string filename);
 	static void logTrade(string log);
 	static void logError(string log, bool emailFlag, bool timestampFlag);
+
+	static void email(string header, string log);
 };
 
 string Log::baseFilename = "log";
@@ -109,8 +110,14 @@ void Log::logState(string log, string filename) {
 
 void Log::logTrade(string log) {
 	std::ofstream file("trade_log.txt", std::ios_base::app);
+	Time time;
 
-	file << log << "\n";
+	string gmtTime = time.getGMTTime();
+	string unixTime = time.getUnixTime();
+	string mstTime = time.getMSTTime();
+
+	file << log << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] \n";
+
 }
 
 void Log::logError(string log, bool emailFlag = false, bool timestampFlag = false) {

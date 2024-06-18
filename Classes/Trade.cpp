@@ -3,7 +3,7 @@
 
 class Trade {
 private:
-    static constexpr double DEFUALT_USD_SIZE = 25;
+    static constexpr double DEFUALT_USD_SIZE = 100;
     static constexpr double DEFUALT_LEVERAGE = 2;
     static constexpr double DEFUALT_STOP_PROFIT_5M = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_1H = 0.02;
@@ -148,15 +148,18 @@ public:
 		if(candlesticks.getTimeFrame() != "1h") { 
 			if(strategyConsistentBullish(candlesticks)) {
 				openLong(candlesticks);
-				Log::log("Long " + positionKey);	
+				string log = "1h long strat consistent bullish " + positionKey;
+				Log::logTrade(log);
+				Log::email("long", log);
 			}
 		}
 
 		if(candlesticks.getTimeFrame() == "1h") {
-			if(strategyConsistentBearish(candlesticks)) {
+			if(strategyConsistentBearish(candlesticks)) { //pretty sure the logic for wick candle isnt bounded by [-1, 1]
 				openShort(candlesticks);
-				Log::log("Short " + positionKey);	
-				return;
+				string log = "1h short strat consistent bearish " + positionKey;
+				Log::logTrade(log);
+				Log::email("short", log);
 			}
 		}
 	}
