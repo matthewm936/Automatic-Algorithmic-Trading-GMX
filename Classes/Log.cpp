@@ -26,6 +26,7 @@ public:
 	static void LogWithTimestamp(string log);
 	static void logState(string log, string filename);
 	static void logTrade(string log);
+	static void	logTradeStrat(string log);
 	static void logError(string log, bool emailFlag, bool timestampFlag);
 
 	static void email(string header, string log);
@@ -60,11 +61,13 @@ void Log::clearLogFiles() {
 	std::ofstream errorFile("error_log.txt", std::ios_base::trunc);
 	std::ofstream positions("positions.txt", std::ios_base::trunc);
 	std::ofstream tradeLog("trade_log.txt", std::ios_base::trunc);
+	std::ofstream tradeStratLog("trade_strat_log.txt", std::ios_base::trunc);
 	
 	file.close();
 	errorFile.close();
 	positions.close();
 	tradeLog.close();
+	tradeStratLog.close();
 }
 
 void Log::logNoNewline(string log) {
@@ -117,7 +120,17 @@ void Log::logTrade(string log) {
 	string mstTime = time.getMSTTime();
 
 	file << log << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] \n";
+}
 
+void Log::logTradeStrat(string log) {
+	std::ofstream file("trade_strat_log.txt", std::ios_base::app);
+	Time time;
+
+	string gmtTime = time.getGMTTime();
+	string unixTime = time.getUnixTime();
+	string mstTime = time.getMSTTime();
+
+	file << log << "\n" << "[GMT Time: " << gmtTime << ", Unix Time: " << unixTime << ", MST Time: " << mstTime << "] \n";
 }
 
 void Log::logError(string log, bool emailFlag = false, bool timestampFlag = false) {

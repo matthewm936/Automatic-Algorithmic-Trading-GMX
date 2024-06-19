@@ -3,8 +3,8 @@
 
 class Trade {
 private:
-    static constexpr double DEFUALT_USD_SIZE = 100;
-    static constexpr double DEFUALT_LEVERAGE = 2;
+    static constexpr double DEFUALT_USD_SIZE = 50;
+    static constexpr double DEFUALT_LEVERAGE = 1;
     static constexpr double DEFUALT_STOP_PROFIT_5M = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_1H = 0.02;
     static constexpr double DEFUALT_STOP_PROFIT_4H = 0.02;
@@ -25,6 +25,15 @@ private:
 		bullish += (candlesticks.getCandles()[3].WickRatioIndex >= 0.6);
 		bullish += (candlesticks.getCandles()[4].WickRatioIndex >= 0.6);
 
+		if(bullish >= 6) {
+			string log = "strategyConsistentBullish; bullish value: " + to_string(bullish) + " on " + candlesticks.getTokenName() + " " + candlesticks.getTimeFrame() + "\n" 
+							+ "WickRatioIndex[1]: " + to_string(candlesticks.getCandles()[1].WickRatioIndex) + ", "
+							+ "WickRatioIndex[2]: " + to_string(candlesticks.getCandles()[2].WickRatioIndex) + ", "
+							+ "WickRatioIndex[3]: " + to_string(candlesticks.getCandles()[3].WickRatioIndex) + ", "
+							+ "WickRatioIndex[4]: " + to_string(candlesticks.getCandles()[4].WickRatioIndex);
+			Log::logTradeStrat(log);
+		}
+
 		return (bullish >= 8);
 	}
 	
@@ -41,11 +50,19 @@ private:
 		bearish += (candlesticks.getCandles()[1].WickRatioIndex <= -0.6);
 		bearish += (candlesticks.getCandles()[2].WickRatioIndex <= -0.6);
 
+		if(bearish >= 5) {
+			string log = "strategyConsistentBearish; bearish value: " + to_string(bearish) + " on " + candlesticks.getTokenName() + " " + candlesticks.getTimeFrame() + "\n" 
+							+ "WickRatioIndex[1]: " + to_string(candlesticks.getCandles()[1].WickRatioIndex) + ", "
+							+ "WickRatioIndex[2]: " + to_string(candlesticks.getCandles()[2].WickRatioIndex);
+
+			Log::logTradeStrat(log);
+		}
+
 		return (bearish >= 6);
 	}
 
 	double calculateStopProfit(const Candlesticks& candlesticks) {
-		static const std::map<std::string, double> stopProfits = {
+		static const std::map<string, double> stopProfits = {
 			{"5m", DEFUALT_STOP_PROFIT_5M},
 			{"1h", DEFUALT_STOP_PROFIT_1H},
 			{"4h", DEFUALT_STOP_PROFIT_4H},
