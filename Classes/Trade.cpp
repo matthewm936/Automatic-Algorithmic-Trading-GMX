@@ -25,7 +25,7 @@ private:
 		bullish += (candlesticks.getCandles()[3].WickRatioIndex >= 0.6);
 		bullish += (candlesticks.getCandles()[4].WickRatioIndex >= 0.6);
 
-		if(bullish >= 6) {
+		if(bullish >= 7) {
 			string log = "strategyConsistentBullish; bullish value: " + to_string(bullish) + " on " + candlesticks.getTokenName() + " " + candlesticks.getTimeFrame() + "\n" 
 							+ "WickRatioIndex[1]: " + to_string(candlesticks.getCandles()[1].WickRatioIndex) + ", "
 							+ "WickRatioIndex[2]: " + to_string(candlesticks.getCandles()[2].WickRatioIndex) + ", "
@@ -38,7 +38,7 @@ private:
 	}
 	
 	bool strategyConsistentBearish(Candlesticks& candlesticks) {
-		candlesticks.calculateCandleStatistics(1, 3);
+		candlesticks.calculateCandleStatistics(1, 4);
 
 		int bearish = 0;
 		bearish += (candlesticks.redCandlePercent == 1);
@@ -47,18 +47,20 @@ private:
 		bearish += (candlesticks.lowerOpensPercent == 1);
 		bearish += (candlesticks.lowerClosesPercent == 1);
 
-		bearish += (candlesticks.getCandles()[1].WickRatioIndex <= -0.6);
-		bearish += (candlesticks.getCandles()[2].WickRatioIndex <= -0.6);
+		bearish += (candlesticks.getCandles()[1].WickRatioIndex <= -0.7);
+		bearish += (candlesticks.getCandles()[2].WickRatioIndex <= -0.7);
+		bearish += (candlesticks.getCandles()[3].WickRatioIndex <= -0.7);
 
-		if(bearish >= 5) {
+		if(bearish >= 6) {
 			string log = "strategyConsistentBearish; bearish value: " + to_string(bearish) + " on " + candlesticks.getTokenName() + " " + candlesticks.getTimeFrame() + "\n" 
 							+ "WickRatioIndex[1]: " + to_string(candlesticks.getCandles()[1].WickRatioIndex) + ", "
-							+ "WickRatioIndex[2]: " + to_string(candlesticks.getCandles()[2].WickRatioIndex);
+							+ "WickRatioIndex[2]: " + to_string(candlesticks.getCandles()[2].WickRatioIndex) + ", "
+							+ "WickRatioIndex[3]: " + to_string(candlesticks.getCandles()[3].WickRatioIndex);
 
 			Log::logTradeStrat(log);
 		}
 
-		return (bearish >= 6);
+		return (bearish >= 7);
 	}
 
 	double calculateStopProfit(const Candlesticks& candlesticks) {
